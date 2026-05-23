@@ -1,337 +1,1702 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Demand Range — White-label MQL fulfilment for demand-generation vendors</title>
-  <meta name="description" content="Demand Range supports demand-generation and content-syndication vendors with AI-assisted lead QA, human-reviewed delivery, source provenance, and vendor-template-ready MQL fulfilment." />
-  <style>
-    :root {
-      --bg: #080c12;
-      --bg-2: #0d131d;
-      --panel: #111a26;
-      --panel-2: #151f2e;
-      --ink: #f5efe4;
-      --muted: #b4bfce;
-      --soft: #d9e2ef;
-      --line: rgba(216, 226, 239, 0.14);
-      --line-strong: rgba(216, 226, 239, 0.24);
-      --accent: #69d2c3;
-      --accent-2: #7ba7ff;
-      --gold: #d8b46a;
-      --danger: #ff867a;
-      --success: #84d99b;
-      --radius: 24px;
-      --radius-sm: 16px;
-      --max: 1180px;
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demand Range — White-label MQL fulfilment for demand-generation vendors</title>
+<meta name="description" content="Demand Range supports demand-generation and content-syndication vendors with AI-assisted lead QA, human-reviewed delivery, source provenance, and vendor-template-ready MQL fulfilment." />
+<meta name="theme-color" content="#070809" />
+<meta property="og:title" content="Demand Range — White-label MQL fulfilment for demand-generation vendors" />
+<meta property="og:description" content="AI-assisted lead QA, human-reviewed delivery, source provenance, vendor-template-ready MQL fulfilment." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   Demand Range — control-room launch site
+   ========================================================= */
+:root{
+  --bg:        #070809;
+  --bg-1:      #0b0c0f;
+  --bg-2:      #101216;
+  --bg-3:      #14171c;
+  --bg-4:      #191c22;
+  --line:      #1d2027;
+  --line-2:    #272a33;
+  --line-3:    #353944;
+  --ink:       #ecedef;
+  --ink-2:     #b7bac1;
+  --ink-3:     #80848e;
+  --ink-4:     #565a65;
+  --ink-5:     #383b45;
+  --accent:    #4ad093;          /* muted emerald */
+  --accent-2:  #6ee0ad;
+  --accent-soft: rgba(74,208,147,.10);
+  --accent-line: rgba(74,208,147,.30);
+  --violet:    #8c7df7;
+  --violet-soft: rgba(140,125,247,.12);
+  --amber:     #e0ad48;
+  --amber-soft: rgba(224,173,72,.10);
+  --danger:    #d0655a;
+  --danger-soft: rgba(208,101,90,.10);
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 16% 0%, rgba(105, 210, 195, 0.14), transparent 30%),
-        radial-gradient(circle at 82% 6%, rgba(123, 167, 255, 0.12), transparent 28%),
-        linear-gradient(180deg, var(--bg), #070a10 42%, #090d14);
-      color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-    }
+  --r-sm: 6px;
+  --r:    10px;
+  --r-md: 14px;
+  --r-lg: 20px;
 
-    a { color: inherit; }
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: 999px; z-index: 20; }
-    .skip:focus { left: 8px; }
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      min-height: 76px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(8, 12, 18, 0.74);
-    }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; letter-spacing: 0.01em; }
-    .mark {
-      width: 36px; height: 36px; border-radius: 13px;
-      background:
-        linear-gradient(135deg, rgba(105,210,195,0.95), rgba(123,167,255,0.72) 42%, rgba(216,180,106,0.92)),
-        #17202e;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22), 0 16px 42px rgba(105,210,195,0.18);
-    }
-    .navlinks { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
-    .navlinks a { text-decoration: none; }
-    .navlinks a:hover, .navlinks a:focus { color: var(--ink); outline: none; }
-    .button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      min-height: 46px; padding: 12px 18px; border-radius: 999px;
-      text-decoration: none; font-weight: 720;
-      border: 1px solid rgba(245,239,228,0.18);
-      background: var(--ink); color: #0b0f17;
-      box-shadow: 0 16px 45px rgba(245,239,228,0.10);
-    }
-    .button.secondary { background: rgba(255,255,255,0.04); color: var(--ink); box-shadow: none; }
-    .button:hover, .button:focus { transform: translateY(-1px); outline: 2px solid rgba(105,210,195,0.35); outline-offset: 3px; }
+  --max: 1280px;
+  --pad: clamp(20px, 4vw, 44px);
 
-    .hero { padding: 84px 0 62px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; }
-    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-weight: 800; font-size: 12px; }
-    h1, h2, h3 { margin: 0; line-height: 1.02; }
-    h1 { margin-top: 16px; font-size: clamp(46px, 7vw, 84px); letter-spacing: -0.065em; text-wrap: balance; }
-    .hero p { margin: 24px 0 0; color: var(--soft); max-width: 760px; font-size: clamp(18px, 2vw, 21px); }
-    .cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
-    .micro { margin-top: 18px; color: var(--muted); font-size: 14px; max-width: 620px; }
+  --t-fast: 140ms;
+  --t-med:  240ms;
+  --t-slow: 600ms;
+  --ease:   cubic-bezier(.2,.7,.2,1);
+}
 
-    .proof-panel {
-      border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 24px;
-      background: linear-gradient(180deg, rgba(21,31,46,0.94), rgba(13,19,29,0.97));
-      box-shadow: var(--shadow); position: relative; overflow: hidden;
-    }
-    .proof-panel:before {
-      content: ""; position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-      background-size: 28px 28px; mask-image: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 90%); pointer-events: none;
-    }
-    .panel-top { position: relative; display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 18px; }
-    .panel-title { font-weight: 800; }
-    .badge { border: 1px solid rgba(105,210,195,0.38); color: #baf6ed; border-radius: 999px; padding: 7px 10px; font-size: 12px; background: rgba(105,210,195,0.08); }
-    .steps { position: relative; display: grid; gap: 12px; }
-    .step { display: grid; grid-template-columns: 38px 1fr auto; gap: 13px; align-items: center; padding: 14px; border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; background: rgba(255,255,255,0.035); }
-    .num { width: 38px; height: 38px; border-radius: 14px; display: grid; place-items: center; font-weight: 850; color: #061014; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
-    .step strong { display: block; margin-bottom: 3px; }
-    .step span { color: var(--muted); font-size: 13px; }
-    .tag { color: var(--gold); border: 1px solid rgba(216,180,106,0.3); background: rgba(216,180,106,0.08); padding: 6px 9px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+/* --------- reset ----------- */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"ss01","cv11";
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--accent);color:#06140d}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-    .strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px auto 0; }
-    .strip div { border: 1px solid var(--line); border-radius: 999px; padding: 10px 12px; color: var(--muted); text-align: center; font-size: 13px; background: rgba(255,255,255,0.025); }
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
 
-    section { padding: 78px 0; }
-    .section-head { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; align-items: start; margin-bottom: 30px; }
-    h2 { font-size: clamp(34px, 4.8vw, 58px); letter-spacing: -0.045em; text-wrap: balance; }
-    .lede { margin: 0; color: var(--soft); font-size: 18px; max-width: 760px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)); }
-    .card h3 { font-size: 20px; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .card p, .card li { color: var(--muted); }
-    .card ul { margin: 12px 0 0; padding-left: 18px; }
-    .card li + li { margin-top: 8px; }
+/* --------- atmospheric scaffolding ---------- */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    radial-gradient(1400px 700px at 12% -8%, rgba(74,208,147,.06), transparent 60%),
+    radial-gradient(1100px 600px at 90% 6%, rgba(140,125,247,.045), transparent 65%),
+    radial-gradient(800px 500px at 50% 110%, rgba(74,208,147,.04), transparent 70%);
+  pointer-events:none; z-index:0;
+}
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 80%);
+  pointer-events:none; z-index:0;
+}
+main,header,footer{position:relative;z-index:1}
 
-    .model { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: stretch; }
-    .timeline { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,0.03); padding: 12px; }
-    .timeline-row { display: grid; grid-template-columns: 150px 1fr 110px; gap: 12px; align-items: center; padding: 14px; border-radius: 16px; }
-    .timeline-row + .timeline-row { border-top: 1px solid rgba(255,255,255,0.08); }
-    .timeline-row strong { color: var(--ink); }
-    .timeline-row span { color: var(--muted); font-size: 14px; }
-    .state { text-align: center; border-radius: 999px; padding: 7px 8px; font-size: 12px; border: 1px solid rgba(255,255,255,0.12); color: var(--soft); }
-    .state.ok { color: #c9f8d5; border-color: rgba(132,217,155,0.35); background: rgba(132,217,155,0.08); }
-    .state.review { color: #ffe4aa; border-color: rgba(216,180,106,0.35); background: rgba(216,180,106,0.08); }
+/* --------- primitives ---------- */
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.mono{font-family:var(--font-mono);letter-spacing:-.005em}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--ink-3);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(74,208,147,.14);
+}
+.eyebrow-num{
+  font-family:var(--font-mono);
+  font-size:11.5px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--ink-4);
+}
 
-    .ai-box { border: 1px solid rgba(105,210,195,0.28); background: linear-gradient(135deg, rgba(105,210,195,0.10), rgba(123,167,255,0.07) 50%, rgba(255,255,255,0.025)); border-radius: var(--radius); padding: 28px; }
-    .split-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
-    .field-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .field-cloud span { border: 1px solid var(--line); color: var(--muted); background: rgba(255,255,255,0.028); border-radius: 999px; padding: 8px 11px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-.022em}
+h1{font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.038em;font-weight:500}
+h2{font-size:clamp(30px,3.8vw,50px);line-height:1.05;letter-spacing:-.03em}
+h3{font-size:19px;line-height:1.3;letter-spacing:-.014em}
+p{margin:0}
+.text-balance{text-wrap:balance}
+.text-pretty{text-wrap:pretty}
 
-    .compliance { border: 1px solid rgba(216,180,106,0.28); border-radius: var(--radius); background: rgba(216,180,106,0.055); padding: 26px; }
-    .callout { border-radius: var(--radius); padding: 32px; background: linear-gradient(135deg, rgba(245,239,228,0.10), rgba(105,210,195,0.08)); border: 1px solid var(--line-strong); display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+.lead{
+  font-size:clamp(16px,1.35vw,18px);
+  color:var(--ink-2);
+  line-height:1.55;
+  max-width:62ch;
+  text-wrap:pretty;
+}
 
-    .form-card { border: 1px solid var(--line-strong); border-radius: var(--radius); background: rgba(17,26,38,0.92); padding: 22px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .input { min-height: 48px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 13px 14px; color: var(--muted); background: rgba(255,255,255,0.035); }
-    .input.wide { grid-column: 1 / -1; min-height: 92px; }
-    .privacy { color: var(--muted); font-size: 12px; margin-top: 12px; }
+section{position:relative}
+.section-pad{padding-block:clamp(96px, 11vw, 168px)}
 
-    .footer { padding: 34px 0 48px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
-    .footer a { text-decoration: none; color: var(--soft); }
-    .footer-links { color: var(--gold); }
+hr.rule{border:0;height:1px;background:linear-gradient(to right, transparent, var(--line), transparent);margin:0}
 
-    @media (max-width: 940px) {
-      .hero, .section-head, .model, .callout { grid-template-columns: 1fr; }
-      .grid, .strip { grid-template-columns: 1fr; }
-      .nav { position: static; }
-      .navlinks a:not(.button) { display: none; }
-      .timeline-row { grid-template-columns: 1fr; }
-      .split-list { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *:before, *:after { transition: none !important; animation: none !important; }
-    }
-  </style>
+/* --------- buttons ---------- */
+.btn{
+  position:relative;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  height:46px;padding:0 20px;
+  border-radius:9px;
+  font-size:14px;font-weight:500;letter-spacing:-.01em;
+  border:1px solid transparent;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease);
+  white-space:nowrap; overflow:hidden;
+}
+.btn-primary{
+  background: linear-gradient(180deg, #ffffff, #d8dade);
+  color:#06070a;
+  border-color:#e6e7ea;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 0 0 1px rgba(0,0,0,.04), 0 12px 30px -12px rgba(255,255,255,.18);
+}
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 0 0 1px rgba(0,0,0,.04), 0 18px 40px -14px rgba(255,255,255,.28); }
+.btn-primary::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.7) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 800ms var(--ease);
+  pointer-events:none;
+}
+.btn-primary:hover::before{ transform: translateX(120%); }
+.btn-ghost{
+  background: var(--bg-2);
+  color: var(--ink);
+  border-color: var(--line-2);
+}
+.btn-ghost:hover{ background: var(--bg-3); border-color: var(--line-3); transform: translateY(-1px); }
+.btn-arrow::after{
+  content:"→";
+  font-family:var(--font-mono);
+  font-weight:500;
+  transition: transform 180ms var(--ease);
+}
+.btn-arrow:hover::after{ transform: translateX(3px); }
+.btn-mono{font-family:var(--font-mono);font-size:13px}
+
+.kbd{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  padding:2px 6px;border-radius:4px;
+  border:1px solid var(--line-2);
+  background:var(--bg-3);
+  color:var(--ink-3);
+}
+
+/* --------- pills / chips ----------- */
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  height:22px;padding:0 9px;border-radius:999px;
+  border:1px solid var(--line-2); background:var(--bg-3);
+  font-family:var(--font-mono);font-size:10.5px;
+  color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;
+}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--ink-4)}
+.pill.is-pass{color:#a9ecca;border-color:var(--accent-line);background:var(--accent-soft)}
+.pill.is-pass .dot{background:var(--accent);box-shadow:0 0 0 3px rgba(74,208,147,.18)}
+.pill.is-review{color:#f1d792;border-color:rgba(224,173,72,.34);background:var(--amber-soft)}
+.pill.is-review .dot{background:var(--amber)}
+.pill.is-fail{color:#e8aa9f;border-color:rgba(208,101,90,.36);background:var(--danger-soft)}
+.pill.is-fail .dot{background:var(--danger)}
+.pill.is-info{color:#beb3fb;border-color:rgba(140,125,247,.32);background:var(--violet-soft)}
+.pill.is-info .dot{background:var(--violet)}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,8,9,.55);
+  backdrop-filter:blur(12px) saturate(150%);
+  -webkit-backdrop-filter:blur(12px) saturate(150%);
+  border-bottom:1px solid transparent;
+  transition:background var(--t-med) var(--ease), border-color var(--t-med) var(--ease), backdrop-filter var(--t-med) var(--ease);
+}
+.nav.is-scrolled{background:rgba(7,8,9,.85);border-bottom-color:var(--line);backdrop-filter:blur(16px) saturate(160%);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:inline-flex;align-items:center;gap:11px;font-weight:500;letter-spacing:-.018em;transition:opacity var(--t-fast) var(--ease)}
+.brand:hover{opacity:.85}
+.brand-mark{width:28px;height:28px;flex-shrink:0}
+.brand-name{font-size:15.5px;font-weight:500}
+.brand-name b{font-weight:600}
+
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{
+  position:relative;
+  color:var(--ink-2);font-size:13.5px;
+  padding:9px 13px;border-radius:7px;
+  transition:color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.nav-link:hover{color:var(--ink);background:var(--bg-2)}
+.nav-cta{margin-left:10px}
+
+.nav-burger{
+  display:none;
+  width:42px;height:42px;
+  border:1px solid var(--line-2);border-radius:9px;
+  align-items:center;justify-content:center;
+  background:var(--bg-2);
+}
+.nav-burger svg{width:18px;height:18px}
+.nav-mobile{display:none;border-top:1px solid var(--line);background:var(--bg-1);padding:10px var(--pad) 20px}
+.nav-mobile a{display:block;padding:14px 4px;color:var(--ink-2);font-size:15.5px;border-bottom:1px solid var(--line)}
+.nav-mobile a:last-of-type{border-bottom:0}
+.nav-mobile .btn{width:100%;margin-top:14px}
+.nav.is-open .nav-mobile{display:block}
+
+@media (max-width: 920px){
+  .nav-links{display:none}
+  .nav-burger{display:inline-flex}
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  padding-top:clamp(56px,8vw,100px);
+  padding-bottom:clamp(72px,9vw,120px);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:-1px 0 -1px 0;
+  background:
+    radial-gradient(800px 480px at 75% 50%, rgba(74,208,147,.10), transparent 60%),
+    radial-gradient(900px 600px at 20% 90%, rgba(140,125,247,.06), transparent 65%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:1px;
+  background:linear-gradient(to right, transparent, var(--line), transparent);
+}
+
+.hero-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,72px);
+  align-items:center;
+}
+@media (max-width: 1000px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+}
+
+.hero-copy h1{margin-top:20px;text-wrap:balance}
+.hero-copy h1 .accent-word{
+  color:var(--ink);
+  background: linear-gradient(180deg, var(--ink) 0%, #9a9da4 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.hero-sub{
+  margin-top:24px;
+  color:var(--ink-2);
+  font-size:clamp(15.5px,1.2vw,17.5px);
+  line-height:1.55;
+  max-width:58ch;
+  text-wrap:pretty;
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.hero-micro{
+  margin-top:26px;
+  display:flex;align-items:flex-start;gap:12px;
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-4);
+  max-width:54ch;line-height:1.55;
+}
+.hero-micro::before{
+  content:"";width:2px;align-self:stretch;background:var(--line-2);flex-shrink:0;
+}
+
+/* ----- staggered reveal ------ */
+.h-fade{opacity:0;transform:translateY(12px);filter:blur(4px);transition:opacity 700ms var(--ease),transform 700ms var(--ease),filter 700ms var(--ease)}
+.h-loaded .h-fade{opacity:1;transform:none;filter:none}
+.h-loaded .h-fade.d1{transition-delay:80ms}
+.h-loaded .h-fade.d2{transition-delay:200ms}
+.h-loaded .h-fade.d3{transition-delay:320ms}
+.h-loaded .h-fade.d4{transition-delay:440ms}
+.h-loaded .h-fade.d5{transition-delay:580ms}
+.h-loaded .h-fade.d6{transition-delay:740ms}
+
+/* ----- RangeCheck panel ----- */
+.rc{
+  position:relative;
+  border-radius:var(--r-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,0) 30%),
+    linear-gradient(180deg, #0d0f13, #090a0d);
+  border:1px solid var(--line);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.04) inset,
+    0 30px 80px -30px rgba(0,0,0,.7),
+    0 0 0 1px rgba(74,208,147,.04);
+  overflow:hidden;
+}
+.rc::before{
+  /* corner glow */
+  content:"";
+  position:absolute; inset:-1px;
+  background:radial-gradient(450px 180px at 100% 0%, rgba(74,208,147,.16), transparent 60%),
+             radial-gradient(360px 200px at 0% 100%, rgba(140,125,247,.10), transparent 70%);
+  pointer-events:none;
+  border-radius:inherit;
+}
+.rc::after{
+  /* vertical scan line */
+  content:"";
+  position:absolute; left:0; right:0; top:0; height:90px;
+  background:linear-gradient(180deg, rgba(74,208,147,.10), transparent 70%);
+  pointer-events:none;
+  animation: rcScan 6s var(--ease) infinite;
+  mix-blend-mode: screen;
+}
+@keyframes rcScan{
+  0%{transform:translateY(-10%)}
+  50%{transform:translateY(420%)}
+  100%{transform:translateY(-10%)}
+}
+@media (prefers-reduced-motion: reduce){ .rc::after{animation:none;display:none} }
+
+.rc-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+  position:relative;z-index:2;
+}
+.rc-head-left{display:flex;align-items:center;gap:12px}
+.rc-tag{
+  font-family:var(--font-mono);font-size:11px;
+  color:var(--ink-3); text-transform:uppercase;letter-spacing:.12em;
+}
+.rc-tag b{color:var(--ink);font-weight:600}
+.rc-id{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.06em}
+.rc-head-right{display:flex;align-items:center;gap:10px}
+
+.rc-route{
+  position:relative;
+  height:160px;
+  padding:18px 22px 14px;
+  border-bottom:1px solid var(--line);
+  z-index:1;
+}
+.rc-route svg{position:absolute;inset:0;width:100%;height:100%}
+.rc-route .route-path{
+  fill:none;stroke:var(--line-2);stroke-width:1.5;
+}
+.rc-route .route-active{
+  fill:none;stroke:var(--accent);stroke-width:1.5;
+  stroke-dasharray: 480;
+  stroke-dashoffset: 480;
+  filter: drop-shadow(0 0 8px rgba(74,208,147,.4));
+}
+.h-loaded .rc-route .route-active{
+  animation: routeDraw 1800ms var(--ease) 1000ms forwards;
+}
+@keyframes routeDraw{
+  to{ stroke-dashoffset: 0; }
+}
+.rc-route .pulse{
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(74,208,147,.7));
+  opacity:0;
+}
+.h-loaded .rc-route .pulse{
+  animation: pulseTravel 4.5s linear 2800ms infinite;
+}
+@keyframes pulseTravel{
+  0%{opacity:0; offset-distance:0%}
+  6%{opacity:1}
+  90%{opacity:1}
+  100%{opacity:0; offset-distance:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  .rc-route .route-active{stroke-dashoffset:0;animation:none}
+  .rc-route .pulse{display:none}
+}
+
+.rc-stages{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  height:100%;
+  z-index:2;
+}
+.stage{
+  position:relative;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;
+  padding-bottom:6px;
+  gap:8px;
+}
+.stage .node{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--bg-3);
+  border:1.5px solid var(--line-3);
+  position:absolute;
+  top:62px; left:50%; transform:translate(-50%,-50%);
+  transition: background var(--t-med) var(--ease), border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.stage .node::after{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:1px solid transparent;
+  transition: border-color var(--t-med) var(--ease);
+}
+.stage.is-active .node{
+  background:var(--accent);
+  border-color:var(--accent);
+  box-shadow: 0 0 0 4px rgba(74,208,147,.18), 0 0 18px rgba(74,208,147,.45);
+}
+.stage.is-active .node::after{ border-color: rgba(74,208,147,.25); }
+.stage .s-num{
+  font-family:var(--font-mono);font-size:10px;color:var(--ink-5);letter-spacing:.1em;
+  position:absolute; top:90px; left:0;
+}
+.stage .s-name{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.1em;
+  position:absolute; top:108px; left:0;
+}
+.stage.is-active .s-name{color:var(--ink)}
+.stage .s-tag{
+  position:absolute; top:18px; left:0;
+  font-family:var(--font-mono);font-size:10px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+
+.rc-records{
+  padding:14px;
+  display:grid;gap:8px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 23px, rgba(255,255,255,.012) 23px 24px);
+  position:relative;z-index:1;
+}
+.rec{
+  display:grid;
+  grid-template-columns: 26px minmax(0,1.6fr) minmax(0,1.4fr) auto;
+  align-items:center; gap:14px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,.015), transparent), var(--bg-2);
+  font-size:12.5px;
+  opacity:0; transform: translateY(6px);
+  transition: opacity 500ms var(--ease), transform 500ms var(--ease), border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.rec:hover{border-color:var(--line-2);background:var(--bg-3)}
+.h-loaded .rec{opacity:1;transform:none}
+.h-loaded .rec:nth-child(1){transition-delay:1500ms}
+.h-loaded .rec:nth-child(2){transition-delay:1700ms}
+.h-loaded .rec:nth-child(3){transition-delay:1900ms}
+.h-loaded .rec:nth-child(4){transition-delay:2100ms}
+.rec .rid{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4)}
+.rec .who{min-width:0;overflow:hidden}
+.rec .who .role{color:var(--ink);font-weight:500;font-size:13px;letter-spacing:-.005em}
+.rec .who .ctx{color:var(--ink-3);font-size:11px;font-family:var(--font-mono);margin-top:2px;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rec .ev{display:inline-flex;flex-wrap:wrap;gap:4px;justify-self:start}
+.ev-tag{
+  font-family:var(--font-mono);font-size:10px;
+  color:var(--ink-3);border:1px solid var(--line-2);
+  background:var(--bg-3);padding:2px 6px;border-radius:4px;
+  transition: transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.ev-tag:hover{transform:translateY(-1px)}
+.ev-tag.ok{color:#a9ecca;border-color:var(--accent-line);background:var(--accent-soft)}
+.ev-tag.warn{color:#f1d792;border-color:rgba(224,173,72,.30);background:var(--amber-soft)}
+.ev-tag.miss{color:#e8aa9f;border-color:rgba(208,101,90,.32);background:var(--danger-soft)}
+
+.rc-foot{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  padding:13px 18px;
+  border-top:1px solid var(--line);
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.014));
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  position:relative; z-index:2;
+}
+.rc-foot .meter{display:inline-flex;align-items:center;gap:10px}
+.meter-bar{width:140px;height:4px;border-radius:999px;background:var(--bg-4);border:1px solid var(--line-2);overflow:hidden}
+.meter-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition: width 1400ms var(--ease) 2200ms}
+.h-loaded .meter-bar i{width:68%}
+
+/* Hero ambient floating tags */
+.amb{
+  position:absolute;
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  padding:5px 9px;border-radius:6px;border:1px solid var(--line-2);
+  background:rgba(15,17,21,.7);backdrop-filter:blur(6px);
+  letter-spacing:-.005em;
+  opacity:0; transform: translateY(6px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+  pointer-events:none;
+}
+.h-loaded .amb{opacity:1;transform:none}
+.h-loaded .amb.a1{transition-delay:2400ms}
+.h-loaded .amb.a2{transition-delay:2700ms}
+.h-loaded .amb.a3{transition-delay:3000ms}
+.amb .k{color:var(--ink-4)}
+.amb.a1{ top:-14px; left: 6%; }
+.amb.a2{ bottom:30%; right:-12px; }
+.amb.a3{ bottom:-12px; left: 35%; }
+@media (max-width:1000px){
+  .amb{display:none}
+}
+
+@media (max-width: 640px){
+  .rc-route{height:120px}
+  .stage .s-tag{display:none}
+  .stage .s-num{top:64px}
+  .stage .s-name{top:80px;font-size:10px}
+  .stage .node{top:42px}
+  .rec{grid-template-columns: 22px 1fr auto}
+  .rec .ev{grid-column:1 / -1; margin-top:4px}
+}
+
+/* =========================================================
+   CREDIBILITY STRIP
+   ========================================================= */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.012), transparent)}
+.strip-inner{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;
+  padding-block:24px;
+}
+.strip .label{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.14em;
+  padding-right:6px;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 14px;
+  border:1px solid var(--line);border-radius:999px;
+  background:var(--bg-2);
+  font-size:13px;color:var(--ink-2);
+  transition: transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.chip:hover{transform:translateY(-1px);border-color:var(--line-2);color:var(--ink)}
+.chip-mark{
+  width:14px;height:14px;border-radius:4px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--accent-line); background:var(--accent-soft); color:var(--accent);
+}
+.chip-mark svg{width:9px;height:9px}
+
+/* =========================================================
+   SECTION HEAD
+   ========================================================= */
+.section-head{
+  display:grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr);
+  gap: clamp(20px,4vw,64px);
+  padding-bottom: 60px;
+  align-items:end;
+}
+@media (max-width:880px){ .section-head{grid-template-columns:1fr; gap:20px; padding-bottom:42px} }
+.section-head h2{margin-top:14px;text-wrap:balance}
+
+/* =========================================================
+   PROBLEM (editorial)
+   ========================================================= */
+.problem{ border-bottom:1px solid var(--line); }
+.problem-layout{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) minmax(0, 1.1fr);
+  gap: clamp(28px,5vw,72px);
+  align-items:start;
+}
+@media (max-width: 980px){ .problem-layout{grid-template-columns:1fr; gap:36px} }
+
+.pull{
+  font-size:clamp(22px,2.2vw,28px);
+  line-height:1.25; letter-spacing:-.022em;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.pull strong{ color:var(--accent-2); font-weight:500; }
+.pull-meta{
+  margin-top:22px;
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.pull-meta::before{content:"";width:24px;height:1px;background:var(--line-3)}
+
+.fails{
+  border:1px solid var(--line); border-radius:var(--r-md);
+  background:linear-gradient(180deg, var(--bg-1), var(--bg));
+  overflow:hidden;
+}
+.fails-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-bottom:1px solid var(--line);
+  background:var(--bg-2);
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.fails-list{list-style:none;margin:0;padding:0}
+.fails-list li{
+  display:grid; grid-template-columns: 28px 1fr auto; gap:14px; align-items:center;
+  padding:18px 20px;
+  border-bottom:1px solid var(--line);
+  transition: background var(--t-fast) var(--ease);
+}
+.fails-list li:last-child{border-bottom:0}
+.fails-list li:hover{background:var(--bg-2)}
+.fails-list .num{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);letter-spacing:.05em;
+}
+.fails-list .body{min-width:0}
+.fails-list .body .t{color:var(--ink);font-size:14.5px;font-weight:500;letter-spacing:-.005em}
+.fails-list .body .d{color:var(--ink-3);font-size:13px;margin-top:3px;line-height:1.5;text-wrap:pretty}
+.fails-list .stat{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.1em}
+
+/* =========================================================
+   FULFILMENT MODEL (sticky process rail)
+   ========================================================= */
+.model{ border-bottom:1px solid var(--line); }
+.model-rail{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) minmax(0, 1.4fr);
+  gap: clamp(28px,4vw,72px);
+  align-items:flex-start;
+}
+@media (max-width: 980px){ .model-rail{grid-template-columns:1fr; gap:36px} }
+.model-aside{ position:sticky; top:100px; }
+.model-aside .pull{ margin-top:18px; }
+.model-aside ul{
+  list-style:none;margin:24px 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:6px;
+}
+.model-aside ul li{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  padding:5px 9px;border:1px solid var(--line-2);border-radius:6px;
+  background:var(--bg-2);
+}
+
+.stages{
+  display:grid; gap:0;
+  border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg));
+}
+.stage-row{
+  display:grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items:flex-start;
+  gap: clamp(14px,2vw,28px);
+  padding: 26px 26px 26px 22px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  transition: background var(--t-med) var(--ease);
+}
+.stage-row:last-child{border-bottom:0}
+.stage-row::before{
+  /* left rail */
+  content:"";
+  position:absolute; top:0; bottom:0; left:48px; width:1px;
+  background: var(--line);
+}
+.stage-row::after{
+  /* node */
+  content:""; position:absolute; left:48px; top:32px;
+  width:11px; height:11px; border-radius:50%;
+  background: var(--bg-3); border:1.5px solid var(--line-3);
+  transform: translateX(-50%);
+  transition: background var(--t-med) var(--ease), border-color var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.stage-row:hover{ background: linear-gradient(90deg, rgba(74,208,147,.045), transparent 60%); }
+.stage-row:hover::after{
+  background: var(--accent); border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(74,208,147,.18);
+}
+.stage-row .s-num{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);
+  text-transform:uppercase; letter-spacing:.14em;
+  padding-top:4px;
+}
+.stage-row .s-body h3{ color:var(--ink); font-size:18px; }
+.stage-row .s-body p{
+  color:var(--ink-3); font-size:14px; margin-top:8px; max-width: 56ch; line-height:1.55;
+}
+.stage-row .s-body .s-chips{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;
+}
+.s-chip{
+  font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);
+  padding:3px 8px;border:1px solid var(--line-2);border-radius:4px;
+  background:var(--bg-2);
+}
+.stage-row .s-marker{
+  font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+  padding:5px 10px;border:1px solid var(--line-2);border-radius:999px;
+  background:var(--bg-2);
+  white-space:nowrap;
+}
+
+@media (max-width: 700px){
+  .stage-row{grid-template-columns: 56px 1fr; padding-left:18px}
+  .stage-row::before{left:34px}
+  .stage-row::after{left:34px}
+  .stage-row .s-marker{ grid-column: 2 / -1; justify-self:start; margin-top:6px; }
+}
+
+/* =========================================================
+   AI QA (refined diptych)
+   ========================================================= */
+.qa{ border-bottom:1px solid var(--line); }
+.qa-frame{
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  background:
+    radial-gradient(700px 200px at 0% 0%, rgba(74,208,147,.07), transparent 60%),
+    radial-gradient(700px 200px at 100% 100%, rgba(224,173,72,.05), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg));
+  overflow:hidden;
+  position:relative;
+}
+.qa-frame-head{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  padding:18px 24px;
+  border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.014), transparent);
+}
+.qa-frame-head .t{ font-size:16px; color:var(--ink); letter-spacing:-.01em; }
+.qa-frame-head .meta{ font-family:var(--font-mono);font-size:11px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.12em }
+.qa-cols{ display:grid; grid-template-columns:1fr 1px 1fr; }
+.qa-cols .div{ background: var(--line); }
+.qa-col{ padding: 28px clamp(20px,2.5vw,32px); }
+.qa-col h3{
+  display:flex;align-items:center;gap:12px;
+  font-size:16px; color:var(--ink);
+  padding-bottom:18px;border-bottom:1px solid var(--line); margin-bottom:18px;
+}
+.role-tag{
+  font-family:var(--font-mono);font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.12em;
+  padding:4px 10px; border-radius:5px;
+  border:1px solid var(--line-2); color:var(--ink-3); background: var(--bg-2);
+}
+.qa-col.ai .role-tag{ color:var(--accent); border-color:var(--accent-line); background:var(--accent-soft); }
+.qa-col.human .role-tag{ color:#f1d792; border-color:rgba(224,173,72,.34); background:var(--amber-soft); }
+.qa-list{ list-style:none; margin:0; padding:0; display:grid; gap:0; }
+.qa-list li{
+  display:grid; grid-template-columns: 28px 1fr; gap:14px; align-items:start;
+  padding:14px 0; border-bottom:1px dashed var(--line);
+  font-size:14.5px; color:var(--ink-2); line-height:1.5;
+}
+.qa-list li:last-child{ border-bottom:0; }
+.qa-list .ico{
+  width:24px;height:24px;border-radius:6px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--line-2); background:var(--bg-2); color:var(--ink-3);
+  font-family:var(--font-mono);font-size:11px;
+  flex-shrink:0;
+}
+.qa-col.ai .ico{ color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+.qa-col.human .ico{ color: var(--amber); border-color: rgba(224,173,72,.34); background: var(--amber-soft); }
+
+@media (max-width: 880px){
+  .qa-cols{ grid-template-columns: 1fr; }
+  .qa-cols .div{ height:1px; }
+}
+
+/* =========================================================
+   EVIDENCE / SCHEMA VIEWER
+   ========================================================= */
+.evidence{ border-bottom:1px solid var(--line); }
+.schema{
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  background: linear-gradient(180deg, var(--bg-1), var(--bg));
+  overflow:hidden;
+}
+.schema-head{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  padding:14px 20px;
+  border-bottom:1px solid var(--line);
+  background: var(--bg-2);
+}
+.schema-head .lhs{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.schema-head .lhs .name{color:var(--ink)}
+.schema-head .rhs{
+  display:flex;gap:14px;
+  font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.schema-head .rhs .legend{display:inline-flex;align-items:center;gap:6px}
+.schema-head .rhs .legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
+.schema-head .rhs .legend.req i{background:var(--accent)}
+.schema-head .rhs .legend.opt i{background:var(--ink-4)}
+.schema-head .rhs .legend.cond i{background:var(--violet)}
+
+.schema-grid{
+  /* 15 fields — lock to divisors of 15 (1 · 3 · 5) so no orphan cell appears at any width */
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap:1px; background: var(--line);
+}
+@media (max-width: 1100px){
+  .schema-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 620px){
+  .schema-grid{ grid-template-columns: 1fr; }
+}
+.field{
+  background:var(--bg-1); padding:16px 18px;
+  display:flex; flex-direction:column; gap:6px;
+  position:relative;
+  transition: background var(--t-fast) var(--ease);
+}
+.field:hover{ background: var(--bg-2); }
+.field::after{
+  content:""; position:absolute; left:0; top:14px; bottom:14px; width:2px; border-radius:2px;
+  background: var(--line-3);
+  transition: background var(--t-fast) var(--ease);
+}
+.field[data-tier="req"]::after{ background: var(--accent); }
+.field[data-tier="cond"]::after{ background: var(--violet); }
+.field[data-tier="opt"]::after{ background: var(--ink-4); }
+.field-key{
+  font-family:var(--font-mono);font-size:13px;color:var(--ink);letter-spacing:-.005em;
+  padding-left:12px;
+}
+.field-desc{
+  font-size:12.5px; color:var(--ink-3); line-height:1.5; padding-left:12px;
+}
+.field-tier{
+  font-family:var(--font-mono);font-size:10px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+  padding-left:12px; margin-top:2px;
+}
+
+/* =========================================================
+   FIT / NO-FIT (asymmetric)
+   ========================================================= */
+.fit{ border-bottom:1px solid var(--line); }
+.fit-layout{
+  display:grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0,1fr);
+  gap: clamp(20px, 3vw, 28px);
+}
+@media (max-width: 860px){ .fit-layout{grid-template-columns:1fr} }
+
+.fit-card{
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  overflow:hidden; background: var(--bg-1);
+  position:relative;
+}
+.fit-card.yes{
+  background:
+    radial-gradient(640px 300px at -10% -20%, rgba(74,208,147,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg));
+  border-color: rgba(74,208,147,.18);
+}
+.fit-card.no{
+  background:linear-gradient(180deg, var(--bg-1), var(--bg));
+}
+.fit-head{
+  display:flex;align-items:center;gap:12px;
+  padding:18px 22px; border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.014), transparent);
+}
+.fit-head h3{ font-size:17px; }
+.fit-head .role-tag{ font-size:10.5px; }
+.fit-card.yes .role-tag{ color:var(--accent); border-color:var(--accent-line); background:var(--accent-soft); }
+.fit-card.no  .role-tag{ color:var(--danger); border-color:rgba(208,101,90,.34); background:var(--danger-soft); }
+.fit-list{ list-style:none;margin:0;padding:0 }
+.fit-list li{
+  padding:16px 22px; border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:24px 1fr; gap:14px; align-items:flex-start;
+  font-size:14.5px; color:var(--ink-2); line-height:1.5;
+  transition: background var(--t-fast) var(--ease);
+}
+.fit-list li:hover{background: var(--bg-2)}
+.fit-list li:last-child{border-bottom:0}
+.fit-card.yes .fit-list li::before{
+  content:""; width:18px;height:18px;border-radius:5px;
+  border:1px solid var(--accent-line); background:var(--accent-soft);
+  background-image: linear-gradient(135deg, transparent 40%, var(--accent) 40% 60%, transparent 60%);
+}
+.fit-card.no .fit-list li::before{
+  content:"";
+  width:18px;height:18px;border-radius:5px;
+  border:1px solid rgba(208,101,90,.32);
+  background-color: var(--danger-soft);
+  background-image:
+    linear-gradient(  45deg, transparent 42%, var(--danger) 42% 58%, transparent 58%),
+    linear-gradient( -45deg, transparent 42%, var(--danger) 42% 58%, transparent 58%);
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+.cta{ border-bottom:1px solid var(--line); position:relative; overflow:hidden; }
+.cta::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(900px 500px at 80% 30%, rgba(74,208,147,.08), transparent 60%),
+    radial-gradient(700px 400px at 5% 80%, rgba(140,125,247,.06), transparent 65%);
+  pointer-events:none;
+}
+.cta-layout{
+  position:relative;
+  display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.05fr);
+  gap: clamp(28px,5vw,64px);
+  align-items: start;
+}
+@media (max-width: 980px){ .cta-layout{grid-template-columns:1fr} }
+.cta-copy h2{ margin-top:14px; text-wrap:balance; }
+.cta-copy p.lead{ margin-top:22px; }
+.cta-buttons{ display:flex;flex-wrap:wrap;gap:10px; margin-top:30px; }
+.cta-note{
+  margin-top:26px;
+  font-family:var(--font-mono);font-size:11.5px;color:var(--ink-4);
+  line-height:1.55; max-width:48ch;
+}
+
+.intake{
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  background: linear-gradient(180deg, var(--bg-1), var(--bg));
+  overflow:hidden;
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.7);
+}
+.intake-head{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  padding:14px 20px; border-bottom:1px solid var(--line);
+  background:var(--bg-2);
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.intake-head .right{color:var(--ink-4)}
+.intake-body{padding:18px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.intake-body .row{display:flex;flex-direction:column;gap:6px}
+.intake-body .row.full{grid-column:1 / -1}
+.intake-label{
+  font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.intake-field{
+  height:40px;border:1px solid var(--line-2);background:var(--bg-2);
+  border-radius:7px;padding:0 12px;color:var(--ink);
+  font-family:var(--font-sans);font-size:13.5px;
+  display:flex;align-items:center;
+  transition:border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.intake-field.area{height:auto;min-height:84px;padding:10px 12px;align-items:flex-start;line-height:1.5}
+.intake-field.placeholder{color:var(--ink-4)}
+.intake-field:hover{border-color:var(--line-3);background:var(--bg-3)}
+.intake-foot{
+  padding:14px 20px; border-top:1px solid var(--line);
+  background:var(--bg-2);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+}
+.intake-foot .note{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-4)}
+@media (max-width:560px){ .intake-body{grid-template-columns:1fr} }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{
+  padding-block:64px;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg));
+  border-top:1px solid var(--line);
+}
+.foot-grid{
+  display:grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap:32px; align-items:start;
+}
+@media (max-width:820px){ .foot-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:520px){ .foot-grid{grid-template-columns:1fr} }
+.foot-brand p{ color:var(--ink-3); font-size:13.5px; margin-top:16px; max-width:38ch; line-height:1.6; }
+.foot-col h4{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.14em;
+  margin-bottom:14px;font-weight:500;
+}
+.foot-col a, .foot-col span{display:block;padding:5px 0;color:var(--ink-2);font-size:13.5px;transition:color var(--t-fast) var(--ease)}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{
+  margin-top:52px; padding-top:22px; border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-4);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+
+/* =========================================================
+   REVEAL-ON-SCROLL
+   ========================================================= */
+.reveal{ opacity:0; transform: translateY(14px); filter: blur(2px); transition: opacity 700ms var(--ease), transform 700ms var(--ease), filter 700ms var(--ease); }
+.reveal.in-view{ opacity:1; transform:none; filter:none; }
+.reveal.d1{transition-delay:60ms}
+.reveal.d2{transition-delay:140ms}
+.reveal.d3{transition-delay:220ms}
+.reveal.d4{transition-delay:300ms}
+.reveal.d5{transition-delay:380ms}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .h-fade{opacity:1;transform:none;filter:none;transition:none}
+  .rec{opacity:1;transform:none}
+  .amb{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="wrap nav" aria-label="Primary navigation">
-    <a href="#top" class="brand" aria-label="Demand Range home"><span class="mark" aria-hidden="true"></span><span>Demand Range</span></a>
-    <nav class="navlinks" aria-label="Site sections">
-      <a href="#model">How it works</a>
-      <a href="#qa">Lead QA</a>
-      <a href="#compliance">Compliance posture</a>
-      <a href="#fit" class="button">Request fit check</a>
+
+<!-- =========================== NAV =========================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Demand Range home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="7" stroke="#272a33"/>
+        <!-- range bracket -->
+        <path d="M7 11 V 21" stroke="#4ad093" stroke-width="1.8" stroke-linecap="square"/>
+        <path d="M25 11 V 21" stroke="#4ad093" stroke-width="1.8" stroke-linecap="square"/>
+        <path d="M7 16 H 25" stroke="#353944" stroke-width="1.4"/>
+        <!-- checkpoint -->
+        <circle cx="19" cy="16" r="3" fill="#070809" stroke="#4ad093" stroke-width="1.8"/>
+        <circle cx="19" cy="16" r="1.1" fill="#4ad093"/>
+      </svg>
+      <span class="brand-name"><b>Demand</b> Range</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="#how">How it works</a>
+      <a class="nav-link" href="#qa">Lead QA</a>
+      <a class="nav-link" href="#evidence">Evidence</a>
+      <a class="nav-link" href="#fit-check">Fit check</a>
+      <a class="btn btn-primary btn-mono nav-cta" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request fit check</a>
     </nav>
-  </header>
+    <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#how">How it works</a>
+    <a href="#qa">Lead QA</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#fit-check">Fit check</a>
+    <a class="btn btn-primary btn-mono" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request fit check</a>
+  </div>
+</header>
 
-  <main id="main">
-    <section id="top" class="wrap hero">
-      <div>
-        <div class="eyebrow">White-label MQL fulfilment for demand-generation vendors</div>
-        <h1>Cleaner delivery for the campaigns your network struggles to fill.</h1>
-        <p>Demand Range supports B2B demand-generation vendors with asset-led outreach, verified contact data, AI-assisted lead QA, human-reviewed batches, source provenance, and vendor-template delivery.</p>
-        <div class="cta">
-          <a class="button" href="mailto:partners@demandrange.com?subject=Fulfilment%20fit%20check">Request a fulfilment fit check</a>
-          <a class="button secondary" href="#model">See the delivery model</a>
-        </div>
-        <div class="micro">Built for overflow, constrained specs, QA-heavy templates, and audit-friendly campaign operations. Built for partner-led fit checks against real campaign specs. No live lead files should be sent through the public site.</div>
+<main id="top">
+
+<!-- =========================== HERO =========================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow h-fade d1">White-label MQL fulfilment · for demand-generation vendors</span>
+      <h1 class="h-fade d2">Cleaner delivery for the campaigns your network <span class="accent-word">struggles to fill</span>.</h1>
+      <p class="hero-sub h-fade d3">Demand Range supports B2B demand-generation vendors with asset-led outreach, verified contact data, AI-assisted lead QA, human-reviewed batches, source provenance, and vendor-template delivery — built for overflow, constrained specs, and audit-friendly campaign operations.</p>
+      <div class="hero-ctas h-fade d4">
+        <a class="btn btn-primary btn-arrow" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request a fulfilment fit check</a>
+        <a class="btn btn-ghost btn-arrow" href="#how">See the delivery model</a>
       </div>
-
-      <aside class="proof-panel" aria-label="Demand Range delivery proof trail">
-        <div class="panel-top">
-          <div class="panel-title">RangeCheck QA flow</div>
-          <div class="badge">AI-assisted • human-reviewed</div>
-        </div>
-        <div class="steps">
-          <div class="step"><div class="num">01</div><div><strong>Fit-check the spec</strong><span>ICP, accounts, titles, geos, asset, template, exclusions, legal gates.</span></div><div class="tag">Intake</div></div>
-          <div class="step"><div class="num">02</div><div><strong>Source and verify</strong><span>Approved sources, role confidence, email status, current-company checks.</span></div><div class="tag">Evidence</div></div>
-          <div class="step"><div class="num">03</div><div><strong>Risk-triage records</strong><span>AI-assisted checks flag fit, dedupe, source, and template issues before delivery.</span></div><div class="tag">QA</div></div>
-          <div class="step"><div class="num">04</div><div><strong>Deliver clean batches</strong><span>Vendor/client template, proof fields, QA status, replacement loop.</span></div><div class="tag">Batch</div></div>
-        </div>
-      </aside>
-    </section>
-
-    <div class="wrap strip" aria-label="Credibility strip">
-      <div>White-label support</div>
-      <div>Vendor-template delivery</div>
-      <div>Source provenance</div>
-      <div>QA before batch delivery</div>
-      <div>Replacement tracking</div>
+      <p class="hero-micro h-fade d5">
+        <span>Built for overflow, constrained specs, QA-heavy templates, and audit-friendly campaign operations.<br/>No live lead files should be sent through the public site.</span>
+      </p>
     </div>
 
-    <section class="wrap" id="problem">
-      <div class="section-head">
-        <h2>Overflow fulfilment gets risky when quality control is thin.</h2>
-        <p class="lede">Vendors need extra capacity for tight account, title, geo, and client-template specs — but weak external fulfilment creates rejection risk, operational drag, and uncomfortable questions about where each record came from.</p>
-      </div>
-      <div class="grid">
-        <article class="card"><h3>Hard-to-fill specs</h3><p>Tight geos, senior titles, account lists, niche industries, and short delivery windows need controlled fulfilment, not broad scraping.</p></article>
-        <article class="card"><h3>Messy lead data</h3><p>Wrong titles, stale roles, generic inboxes, duplicate records, and weak verification slow campaign teams down.</p></article>
-        <article class="card"><h3>Weak proof trails</h3><p>Vendors need source, date, verification, asset, suppression, QA, and replacement evidence that can survive review.</p></article>
-      </div>
-    </section>
+    <!-- ----- RangeCheck visual ----- -->
+    <div class="hero-visual h-fade d6" aria-hidden="false">
+      <div class="rc" role="img" aria-label="RangeCheck: a campaign batch moving through intake, sourcing, verification, QA, and delivery stages with evidence tags.">
 
-    <section class="wrap" id="model">
-      <div class="section-head">
-        <h2>A controlled fulfilment layer behind your demand programmes.</h2>
-        <p class="lede">Demand Range is designed to support vendor delivery teams, not replace their platform, network, or client relationship. The motion is simple: review the spec, confirm what is allowed, deliver clean batches, and close the rejection loop.</p>
+        <div class="rc-head">
+          <div class="rc-head-left">
+            <span class="rc-tag"><b>RangeCheck</b> · LIVE TRACE</span>
+            <span class="rc-id">DR-2401-A · EMEA · DIRECTOR+</span>
+          </div>
+          <div class="rc-head-right">
+            <span class="pill is-info"><span class="dot"></span>v.template_4.2</span>
+            <span class="pill is-pass"><span class="dot"></span>READY</span>
+          </div>
+        </div>
+
+        <div class="rc-route">
+          <svg viewBox="0 0 600 160" preserveAspectRatio="none" aria-hidden="true">
+            <!-- background track -->
+            <path class="route-path" d="M 60 60 L 180 60 L 240 60 L 300 60 L 360 60 L 420 60 L 540 60" />
+            <!-- active animated route -->
+            <path class="route-active" id="route" d="M 60 60 L 180 60 L 240 60 L 300 60 L 360 60 L 420 60 L 540 60" />
+            <!-- pulse traveling along -->
+            <circle class="pulse" r="4" style="offset-path: path('M 60 60 L 180 60 L 240 60 L 300 60 L 360 60 L 420 60 L 540 60'); offset-rotate: 0deg;"></circle>
+          </svg>
+          <div class="rc-stages">
+            <div class="stage">
+              <span class="s-tag">01</span>
+              <span class="node"></span>
+              <span class="s-num">spec</span>
+              <span class="s-name">Intake</span>
+            </div>
+            <div class="stage">
+              <span class="s-tag">02</span>
+              <span class="node"></span>
+              <span class="s-num">approved</span>
+              <span class="s-name">Source</span>
+            </div>
+            <div class="stage">
+              <span class="s-tag">03</span>
+              <span class="node"></span>
+              <span class="s-num">verified</span>
+              <span class="s-name">Verify</span>
+            </div>
+            <div class="stage is-active">
+              <span class="s-tag">04</span>
+              <span class="node"></span>
+              <span class="s-num">triage · gate</span>
+              <span class="s-name">QA</span>
+            </div>
+            <div class="stage">
+              <span class="s-tag">05</span>
+              <span class="node"></span>
+              <span class="s-num">template</span>
+              <span class="s-name">Deliver</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rc-records">
+          <div class="rec">
+            <span class="rid">#0142</span>
+            <span class="who">
+              <span class="role">Director · Cloud Infrastructure</span>
+              <span class="ctx">company_size=1k–5k · industry=tech · geo=IT</span>
+            </span>
+            <span class="ev">
+              <span class="ev-tag ok">email_verified</span>
+              <span class="ev-tag ok">source_proof</span>
+              <span class="ev-tag ok">asset_used</span>
+            </span>
+            <span class="pill is-pass"><span class="dot"></span>QA Ready</span>
+          </div>
+          <div class="rec">
+            <span class="rid">#0143</span>
+            <span class="who">
+              <span class="role">VP · Information Security</span>
+              <span class="ctx">company_size=5k+ · geo=UK</span>
+            </span>
+            <span class="ev">
+              <span class="ev-tag ok">email_verified</span>
+              <span class="ev-tag warn">title_function_review</span>
+              <span class="ev-tag ok">source_proof</span>
+            </span>
+            <span class="pill is-review"><span class="dot"></span>Review</span>
+          </div>
+          <div class="rec">
+            <span class="rid">#0144</span>
+            <span class="who">
+              <span class="role">Head of IT Operations</span>
+              <span class="ctx">company_size=mid · geo=DE</span>
+            </span>
+            <span class="ev">
+              <span class="ev-tag miss">source_date_gap</span>
+              <span class="ev-tag warn">duplicate_risk</span>
+              <span class="ev-tag ok">email_verified</span>
+            </span>
+            <span class="pill is-fail"><span class="dot"></span>Held</span>
+          </div>
+          <div class="rec">
+            <span class="rid">#0145</span>
+            <span class="who">
+              <span class="role">Senior Director · Platform</span>
+              <span class="ctx">company_size=1k–5k · geo=NL</span>
+            </span>
+            <span class="ev">
+              <span class="ev-tag ok">email_verified</span>
+              <span class="ev-tag ok">source_proof</span>
+              <span class="ev-tag ok">linkedin</span>
+              <span class="ev-tag ok">asset_used</span>
+            </span>
+            <span class="pill is-pass"><span class="dot"></span>Batch Ready</span>
+          </div>
+        </div>
+
+        <div class="rc-foot">
+          <span>scoped · verified · triaged · gated · queued</span>
+          <span class="meter">
+            <span>readiness</span>
+            <span class="meter-bar" aria-hidden="true"><i></i></span>
+            <span>queued for delivery</span>
+          </span>
+        </div>
       </div>
-      <div class="model">
-        <div class="card">
-          <h3>Best-fit use cases</h3>
-          <ul>
-            <li>Overflow fulfilment for sold MQL/content-syndication campaigns.</li>
-            <li>Hard-to-fill geo, title, account, seniority, or industry specs.</li>
-            <li>QA-heavy vendor/client delivery templates.</li>
-            <li>Replacement batches after rejection-pattern review.</li>
-            <li>Pilot batches where quality needs proving before scale.</li>
+
+      <span class="amb a1"><span class="k">qa_status</span> &nbsp;pass</span>
+      <span class="amb a2"><span class="k">source_date</span> &nbsp;captured</span>
+      <span class="amb a3"><span class="k">vendor_template_id</span> &nbsp;mapped</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== STRIP =========================== -->
+<section class="strip" aria-label="Capabilities at a glance">
+  <div class="wrap strip-inner">
+    <span class="label">Capabilities</span>
+    <span class="chip"><span class="chip-mark"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5 L4.5 9 L10 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>White-label support</span>
+    <span class="chip"><span class="chip-mark"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5 L4.5 9 L10 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>Vendor-template delivery</span>
+    <span class="chip"><span class="chip-mark"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5 L4.5 9 L10 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>Source provenance</span>
+    <span class="chip"><span class="chip-mark"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5 L4.5 9 L10 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>QA before batch delivery</span>
+    <span class="chip"><span class="chip-mark"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5 L4.5 9 L10 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></span>Replacement tracking</span>
+  </div>
+</section>
+
+<!-- =========================== PROBLEM =========================== -->
+<section class="problem section-pad" id="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow-num">01 / Problem</span>
+        <h2>Overflow fulfilment gets risky when quality control is thin.</h2>
+      </div>
+      <p class="lead">When a campaign spec narrows, the network leans on partners to fill the gap. That's where rejection risk, source ambiguity, and client-facing embarrassment usually enter the batch.</p>
+    </div>
+
+    <div class="problem-layout">
+      <div class="reveal">
+        <p class="pull">Most batches don't fail because the lead isn't real. They fail because the <strong>row can't defend itself</strong> when the client looks twice.</p>
+        <div class="pull-meta">observed patterns · vendor delivery</div>
+      </div>
+
+      <div class="fails reveal d1">
+        <div class="fails-head"><span>rejection_patterns</span><span>typical · before triage</span></div>
+        <ul class="fails-list">
+          <li>
+            <span class="num">01</span>
+            <div class="body">
+              <div class="t">Hard-to-fill specs that the standard panel quietly can't deliver clean</div>
+              <div class="d">Director-plus in cloud infra, EMEA-only with company-size bands, regulated industries — the inventory thins, and substitutes leak in.</div>
+            </div>
+            <span class="stat">spec_drift</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div class="body">
+              <div class="t">Messy lead data arriving without verified emails or readable role context</div>
+              <div class="d">Stale exports, duplicate identities, and mismatched company domains trigger the first round of rejections.</div>
+            </div>
+            <span class="stat">data_quality</span>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div class="body">
+              <div class="t">Weak proof trails — asset, source, and timestamp evidence missing per row</div>
+              <div class="d">The lead may be real, but without <code>asset_used</code>, <code>source_system</code>, and <code>source_date</code>, it cannot defend itself.</div>
+            </div>
+            <span class="stat">evidence_gap</span>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div class="body">
+              <div class="t">Rejected batches turn into rework, hot replacement queues, and tone-shifted client calls</div>
+              <div class="d">Replacements shipped without rejection-pattern review tend to repeat the same failure mode.</div>
+            </div>
+            <span class="stat">replacement_loop</span>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <div class="body">
+              <div class="t">Operational drag on campaign teams — reformatting, re-verifying, reassuring</div>
+              <div class="d">Vendor templates change, suppression instructions drift mid-flight, and someone reconciles at midnight before send.</div>
+            </div>
+            <span class="stat">ops_drag</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== FULFILMENT MODEL =========================== -->
+<section class="model section-pad" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow-num">02 / Controlled fulfilment</span>
+        <h2>A controlled fulfilment layer behind your demand programmes.</h2>
+      </div>
+      <p class="lead">Demand Range works under your delivery name. We support your team without replacing your platform, your network, or your client relationship.</p>
+    </div>
+
+    <div class="model-rail">
+      <aside class="model-aside reveal">
+        <span class="eyebrow-num">delivery_model</span>
+        <p class="pull">A delivery layer your campaign team can trust — <strong>tight enough to absorb the hard specs</strong>, quiet enough to ship under your template.</p>
+        <ul aria-label="What we support">
+          <li>asset_led</li>
+          <li>email_outreach</li>
+          <li>telemarketing_assisted</li>
+          <li>filtering</li>
+          <li>sourcing</li>
+          <li>enrichment</li>
+          <li>verification</li>
+          <li>linkedin_checks</li>
+          <li>evidence_fields</li>
+          <li>qa_gate</li>
+          <li>vendor_template</li>
+          <li>rejection_tracking</li>
+          <li>replacement_handling</li>
+        </ul>
+      </aside>
+
+      <div class="stages">
+        <article class="stage-row reveal">
+          <div class="s-num">01 · intake</div>
+          <div class="s-body">
+            <h3>Campaign intake</h3>
+            <p>Audience, region, channel, asset status, suppression instructions, evidence fields, and template captured before any record is sourced.</p>
+            <div class="s-chips">
+              <span class="s-chip">role_model</span>
+              <span class="s-chip">geo</span>
+              <span class="s-chip">company_size</span>
+              <span class="s-chip">suppression</span>
+              <span class="s-chip">template</span>
+            </div>
+          </div>
+          <span class="s-marker">spec captured</span>
+        </article>
+
+        <article class="stage-row reveal d1">
+          <div class="s-num">02 · source</div>
+          <div class="s-body">
+            <h3>Approved sourcing</h3>
+            <p>Contact sourcing and enrichment through approved tools and approved sources only — provenance written to every row.</p>
+            <div class="s-chips">
+              <span class="s-chip">approved_tools</span>
+              <span class="s-chip">attested_sources</span>
+              <span class="s-chip">source_system</span>
+              <span class="s-chip">source_date</span>
+            </div>
+          </div>
+          <span class="s-marker">provenance written</span>
+        </article>
+
+        <article class="stage-row reveal d2">
+          <div class="s-num">03 · verify</div>
+          <div class="s-body">
+            <h3>Verification &amp; enrichment</h3>
+            <p>Email verification, data cleaning, and LinkedIn or manual role checks where appropriate.</p>
+            <div class="s-chips">
+              <span class="s-chip">email_verification</span>
+              <span class="s-chip">domain_match</span>
+              <span class="s-chip">role_check</span>
+              <span class="s-chip">linkedin</span>
+            </div>
+          </div>
+          <span class="s-marker">batch verified</span>
+        </article>
+
+        <article class="stage-row reveal d3">
+          <div class="s-num">04 · qa</div>
+          <div class="s-body">
+            <h3>QA &amp; vendor-template formatting</h3>
+            <p>AI-assisted triage flags mismatches and gaps; human reviewers pass, fail, or escalate. Vendor template applied last, never first.</p>
+            <div class="s-chips">
+              <span class="s-chip">ai_triage</span>
+              <span class="s-chip">human_review</span>
+              <span class="s-chip">qa_status</span>
+              <span class="s-chip">vendor_template_id</span>
+            </div>
+          </div>
+          <span class="s-marker">gate held</span>
+        </article>
+
+        <article class="stage-row reveal d4">
+          <div class="s-num">05 · replace</div>
+          <div class="s-body">
+            <h3>Replacement loop</h3>
+            <p>Rejection reasons logged, patterns reviewed, QA rules updated. Replacement batch ships informed by what got pushed back — not blind.</p>
+            <div class="s-chips">
+              <span class="s-chip">rejection_reason</span>
+              <span class="s-chip">pattern_review</span>
+              <span class="s-chip">qa_rules_updated</span>
+              <span class="s-chip">replacement_status</span>
+            </div>
+          </div>
+          <span class="s-marker">loop closed</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== AI QA =========================== -->
+<section class="qa section-pad" id="qa">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow-num">03 / Lead QA</span>
+        <h2>AI-assisted lead QA. Human-reviewed delivery.</h2>
+      </div>
+      <p class="lead">AI helps triage mismatches and QA risk before delivery. Humans remain the quality gate. Each record carries the trace of both.</p>
+    </div>
+
+    <div class="qa-frame reveal">
+      <div class="qa-frame-head">
+        <span class="t">qa.pipeline · per_record</span>
+        <span class="meta">ai-assisted · human-reviewed</span>
+      </div>
+      <div class="qa-cols">
+        <div class="qa-col ai">
+          <h3><span class="role-tag">AI · assistive</span>flags</h3>
+          <ul class="qa-list">
+            <li><span class="ico">⌖</span><span>Title / function mismatch against the campaign's role model</span></li>
+            <li><span class="ico">⌖</span><span>Account, geo, industry, and company-size mismatch risk</span></li>
+            <li><span class="ico">⌖</span><span>Missing source, proof, or evidence fields per row</span></li>
+            <li><span class="ico">⌖</span><span>Duplicate or stale-record risk against suppression and prior batches</span></li>
+            <li><span class="ico">⌖</span><span>Template-formatting gaps before the vendor template is applied</span></li>
+            <li><span class="ico">⌖</span><span>Prioritises which records most need a manual check</span></li>
           </ul>
         </div>
-        <div class="timeline" aria-label="Fulfilment model">
-          <div class="timeline-row"><strong>Campaign intake</strong><span>ICP, region, account list, titles, asset, channel, template, suppression rules.</span><span class="state review">Required</span></div>
-          <div class="timeline-row"><strong>Approved sourcing</strong><span>Only approved sources and tools; source path/date captured for review.</span><span class="state review">Scoped</span></div>
-          <div class="timeline-row"><strong>Verification</strong><span>Email status, title fit, current-role confidence, company/domain checks.</span><span class="state ok">QA</span></div>
-          <div class="timeline-row"><strong>Formatting</strong><span>Vendor/client field map, required fields, dedupe, QA notes, delivery file.</span><span class="state ok">Batch</span></div>
-          <div class="timeline-row"><strong>Replacement loop</strong><span>Rejection reasons tracked; replacements linked back to original records.</span><span class="state review">Feedback</span></div>
+        <div class="div" aria-hidden="true"></div>
+        <div class="qa-col human">
+          <h3><span class="role-tag">Human · gate</span>decides</h3>
+          <ul class="qa-list">
+            <li><span class="ico">✓</span><span>Whether low-confidence records pass, fail, or need further review</span></li>
+            <li><span class="ico">✓</span><span>Whether source and channel assumptions for the campaign are clear enough</span></li>
+            <li><span class="ico">✓</span><span>Whether a batch is ready for delivery — or held back</span></li>
+            <li><span class="ico">✓</span><span>How rejection patterns from prior rounds change the QA rules going forward</span></li>
+            <li><span class="ico">✓</span><span>When telemarketing-assisted verification is in scope and approved</span></li>
+            <li><span class="ico">✓</span><span>Sign-off on the vendor template before handover</span></li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="wrap" id="qa">
-      <div class="ai-box">
-        <div class="section-head" style="margin-bottom: 10px;">
-          <h2>AI-assisted lead QA. Human-reviewed delivery.</h2>
-          <p class="lede">The AI angle is practical: catch questionable records before a vendor has to reject them. AI helps triage risk; humans keep the quality gate.</p>
-        </div>
-        <div class="split-list">
-          <div class="card">
-            <h3>AI helps flag</h3>
-            <ul>
-              <li>Title/function mismatch risk.</li>
-              <li>Account, geo, industry, and company-size mismatch risk.</li>
-              <li>Missing source/proof fields.</li>
-              <li>Duplicate or stale-record risk.</li>
-              <li>Template-formatting gaps.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Humans decide</h3>
-            <ul>
-              <li>Whether a low-confidence record passes, fails, or needs review.</li>
-              <li>Whether legal/source/channel assumptions are clear enough to proceed.</li>
-              <li>Whether a batch is ready for vendor/client delivery.</li>
-              <li>How rejection patterns change the QA rules.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="field-cloud" aria-label="Example delivery evidence fields">
-          <span>campaign_id</span><span>vendor_template_id</span><span>job_title</span><span>company_domain</span><span>email_verification_status</span><span>source_system</span><span>source_date</span><span>linkedin_url</span><span>asset_used</span><span>suppression_status</span><span>qa_status</span><span>replacement_status</span>
-        </div>
+<!-- =========================== EVIDENCE =========================== -->
+<section class="evidence section-pad" id="evidence">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow-num">04 / Evidence</span>
+        <h2>Every row carries the trace of how it got there.</h2>
       </div>
-    </section>
+      <p class="lead">An operational view of the fields Demand Range writes per record. The exact schema is mapped to your vendor or client template before delivery.</p>
+    </div>
 
-    <section class="wrap" id="fit-use">
-      <div class="grid">
-        <article class="card"><h3>Where Demand Range fits</h3><p>Content syndication, CPL/MQL programmes, asset-led outreach, strict campaign briefs, and vendors that want cleaner delivery without adding permanent fulfilment headcount.</p></article>
-        <article class="card"><h3>Where we should say no</h3><p>Guaranteed appointments, BANT-only telemarketing, low-quality scraping, unclear source permissions, unsupported regions/channels, or campaigns without suppression/legal-review clarity.</p></article>
-        <article class="card"><h3>First pilot motion</h3><p>Send a sample campaign spec, target criteria, asset, delivery template, region/channel assumptions, and acceptance/replacement rules. We will call fit, partial fit, or not fit.</p></article>
-      </div>
-    </section>
-
-    <section class="wrap" id="compliance">
-      <div class="compliance">
-        <div class="section-head" style="margin-bottom: 0;">
-          <h2>Compliance controls in the workflow — not bolted on after delivery.</h2>
-          <div>
-            <p class="lede">Demand Range is being built as an Ireland-based operator that treats named B2B contact data as personal data. Campaign intake is designed to capture region, channel, role model, approved sources, suppression instructions, evidence fields, retention/deletion rules, and legal-review status before live fulfilment.</p>
-            <p class="micro">Operational readiness language only. This is not legal advice, not a compliance guarantee, and not a claim of counsel-reviewed GDPR compliance.</p>
-          </div>
+    <div class="schema reveal">
+      <div class="schema-head">
+        <div class="lhs"><span>schema</span><span class="name">per_record</span><span>· 15 fields</span></div>
+        <div class="rhs">
+          <span class="legend req"><i></i>required</span>
+          <span class="legend cond"><i></i>conditional</span>
+          <span class="legend opt"><i></i>optional</span>
         </div>
       </div>
-    </section>
-
-    <section class="wrap" id="fit">
-      <div class="callout">
-        <div>
-          <h2>Have a campaign spec that needs cleaner fulfilment?</h2>
-          <p class="lede">Send the audience criteria, region, asset, delivery template, and required proof fields. We will tell you where Demand Range is likely to fit — and where it is not.</p>
-        </div>
-        <a class="button" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request fit check</a>
+      <div class="schema-grid">
+        <div class="field" data-tier="req"><span class="field-key">campaign_id</span><span class="field-desc">Internal campaign reference and tranche.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">vendor_template_id</span><span class="field-desc">Mapped to your delivery template version.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">name</span><span class="field-desc">Named B2B contact, treated as personal data.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">job_title</span><span class="field-desc">Title as captured; mapped against role model.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">company</span><span class="field-desc">Account name aligned to filter criteria.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">company_domain</span><span class="field-desc">Verified domain match against the contact.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">email_verification_status</span><span class="field-desc">Result and method of verification.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">source_system</span><span class="field-desc">Approved sourcing tool or attested source.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">source_date</span><span class="field-desc">When the underlying record was captured.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="opt"><span class="field-key">linkedin_url</span><span class="field-desc">Where appropriate, for role context.</span><span class="field-tier">optional</span></div>
+        <div class="field" data-tier="cond"><span class="field-key">asset_used</span><span class="field-desc">Asset associated with the engagement.</span><span class="field-tier">conditional</span></div>
+        <div class="field" data-tier="req"><span class="field-key">delivery_timestamp</span><span class="field-desc">When the row was released to the batch.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">suppression_status</span><span class="field-desc">Checked against campaign suppression rules.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="req"><span class="field-key">qa_status</span><span class="field-desc">pass · review · fail — with reviewer trace.</span><span class="field-tier">required</span></div>
+        <div class="field" data-tier="cond"><span class="field-key">replacement_status</span><span class="field-desc">For replacement batches — which row it replaces.</span><span class="field-tier">conditional</span></div>
       </div>
-      <div style="height: 18px"></div>
-      <div class="form-card" aria-label="Fit-check form mockup">
-        <h3>Fit-check intake preview</h3>
-        <p class="micro">Do not submit live lead files or sensitive personal data through the public form.</p>
-        <div class="form-grid">
-          <div class="input">Name</div>
-          <div class="input">Work email</div>
-          <div class="input">Company</div>
-          <div class="input">Role</div>
-          <div class="input">Campaign region</div>
-          <div class="input">Estimated volume</div>
-          <div class="input wide">Audience/title filters, asset status, delivery template, required proof fields, and notes</div>
-        </div>
-        <p class="privacy">By submitting, you agree that Demand Range may use the information provided to respond to this enquiry. Do not submit live lead files or sensitive personal data through this form.</p>
-      </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <footer class="wrap footer">
-    <div><strong>Demand Range</strong><br />Wholesale / white-label MQL and content-syndication fulfilment for approved B2B demand programmes.</div>
-    <div><a href="mailto:partners@demandrange.com">partners@demandrange.com</a> · demandrange.com · Ireland-based operations<br /><span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
-  </footer>
+<!-- =========================== FIT / NO-FIT =========================== -->
+<section class="fit section-pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow-num">05 / Fit</span>
+        <h2>Where Demand Range fits — and where we'll say no.</h2>
+      </div>
+      <p class="lead">We're useful for a specific shape of work. Being explicit about the boundary is part of why partners keep coming back.</p>
+    </div>
+
+    <div class="fit-layout">
+      <div class="fit-card yes reveal">
+        <div class="fit-head">
+          <span class="role-tag">Fits</span>
+          <h3>Where Demand Range fits</h3>
+        </div>
+        <ul class="fit-list">
+          <li>Overflow fulfilment for sold MQL and content-syndication campaigns</li>
+          <li>Hard-to-fill geo, title, account, seniority, or industry specs</li>
+          <li>QA-heavy vendor and client delivery templates</li>
+          <li>Replacement batches after rejection-pattern review</li>
+          <li>Pilot batches where quality needs proving before scale</li>
+        </ul>
+      </div>
+      <div class="fit-card no reveal d1">
+        <div class="fit-head">
+          <span class="role-tag">No fit</span>
+          <h3>Where we'll say no</h3>
+        </div>
+        <ul class="fit-list">
+          <li>Guaranteed appointments or BANT-only telemarketing programmes</li>
+          <li>Low-quality scraping or blind volume plays</li>
+          <li>Unclear source permissions or unverifiable channels</li>
+          <li>Unsupported regions or channels for the campaign</li>
+          <li>Campaigns without suppression clarity at intake</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== CTA =========================== -->
+<section class="cta section-pad" id="fit-check">
+  <div class="wrap cta-layout">
+    <div class="cta-copy reveal">
+      <span class="eyebrow-num">06 / Fit check</span>
+      <h2>Have a campaign spec that needs cleaner fulfilment?</h2>
+      <p class="lead">Send the audience criteria, region, asset, delivery template, and required proof fields. We'll tell you where Demand Range is likely to fit — and where it is not.</p>
+      <div class="cta-buttons">
+        <a class="btn btn-primary btn-arrow" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request a fulfilment fit check</a>
+        <a class="btn btn-ghost btn-mono" href="mailto:partners@demandrange.com?subject=Demand%20Range%20partner%20enquiry">partners@demandrange.com</a>
+      </div>
+      <p class="cta-note">Replies typically include a short read on fit, the spec areas we'd need to clarify, and which parts of the delivery model are likely to apply.</p>
+    </div>
+
+    <form class="intake reveal d1" aria-label="Fit-check intake preview" onsubmit="return false;">
+      <div class="intake-head">
+        <span>intake.preview · fit_check</span>
+        <span class="right">visual only · not connected</span>
+      </div>
+      <div class="intake-body">
+        <div class="row"><span class="intake-label">name</span><span class="intake-field placeholder">Full name</span></div>
+        <div class="row"><span class="intake-label">work_email</span><span class="intake-field placeholder">name@company.com</span></div>
+        <div class="row"><span class="intake-label">company</span><span class="intake-field placeholder">Company / network</span></div>
+        <div class="row"><span class="intake-label">role</span><span class="intake-field placeholder">Supplier partnerships / DG ops</span></div>
+        <div class="row"><span class="intake-label">campaign_region</span><span class="intake-field placeholder">EMEA · UK · NA · other</span></div>
+        <div class="row"><span class="intake-label">est_volume</span><span class="intake-field placeholder">~250 / 1k / 5k / pilot</span></div>
+        <div class="row full"><span class="intake-label">audience_filters · asset · template · proof_fields · notes</span><span class="intake-field area placeholder">Title and seniority filters, account or industry filters, asset status, delivery template, required proof fields, and any spec notes.</span></div>
+      </div>
+      <div class="intake-foot">
+        <span class="note">Do not submit live lead files or sensitive personal data through the public form.</span>
+        <a class="btn btn-primary btn-arrow" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check&body=Audience%20criteria%3A%0ARegion%3A%0AAsset%20status%3A%0ADelivery%20template%3A%0ARequired%20proof%20fields%3A%0ANotes%3A">Send via email</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================== FOOTER =========================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="7" stroke="#272a33"/>
+            <path d="M7 11 V 21" stroke="#4ad093" stroke-width="1.8" stroke-linecap="square"/>
+            <path d="M25 11 V 21" stroke="#4ad093" stroke-width="1.8" stroke-linecap="square"/>
+            <path d="M7 16 H 25" stroke="#353944" stroke-width="1.4"/>
+            <circle cx="19" cy="16" r="3" fill="#070809" stroke="#4ad093" stroke-width="1.8"/>
+            <circle cx="19" cy="16" r="1.1" fill="#4ad093"/>
+          </svg>
+          <span class="brand-name"><b>Demand</b> Range</span>
+        </a>
+        <p>Wholesale / white-label MQL and content-syndication fulfilment for approved B2B demand programmes.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Programme</h4>
+        <a href="#how">How it works</a>
+        <a href="#qa">Lead QA</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#fit-check">Fit check</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:partners@demandrange.com">partners@demandrange.com</a>
+        <span>demandrange.com</span>
+      </div>
+      <div class="foot-col">
+        <h4>Notices</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Demand Range</span>
+      <span>White-label fulfilment for demand-generation vendors</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Trigger hero entry sequence
+  document.documentElement.classList.add('h-loaded');
+
+  // Year
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = String(new Date().getFullYear());
+
+  // Sticky nav blur on scroll
+  var nav = document.getElementById('nav');
+  var onScroll = function(){
+    if (!nav) return;
+    if (window.scrollY > 6) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  var burger = document.querySelector('.nav-burger');
+  if (burger) {
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    document.querySelectorAll('.nav-mobile a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-label','Open menu');
+      });
+    });
+  }
+
+  // Reveal-on-scroll
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in-view'); });
+  }
+})();
+</script>
 </body>
 </html>
