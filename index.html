@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demand Range — White-label MQL fulfilment for demand-generation vendors</title>
+  <!-- Publish checklist: confirm domain, mailbox, privacy/legal review, and Sean approval before uploading. -->
+  <meta name="description" content="Demand Range supports demand-generation and content-syndication vendors with AI-assisted lead QA, human-reviewed delivery, source provenance, and vendor-template-ready MQL fulfilment." />
+  <style>
+    :root {
+      --bg: #080c12;
+      --bg-2: #0d131d;
+      --panel: #111a26;
+      --panel-2: #151f2e;
+      --ink: #f5efe4;
+      --muted: #b4bfce;
+      --soft: #d9e2ef;
+      --line: rgba(216, 226, 239, 0.14);
+      --line-strong: rgba(216, 226, 239, 0.24);
+      --accent: #69d2c3;
+      --accent-2: #7ba7ff;
+      --gold: #d8b46a;
+      --danger: #ff867a;
+      --success: #84d99b;
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1180px;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(105, 210, 195, 0.14), transparent 30%),
+        radial-gradient(circle at 82% 6%, rgba(123, 167, 255, 0.12), transparent 28%),
+        linear-gradient(180deg, var(--bg), #070a10 42%, #090d14);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: 999px; z-index: 20; }
+    .skip:focus { left: 8px; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 76px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 12, 18, 0.74);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; letter-spacing: 0.01em; }
+    .mark {
+      width: 36px; height: 36px; border-radius: 13px;
+      background:
+        linear-gradient(135deg, rgba(105,210,195,0.95), rgba(123,167,255,0.72) 42%, rgba(216,180,106,0.92)),
+        #17202e;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22), 0 16px 42px rgba(105,210,195,0.18);
+    }
+    .navlinks { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover, .navlinks a:focus { color: var(--ink); outline: none; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 46px; padding: 12px 18px; border-radius: 999px;
+      text-decoration: none; font-weight: 720;
+      border: 1px solid rgba(245,239,228,0.18);
+      background: var(--ink); color: #0b0f17;
+      box-shadow: 0 16px 45px rgba(245,239,228,0.10);
+    }
+    .button.secondary { background: rgba(255,255,255,0.04); color: var(--ink); box-shadow: none; }
+    .button:hover, .button:focus { transform: translateY(-1px); outline: 2px solid rgba(105,210,195,0.35); outline-offset: 3px; }
+
+    .hero { padding: 84px 0 62px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-weight: 800; font-size: 12px; }
+    h1, h2, h3 { margin: 0; line-height: 1.02; }
+    h1 { margin-top: 16px; font-size: clamp(46px, 7vw, 84px); letter-spacing: -0.065em; text-wrap: balance; }
+    .hero p { margin: 24px 0 0; color: var(--soft); max-width: 760px; font-size: clamp(18px, 2vw, 21px); }
+    .cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .micro { margin-top: 18px; color: var(--muted); font-size: 14px; max-width: 620px; }
+
+    .proof-panel {
+      border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 24px;
+      background: linear-gradient(180deg, rgba(21,31,46,0.94), rgba(13,19,29,0.97));
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .proof-panel:before {
+      content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 28px 28px; mask-image: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 90%); pointer-events: none;
+    }
+    .panel-top { position: relative; display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 18px; }
+    .panel-title { font-weight: 800; }
+    .badge { border: 1px solid rgba(105,210,195,0.38); color: #baf6ed; border-radius: 999px; padding: 7px 10px; font-size: 12px; background: rgba(105,210,195,0.08); }
+    .steps { position: relative; display: grid; gap: 12px; }
+    .step { display: grid; grid-template-columns: 38px 1fr auto; gap: 13px; align-items: center; padding: 14px; border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; background: rgba(255,255,255,0.035); }
+    .num { width: 38px; height: 38px; border-radius: 14px; display: grid; place-items: center; font-weight: 850; color: #061014; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+    .step strong { display: block; margin-bottom: 3px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .tag { color: var(--gold); border: 1px solid rgba(216,180,106,0.3); background: rgba(216,180,106,0.08); padding: 6px 9px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+
+    .strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px auto 0; }
+    .strip div { border: 1px solid var(--line); border-radius: 999px; padding: 10px 12px; color: var(--muted); text-align: center; font-size: 13px; background: rgba(255,255,255,0.025); }
+
+    section { padding: 78px 0; }
+    .section-head { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; align-items: start; margin-bottom: 30px; }
+    h2 { font-size: clamp(34px, 4.8vw, 58px); letter-spacing: -0.045em; text-wrap: balance; }
+    .lede { margin: 0; color: var(--soft); font-size: 18px; max-width: 760px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)); }
+    .card h3 { font-size: 20px; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .card p, .card li { color: var(--muted); }
+    .card ul { margin: 12px 0 0; padding-left: 18px; }
+    .card li + li { margin-top: 8px; }
+
+    .model { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: stretch; }
+    .timeline { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,0.03); padding: 12px; }
+    .timeline-row { display: grid; grid-template-columns: 150px 1fr 110px; gap: 12px; align-items: center; padding: 14px; border-radius: 16px; }
+    .timeline-row + .timeline-row { border-top: 1px solid rgba(255,255,255,0.08); }
+    .timeline-row strong { color: var(--ink); }
+    .timeline-row span { color: var(--muted); font-size: 14px; }
+    .state { text-align: center; border-radius: 999px; padding: 7px 8px; font-size: 12px; border: 1px solid rgba(255,255,255,0.12); color: var(--soft); }
+    .state.ok { color: #c9f8d5; border-color: rgba(132,217,155,0.35); background: rgba(132,217,155,0.08); }
+    .state.review { color: #ffe4aa; border-color: rgba(216,180,106,0.35); background: rgba(216,180,106,0.08); }
+
+    .ai-box { border: 1px solid rgba(105,210,195,0.28); background: linear-gradient(135deg, rgba(105,210,195,0.10), rgba(123,167,255,0.07) 50%, rgba(255,255,255,0.025)); border-radius: var(--radius); padding: 28px; }
+    .split-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+    .field-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .field-cloud span { border: 1px solid var(--line); color: var(--muted); background: rgba(255,255,255,0.028); border-radius: 999px; padding: 8px 11px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+
+    .compliance { border: 1px solid rgba(216,180,106,0.28); border-radius: var(--radius); background: rgba(216,180,106,0.055); padding: 26px; }
+    .callout { border-radius: var(--radius); padding: 32px; background: linear-gradient(135deg, rgba(245,239,228,0.10), rgba(105,210,195,0.08)); border: 1px solid var(--line-strong); display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+
+    .form-card { border: 1px solid var(--line-strong); border-radius: var(--radius); background: rgba(17,26,38,0.92); padding: 22px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .input { min-height: 48px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 13px 14px; color: var(--muted); background: rgba(255,255,255,0.035); }
+    .input.wide { grid-column: 1 / -1; min-height: 92px; }
+    .privacy { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+    .footer { padding: 34px 0 48px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
+    .footer a { text-decoration: none; color: var(--soft); }
+    .footer-links { color: var(--gold); }
+
+    @media (max-width: 940px) {
+      .hero, .section-head, .model, .callout { grid-template-columns: 1fr; }
+      .grid, .strip { grid-template-columns: 1fr; }
+      .nav { position: static; }
+      .navlinks a:not(.button) { display: none; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .split-list { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *:before, *:after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap nav" aria-label="Primary navigation">
+    <a href="#top" class="brand" aria-label="Demand Range home"><span class="mark" aria-hidden="true"></span><span>Demand Range</span></a>
+    <nav class="navlinks" aria-label="Site sections">
+      <a href="#model">How it works</a>
+      <a href="#qa">Lead QA</a>
+      <a href="#compliance">Compliance posture</a>
+      <a href="#fit" class="button">Request fit check</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="wrap hero">
+      <div>
+        <div class="eyebrow">White-label MQL fulfilment for demand-generation vendors</div>
+        <h1>Cleaner delivery for the campaigns your network struggles to fill.</h1>
+        <p>Demand Range supports B2B demand-generation vendors with asset-led outreach, verified contact data, AI-assisted lead QA, human-reviewed batches, source provenance, and vendor-template delivery.</p>
+        <div class="cta">
+          <a class="button" href="mailto:partners@demandrange.com?subject=Fulfilment%20fit%20check">Request a fulfilment fit check</a>
+          <a class="button secondary" href="#model">See the delivery model</a>
+        </div>
+        <div class="micro">Built for overflow, constrained specs, QA-heavy templates, and audit-friendly campaign operations. Built for partner-led fit checks against real campaign specs. No live lead files should be sent through the public site.</div>
+      </div>
+
+      <aside class="proof-panel" aria-label="Demand Range delivery proof trail">
+        <div class="panel-top">
+          <div class="panel-title">RangeCheck QA flow</div>
+          <div class="badge">AI-assisted • human-reviewed</div>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="num">01</div><div><strong>Fit-check the spec</strong><span>ICP, accounts, titles, geos, asset, template, exclusions, legal gates.</span></div><div class="tag">Intake</div></div>
+          <div class="step"><div class="num">02</div><div><strong>Source and verify</strong><span>Approved sources, role confidence, email status, current-company checks.</span></div><div class="tag">Evidence</div></div>
+          <div class="step"><div class="num">03</div><div><strong>Risk-triage records</strong><span>AI-assisted checks flag fit, dedupe, source, and template issues before delivery.</span></div><div class="tag">QA</div></div>
+          <div class="step"><div class="num">04</div><div><strong>Deliver clean batches</strong><span>Vendor/client template, proof fields, QA status, replacement loop.</span></div><div class="tag">Batch</div></div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="wrap strip" aria-label="Credibility strip">
+      <div>White-label support</div>
+      <div>Vendor-template delivery</div>
+      <div>Source provenance</div>
+      <div>QA before batch delivery</div>
+      <div>Replacement tracking</div>
+    </div>
+
+    <section class="wrap" id="problem">
+      <div class="section-head">
+        <h2>Overflow fulfilment gets risky when quality control is thin.</h2>
+        <p class="lede">Vendors need extra capacity for tight account, title, geo, and client-template specs — but weak external fulfilment creates rejection risk, operational drag, and uncomfortable questions about where each record came from.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><h3>Hard-to-fill specs</h3><p>Tight geos, senior titles, account lists, niche industries, and short delivery windows need controlled fulfilment, not broad scraping.</p></article>
+        <article class="card"><h3>Messy lead data</h3><p>Wrong titles, stale roles, generic inboxes, duplicate records, and weak verification slow campaign teams down.</p></article>
+        <article class="card"><h3>Weak proof trails</h3><p>Vendors need source, date, verification, asset, suppression, QA, and replacement evidence that can survive review.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="model">
+      <div class="section-head">
+        <h2>A controlled fulfilment layer behind your demand programmes.</h2>
+        <p class="lede">Demand Range is designed to support vendor delivery teams, not replace their platform, network, or client relationship. The motion is simple: review the spec, confirm what is allowed, deliver clean batches, and close the rejection loop.</p>
+      </div>
+      <div class="model">
+        <div class="card">
+          <h3>Best-fit use cases</h3>
+          <ul>
+            <li>Overflow fulfilment for sold MQL/content-syndication campaigns.</li>
+            <li>Hard-to-fill geo, title, account, seniority, or industry specs.</li>
+            <li>QA-heavy vendor/client delivery templates.</li>
+            <li>Replacement batches after rejection-pattern review.</li>
+            <li>Pilot batches where quality needs proving before scale.</li>
+          </ul>
+        </div>
+        <div class="timeline" aria-label="Fulfilment model">
+          <div class="timeline-row"><strong>Campaign intake</strong><span>ICP, region, account list, titles, asset, channel, template, suppression rules.</span><span class="state review">Required</span></div>
+          <div class="timeline-row"><strong>Approved sourcing</strong><span>Only approved sources and tools; source path/date captured for review.</span><span class="state review">Scoped</span></div>
+          <div class="timeline-row"><strong>Verification</strong><span>Email status, title fit, current-role confidence, company/domain checks.</span><span class="state ok">QA</span></div>
+          <div class="timeline-row"><strong>Formatting</strong><span>Vendor/client field map, required fields, dedupe, QA notes, delivery file.</span><span class="state ok">Batch</span></div>
+          <div class="timeline-row"><strong>Replacement loop</strong><span>Rejection reasons tracked; replacements linked back to original records.</span><span class="state review">Feedback</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="qa">
+      <div class="ai-box">
+        <div class="section-head" style="margin-bottom: 10px;">
+          <h2>AI-assisted lead QA. Human-reviewed delivery.</h2>
+          <p class="lede">The AI angle is practical: catch questionable records before a vendor has to reject them. AI helps triage risk; humans keep the quality gate.</p>
+        </div>
+        <div class="split-list">
+          <div class="card">
+            <h3>AI helps flag</h3>
+            <ul>
+              <li>Title/function mismatch risk.</li>
+              <li>Account, geo, industry, and company-size mismatch risk.</li>
+              <li>Missing source/proof fields.</li>
+              <li>Duplicate or stale-record risk.</li>
+              <li>Template-formatting gaps.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Humans decide</h3>
+            <ul>
+              <li>Whether a low-confidence record passes, fails, or needs review.</li>
+              <li>Whether legal/source/channel assumptions are clear enough to proceed.</li>
+              <li>Whether a batch is ready for vendor/client delivery.</li>
+              <li>How rejection patterns change the QA rules.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="field-cloud" aria-label="Example delivery evidence fields">
+          <span>campaign_id</span><span>vendor_template_id</span><span>job_title</span><span>company_domain</span><span>email_verification_status</span><span>source_system</span><span>source_date</span><span>linkedin_url</span><span>asset_used</span><span>suppression_status</span><span>qa_status</span><span>replacement_status</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="fit-use">
+      <div class="grid">
+        <article class="card"><h3>Where Demand Range fits</h3><p>Content syndication, CPL/MQL programmes, asset-led outreach, strict campaign briefs, and vendors that want cleaner delivery without adding permanent fulfilment headcount.</p></article>
+        <article class="card"><h3>Where we should say no</h3><p>Guaranteed appointments, BANT-only telemarketing, low-quality scraping, unclear source permissions, unsupported regions/channels, or campaigns without suppression/legal-review clarity.</p></article>
+        <article class="card"><h3>First pilot motion</h3><p>Send a sample campaign spec, target criteria, asset, delivery template, region/channel assumptions, and acceptance/replacement rules. We will call fit, partial fit, or not fit.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="compliance">
+      <div class="compliance">
+        <div class="section-head" style="margin-bottom: 0;">
+          <h2>Compliance controls in the workflow — not bolted on after delivery.</h2>
+          <div>
+            <p class="lede">Demand Range is being built as an Ireland-based operator that treats named B2B contact data as personal data. Campaign intake is designed to capture region, channel, role model, approved sources, suppression instructions, evidence fields, retention/deletion rules, and legal-review status before live fulfilment.</p>
+            <p class="micro">Operational readiness language only. This is not legal advice, not a compliance guarantee, and not a claim of counsel-reviewed GDPR compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="fit">
+      <div class="callout">
+        <div>
+          <h2>Have a campaign spec that needs cleaner fulfilment?</h2>
+          <p class="lede">Send the audience criteria, region, asset, delivery template, and required proof fields. We will tell you where Demand Range is likely to fit — and where it is not.</p>
+        </div>
+        <a class="button" href="mailto:partners@demandrange.com?subject=Demand%20Range%20fit%20check">Request fit check</a>
+      </div>
+      <div style="height: 18px"></div>
+      <div class="form-card" aria-label="Fit-check form mockup">
+        <h3>Fit-check intake preview</h3>
+        <p class="micro">Do not submit live lead files or sensitive personal data through the public form.</p>
+        <div class="form-grid">
+          <div class="input">Name</div>
+          <div class="input">Work email</div>
+          <div class="input">Company</div>
+          <div class="input">Role</div>
+          <div class="input">Campaign region</div>
+          <div class="input">Estimated volume</div>
+          <div class="input wide">Audience/title filters, asset status, delivery template, required proof fields, and notes</div>
+        </div>
+        <p class="privacy">By submitting, you agree that Demand Range may use the information provided to respond to this enquiry. Do not submit live lead files or sensitive personal data through this form.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div><strong>Demand Range</strong><br />Wholesale / white-label MQL and content-syndication fulfilment for approved B2B demand programmes.</div>
+    <div><a href="mailto:partners@demandrange.com">partners@demandrange.com</a> · demandrange.com · Ireland-based operations<br /><span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
+  </footer>
+</body>
+</html>
