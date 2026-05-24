@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Demand Range favicon">
+  <rect width="64" height="64" rx="14" fill="#070809"/>
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="none" stroke="#272a33" stroke-width="2"/>
+  <path d="M15 22v20M49 22v20" stroke="#4ad093" stroke-width="4" stroke-linecap="square"/>
+  <path d="M15 32h34" stroke="#353944" stroke-width="3"/>
+  <circle cx="38" cy="32" r="8" fill="#070809" stroke="#4ad093" stroke-width="4"/>
+  <circle cx="38" cy="32" r="3" fill="#4ad093"/>
+</svg>
