@@ -1,25 +1,36 @@
 # Demand Range website
 
-Static GitHub Pages site for `demandrange.com`.
+Dependency-free static GitHub Pages site for `demandrange.com`, positioned around analyst-led Industrial Opportunity Intelligence.
 
-Files:
+## Routes
+
 - `index.html` — homepage
-- `privacy.html` — website privacy notice
-- `cookies.html` — cookie notice / no non-essential cookies posture
-- `terms.html` — legal notice / terms
-- `robots.txt` — crawler policy pointing to sitemap
-- `sitemap.xml` — public sitemap for the homepage
-- `favicon.svg` — lightweight Demand Range favicon
-- `CNAME` — custom domain for GitHub Pages
+- `opportunity-intelligence.html` — core intelligence service
+- `campaign-activation.html` — human-reviewed activation approach
+- `pumps-flow-control.html` — initial pumps, valves and flow-control wedge
+- `methodology.html` — evidence, scoring and data principles
+- `sample-opportunity.html` — clearly fictional opportunity brief
+- `about.html` — company direction and staged build model
+- `contact.html` — non-transmitting mailto contact route
+- `privacy.html`, `cookies.html`, `terms.html` — legal notices
 
-Deployment:
-- GitHub Pages source: `main` branch, `/` root
-- Custom domain: `demandrange.com`
+Shared presentation is in `styles.css`; `build_site.py` regenerates the 11 HTML routes. The site uses no external fonts, scripts, analytics, tracking, transmitting forms or embeds.
 
-Operational note: live campaign work, outbound activity, and mailbox setup remain separate from this static website deployment.
+## Local build and checks
 
-Pre-deploy checks:
-- Parse `index.html`, `privacy.html`, `cookies.html`, and `terms.html`.
-- Scan for placeholder/rough copy, Cloudflare email-protection artifacts, unapproved guarantees, and overbroad compliance claims.
-- Verify internal anchors, privacy/cookies/terms links, canonical URL, favicon, robots, sitemap, and `mailto:partners@demandrange.com` CTAs.
-- Push only after reviewing the git diff, then verify the live `https://demandrange.com/` endpoint and GitHub Pages state.
+```bash
+python3 build_site.py
+python3 qa_static.py
+python3 -m http.server 8000
+```
+
+Open `http://127.0.0.1:8000/` for local rendering. Review `IMPLEMENTATION_NOTES.md` for the route map, claims gate, rollback and recorded test evidence.
+
+## Deployment mechanics
+
+- GitHub Pages source remains the repository root.
+- `CNAME` remains `demandrange.com`.
+- `.nojekyll` remains present.
+- `robots.txt` and `sitemap.xml` describe the static routes.
+
+No deployment, DNS or public action should occur without explicit publication approval and a final legal/commercial review.
