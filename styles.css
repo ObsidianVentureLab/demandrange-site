@@ -105,7 +105,7 @@ li + li { margin-top: .55rem; }
 .hero { position: relative; padding: clamp(68px, 10vw, 132px) 0 clamp(72px, 9vw, 112px); isolation: isolate; overflow: hidden; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: linear-gradient(rgba(16,37,44,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(16,37,44,.04) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, black 0%, transparent 78%); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: clamp(40px, 6vw, 84px); align-items: center; }
-.hero-copy h1 { max-width: 16ch; margin-top: 22px; }
+.hero-copy h1 { max-width: 21ch; margin-top: 22px; font-size: clamp(2.3rem, 4.6vw, 3.7rem); }
 .hero-copy .lede { margin-top: 25px; }
 .hero-copy .actions { margin-top: 32px; }
 .hero-note { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 24px; color: var(--muted); font: 600 .72rem/1.45 var(--mono); }
