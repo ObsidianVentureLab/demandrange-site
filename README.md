@@ -7,30 +7,36 @@ Dependency-free static GitHub Pages site for `demandrange.com`, positioned aroun
 - `index.html` — homepage
 - `opportunity-intelligence.html` — core intelligence service
 - `campaign-activation.html` — human-reviewed activation approach
-- `pumps-flow-control.html` — initial pumps, valves and flow-control wedge
+- `markets.html` — industrial markets
 - `methodology.html` — evidence, scoring and data principles
-- `sample-opportunity.html` — clearly fictional opportunity brief
+- `sample-opportunity.html` — clearly fictional opportunity brief and downloadable PDF
 - `about.html` — company direction and staged build model
-- `contact.html` — non-transmitting mailto contact route
+- `contact.html` — email contact route; no transmitting form
 - `privacy.html`, `cookies.html`, `terms.html` — legal notices
+- `404.html` — branded missing-page response
+- `pumps-flow-control.html` — retained redirect to Markets
 
-Shared presentation is in `styles.css`; `build_site.py` regenerates the 11 HTML routes. The site uses no external fonts, scripts, analytics, tracking, transmitting forms or embeds.
+## Source and checks
 
-## Local build and checks
+This repository contains generated public files only. The maintained source,
+`build_site.py` generator and QA tools are in the internal site-tooling workspace,
+not this public repository. Do not hand-edit generated HTML/CSS.
 
-```bash
-python3 build_site.py
-python3 qa_static.py
-python3 -m http.server 8000
-```
+The September 2026 redesign uses system fonts and local assets. Two small inline
+scripts provide an optional light/dark toggle. The `dr-theme` preference is saved
+locally only after the visitor uses the toggle. No analytics, advertising tags,
+third-party scripts, transmitting forms or embeds are installed.
 
-Open `http://127.0.0.1:8000/` for local rendering. Review `IMPLEMENTATION_NOTES.md` for the route map, claims gate, rollback and recorded test evidence.
+Before publication: rebuild from source, check all routes and anchors, validate
+desktop/mobile layouts in both themes, exercise menu/theme interactions, and
+verify the downloaded sample remains a clearly fictional demonstration.
 
-## Deployment mechanics
+## Deployment
 
-- GitHub Pages source remains the repository root.
-- `CNAME` remains `demandrange.com`.
-- `.nojekyll` remains present.
-- `robots.txt` and `sitemap.xml` describe the static routes.
+GitHub Pages serves `main` at the repository root. `CNAME` remains
+`demandrange.com`; `.nojekyll`, the sitemap, old-route redirect, PDF, social image
+and `.well-known` policies are retained. Tooling and QA evidence stay private.
 
-No deployment, DNS or public action should occur without explicit publication approval and a final legal/commercial review.
+Publication requires owner approval and passing checks. After pushing, match the
+Pages build to the exact commit and verify production routes and content. Keep
+the prior production commit as the rollback point.
