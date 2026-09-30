@@ -1,0 +1,40 @@
+section,field,value,completion_guidance
+Brief,brief_id_version,,Use a fixed agreed brief/version; record changes rather than silently widening it.
+Brief,territory_rule,,Specify Republic of Ireland or another explicit geography and where work must occur.
+Brief,required_activity,,Name the actual making or packing action; do not enter only a product category.
+Brief,facility_operation_required,,yes / no / unresolved; performing work at a customer site does not establish facility operation.
+Brief,exclusion_reference,,Controlled company-level exclusion reference/version only; do not insert confidential lists.
+Identity,company_id,,Stable ID for the supported company being counted; reuse across its operation slices.
+Identity,company_name,,Company-level only; no people or contact details.
+Identity,company_relationship_status,,"resolved / unresolved / conflicting; separate brand, company, subsidiary and group."
+Identity,identity_evidence_refs,,References to the evidence records supporting the identity and relationships.
+Product,brand_or_product_label,,Optional supported brand/product reference; not legal trademark ownership.
+Product,brand_relationship,,manages_or_markets / explicitly_no_such_role / unknown; use supported relationship only.
+Product,brand_evidence_refs,,"Evidence for the particular company-to-brand relationship, not manufacturing."
+Operation,slice_id,,Unique company/site/activity slice; this is not a distinct-company count.
+Operation,product_family,,Product family supported for this operation; otherwise unknown.
+Operation,activity_verb,,Specific supported action; do not infer making from packing or packing from finished products.
+Operation,performing_company,,Who performs this activity? Use supported company or unresolved; do not invent a partner.
+Operation,activity_performer_evidence_refs,,Evidence tying the named action to the performing company.
+Operation,work_relationship,,own_product / other_businesses / both / unknown; not purchasing authority.
+Place,site_reference,,Supported site reference for this activity; no personal addresses or contact details.
+Place,activity_location,,"Supported territory/location of this action, not headquarters or sales coverage."
+Place,site_operator_relationship,,company_operates / other_company_operates / unknown / conflicting; not facility ownership.
+Place,site_and_operator_evidence_refs,,Evidence refs for activity location and operator; separate them if different sources.
+Evidence,source_url,,Exact URL for this evidence chain; use linked evidence records when several sources are needed.
+Evidence,source_publication_date,,Actual published date if established; unknown or undated is not a check date.
+Evidence,checked_at,,Actual retrieval/review timestamp with timezone; leave blank until checked.
+Evidence,source_use_status,,permitted_for_stated_use / unresolved / restricted; worksheet completion does not clear rights.
+Evidence,intended_use_and_terms_ref,,State internal/customer/public use and applicable source/item terms; do not assume parity.
+Evidence,permitted_observation,,Only an observation permitted for this use; leave blank while rights unresolved; no copied restricted text.
+Evidence,limitations_or_conflicts,,"What this source does not establish, stale/undated scope and any material contradiction."
+Segmentation,supported_roles,,make / fill_pack / brand_management combinations supported by this slice; not exclusive legal categories.
+Segmentation,activity_place_screen,,match / hold / out_of_scope; test this slice against the written brief.
+Segmentation,screen_reason,,"State supported rule, missing link or explicit contradiction; do not treat missing evidence as a negative fact."
+Acceptance,other_required_checks,,Identity/source-use/exclusions/other agreed checks: name unresolved items; no automatic pass.
+Acceptance,full_account_decision,,include / hold / exclude; separate from slice match and record company-level reason.
+Acceptance,full_account_reason,,Identify required checks and all relevant slices; include only if the full brief is satisfied.
+Unknowns,technical_and_purchasing_questions,,"Equipment/duty requirements, compatibility, specification and purchasing authority remain unknown unless separately established."
+Unknowns,project_research_status,,not_assessed_not_required / bounded_search_no_qualifying_signal / separately_evidenced_signal; keep signal evidence separate.
+Handover,next_verification_question,,One specific unresolved relationship or rule that would change the decision; not an outreach instruction.
+Handover,reviewed_at,,Actual review timestamp with timezone; blank until reviewed.
