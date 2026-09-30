@@ -1,0 +1,34 @@
+field,value,instructions
+usage_notice,,Educational blank worksheet; not source data or approval. Copy per field/event.
+event_id,,Your immutable review-event identifier; not a company count.
+company_id,,Stable company reference; leave unresolved identities unresolved.
+site_id,,Site reference only when attributable; do not substitute office for workshop.
+brief_version,,Written inclusion brief/version being reviewed.
+field_under_review,,"One exact assertion, such as activity at the workshop."
+previous_value,,Prior field value; preserve original record separately.
+previous_evidence_ref,,Minimal permitted reference to prior evidence.
+evidence_a_ref,,Minimal permitted source/item reference; no restricted content.
+evidence_a_assertion,,Only a permitted observation; leave blank if source use unresolved.
+evidence_a_publication_date,,Actual source publication date if known; otherwise blank.
+evidence_a_effective_period,,Period the assertion describes; do not infer from retrieval time.
+evidence_a_retrieved_at,,Actual check instant; never fabricate or use worksheet-generation time.
+evidence_b_ref,,Minimal permitted competing source/item reference.
+evidence_b_assertion,,Only a permitted observation; leave blank if source use unresolved.
+evidence_b_publication_date,,Known publication date or blank.
+evidence_b_effective_period,,Stated effective period or explain unknown.
+evidence_b_retrieved_at,,Actual check instant or blank.
+scope_comparison,,"Compare company, site, field and period; unknown is not matching."
+issue_labels,,stale / contradictory / missing / different_scope; more than one allowed.
+source_use_status,,Intended use and applicable source/item terms decision; unresolved blocks reuse.
+closure_question,,Exact missing fact or disagreement that must be answered.
+resolution_evidence_ref,,Separate reference to a correction or other closure evidence.
+resolution_attribution_check,,Verify the correction origin and authority for the exact disputed statement; attribution alone is not independent proof.
+superseded_evidence_ref,,Exact claim/reference superseded; preserve it in history.
+field_outcome,,unestablished / conflicting / supported / corrected; explain scope.
+new_value,,Supported replacement only; never auto-select the newest source.
+reason,,Why the field outcome follows; unresolved questions stay visible.
+account_decision,,retain / hold / correct / remove_from_active_list; manual separate decision.
+remaining_gates,,"Identity, fit, exclusions, source use and independent review still required."
+review_owner_role,,Internal role only; no personal contacts.
+next_check_or_trigger,,Specific next verification question or chosen trigger.
+review_due,,Only a genuinely assigned date; otherwise blank.
