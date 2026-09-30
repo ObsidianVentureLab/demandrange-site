@@ -1,0 +1,31 @@
+section,field,value,instructions
+Scope,brief_id,,Record the brief identifier; enter its version separately. Do not treat the fictional brief as an agreed service.
+Scope,brief_version,,"Exact agreed version; if a criterion changes, recheck all affected records before combining counts."
+Scope,input_batch_version,,Freeze the supplied batch version and original row IDs; do not overwrite the input.
+Scope,decision_policy,,"Record the agreed order. The supplied fiction uses duplicate, then unresolved hold, then positive-fail reject, then include. This hold-before-reject choice is pedagogical, not universal."
+Scope,accepted_unit,company,"Company; if site coverage is needed keep a linked site schedule, not extra accounts."
+Scope,activity_rule,,State the required production/activity and explicit failed activities.
+Scope,territory_rule,,"Define relevant operations and geography, not just postal presence."
+Scope,exclusions_owner,,Use an internal role rather than a personal contact in public copies.
+Scope,source_use_boundary,,"Record permitted review, retention and customer sharing separately; internal access is not customer-use permission. Unresolved intended use stays held; do not retain restricted source content."
+Scope,minimum_accepted_companies,,Buyer-agreed threshold only; leave blank if not agreed.
+Counts,supplied_rows,,Count every supplied row exactly once.
+Counts,duplicate_rows,,"Confirmed surplus rows only, each pointing to a retained anchor."
+Counts,included_companies,,Included company anchors only; never sites.
+Counts,held_rows,,Retained unresolved candidates; not necessarily distinct resolved companies.
+Counts,rejected_rows,,Retained candidates with a positively failed criterion after material uncertainties are resolved under the selected policy.
+Check,reconciliation_difference,,Supplied minus duplicates minus included minus held minus rejected. Must equal zero.
+Classes,fit_matched_lookalike,,Count only included anchors in this class.
+Classes,opportunity_signal,,Count only included anchors with separately supported signal.
+Check,class_difference,,Included minus industry-matched minus signal. Must equal zero.
+Effort,review_minutes,,"Nonnegative buyer-owned minutes. Label measured or estimated in review_minutes_basis; blank means unknown, not zero."
+Effort,correction_minutes,,Nonnegative buyer-owned minutes. Label measured or estimated in correction_minutes_basis; no default.
+Effort,total_minutes,,Add review and correction only if both known and nonnegative; unknown otherwise. Any estimated input makes total estimated.
+Effort,minutes_per_included_company,,Total minutes / included only if all inputs known and included > 0; otherwise not calculable. Not ROI.
+Handoff,included_row_ids,,Freeze IDs and version; preserve sites and duplicate pointers.
+Handoff,hold_questions_and_role_owners,,"One next verification question per hold, with role owner and buyer-chosen review trigger."
+Handoff,rejection_reasons,,Keep failed criterion; rejection applies only to this brief.
+Handoff,release_decision,,Separate structural reconciliation from independent evidence/rights review and agreed acceptance.
+Effort,review_minutes_basis,,Enter measured or estimated when review minutes are supplied; otherwise leave blank.
+Effort,correction_minutes_basis,,Enter measured or estimated when correction minutes are supplied; otherwise leave blank.
+Boundary,notice,EDUCATIONAL BLANK WORKSHEET — NOT A LIVE-DATA APPROVAL,"No contacts, outreach permission, legal clearance or guaranteed outcomes. Blank counts are unknown."

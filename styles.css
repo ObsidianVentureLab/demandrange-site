@@ -582,3 +582,5 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .foundation-prose sup a{padding:2px;font-size:13px}
 
 #discovery .table-wrap[aria-labelledby="source-purpose"] th { color: var(--ink-2); }
+
+#worked-batch .table-wrap[aria-describedby="audit-table-instructions"] th { color: var(--ink-2); }
