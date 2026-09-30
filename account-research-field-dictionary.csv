@@ -1,0 +1,22 @@
+field,label,type,requirement,definition_or_allowed_values,boundary
+demonstration_notice,Demonstration notice,text,Required for fictional rows,Fictional illustration only; not live research or cleared delivery,Retain this label in every exported example row.
+record_id,Record identifier,text,Required,Locally unique educational record ID,Not a campaign or delivered-lead identifier.
+record_unit,Record unit,enum,Required,company | facility,The worked examples use company; agree the unit before deduplication.
+company_or_site,Company or site,text,Required,Business or site being assessed,No named persons; fictional labels in the worked rows.
+industry,Industry or activity,text,Required,Activity needed to test the profile,An industry label alone does not establish equipment demand.
+territory,Territory,text,Required,Country or geography relevant to the brief,A preference is not a coverage commitment.
+profile_ref,Profile reference,text,Required,Reference to the written fit criteria and exclusions,DEMO-PROFILE-01 is invented; a real brief needs its own version.
+fit_reason,Fit rationale,text,Required for an acceptance decision,Source-supported explanation of why the account matches,Do not infer intent from fit.
+source_reference,Source references,text,Required for real evidence,Approved source IDs or permitted links supporting material fields,"DEMO-SOURCE identifiers are invented statements, not retrieved sources."
+source_published_at,Source publication date,date,Required when material and known,ISO date of the evidence; unknown stays explicit in a real record,Blank in fiction because no source was published.
+source_reviewed_at,Source review date,date,Required for a real reviewed record,ISO date of actual retrieval/review,Never invent a review timestamp; blank in fiction.
+evidence_rights_status,Evidence-use status,text,Must be resolved before real use,Applicable source and customer-use posture,Fictional labels do not clear a real source or provider; unknown means hold.
+lead_class,Research class,enum,Exactly one tested class,fit_matched_lookalike | opportunity_signal,"Rejected examples carry the tested class only, not an accepted delivery slot."
+opportunity_research_state,Project research state,enum,Required,not_assessed_not_required | bounded_review_no_qualifying_signal_identified | qualifying_signal_identified,Only opportunity_signal may use qualifying_signal_identified; no signal found does not mean no project exists.
+observed_fact,Observed fact,text,Required where an evidence claim is made,What the referenced evidence actually says,In fiction this is an explicitly invented source statement.
+inference,Interpretation,text,Where relevant,Bounded commercial interpretation kept separate from facts,"Not technical suitability, an open package or intent."
+unknowns,Known unknowns,text,Required,"Unresolved material fit, source or project questions",Unknown is not a pass or a negative finding.
+decision,Illustrative decision,enum,For worksheet use only,illustrative_accept | illustrative_reject | needs_review,These labels are not the canonical internal qa_status or delivery approval.
+decision_reason,Decision reason,text,Required with decision,Specific passed or failed written criterion,A shared product keyword cannot rescue a mismatch.
+next_check,Next verification step,text,Required,Smallest useful check before relying on the record,Does not authorise named-person research or outreach.
+review_due,Next evidence review,date,Agree for real research,ISO date or scoped trigger recorded separately,Blank in fiction; no universal review or replacement SLA.
