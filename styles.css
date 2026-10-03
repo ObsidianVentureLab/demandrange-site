@@ -14,7 +14,7 @@
   --ink:#111820;
   --on-ink:#FFFFFF;
   --ink-2:#4B5762;
-  --ink-3:#74808A;
+  --ink-3:#606D78;
   --line:#C9D1D8;
   --line-2:#E2E7EB;
   --accent:#C4381F;
@@ -383,7 +383,7 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .cta{position:relative;background:radial-gradient(60% 90% at 15% 110%,rgba(255,255,255,.16) 0,transparent 60%),var(--cta-bg);color:#fff;clip-path:polygon(0 var(--slant),100% 0,100% 100%,0 100%);padding-block:calc(clamp(56px,7vw,100px) + var(--slant)) clamp(56px,7vw,100px)}
 .cta-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px clamp(32px,5vw,72px);align-items:center}
 .cta h2{color:#fff;margin-bottom:14px;max-width:18ch}
-.cta p{font-size:18px;color:rgba(255,255,255,.86);max-width:52ch}
+.cta p{font-size:18px;color:#fff;max-width:52ch}
 .cta .btn-light{color:var(--cta-bg)}
 .cta .btn-light:hover{color:#fff}
 
@@ -500,6 +500,11 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 @media(max-width:680px){.quote-hero{padding-block:54px 58px}.quote-hero::after{inset:0}.quote-hero h1{font-size:clamp(40px,12vw,54px)}.quote-hero-grid{gap:34px}.mix-grid{grid-template-columns:1fr;gap:22px}.quote-aside{display:block}.quote-aside .scope-note{margin-top:22px}.quote-form-shell{box-shadow:7px 7px 0 var(--sheet-2)}.form-head{padding:24px 20px 20px;display:block}.form-status{display:inline-block;margin-top:16px}.quote-form{padding:0 20px 26px}.form-errors{margin:20px 20px 0}.form-stage{padding-block:26px}.field-grid{grid-template-columns:1fr;gap:19px}.q-field.full{grid-column:auto}.multi-options{grid-template-columns:1fr}.form-foot{display:block}.form-foot .btn{width:100%;margin-top:18px;padding-block:16px}}
 @media(max-width:360px){.quote-form{padding-inline:15px}.form-head{padding-inline:15px}.form-errors{margin-inline:15px}}
 
+/* Presentation-only dark form contrast repair; validation and markup unchanged. */
+:root[data-theme="dark"] .quote-form .field-error{color:var(--accent-hover)}
+:root[data-theme="dark"] .quote-form .text-input[aria-invalid="true"],:root[data-theme="dark"] .quote-form .text-area[aria-invalid="true"],:root[data-theme="dark"] .quote-form .multi fieldset[aria-invalid="true"]{border-color:var(--accent-hover)}
+:root[data-theme="dark"] .quote-form .btn-primary:hover{color:var(--on-ink)}
+
 /* Foundation editorial treatment; existing type, palette and theme retained. */
 .foundation-hero{padding:clamp(36px,5vw,68px) 0 36px}
 .foundation-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
@@ -547,6 +552,8 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 /* Remove decorative inherited atmosphere and angled bands, not the brand mark. */
 .hero::before,.page-hero::before,.legal-hero::before{display:none}
 .sec-dark{background:var(--dark);clip-path:none}
+/* Inherited rail text needs the dark-section foreground, not light-theme ink. */
+.sec-dark .rail{color:var(--dark-muted)}
 .contact-main{background:var(--dark);clip-path:none}
 .cta{background:var(--cta-bg);clip-path:none}
 .btn::after{display:none}
