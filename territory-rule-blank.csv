@@ -1,0 +1,30 @@
+field,value,guidance
+brief_reference,,Reference the authorised ICP brief without confidential customer details.
+brief_version,,Preserve the version tested; changing territory requires a new authorised version.
+territory_definition,,Name the exact geography; do not assume Republic and island mean the same thing.
+common_activity_and_role,,Keep these fixed while comparing territory rules.
+counting_unit,,Specify company or site; do not add site totals to company totals.
+operation_rule,,State the activity and company-to-site operator relationship required locally or mark not required.
+customer_coverage_rule,,State what supplying the territory must mean in this brief and acceptable evidence; do not infer it from a local office.
+incorporation_rule_if_required,,Record the explicit optional condition and approved evidence requirement; no legal definition is supplied here.
+headquarters_rule_if_required,,Keep headquarters separate from incorporation and operating location.
+selected_rule_or_combination,,"Select a single rule (O, S, or I), or name each required condition in an AND combination; no rule is preselected."
+authorised_decision_role,,Use an internal role not a named person.
+company_reference,,Use a stable company reference; do not merge by brand alone.
+operation_evidence_reference,,Reference permitted evidence for the activity-site-company relationship; no addresses needed in this sheet.
+coverage_evidence_reference,,Reference permitted evidence of the required customer-territory relationship.
+incorporation_evidence_reference,,Reference separately reviewed evidence if this condition is required.
+source_use_review_reference,,Record the applicable source and item-use decision; unresolved rights block source-content reuse.
+actual_check_time,,Use only an actual check time; leave unknown dates blank.
+publication_date_if_known,,Do not substitute the research date for the source publication date.
+material_gaps_or_conflicts,,Missing is not false; hold a required unresolved fact.
+O_screen_result,,Use match or out_of_scope or hold against O only.
+S_screen_result,,Use match or out_of_scope or hold against S only.
+I_screen_result,,Use match or out_of_scope or hold against I only.
+selected_rule_result_and_reason,,Name the exact failed or unresolved rule; do not transfer a result between briefs.
+other_account_gates,,Separately review identity and role/activity and exclusions and source use and conflicts and duplicates.
+full_account_decision,,"Under the selected authorised brief, a supported mandatory failure is out of scope; otherwise hold unresolved mandatory gates. A territory match alone is not acceptance."
+supplier_reachability_and_permissions,,Separate assessment; customer coverage proves neither supplier access nor export permission.
+buying_intent_and_purchasing_authority,,Keep unassessed unless separately established; no outreach is authorised.
+project_research_requirement,,Agree explicitly; no project is required by this educational territory exercise.
+next_question,,Record one bounded question needed to resolve a hold.
