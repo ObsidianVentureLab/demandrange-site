@@ -42,7 +42,7 @@
 <p class="lede">Refresh an industrial prospect list when the company, its operating sites, its role in your market or your targeting brief changes. Review the affected records, preserve the earlier evidence, and decide whether to retain, hold, correct or remove each account from the current shortlist.</p>
 <p class="research-intro-note">This guide is for suppliers maintaining company-level sales research—not cleaning personal email addresses. Use the change triggers, four fictional decisions and blank log below. No fixed review interval or data-decay percentage is assumed.</p>
 <p class="actions"><a class="btn btn-primary" download="" href="industrial-prospect-review-log.csv">Download the blank review log (CSV)</a></p>
-</div></div></section><div class="wrap"><nav class="foundation-jump" aria-label="On this page"><a href="#review-triggers">Review triggers</a><a href="#review-method">Review method</a><a href="#conflicting-evidence-exercise">Conflicting evidence exercise</a><a href="#worked-decisions">Worked decisions</a><a href="#review-timing">Review timing</a><a href="#change-log">Change log</a><a href="#next-step">Next step</a></nav></div><section class="foundation-section" id="review-triggers"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">01 / review triggers</span><h2>What should trigger a review?</h2></div><div class="foundation-prose">
+</div></div></section><div class="wrap"><nav class="foundation-jump" aria-label="On this page"><a href="#review-triggers">Review triggers</a><a href="#review-method">Review method</a><a href="#conflicting-evidence-exercise">Conflicting evidence exercise</a><a href="#use-a-date-field-dictionary-before-choosing-a-freshness-label">Use a date field dictionary before choosing a freshness label</a><a href="#resolve-a-date-conflict-without-losing-usable-context">Resolve a date conflict without losing usable context</a><a href="#correct-a-programme-claim-through-its-dependencies">Correct a programme claim through its dependencies</a><a href="#worked-decisions">Worked decisions</a><a href="#review-timing">Review timing</a><a href="#change-log">Change log</a><a href="#next-step">Next step</a><a href="#sources">Sources</a></nav></div><section class="foundation-section" id="review-triggers"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">01 / review triggers</span><h2>What should trigger a review?</h2></div><div class="foundation-prose">
 
 <p>A list is a decision against a brief, supported by evidence at a point in time. A change can affect one field, one facility or the whole account. Start by naming the question that has reopened rather than treating every record as equally uncertain.</p>
 <ul>
@@ -93,7 +93,114 @@
 <li>Record the affected-field outcome separately from the whole-account decision. Name the internal reviewer role, next check or chosen review trigger, and every remaining gate. Preserve the earlier reference and explain any supersession; never silently replace the evidence.</li>
 </ol>
 <p>The blank worksheet is a manual educational aid, not an approval engine. Keep restricted material outside it; use only a minimal permitted reference while source use is unresolved. Do not copy contact details or confidential exclusion lists into the exercise. None of these outcomes establishes buying intent, equipment suitability, an open package, delivery approval or permission to contact anyone. Real account acceptance still requires the agreed identity, fit, exclusion, source-use and independent review checks.</p>
-</div></div></section><section class="foundation-section" id="worked-decisions"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">04 / worked decisions</span><h2>Four fictional review decisions</h2></div><div class="foundation-prose">
+</div></div></section><section class="foundation-section" id="use-a-date-field-dictionary-before-choosing-a-freshness-label"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">04 / use a date field dictionary before choosing a freshness label</span><h2>Use a date field dictionary before choosing a freshness label</h2></div><div class="foundation-prose">
+<p>A source can contain several valid dates and still leave the date you need unresolved. Keep the date's label beside its value. Do not turn a catalogue update into a project update or a recent retrieval into a recent event.</p>
+<p>The EPA's <strong>River Abstraction Pressures</strong> catalogue provides a real, inspectable example: it displays release <strong>2017-11-20</strong>, update <strong>2020-07-02</strong>, and period covered <strong>2014-01-01 to 2015-01-01</strong>.<a href="#source-1">[1]</a> Those are different fields, not an inconsistency to repair. Our check on 9 October 2026 does not make that reporting period contemporary.</p>
+<p>The openly licensed <strong>Remedial Action List</strong> catalogue displays release <strong>2020-04-28</strong>, update <strong>2020-07-24</strong>, and both period endpoints as <strong>2010-11-09</strong>.<a href="#source-2">[2]</a> Treat these as the catalogue's displayed labels. Do not silently expand the identical endpoints into a reporting year, or use them to certify a current supply's status. These catalogues are useful for source selection and date discipline, not a freshly verified account list.</p>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Field</th>
+<th scope="col">Store</th>
+<th scope="col">Publication rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>release_label</code> and <code>release_value</code></td>
+<td>Exact visible label and value</td>
+<td>Attribute the label; do not imply independent verification of publication timing.</td>
+</tr>
+<tr>
+<td><code>body_dateline</code></td>
+<td>Any separately stated date in the text</td>
+<td>Keep it even when it differs from the release field.</td>
+</tr>
+<tr>
+<td><code>modified_value</code></td>
+<td>Explicit source modification date, if supplied</td>
+<td>Do not assume that every substantive claim changed on that date.</td>
+</tr>
+<tr>
+<td><code>period_begin</code> and <code>period_end</code></td>
+<td>The stated reporting window</td>
+<td>Keep its original precision and any unresolved ambiguity.</td>
+</tr>
+<tr>
+<td><code>event_date</code></td>
+<td>Date of the particular decision or event, if evidenced</td>
+<td>Do not substitute the release, update or reporting date.</td>
+</tr>
+<tr>
+<td><code>retrieved_at</code></td>
+<td>Actual retrieval date or tool-recorded timestamp</td>
+<td>Describes your check, not the age of the underlying event.</td>
+</tr>
+<tr>
+<td><code>date_resolution</code></td>
+<td>Clear, different scopes, conflict or unknown</td>
+<td>A research judgement, not a revised publisher date.</td>
+</tr>
+</tbody>
+</table></div>
+<p>An absent value stays unknown. A day-only source date must not acquire an invented time or timezone. If your system requires a single publication field, leave it unresolved and preserve both candidates in the evidence record; do not choose whichever makes the record appear fresher.</p>
+</div></div></section><section class="foundation-section" id="resolve-a-date-conflict-without-losing-usable-context"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / resolve a date conflict without losing usable context</span><h2>Resolve a date conflict without losing usable context</h2></div><div class="foundation-prose">
+<p><strong>Fictional exercise:</strong> a regulator-style evidence card displays a release label of <strong>12 May, exercise year</strong> and a body dateline of <strong>13 May, exercise year</strong>. Its report concerns <strong>the preceding calendar year</strong>. These are invented labels, not assertions about any regulator publication.</p>
+<p>Keep the two publication candidates, the separate reporting period and the actual date you reviewed the card. The output date label is <strong>publication timing unresolved</strong>. Reject a statement that the underlying supply conditions were assessed on the day you retrieved the page. Hold only the claim that requires the unresolved timing; do not discard separately supported background merely because a date label needs clarification.</p>
+<p>The next check is narrow: seek a correction or authoritative publication record for the same item and version. A newer unrelated news release, a file-download timestamp or a search-engine date does not resolve these labels. If neither date changes the buyer's decision, explain that boundary rather than inventing precision.</p>
+</div></div></section><section class="foundation-section" id="correct-a-programme-claim-through-its-dependencies"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">06 / correct a programme claim through its dependencies</span><h2>Correct a programme claim through its dependencies</h2></div><div class="foundation-prose">
+<p>An internal analyst can withdraw their own unsupported inference without claiming that the external publisher has issued a correction. Use different fields for <strong>analyst withdrawal</strong> and <strong>issuer correction</strong>. This distinction prevents a responsible research correction from becoming a false claim about what the source has admitted.</p>
+<p><strong>The following correction note is wholly fictional. It is not a correction to an actual DemandRange delivery or client brief.</strong></p>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Correction field</th>
+<th scope="col">Completed example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Affected assertion</td>
+<td>Claim COR-01: “Every location not recorded as completed is an available component-supply prospect.”</td>
+</tr>
+<tr>
+<td>Origin</td>
+<td>Analyst inference from fictional programme summary PRG-A; not a statement the programme publisher made.</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>Withdraw COR-01 from the active brief. No revised total or available-package estimate.</td>
+</tr>
+<tr>
+<td>Reason</td>
+<td>Aggregate categories were unresolved; no dated project evidence established the remaining locations, stage or equipment-supply route.</td>
+</tr>
+<tr>
+<td>Retained observation</td>
+<td>PRG-A is a programme-level reference. Its disputed total is not used for account acceptance.</td>
+</tr>
+<tr>
+<td>Dependent field</td>
+<td>Clear the project-signal acceptance flag wherever its only support was COR-01. Mark it held, with the same claim ID.</td>
+</tr>
+<tr>
+<td>Unaffected evidence</td>
+<td>Separately verified company identity and industry fit remain attributed to their own sources. Their retention is not a finding of buying intent.</td>
+</tr>
+<tr>
+<td>Next evidence</td>
+<td>A dated project-level source resolving identity and stage, followed by separately evidenced supply scope and route.</td>
+</tr>
+<tr>
+<td>Remaining gates</td>
+<td>Source-use permission, account exclusions and human review remain separate.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Follow the claim ID into the brief, shortlist, downloadable report and any maintained summary. Record which versions were corrected and which superseded copies remain outside your control. Do not write “all copies corrected” unless you have checked every declared target. Keep the old statement in an authorised private audit trail; remove it from current decision-facing copy.</p>
+<p>Use the <a href="industrial-sales-resources.html#programme-date-downloads">programme correction register in the resource library</a> as a manual claim-to-output inventory. It does not validate a project or issue a correction automatically. Before delivery, compare each affected output with the revised wording and capture the readback result. A rights hold can remain even after the factual problem is resolved.</p>
+<p>For a <a href="request-a-quote.html">scoped research enquiry</a>, supply the old claim ID, source URL, date labels, affected versions and the decision that needs to be remade. Specify whether you need a historical explanation, a current project check or a revised account shortlist; those are different deliverables.</p>
+</div></div></section><section class="foundation-section" id="worked-decisions"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">07 / worked decisions</span><h2>Four fictional review decisions</h2></div><div class="foundation-prose">
 
 <p><strong>Wholly fictional teaching examples.</strong> Every business and source statement below is invented, not a researched prospect or client result. The example brief is company-level research on food-and-beverage manufacturers operating production facilities in Ireland. Treat the stated facts as stipulations within the exercise; real records still need identity, evidence, exclusions and source-use review.</p>
 <h3>Retain: the source moved, but the supported fit did not</h3>
@@ -105,22 +212,26 @@
 <h3>Remove from the current shortlist: a criterion is no longer met</h3>
 <p><strong>Fictional Ingredients Company D.</strong> The scenario explicitly confirms that the same company has ceased all relevant manufacturing activity and now only resells finished goods. That contradicts this brief's manufacturing requirement. Remove it from the active shortlist with the reason recorded. This is not a decision to delete every business record, and it says nothing about fit under another brief.</p>
 <p>These are four separate cases, not four changes to one company or an expected distribution of outcomes. If a supposed correction makes identity or fit uncertain, use hold instead of silently accepting the amended record.</p>
-</div></div></section><section class="foundation-section" id="review-timing"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / review timing</span><h2>How often should an industrial prospect list be updated?</h2></div><div class="foundation-prose">
+</div></div></section><section class="foundation-section" id="review-timing"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">08 / review timing</span><h2>How often should an industrial prospect list be updated?</h2></div><div class="foundation-prose">
 
 <p>Set a review rule around the decisions you intend to make, the importance of the fields and the evidence available. Combine change-triggered checks with a review point you can actually resource. Do not choose an interval simply because a generic list-decay statistic sounds precise.</p>
 <p>Before reusing an older shortlist for a different campaign or market, check the brief version, exclusions and unresolved holds. Prioritise accounts whose identity, operating activity or route is uncertain. A recent review date is not a substitute for evidence that supports the field.</p>
 <p>Record a review due date only when it is genuinely assigned. If timing is unknown, leave the date blank and state the next trigger or question. Do not turn a planned check into a claim that monitoring is already operating.</p>
-</div></div></section><section class="foundation-section" id="change-log"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">06 / change log</span><h2>Use the company-level review log</h2></div><div class="foundation-prose">
+</div></div></section><section class="foundation-section" id="change-log"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">09 / change log</span><h2>Use the company-level review log</h2></div><div class="foundation-prose">
 
 <p><a download="" href="industrial-prospect-review-log.csv">Download the blank review log (CSV)</a>. It contains one blank starting row with a usage notice, ready to copy for additional review events. It includes no real companies, source dates, contacts or pre-approved decisions.</p>
 <p>Keep one row per review event. Reuse the company record ID when several events affect the same account; event rows are not distinct-company counts. The fields separate the trigger, previous status, evidence references, identity/fit/source-use checks, decision, reason, changed fields, next action and owner.</p>
 <p>Reference evidence held in your controlled source ledger. Keep source publication dates separate from your review date. Use <strong>retain</strong>, <strong>hold</strong>, <strong>correct</strong> or <strong>remove_from_active_list</strong> for the decision, with an explanation. The worksheet is an educational starting point, not a substitute for your retention, access or source-use controls.</p>
 <p>For the underlying record structure, inspect the <a href="sample-account-research.html">fictional industrial account-research sample</a>. Maintenance status and research class answer different questions: retaining an account does not create a project signal, and a project signal does not establish an available equipment order.</p>
-</div></div></section><section class="foundation-section" id="next-step"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">07 / Next step</span><h2>Start with the change your sales team needs to understand</h2></div><div class="foundation-prose">
+</div></div></section><section class="foundation-section" id="next-step"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">10 / Next step</span><h2>Start with the change your sales team needs to understand</h2></div><div class="foundation-prose">
 
 <p>Define the industry, territory, customer role and exclusions before commissioning a new list or a refresh. Keep the existing record IDs and explain which decisions need to be revisited. Any proposed scope should state the fields, evidence boundaries and acceptance checks rather than promise that every old record will remain usable.</p>
 <p><a href="industrial-lead-research.html">Explore company-level industrial research</a> or <a href="request-a-quote.html">request a written scope</a>. Named contacts and outreach are separate from the company-level examples in this guide.</p>
-</div></div></section></main>
+</div></div></section><section class="foundation-section" id="sources"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">11 / sources</span><h2>Sources and attribution</h2></div><div class="foundation-prose">
+<p>The two actual catalogue records were checked on 9 October 2026. Their displayed dates are reproduced as metadata, not harmonised or certified as current project dates.<a href="#source-1">[1]</a><a href="#source-2">[2]</a></p>
+<p>Contains Irish Public Sector Data licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.<a href="#source-3">[3]</a></p>
+<p>Metadata summaries are shortened and paraphrased; the identified summaries remain available under CC BY 4.0 without additional DemandRange restrictions.<a href="#source-4">[4]</a></p>
+<p>The field dictionary and correction exercise are original. No endorsement or regulatory interpretation is implied.</p><ol class="source-list"><li id="source-1" value="1"><a href="https://data.gov.ie/dataset/river-abstraction-pressures" id="source-link-1" rel="noopener noreferrer">River Abstraction Pressures - Dataset - data.gov.ie</a></li><li id="source-2" value="2"><a href="https://data.gov.ie/dataset/environmental-protection-agency-remedial-action-list" id="source-link-2" rel="noopener noreferrer">Environmental Protection Agency Remedial Action List - Dataset - data.gov.ie</a></li><li id="source-3" value="3"><a href="https://data.gov.ie/license" id="source-link-3" rel="noopener noreferrer">Open Data Licence - data.gov.ie</a></li><li id="source-4" value="4"><a href="https://creativecommons.org/licenses/by/4.0" id="source-link-4" rel="noopener noreferrer">Deed - Attribution 4.0 International - Creative Commons</a></li></ol></div></div></section></main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
