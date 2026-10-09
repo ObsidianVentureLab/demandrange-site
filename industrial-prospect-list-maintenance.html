@@ -97,52 +97,7 @@
 <p>A source can contain several valid dates and still leave the date you need unresolved. Keep the date's label beside its value. Do not turn a catalogue update into a project update or a recent retrieval into a recent event.</p>
 <p>The EPA's <strong>River Abstraction Pressures</strong> catalogue provides a real, inspectable example: it displays release <strong>2017-11-20</strong>, update <strong>2020-07-02</strong>, and period covered <strong>2014-01-01 to 2015-01-01</strong>.<a href="#source-1">[1]</a> Those are different fields, not an inconsistency to repair. Our check on 9 October 2026 does not make that reporting period contemporary.</p>
 <p>The openly licensed <strong>Remedial Action List</strong> catalogue displays release <strong>2020-04-28</strong>, update <strong>2020-07-24</strong>, and both period endpoints as <strong>2010-11-09</strong>.<a href="#source-2">[2]</a> Treat these as the catalogue's displayed labels. Do not silently expand the identical endpoints into a reporting year, or use them to certify a current supply's status. These catalogues are useful for source selection and date discipline, not a freshly verified account list.</p>
-<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
-<thead>
-<tr>
-<th scope="col">Field</th>
-<th scope="col">Store</th>
-<th scope="col">Publication rule</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>release_label</code> and <code>release_value</code></td>
-<td>Exact visible label and value</td>
-<td>Attribute the label; do not imply independent verification of publication timing.</td>
-</tr>
-<tr>
-<td><code>body_dateline</code></td>
-<td>Any separately stated date in the text</td>
-<td>Keep it even when it differs from the release field.</td>
-</tr>
-<tr>
-<td><code>modified_value</code></td>
-<td>Explicit source modification date, if supplied</td>
-<td>Do not assume that every substantive claim changed on that date.</td>
-</tr>
-<tr>
-<td><code>period_begin</code> and <code>period_end</code></td>
-<td>The stated reporting window</td>
-<td>Keep its original precision and any unresolved ambiguity.</td>
-</tr>
-<tr>
-<td><code>event_date</code></td>
-<td>Date of the particular decision or event, if evidenced</td>
-<td>Do not substitute the release, update or reporting date.</td>
-</tr>
-<tr>
-<td><code>retrieved_at</code></td>
-<td>Actual retrieval date or tool-recorded timestamp</td>
-<td>Describes your check, not the age of the underlying event.</td>
-</tr>
-<tr>
-<td><code>date_resolution</code></td>
-<td>Clear, different scopes, conflict or unknown</td>
-<td>A research judgement, not a revised publisher date.</td>
-</tr>
-</tbody>
-</table></div>
+<dl class="research-ledger"><dt>Field: release_label and release_value</dt><dd><p><strong>Store: </strong>Exact visible label and value</p><p><strong>Publication rule: </strong>Attribute the label; do not imply independent verification of publication timing.</p></dd><dt>Field: body_dateline</dt><dd><p><strong>Store: </strong>Any separately stated date in the text</p><p><strong>Publication rule: </strong>Keep it even when it differs from the release field.</p></dd><dt>Field: modified_value</dt><dd><p><strong>Store: </strong>Explicit source modification date, if supplied</p><p><strong>Publication rule: </strong>Do not assume that every substantive claim changed on that date.</p></dd><dt>Field: period_begin and period_end</dt><dd><p><strong>Store: </strong>The stated reporting window</p><p><strong>Publication rule: </strong>Keep its original precision and any unresolved ambiguity.</p></dd><dt>Field: event_date</dt><dd><p><strong>Store: </strong>Date of the particular decision or event, if evidenced</p><p><strong>Publication rule: </strong>Do not substitute the release, update or reporting date.</p></dd><dt>Field: retrieved_at</dt><dd><p><strong>Store: </strong>Actual retrieval date or tool-recorded timestamp</p><p><strong>Publication rule: </strong>Describes your check, not the age of the underlying event.</p></dd><dt>Field: date_resolution</dt><dd><p><strong>Store: </strong>Clear, different scopes, conflict or unknown</p><p><strong>Publication rule: </strong>A research judgement, not a revised publisher date.</p></dd></dl>
 <p>An absent value stays unknown. A day-only source date must not acquire an invented time or timezone. If your system requires a single publication field, leave it unresolved and preserve both candidates in the evidence record; do not choose whichever makes the record appear fresher.</p>
 </div></div></section><section class="foundation-section" id="resolve-a-date-conflict-without-losing-usable-context"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / resolve a date conflict without losing usable context</span><h2>Resolve a date conflict without losing usable context</h2></div><div class="foundation-prose">
 <p><strong>Fictional exercise:</strong> a regulator-style evidence card displays a release label of <strong>12 May, exercise year</strong> and a body dateline of <strong>13 May, exercise year</strong>. Its report concerns <strong>the preceding calendar year</strong>. These are invented labels, not assertions about any regulator publication.</p>
@@ -151,52 +106,7 @@
 </div></div></section><section class="foundation-section" id="correct-a-programme-claim-through-its-dependencies"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">06 / correct a programme claim through its dependencies</span><h2>Correct a programme claim through its dependencies</h2></div><div class="foundation-prose">
 <p>An internal analyst can withdraw their own unsupported inference without claiming that the external publisher has issued a correction. Use different fields for <strong>analyst withdrawal</strong> and <strong>issuer correction</strong>. This distinction prevents a responsible research correction from becoming a false claim about what the source has admitted.</p>
 <p><strong>The following correction note is wholly fictional. It is not a correction to an actual DemandRange delivery or client brief.</strong></p>
-<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
-<thead>
-<tr>
-<th scope="col">Correction field</th>
-<th scope="col">Completed example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Affected assertion</td>
-<td>Claim COR-01: “Every location not recorded as completed is an available component-supply prospect.”</td>
-</tr>
-<tr>
-<td>Origin</td>
-<td>Analyst inference from fictional programme summary PRG-A; not a statement the programme publisher made.</td>
-</tr>
-<tr>
-<td>Action</td>
-<td>Withdraw COR-01 from the active brief. No revised total or available-package estimate.</td>
-</tr>
-<tr>
-<td>Reason</td>
-<td>Aggregate categories were unresolved; no dated project evidence established the remaining locations, stage or equipment-supply route.</td>
-</tr>
-<tr>
-<td>Retained observation</td>
-<td>PRG-A is a programme-level reference. Its disputed total is not used for account acceptance.</td>
-</tr>
-<tr>
-<td>Dependent field</td>
-<td>Clear the project-signal acceptance flag wherever its only support was COR-01. Mark it held, with the same claim ID.</td>
-</tr>
-<tr>
-<td>Unaffected evidence</td>
-<td>Separately verified company identity and industry fit remain attributed to their own sources. Their retention is not a finding of buying intent.</td>
-</tr>
-<tr>
-<td>Next evidence</td>
-<td>A dated project-level source resolving identity and stage, followed by separately evidenced supply scope and route.</td>
-</tr>
-<tr>
-<td>Remaining gates</td>
-<td>Source-use permission, account exclusions and human review remain separate.</td>
-</tr>
-</tbody>
-</table></div>
+<dl class="research-ledger"><dt>Correction field: Affected assertion</dt><dd><p><strong>Completed example: </strong>Claim COR-01: “Every location not recorded as completed is an available component-supply prospect.”</p></dd><dt>Correction field: Origin</dt><dd><p><strong>Completed example: </strong>Analyst inference from fictional programme summary PRG-A; not a statement the programme publisher made.</p></dd><dt>Correction field: Action</dt><dd><p><strong>Completed example: </strong>Withdraw COR-01 from the active brief. No revised total or available-package estimate.</p></dd><dt>Correction field: Reason</dt><dd><p><strong>Completed example: </strong>Aggregate categories were unresolved; no dated project evidence established the remaining locations, stage or equipment-supply route.</p></dd><dt>Correction field: Retained observation</dt><dd><p><strong>Completed example: </strong>PRG-A is a programme-level reference. Its disputed total is not used for account acceptance.</p></dd><dt>Correction field: Dependent field</dt><dd><p><strong>Completed example: </strong>Clear the project-signal acceptance flag wherever its only support was COR-01. Mark it held, with the same claim ID.</p></dd><dt>Correction field: Unaffected evidence</dt><dd><p><strong>Completed example: </strong>Separately verified company identity and industry fit remain attributed to their own sources. Their retention is not a finding of buying intent.</p></dd><dt>Correction field: Next evidence</dt><dd><p><strong>Completed example: </strong>A dated project-level source resolving identity and stage, followed by separately evidenced supply scope and route.</p></dd><dt>Correction field: Remaining gates</dt><dd><p><strong>Completed example: </strong>Source-use permission, account exclusions and human review remain separate.</p></dd></dl>
 <p>Follow the claim ID into the brief, shortlist, downloadable report and any maintained summary. Record which versions were corrected and which superseded copies remain outside your control. Do not write “all copies corrected” unless you have checked every declared target. Keep the old statement in an authorised private audit trail; remove it from current decision-facing copy.</p>
 <p>Use the <a href="industrial-sales-resources.html#programme-date-downloads">programme correction register in the resource library</a> as a manual claim-to-output inventory. It does not validate a project or issue a correction automatically. Before delivery, compare each affected output with the revised wording and capture the readback result. A rights hold can remain even after the factual problem is resolved.</p>
 <p>For a <a href="request-a-quote.html">scoped research enquiry</a>, supply the old claim ID, source URL, date labels, affected versions and the decision that needs to be remade. Specify whether you need a historical explanation, a current project check or a revised account shortlist; those are different deliverables.</p>
