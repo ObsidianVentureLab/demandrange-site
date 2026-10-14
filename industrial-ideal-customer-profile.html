@@ -97,6 +97,41 @@
 </ul>
 <p>Use a controlled company-level exclusion reference, its version and the internal role authorised to resolve ambiguous matches. Keep confidential account lists outside a public brief. No supplied list does not mean “no exclusions”.</p>
 <p>Separate preferences from must-haves. Add size or revenue limits only when you can explain their purpose and evidence requirements; do not borrow numerical defaults or let a preference override a failed rule.</p>
+<div id="commercial-exclusion-boundary">
+<h3>Test the exclusion boundary before accepting the account</h3>
+<p>Use this proposed manual check when related companies, sites or trading labels collide. An identity map answers “what is linked?”; the authorised instruction answers “which of those things is excluded?”. Neither substitutes for the other. Compare one candidate with one versioned instruction, then record the bounded outcome—not a whole-account pass.</p>
+<div id="exclusion-boundary-cases">
+<p><strong>Wholly fictional counterfactuals:</strong> Company X-A operates Sites X-1 and X-2; Trading Label X-T belongs to X-A. Separate Company X-B and X-A are confirmed members of Group X-G. Company X-C has similar wording in its name, but its membership is unresolved. These invented relationships stay fixed while the alternative instructions change:</p>
+<dl class="research-ledger">
+<dt>Entity only: “Exclude Company X-A, including its trading labels and operations; not other group companies.”</dt>
+<dd>X-T is a match to the excluded company, not a route around it. X-1 and X-2 fall within that company boundary. X-B is not excluded by this instruction: confirmed group membership does not widen entity-only authority.</dd>
+<dt>Site only: “Exclude Site X-1; other sites are outside this rule.”</dt>
+<dd>Exclude X-1, not automatically X-2 or all of X-A. X-T identifies the company but not the relevant site: hold a site-specific decision until the operation is identified. If the handover counts whole companies, ask the authorised role how X-A may be represented with X-1 excluded; do not accept an unrestricted X-A record or silently reject every site.</dd>
+<dt>Explicit group scope: “Exclude confirmed member companies of X-G and their operations.”</dt>
+<dd>X-A and X-B match; retain their separate identities while excluding both under this rule. X-C stays held for membership resolution. Similar naming proves neither membership nor non-membership. If X-C is confirmed outside X-G, the result becomes “not this rule”, not account acceptance.</dd>
+<dt>Ambiguous instruction: “Exclude X.”</dt>
+<dd>Hold the affected decision even where relationships are confirmed. Ask which exact entity, site or group the instruction identifies and whether it extends to related operations. Evidence of a relationship cannot supply missing commercial authority. Do not choose the broadest interpretation “to be safe”.</dd>
+</dl>
+</div>
+<p>For a hold, record the exact missing instruction or identity link and the internal role authorised to resolve it. Keep the candidate outside accepted counts until that answer is recorded and checked against the same identity. A missing exclusion reference is not an empty list. Recheck every applicable instruction before acceptance; one non-match does not cancel another exclusion. Preserve prior instructions, source references and decisions when a version changes.</p>
+<div id="exclusion-boundary-worksheet">
+<h3>Use the blank boundary-review worksheet</h3>
+<p><a href="industrial-sales-resources.html#exclusion-boundary-download">Get the blank exclusion-boundary worksheet from the resource library</a>. It has headers only, no data rows or automated decisions. One row is one candidate-to-instruction comparison at one review event—not one accepted company. Start a new row for another instruction or a later review; keep earlier rows.</p>
+<p>Import as UTF-8 with IDs as text. Use manual reference IDs into your controlled records, not raw client lists, names, contacts or confidential instructions. An ID is a pointer, not evidence. Document every column as follows:</p>
+<dl class="research-ledger">
+<dt><code>review_id</code>; <code>prior_review_id</code></dt><dd>Unique event ID; earlier event being revisited, or blank for the first review.</dd>
+<dt><code>candidate_ref</code>; <code>candidate_unit</code></dt><dd>Stable candidate ID; company, site or trading_label. Do not silently change the unit after matching.</dd>
+<dt><code>brief_version</code></dt><dd>The account brief/version under which this comparison is made.</dd>
+<dt><code>instruction_ref</code>; <code>instruction_version</code></dt><dd>Controlled exclusion instruction ID and its exact version. Leave missing values blank and hold.</dd>
+<dt><code>scope_kind</code>; <code>scope_target_ref</code></dt><dd>entity, site, group or unresolved; the exact instructed target ID, blank while unresolved. Do not infer the boundary from the candidate type.</dd>
+<dt><code>identity_evidence_refs</code></dt><dd>Semicolon-separated references supporting or disputing this exact match, including operator, label or membership links where needed.</dd>
+<dt><code>boundary_outcome</code>; <code>reason</code></dt><dd>exclude for a supported match within the authorised scope; not_this_rule for a supported non-match; otherwise hold. Explain the comparison without copying restricted material. None means accepted.</dd>
+<dt><code>resolution_question</code>; <code>authorised_role</code></dt><dd>Exact open question and internal role responsible for the instruction or resolution. Leave the question blank only when resolved.</dd>
+<dt><code>decision_ref</code>; <code>reviewed_at</code></dt><dd>Reference to the recorded decision/clarification and actual review date. Do not supply a planned date as a completed check.</dd>
+</dl>
+</div>
+<p>This is company-level commercial exclusion research, not personal-data suppression or legal clearance. It neither replaces separate outreach, privacy and suppression controls nor authorises contact. Fit and other acceptance checks remain separate; excluded records leave the current candidate view, not the retained source history. The method and cases are original teaching material, not a universal exclusion policy or evidence of service performance.</p>
+</div>
 </div></div></section><section class="foundation-section" id="acceptance-evidence"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / acceptance evidence</span><h2>5. Define evidence and hold rules before searching</h2></div><div class="foundation-prose">
 
 <p>For each must-have, specify what observation would support it, acceptable evidence and the consequence of a gap. Keep these checks separate:</p>
