@@ -1,0 +1,166 @@
+{
+  "_comment": "Site-wide entity and locale data for entity_stage.py (week 1 SEO port). Internal URLs are written in pre-clean .html form; clean_urls rewrites them to extensionless public URLs. alternateName keeps week-1 parity for legacy spellings (search disambiguation only, never displayed); delete the entries to drop them.",
+  "html_lang": "en-IE",
+  "og_locale": "en_IE",
+  "site": "https://demandrange.com",
+  "no_entity_routes": [
+    "404.html",
+    "pumps-flow-control.html"
+  ],
+  "page_types": {
+    "about.html": "AboutPage",
+    "contact.html": "ContactPage"
+  },
+  "about_routes": [
+    "index.html",
+    "about.html"
+  ],
+  "page_image": "https://demandrange.com/og-image.png",
+  "organization": {
+    "@type": [
+      "Organization",
+      "ProfessionalService"
+    ],
+    "@id": "https://demandrange.com/#organization",
+    "name": "Demand Range",
+    "alternateName": [
+      "DemandRange",
+      "Demand.Range"
+    ],
+    "url": "https://demandrange.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "https://demandrange.com/#logo",
+      "url": "https://demandrange.com/logo.png",
+      "width": 512,
+      "height": 512,
+      "caption": "Demand Range"
+    },
+    "image": "https://demandrange.com/og-image.png",
+    "email": "partners@demandrange.com",
+    "description": "Analyst-led industrial lead research and market intelligence for suppliers of industrial equipment, technology and services selling into Ireland, the UK and the EU. Company-level, industry-matched account research with evidenced project and development signals where available.",
+    "slogan": "Industrial prospects. Matched to your market.",
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Ireland",
+        "identifier": "IE"
+      },
+      {
+        "@type": "Country",
+        "name": "United Kingdom",
+        "identifier": "GB"
+      },
+      {
+        "@type": "Place",
+        "name": "European Union",
+        "identifier": "EU"
+      }
+    ],
+    "knowsAbout": [
+      "Industrial lead research",
+      "Industrial account research",
+      "B2B prospect list building",
+      "Industrial market intelligence",
+      "Project and development signal research",
+      "Ideal customer profile definition",
+      "Prospect list audit and maintenance",
+      "Pumps and flow control",
+      "Water and wastewater",
+      "Pharmaceutical manufacturing",
+      "Food and beverage manufacturing",
+      "Chemical manufacturing",
+      "EPC/EPCM project buying routes",
+      "Industrial MRO",
+      "Industrial OEMs and distributors",
+      "Public tenders (eTenders)"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "partners@demandrange.com",
+      "areaServed": [
+        "IE",
+        "GB",
+        "EU"
+      ],
+      "availableLanguage": [
+        "en"
+      ],
+      "url": "https://demandrange.com/request-a-quote.html"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Industrial research services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://demandrange.com/industrial-lead-research.html#service",
+            "name": "Industrial lead and account research",
+            "serviceType": "Industrial lead research",
+            "url": "https://demandrange.com/industrial-lead-research.html",
+            "description": "Company-level, industry-matched (Look Alike) prospect research scoped by EU country, sector, operating-site rules and exclusions, with source traceability.",
+            "provider": {
+              "@id": "https://demandrange.com/#organization"
+            },
+            "areaServed": [
+              "IE",
+              "GB",
+              "EU"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://demandrange.com/opportunity-intelligence.html#service",
+            "name": "Opportunity Intelligence",
+            "serviceType": "Industrial project intelligence",
+            "url": "https://demandrange.com/opportunity-intelligence.html",
+            "description": "Research into evidenced industrial projects and developments, separating observed change, supplier relevance and unknowns.",
+            "provider": {
+              "@id": "https://demandrange.com/#organization"
+            },
+            "areaServed": [
+              "IE",
+              "GB",
+              "EU"
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://demandrange.com/campaign-activation.html#service",
+            "name": "Campaign activation (separately scoped)",
+            "serviceType": "B2B campaign activation",
+            "url": "https://demandrange.com/campaign-activation.html",
+            "description": "Optional outreach activation, only under its own written scope, data review, channel controls and approval.",
+            "provider": {
+              "@id": "https://demandrange.com/#organization"
+            }
+          }
+        }
+      ]
+    },
+    "sameAs": []
+  },
+  "website": {
+    "@type": "WebSite",
+    "@id": "https://demandrange.com/#website",
+    "url": "https://demandrange.com/",
+    "name": "Demand Range",
+    "alternateName": [
+      "DemandRange",
+      "Demand.Range"
+    ],
+    "inLanguage": "en-IE",
+    "publisher": {
+      "@id": "https://demandrange.com/#organization"
+    }
+  }
+}

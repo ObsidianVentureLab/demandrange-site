@@ -225,3 +225,5 @@ def apply_foundation(output):
     apply_volume(output)
     from researched_articles_stage import apply_researched_articles
     apply_researched_articles(output)
+    from entity_stage import apply_entity
+    apply_entity(output)
