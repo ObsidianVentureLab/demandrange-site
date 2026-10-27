@@ -604,3 +604,7 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .eurostat-table td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .eurostat-table td:last-child{text-align:left;white-space:normal;min-width:12em}
 .eurostat-table th[scope="row"]{min-width:16em;white-space:normal}
+
+/* guide footer: About Demand Range link */
+.guide-publisher{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem}
+.guide-publisher p{margin:0;max-width:72ch}
