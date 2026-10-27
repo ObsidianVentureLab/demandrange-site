@@ -1,0 +1,929 @@
+{
+  "schema_version": "draft-copy-1",
+  "source_ledger": "source-provenance.json",
+  "pages": [
+    {
+      "key": "homepage",
+      "route": "/",
+      "mode": "Replace main body and metadata; apply shared-copy.json separately.",
+      "purpose": "Brand overview for industrial suppliers; commercial detail belongs to industrial-lead-research.html.",
+      "title": "Industrial Prospect Research for EU Markets | DemandRange",
+      "meta_description": "Industrial prospect research for your target EU countries. Company-level fit and evidenced project signals, with sources, languages and deliverables scoped first.",
+      "eyebrow": "Industrial Lead Generation & Market Intelligence",
+      "h1": "Find the right industrial prospects.",
+      "intro_html": "<p>DemandRange helps industrial suppliers build a relevant prospect base through industry-matched lead research, with identified project and development signals where available.</p><p>For suppliers of industrial equipment, technology and services. Ireland is our current focus; other territory requests are assessed before scope is agreed.</p>",
+      "hero_links": [
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the research examples",
+          "href": "sample-account-research.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "lead-mix",
+          "heading": "Two research classes. One standard of relevance.",
+          "body_html": "<h3>Industry-matched leads</h3><p>Also called Look Alike leads: companies that match your agreed industries, territory and company criteria. An active or upcoming project is not required. Look Alike means a match to the written brief, not a prediction of buying intent.</p>\n<h3>Opportunity-signal leads</h3><p>Relevant companies with an identified, evidenced project or development. The record explains what changed, why it may matter to your category and what remains unknown.</p>\n<p><strong>Target mix:</strong> we aim for 90% industry-matched leads and 10% opportunity-signal leads. This is not a guaranteed split. The final mix, counts and deliverables are agreed in writing. Both classes require fit checks and source traceability.</p>\n<p><a href=\"methodology.html#classes\">How our lead mix works</a></p>",
+          "provenance": [
+            "BRAND §2 and homepage copy bank",
+            "DECISION Record classes"
+          ],
+          "baseline_anchor": "Facilities, not just companies"
+        },
+        {
+          "id": "research-brief",
+          "heading": "Start with what makes an account relevant.",
+          "body_html": "<p>Tell us what you sell, which industries and territories matter, and which companies should be excluded. We use that brief to explain why a business belongs in your prospect base—not just to attach an industry label.</p>\n<p>A company-level record brings together the business or agreed site, source-supported fit, research class, review dates and unresolved questions. Named contacts, email addresses and direct dials are not included by default.</p>\n<p><a href=\"industrial-lead-research.html\">Explore industrial account and lead research</a> · <a href=\"markets.html\">Who we help</a></p>",
+          "provenance": [
+            "BRAND §§1–3",
+            "PLAN §8 core service",
+            "SOP Common acceptance"
+          ],
+          "baseline_anchor": "A long account list does not tell you why now."
+        },
+        {
+          "id": "examples",
+          "heading": "See the reason for inclusion—and rejection.",
+          "body_html": "<p>Our fictional account example shows an Irish manufacturer accepted against a sample targeting brief and a residential retailer rejected for a concrete mismatch. A paired fictional project example adds a development signal without turning it into an open order.</p>\n<p>These examples demonstrate the format and reasoning, not real companies, client results or available work.</p>\n<p><a href=\"sample-account-research.html\">Compare the fictional account examples</a> · <a href=\"sample-opportunity.html\">Inspect the detailed fictional opportunity brief</a></p>",
+          "provenance": [
+            "PLAN §§8–11",
+            "QUEUE C03",
+            "Editorial: original fictional teaching examples"
+          ],
+          "baseline_anchor": "A record built for action."
+        },
+        {
+          "id": "scope",
+          "heading": "A written scope, not a stock package.",
+          "body_html": "<p>Agree the target profile, company or site unit, sources, fields, class treatment and acceptance criteria before research begins. Volume, timing, price and any replacement terms belong in that written scope.</p>\n<p>Opportunity Intelligence remains part of the service for work that needs project context. A project signal does not establish buying intent, an accessible buyer or an open equipment package. Research does not include outreach by default.</p>\n<p><a href=\"opportunity-intelligence.html\">Explore the project-research capability</a></p>",
+          "provenance": [
+            "TRANSITION Gated decisions",
+            "DECISION Commercial implications",
+            "PLAN §§8 and 23"
+          ],
+          "baseline_anchor": "A defined-scope Opportunity Intelligence Sprint."
+        },
+        {
+          "id": "enquiry",
+          "heading": "Bring your product range and target market.",
+          "body_html": "<p>Describe the accounts your team needs to understand. We will assess whether the research scope is a fit and respond in writing.</p><p><a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "BRAND CTA",
+            "TRANSITION Current implementation state",
+            "PLAN §23 quote-copy consistency"
+          ],
+          "baseline_anchor": "Which opportunities should your team know about earlier?"
+        }
+      ],
+      "decisions": [
+        "BRAND supplies the exact category and H1; PLAN §8 / MAP H00 supply the exact proposed title rather than making the homepage the commercial-detail owner.",
+        "PLAN §§7–8 and 23 supply Ireland focus and company-level default; the current quote route is recorded as commissioned in TRANSITION. This draft does not rerun the form.",
+        "Remove old five-week / five-brief / 90-day sprint packaging; DECISION Commercial implications says the legacy offer requires reconciliation. No successor price or package is invented.",
+        "The former plant-only hero illustration is replaced by paired, equally weighted class explanation and fiction links; do not keep a project-only illustration as if it represented every record."
+      ],
+      "risks": "Integrate both new routes and the paired sample before activating their links. Preserve name/logo/type/colour system. Existing OG image wording needs visual review by the parent; this draft does not amend it. No performance or acquisition evidence is claimed.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "How our lead mix works",
+          "href": "methodology.html#classes"
+        },
+        {
+          "text": "Explore industrial account and lead research",
+          "href": "industrial-lead-research.html"
+        },
+        {
+          "text": "Who we help",
+          "href": "markets.html"
+        },
+        {
+          "text": "Compare the fictional account examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "Inspect the detailed fictional opportunity brief",
+          "href": "sample-opportunity.html"
+        },
+        {
+          "text": "Explore the project-research capability",
+          "href": "opportunity-intelligence.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the research examples",
+          "href": "sample-account-research.html"
+        }
+      ],
+      "fragment_file": "homepage.fragment.html"
+    },
+    {
+      "key": "industrial-lead-research",
+      "route": "/industrial-lead-research.html",
+      "mode": "New page main body and metadata; use existing visual system.",
+      "purpose": "Commercial intent owner: what company-level industrial research contains, who it is for and how to scope it.",
+      "title": "Industrial Lead Research for EU Markets | DemandRange",
+      "meta_description": "Scope company-level industrial lead research by EU country. Define operating-site rules, exclusions, evidence and language needs before agreeing deliverables.",
+      "eyebrow": "Industrial account and lead research",
+      "h1": "Account research for industrial suppliers selling into Ireland.",
+      "intro_html": "<p>Build a prospect base around the companies that fit your market—not only those with a newly announced project. DemandRange researches industry-matched accounts and adds project context where an evidenced signal is identified.</p><p>This is scoped, company-level research for suppliers of industrial equipment, technology and services, not a self-service contact database or a promise of meetings.</p>",
+      "hero_links": [
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the fictional sample",
+          "href": "sample-account-research.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "brief",
+          "heading": "The targeting brief comes first.",
+          "body_html": "<p>Start with the product or service range and the applications you want to explore. Then agree:</p><ul><li>Target industries, territory and relevant company characteristics.</li><li>Whether the research unit is a company or an individual facility.</li><li>The route to market: operators, OEMs, integrators or contractors, where relevant.</li><li>Existing accounts, channel conflicts and other exclusions.</li><li>The evidence needed to accept a record and the questions that can remain open.</li></ul><p>Sector membership alone is not evidence of installed equipment, technical suitability or a current requirement.</p>",
+          "provenance": [
+            "BRAND §§2–3",
+            "PLAN §8",
+            "SOP Required campaign decisions"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "record",
+          "heading": "What a company-level record contains.",
+          "body_html": "<p>The field set is agreed for the brief. A useful account record makes the following inspectable:</p><ul><li><strong>Identity:</strong> the company and, if in scope, the specific site.</li><li><strong>Fit:</strong> industry, territory and the reason it matches the written criteria.</li><li><strong>Evidence:</strong> source references and the relevant publication and review dates.</li><li><strong>Class:</strong> industry-matched or opportunity-signal, with project research status kept separate.</li><li><strong>Limits:</strong> exclusions, uncertainty and the next verification question.</li></ul><p>Source access and customer-use permissions determine which evidence can accompany an output. A linked source is not, by itself, permission to redistribute its content.</p><p><a href=\"sample-account-research.html#template\">See the editable example fields</a></p>",
+          "provenance": [
+            "SOP Common acceptance and Minimum delivery schema",
+            "PLAN §§8–9",
+            "BRAND Clear usable delivery"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "classes",
+          "heading": "Account fit does not require a project.",
+          "body_html": "<p><strong>Industry-matched leads (Look Alike)</strong> meet the agreed profile without requiring an active or upcoming project. The record distinguishes a project search that was not required from a bounded review that found no qualifying signal. Neither means that no project exists.</p><p><strong>Opportunity-signal leads</strong> meet the fit rules and have a relevant, evidenced project or development. Their brief separates the observed fact, commercial interpretation and unknowns.</p><p>We aim for 90% industry-matched and 10% opportunity-signal leads. This is a target, not a guaranteed mix. Exact counts, class treatment and deliverables are agreed in writing.</p><p><a href=\"methodology.html#classes\">Compare the research classes</a> · <a href=\"opportunity-intelligence.html\">See what project research adds</a></p>",
+          "provenance": [
+            "BRAND §2",
+            "SOP Canonical record classes",
+            "DECISION §§Record classes / Commercial implications"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "fit",
+          "heading": "An inclusion reason should survive a challenge.",
+          "body_html": "<p>In our fictional example, a manufacturer meets a brief for Irish food-and-beverage production businesses. It is accepted for account relevance without a current project assessment. A residential pump retailer is rejected because it does not meet the required business type—even though its catalogue mentions pumps.</p><p>Neither decision establishes equipment suitability or demand. The written profile determines the fit decision.</p><p><a href=\"sample-account-research.html#accepted-account\">Inspect the accepted and rejected examples</a></p>",
+          "provenance": [
+            "PLAN §§8 and 11",
+            "Editorial: original fictional example, not an external fact"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "quality",
+          "heading": "Review the evidence and the boundaries.",
+          "body_html": "<p>The research method checks identity, material fit facts, dates, duplicates and exclusions. Unsupported or conflicting material claims remain open for review rather than being converted into a pass. Opportunity-signal records need separate evidence for the signal and its relevance.</p><p>Review cadence, acceptance rules and any correction or replacement terms are agreed for the work. There is no standard turnaround or replacement window promised on this page.</p><p><a href=\"methodology.html\">Read the research method</a></p>",
+          "provenance": [
+            "SOP Common and class acceptance; Rejection and replacement",
+            "PLAN §8"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "questions",
+          "heading": "Before you request a scope.",
+          "body_html": "<h3>Are contacts included?</h3><p>Not by default. This page describes company-level accounts. Named-person research and contact fields remain unagreed unless separately scoped and authorised with the required source, privacy and data controls. Outreach is a separate scope.</p><h3>Can an account qualify without a project?</h3><p>Yes. An industry-matched account can meet the written profile without a project signal. It is not automatically a marketing-qualified lead or a high-intent buyer.</p><h3>Which territories can I request?</h3><p>Ireland is the current focus. You can state other preferences in the quote request; coverage is assessed before any commitment.</p><h3>How are deliverables agreed?</h3><p>In writing: record unit, fields, sources, counts, class mix, timing, price and acceptance terms. A quote request does not book a package or guarantee coverage.</p><p><a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "TRANSITION Gated decisions",
+            "BRAND §2",
+            "PLAN §§8 and 23"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        }
+      ],
+      "decisions": [
+        "Title and H1 use the actual candidates in PLAN §8; MAP C01 remains the commercial intent owner.",
+        "The listed fields describe a scoping framework, not an approved standard delivery package; SOP remains the fuller internal record/control schema.",
+        "Examples are original fiction shared with C03; they introduce no market-size, equipment-demand or customer-result claim."
+      ],
+      "risks": "No cleared live sources or real company examples are needed for this draft. Exact service economics, geography beyond Ireland and contact scope remain pending. Parent must not recast the question section as guaranteed FAQ rich-result eligibility.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "See the editable example fields",
+          "href": "sample-account-research.html#template"
+        },
+        {
+          "text": "Compare the research classes",
+          "href": "methodology.html#classes"
+        },
+        {
+          "text": "See what project research adds",
+          "href": "opportunity-intelligence.html"
+        },
+        {
+          "text": "Inspect the accepted and rejected examples",
+          "href": "sample-account-research.html#accepted-account"
+        },
+        {
+          "text": "Read the research method",
+          "href": "methodology.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the fictional sample",
+          "href": "sample-account-research.html"
+        }
+      ],
+      "fragment_file": "industrial-lead-research.fragment.html"
+    },
+    {
+      "key": "methodology",
+      "route": "/methodology.html",
+      "mode": "Replace main body and metadata; retain existing method/scoring/principles/learning fragment IDs where used below.",
+      "purpose": "Explain common fit checks, class-specific evidence, uncertainty and correction without duplicating the service offer.",
+      "title": "How the Research Classes and QA Work | DemandRange",
+      "meta_description": "How DemandRange checks company fit, distinguishes project signals and records sources, review dates and unknowns. Inspect the method and fictional examples.",
+      "eyebrow": "Research method",
+      "h1": "How the research classes and QA work",
+      "intro_html": "<p>Relevance comes first. A company must meet the written targeting criteria; a project signal is an additional evidence requirement for one class, not the definition of every lead.</p><p>Our method keeps company fit, observed evidence, interpretation and uncertainty separate. It does not infer private buying intent.</p>",
+      "hero_links": [
+        {
+          "text": "View the paired examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "Explore the service",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "method",
+          "heading": "Start with a research unit and a written profile.",
+          "body_html": "<ol><li><strong>Define the brief.</strong> Agree the industries, territory, company criteria, exclusions and evidence requirements. Specify a company account or a facility record; do not count several sites as separate companies.</li><li><strong>Check source use.</strong> Identify sources that may be reviewed and what may be included in customer-facing output. Public access does not settle reuse rights.</li><li><strong>Resolve the entity.</strong> Check which company and site the evidence concerns; review parent/subsidiary relationships, duplicates and conflicts.</li><li><strong>Record the fit.</strong> Support each material criterion with a source reference and relevant dates. State why the account is included and what remains unresolved.</li><li><strong>Apply the class check.</strong> A project-signal record needs evidence of a relevant project or development as well as account fit.</li><li><strong>Review before release.</strong> Check the criteria, source posture and claims. A research pass is not, by itself, authority to deliver data or contact anyone.</li></ol>",
+          "provenance": [
+            "SOP Required campaign decisions; Common acceptance; Independent QA; Delivery preparation",
+            "PLAN §8 methodology"
+          ],
+          "baseline_anchor": "The analyst workflow"
+        },
+        {
+          "id": "classes",
+          "heading": "Two classes, with project research status kept separate.",
+          "body_html": "<h3>Industry-matched leads (Look Alike)</h3><p>A rules-based match to the agreed profile. No current or upcoming project is required. Where project research was not part of the brief, say <em>not assessed—not required</em>. Where an agreed bounded search found none, say <em>no qualifying signal identified in the bounded review</em>. Do not turn either statement into “no project exists”.</p><h3>Opportunity-signal leads</h3><p>A profile-matched account with a qualifying project or development signal supported by dated evidence. State the actual stage and the unknowns; do not infer an open tender, unawarded package or purchasing contact.</p><p>Both classes require source-supported fit. Our 90% industry-matched / 10% opportunity-signal mix is a target, not a guarantee. Counts and class treatment are agreed in writing. Neither class is automatically a marketing-qualified lead.</p><p><a href=\"sample-account-research.html#paired-signal\">See both classes in a fictional example</a></p>",
+          "provenance": [
+            "BRAND §2",
+            "SOP Canonical record classes; Class acceptance",
+            "DECISION Record classes"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "evidence",
+          "heading": "Read the record in three layers.",
+          "body_html": "<dl><dt><strong>Observed fact</strong></dt><dd>What the source actually supports, attributed to that source and its date. An announcement of a proposed expansion is not evidence that construction or procurement has begun.</dd><dt><strong>Interpretation</strong></dt><dd>Why the fact may be relevant to the supplier’s range. An application hypothesis is not a verified technical match.</dd><dt><strong>Unknown</strong></dt><dd>Information not established: for example specifications, timing, procurement route or package availability. State the next useful check rather than filling the gap.</dd></dl><p>Keep publication dates distinct from retrieval or review dates. A recent review does not make an old source current. Reconcile conflicting sources before relying on a material claim.</p>",
+          "provenance": [
+            "BRAND Project context and visual evidence legend",
+            "SOP Opportunity-signal acceptance",
+            "PLAN §§8–11"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "scoring",
+          "heading": "A score cannot replace the fit decision.",
+          "body_html": "<p>The written criteria determine whether a record is accepted, held for review or rejected. Keep the decision reason visible. A score cannot rescue an excluded account or supply missing project evidence.</p><p>The detailed fictional opportunity brief includes an illustrative prioritisation score. It is not a buyer-intent score, a probability of sale or a quality ranking between the two lead classes.</p>",
+          "provenance": [
+            "SOP Common acceptance; Independent QA",
+            "BRAND §5 evidence legend and no class quality coding",
+            "BASELINE sample-opportunity.html illustrative score"
+          ],
+          "baseline_anchor": "Scoring supports judgement; it does not replace it."
+        },
+        {
+          "id": "principles",
+          "heading": "Sources and data have boundaries.",
+          "body_html": "<p>Company-level research is the default described on this site. Named-contact fields and outreach require a separate agreed scope and applicable source, privacy, suppression and security controls.</p><p>Research may use approved public sources and, only where contracted and permitted, licensed sources. Evidence retained internally is not automatically available for customer copying. Unknown source or customer-use rights are a hold, not a permission.</p><p>No confidential client information belongs in a public example. The published samples are fictional and do not demonstrate live-data clearance, a software platform or client results.</p>",
+          "provenance": [
+            "SOP Hard boundary; Named-person control layer; Stop conditions",
+            "BRAND §2 and rollout gates",
+            "PLAN §9"
+          ],
+          "baseline_anchor": "Data and trust principles"
+        },
+        {
+          "id": "learning",
+          "heading": "Review, correct and learn within the agreed scope.",
+          "body_html": "<p>Review dates and triggers are agreed for the research, rather than presented as continuous monitoring. If a material fact is challenged, identify the record and claim, inspect the evidence, and record the correction or unresolved question.</p><p>Acceptance, replacement windows and any replacement limits are agreed in writing. A missing opportunity signal must not be silently replaced with an industry-matched record to make a batch look complete.</p><p>Commercial outcomes can inform later work only when suitable client feedback is available. No meeting, pipeline or conversion improvement is claimed here.</p><p><a href=\"contact.html\">Raise a research question or correction</a> · <a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "SOP Composition reconciliation; Rejection and replacement; Metrics",
+            "BRAND §§2–3",
+            "PLAN §8"
+          ],
+          "baseline_anchor": "Learning requires client feedback."
+        }
+      ],
+      "decisions": [
+        "MAP C02 supplies title/H1 direction; C06 stays consolidated here, not a new comparison route.",
+        "Existing #method, #scoring, #principles and #learning anchors remain usable. Remove old fixed scoring weights as the universal method; the legacy fictional sample can retain an explicitly illustrative score.",
+        "The process describes the required standard, not evidence that a real batch, platform or provider integration has run."
+      ],
+      "risks": "Do not substitute generic certification language for source/data boundaries. Source-use contracts, live-contact controls and campaign-specific acceptance remain independently gated. This is not legal or technical suitability advice.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "See both classes in a fictional example",
+          "href": "sample-account-research.html#paired-signal"
+        },
+        {
+          "text": "Raise a research question or correction",
+          "href": "contact.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the paired examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "Explore the service",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "fragment_file": "methodology.fragment.html"
+    },
+    {
+      "key": "about",
+      "route": "/about.html",
+      "mode": "Replace main body and metadata; no biography, reviewer byline or entity additions.",
+      "purpose": "Explain the business and operating priorities without software-roadmap, uniqueness or customer-result claims.",
+      "title": "About DemandRange | Industrial Lead Research",
+      "meta_description": "DemandRange is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.",
+      "eyebrow": "About DemandRange",
+      "h1": "Industrial prospects. Matched to your market.",
+      "intro_html": "<p>DemandRange is an industrial lead research and market intelligence business. We help suppliers identify prospects that match their target industries and agreed customer profile.</p><p>Our model combines a broad base of industry-matched Look Alike leads with a smaller share supported by identified project or development signals. Relevance comes first; an active project is not required for every lead.</p>",
+      "hero_links": [
+        {
+          "text": "Explore the research service",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "purpose",
+          "heading": "Make the inclusion reason clear.",
+          "body_html": "<p>The purpose is practical: help industrial suppliers focus their prospecting on relevant businesses. A useful account record should explain why the company fits, what supports that view and what still needs checking.</p><p>Opportunity Intelligence remains a specialist capability for research that needs project or development context. It is part of the wider offer, not a requirement that every account has a project.</p><p><a href=\"opportunity-intelligence.html\">Explore Opportunity Intelligence</a></p>",
+          "provenance": [
+            "BRAND §§1–3 and About copy bank",
+            "TRANSITION Objective"
+          ],
+          "baseline_anchor": "Account data is not market timing."
+        },
+        {
+          "id": "priorities",
+          "heading": "What guides the work.",
+          "body_html": "<ul><li><strong>Industry fit first.</strong> Work from written target criteria and explicit exclusions.</li><li><strong>Evidence where it matters.</strong> Keep source-supported facts separate from interpretation.</li><li><strong>Visible limits.</strong> Record unknowns instead of implying a ready buyer or accessible package.</li><li><strong>Agreed scope.</strong> Define the record unit, fields and commercial terms before work begins.</li></ul><p><a href=\"methodology.html\">Read how the research is assessed</a> · <a href=\"sample-account-research.html\">Inspect the fictional examples</a></p>",
+          "provenance": [
+            "BRAND §3",
+            "PLAN §8"
+          ],
+          "baseline_anchor": "Trust before automation."
+        },
+        {
+          "id": "focus",
+          "heading": "An Irish focus, with scope assessed case by case.",
+          "body_html": "<p>The current focus is industrial suppliers selling into Ireland. Other territory preferences can be submitted for assessment; they are not a promise of worldwide coverage.</p><p>The service described here is company-level research. Named-person delivery and outreach are separate, unagreed scopes unless expressly authorised and confirmed. The site does not offer a live research platform or guarantee sales outcomes.</p>",
+          "provenance": [
+            "PLAN §§6–8 and 23",
+            "TRANSITION Gated decisions",
+            "BRAND §2"
+          ],
+          "baseline_anchor": "One market at a time."
+        },
+        {
+          "id": "enquiry",
+          "heading": "Tell us what relevance means for your business.",
+          "body_html": "<p>Start with your product range, target industries, territory and exclusions. We will assess the brief before proposing a written scope.</p><p><a href=\"request-a-quote.html\">Request a quote</a> · <a href=\"contact.html\">Contact DemandRange</a></p>",
+          "provenance": [
+            "BRAND CTA",
+            "PLAN §23"
+          ],
+          "baseline_anchor": "Bring a market worth understanding better."
+        }
+      ],
+      "decisions": [
+        "The exact H1 is the canonical BRAND tagline; the opening adapts its approved internal About bank. New title/meta are editorial expressions, not measured keyword findings.",
+        "Remove the Now/Next/Later software roadmap and “market-intelligence layer ... missing” framing: neither is necessary to explain the current broader model.",
+        "No founders, engineer credentials, client logos, registration facts or location/office details have been added."
+      ],
+      "risks": "No new legal-entity or operational compliance claim. Existing legal pages still contain opportunity-only descriptions; these are flagged separately, not silently rewritten by this draft.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "Explore Opportunity Intelligence",
+          "href": "opportunity-intelligence.html"
+        },
+        {
+          "text": "Read how the research is assessed",
+          "href": "methodology.html"
+        },
+        {
+          "text": "Inspect the fictional examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Contact DemandRange",
+          "href": "contact.html"
+        },
+        {
+          "text": "Explore the research service",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "fragment_file": "about.fragment.html"
+    },
+    {
+      "key": "markets",
+      "route": "/markets.html",
+      "mode": "Replace main body and metadata; retain URL as the audience/application hub.",
+      "purpose": "Help industrial suppliers define relevant account types and market boundaries, not attract equipment shoppers.",
+      "title": "EU Industrial Markets & Supplier Fit | DemandRange",
+      "meta_description": "Define industrial account fit by EU country, sector and customer route. Research scope, country-specific sources and language requirements are assessed first.",
+      "eyebrow": "Who we help",
+      "h1": "Built for suppliers selling into industrial markets.",
+      "intro_html": "<p>DemandRange helps suppliers of industrial equipment, technology and services define and research relevant businesses. Ireland is the current focus; every brief needs its own territory, account criteria and exclusions.</p><p>A company can fit your market without a new project. Project and development signals add context where evidenced; they do not establish equipment demand.</p>",
+      "hero_links": [
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Explore company-level research",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "sectors",
+          "heading": "Use the sector as a starting point, not the acceptance test.",
+          "body_html": "<p>These are scoping questions, not a claim of complete coverage or technical suitability.</p><h3>Food and beverage</h3><p>Which production businesses and activities belong in the brief? Distinguish manufacturers from distributors, retailers and hospitality businesses.</p><h3>Pharma and life sciences</h3><p>Which facility types and company activities matter to your range? State the technical requirements that need specialist confirmation.</p><h3>Water, energy and utilities</h3><p>Is the intended account an operator, an engineering business or a contractor? Keep account relevance separate from any project or procurement status.</p><h3>Chemicals and process industries</h3><p>Which process activities fit—and which applications or materials must be excluded or left for technical review?</p><h3>Manufacturing and engineering</h3><p>Do you sell to end users, machine builders or both? Set the company characteristics and site-level detail needed.</p><h3>Construction and project delivery</h3><p>Which contractors, integrators or engineering businesses are relevant routes? A project appointment alone does not establish control of an equipment package.</p>",
+          "provenance": [
+            "BASELINE markets.html sector structure",
+            "BRAND Industry fit first",
+            "PLAN §8 supplier applications"
+          ],
+          "baseline_anchor": "Follow the change wherever it happens."
+        },
+        {
+          "id": "routes",
+          "heading": "Specify the account route—not a promised contact.",
+          "body_html": "<ul><li><strong>Operators:</strong> businesses operating the facilities or assets covered by the brief.</li><li><strong>OEMs:</strong> manufacturers whose product or equipment scope may be relevant.</li><li><strong>Integrators:</strong> businesses whose work may connect systems or equipment.</li><li><strong>Contractors and engineering businesses:</strong> potential routes where their actual role is evidenced.</li></ul><p>The same company can have more than one role. Confirm its activity and relationship to the relevant site or project rather than assuming purchasing authority. Role-level context is not a promise of named contacts, direct dials or buyer access.</p>",
+          "provenance": [
+            "PLAN §8 pump/flow-control brief route distinctions",
+            "BRAND §2 account/contact boundary"
+          ],
+          "baseline_anchor": "Map the people around the package."
+        },
+        {
+          "id": "fit",
+          "heading": "Write down what should be excluded.",
+          "body_html": "<p>A useful scope can exclude residential-only activity, irrelevant distribution models, territories outside your remit, existing accounts or channel conflicts. These are brief-specific choices, not universal judgments about those businesses.</p><p>Our fictional sample accepts a manufacturer against one written profile and rejects a retailer against the same profile. It shows why a shared product word is not enough.</p><p><a href=\"sample-account-research.html\">View the accepted and rejected examples</a> · <a href=\"methodology.html\">See the fit and evidence checks</a></p>",
+          "provenance": [
+            "PLAN §§8 and 11",
+            "SOP Common acceptance"
+          ],
+          "baseline_anchor": "Possibility is not proof."
+        },
+        {
+          "id": "scope",
+          "heading": "Scope your market before counting accounts.",
+          "body_html": "<p>Bring your product or service range, target activities, territory and account exclusions. Company-level research is the default; named-contact work remains a separate scope. Global region selections on the quote form are preferences for assessment, not a coverage commitment.</p><p><a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "PLAN §23 quote-copy consistency",
+            "TRANSITION Gated decisions"
+          ],
+          "baseline_anchor": "Map the market for your product range."
+        }
+      ],
+      "decisions": [
+        "Preserve the existing sector breadth as scoping categories, but replace project-only triggers with account-fit questions. No claim that all sectors or territories have measured delivery coverage.",
+        "Do not link the unbuilt pump/flow-control pilot, create a valve clone, or alter the legacy pumps-flow-control.html bridge. New verticals remain outside this foundation.",
+        "New title/meta/H1 are editorial alignment with PLAN §§7–8; no search-volume, ranking or technical-fit evidence is inferred."
+      ],
+      "risks": "Technical suitability stays a question requiring product specifications and competent review. All real project/source examples remain pending. Do not turn the sector list into a coverage guarantee or a directory of equipment for sale.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "View the accepted and rejected examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "See the fit and evidence checks",
+          "href": "methodology.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Explore company-level research",
+          "href": "industrial-lead-research.html"
+        }
+      ],
+      "fragment_file": "markets.fragment.html"
+    },
+    {
+      "key": "opportunity-intelligence",
+      "route": "/opportunity-intelligence.html",
+      "mode": "Replace main body and metadata; preserve #receive, #credible, #fit and #scope anchors.",
+      "purpose": "Specialist project-research capability; not the generic company-wide offer or a duplicate core service.",
+      "title": "EU Industrial Project Intelligence | DemandRange",
+      "meta_description": "Scope industrial project intelligence for target EU countries. Separate observed change, supplier relevance and unknowns; agree source and language limits first.",
+      "eyebrow": "Opportunity Intelligence",
+      "h1": "What a supplier project-intelligence brief includes",
+      "intro_html": "<p>When an evidenced industrial project or development is relevant to your range, the useful question is what it actually establishes. DemandRange’s Opportunity Intelligence capability brings the source record, supplier relevance and unresolved questions into a reviewable brief.</p><p>It supports the opportunity-signal component of our wider account-research model. Not every industry-matched account needs a project.</p>",
+      "hero_links": [
+        {
+          "text": "View the fictional opportunity brief",
+          "href": "sample-opportunity.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        }
+      ],
+      "sections": [
+        {
+          "id": "receive",
+          "heading": "What the brief needs to make clear.",
+          "body_html": "<ul><li><strong>Company and facility:</strong> which entity the source refers to and how it relates to the target account.</li><li><strong>Observed change:</strong> the specific project or development, with source references and dates.</li><li><strong>Supplier relevance:</strong> why the change may matter to the agreed product or service category.</li><li><strong>Stage and route:</strong> what is known about progress and the organisations involved; what is not established.</li><li><strong>Unknowns and review:</strong> specification gaps, package status, timing and the next verification step.</li></ul><p>Outputs, evidence supplied and review cadence are agreed for the brief. This is not a continuous live feed or a promise of complete project coverage. Role-level mapping does not include named contacts by default.</p>",
+          "provenance": [
+            "SOP Opportunity-signal acceptance",
+            "BRAND §2",
+            "PLAN §§8 and 10 C07"
+          ],
+          "baseline_anchor": "What you receive"
+        },
+        {
+          "id": "credible",
+          "heading": "A signal is not an open equipment order.",
+          "body_html": "<h3>Observed</h3><p>State exactly what the source supports. For example, a fictional company statement proposes additional production space.</p><h3>Inferred</h3><p>The change may be worth reviewing against the supplier’s range. That is a relevance hypothesis—not proof of required equipment.</p><h3>Unknown</h3><p>Whether the project will proceed, which specifications apply, how procurement will run and whether any package is available.</p><p>This example is invented to explain the method. In real work, planning, construction, tender and award evidence must keep their actual meanings and dates. An award notice cannot support a claim that the same work remains unawarded.</p><p><a href=\"sample-account-research.html#paired-signal\">Compare the paired fictional signal example</a> · <a href=\"methodology.html#evidence\">Read the evidence method</a></p>",
+          "provenance": [
+            "PLAN §§8–11",
+            "SOP Opportunity-signal acceptance",
+            "Editorial: original explicitly fictional method illustration"
+          ],
+          "baseline_anchor": "A company name is not an opportunity."
+        },
+        {
+          "id": "fit",
+          "heading": "Use project context where it changes the research question.",
+          "body_html": "<p>This capability is relevant when your brief depends on a facility change or development that can be evidenced. Start with the supplier category and the signal that would be meaningful, not a promise to find an open order.</p><p>If the immediate need is a broader set of relevant businesses, <a href=\"industrial-lead-research.html\">industry-matched account research</a> does not require every record to have a current project. Both classes still need fit checks.</p>",
+          "provenance": [
+            "BRAND §2",
+            "PLAN §§6–8"
+          ],
+          "baseline_anchor": "Where the service fits best"
+        },
+        {
+          "id": "scope",
+          "heading": "Scope the signal, evidence and limits.",
+          "body_html": "<p>Agree territory, qualifying signal, source rules, recency, record fields and review cadence in writing. Ireland is the current focus; other territory preferences are assessed before commitment.</p><p>The wider programme aims for 90% industry-matched and 10% opportunity-signal leads. That target is not a guaranteed number of projects or a fixed brief package.</p><p>Evidence access and customer-use rights must be checked. Named-contact research and outreach are separate scopes. No project signal guarantees buying intent, buyer access, an open package, meetings or sales.</p><p><a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "BRAND §§2–3",
+            "TRANSITION Gated decisions",
+            "PLAN §23"
+          ],
+          "baseline_anchor": "Scope before volume."
+        }
+      ],
+      "decisions": [
+        "MAP C07 / QUEUE C07 supply the actual proposed title and H1. Existing specialist URL and accurate opportunity evidence discipline are preserved.",
+        "Replace “Core service” eyebrow with the capability name; remove buying-window/access/default-contact implications and legacy sprint wording.",
+        "No new real project example, equipment specification, monitoring product or active package claim is introduced."
+      ],
+      "risks": "A live project example would need fresh primary evidence, stage reconciliation and source/customer-use review. None is cleared or simulated as real here. Existing fictional sample and PDF remain separately labelled fiction.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "Compare the paired fictional signal example",
+          "href": "sample-account-research.html#paired-signal"
+        },
+        {
+          "text": "Read the evidence method",
+          "href": "methodology.html#evidence"
+        },
+        {
+          "text": "industry-matched account research",
+          "href": "industrial-lead-research.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "View the fictional opportunity brief",
+          "href": "sample-opportunity.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        }
+      ],
+      "fragment_file": "opportunity-intelligence.fragment.html"
+    },
+    {
+      "key": "request-a-quote",
+      "route": "/request-a-quote.html",
+      "mode": "COPY-ONLY PATCH: metadata + hero + pre-form explanation/model cards. Never replace the whole main element or alter the form/client/schema/backend.",
+      "purpose": "Clarify what a request asks DemandRange to assess without changing the commissioned intake.",
+      "title": "Request an Industrial Research Quote | DemandRange",
+      "meta_description": "Request a written scope for industrial account research. State your market and territory preferences; fields, coverage and deliverables are assessed before agreement.",
+      "eyebrow": "Written scope first",
+      "h1": "Request a lead programme scope & quote.",
+      "intro_html": "<p>Tell us what you sell and which industries and territories matter. We will assess the brief and respond in writing with the scope we can propose; a discovery call is optional.</p><p>The starting scope is company-level research. Target seniority and worldwide region selections express preferences for assessment—not a promise of named contacts, outreach or coverage.</p>",
+      "hero_links": [],
+      "sections": [
+        {
+          "id": "quote-next",
+          "heading": "What happens next",
+          "body_html": "<ol><li>We review product, account and territory fit.</li><li>We clarify the evidence, fields, coverage and delivery assumptions.</li><li>Where the brief is a fit, we propose a written scope and commercial terms.</li></ol>",
+          "provenance": [
+            "BASELINE request-a-quote.html What happens next",
+            "PLAN §23"
+          ],
+          "baseline_anchor": "What happens next"
+        },
+        {
+          "id": "quote-mix",
+          "heading": "Target mix, not a guaranteed allocation",
+          "body_html": "<h3>90% industry-matched leads (Look Alike)</h3><p>Companies matching the agreed profile. An active or upcoming project is not required.</p><h3>10% opportunity-signal leads</h3><p>Relevant companies with an identified, evidenced project or development. This does not establish an open package or buying intent.</p><p>These percentages are a planning target. Exact counts, mix, evidence, acceptance criteria, price and timing are confirmed in the written scope.</p>",
+          "provenance": [
+            "BRAND §2 and homepage model bank",
+            "PLAN §23",
+            "BASELINE request-a-quote.html target cards"
+          ],
+          "baseline_anchor": "10% opportunity-signalled"
+        },
+        {
+          "id": "quote-scope",
+          "heading": "Scope clarification",
+          "body_html": "<p><strong>Territory:</strong> Ireland is the current focus. Other countries and worldwide regions selected below are requests for assessment, not confirmed service coverage.</p><p><strong>Contacts:</strong> job-seniority preferences help describe the audience. Named-person delivery, emails, direct dials and outreach remain separate and unagreed unless expressly authorised and confirmed. Your own response details below are for handling this enquiry.</p><p>Submission requests a review. It does not create a service commitment or guarantee a quote, coverage or delivery. The existing response and privacy choices apply to this enquiry.</p><p><a href=\"industrial-lead-research.html\">Review the company-level service</a> · <a href=\"sample-account-research.html\">View a fictional sample before submitting</a></p>",
+          "provenance": [
+            "PLAN §23 quote-copy consistency; §25 private intake",
+            "REVIEW R09",
+            "BRAND §2"
+          ],
+          "baseline_anchor": "Give us enough to assess the brief."
+        }
+      ],
+      "decisions": [
+        "PLAN §23 and REVIEW R09 explicitly require quote consistency while retaining endpoint, fields, versions and server validation.",
+        "Retain the existing H1. Use the shared brand descriptor in shared-copy.json instead of the quote-specific “Industrial lead programmes” wordmark suffix.",
+        "The fragment contains no form. Integrate only its identified copy slots; preserve the existing safety warning, submission notice, privacy link/permissions, field labels/options/required state and success/error handling verbatim."
+      ],
+      "risks": "Do not rename required job-seniority fields or remove global-region options. The caveat explains those existing preferences. No live form submission, backend verification or new intake acceptance has been performed in this drafting lane. Parent owns exact-client and route regression checks.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "Review the company-level service",
+          "href": "industrial-lead-research.html"
+        },
+        {
+          "text": "View a fictional sample before submitting",
+          "href": "sample-account-research.html"
+        }
+      ],
+      "fragment_file": "request-a-quote.fragment.html"
+    },
+    {
+      "key": "sample-account-research",
+      "route": "/sample-account-research.html",
+      "mode": "New ungated page and downloadable educational CSV assets; no form or email capture.",
+      "purpose": "Show a written fit decision through an accepted account, a paired project-signalled account and a rejected mismatch; provide editable fields.",
+      "title": "Industrial Account-Research Sample and Template | DemandRange",
+      "meta_description": "Inspect a real EPA facility-evidence demonstration, then separate fictional account-fit examples and editable company-level research templates.",
+      "eyebrow": "Real facility evidence and separate fictional examples",
+      "h1": "Industrial account-research sample and template",
+      "intro_html": "<p><strong>See the difference between evidence and a qualified account.</strong> The first section uses three real EPA dataset records to show literal source fields, research decisions and remaining checks. It is a facility-evidence demonstration, not a finished prospect list or client result.</p><p>The later targeting brief, accepted/rejected accounts, project-signal example and downloadable example rows are fictional teaching material. No personal contacts are included. Neither section demonstrates the 90/10 target proportions or authorises outreach.</p>",
+      "hero_links": [
+        {
+          "text": "Download the blank account worksheet (CSV)",
+          "href": "account-research-template.csv"
+        },
+        {
+          "text": "Download the field dictionary (CSV)",
+          "href": "account-research-field-dictionary.csv"
+        }
+      ],
+      "sections": [
+        {
+          "id": "example-brief",
+          "heading": "The fictional targeting brief",
+          "body_html": "<p><strong>Example profile DEMO-PROFILE-01:</strong> an industrial process-equipment supplier wants to research food-and-beverage manufacturing companies operating production facilities in Ireland. The record unit is the company. Existing accounts and known channel conflicts would be excluded in a real brief; this invented exercise contains none.</p><p>Exclude residential-only retailers and businesses without relevant manufacturing activity. An active project is not required for the industry-matched class. For this exercise, the opportunity-signal class requires a source statement identifying a proposed facility expansion at a relevant manufacturing company.</p><p>This brief tests account relevance only. It does not assess installed equipment, hygienic requirements, technical compatibility, purchasing authority or buying timing.</p>",
+          "provenance": [
+            "PLAN §§8–11 and QUEUE C03",
+            "SOP Required campaign decisions",
+            "Editorial: fictional demonstration profile, not a client requirement"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "accepted-account",
+          "heading": "Accepted for account fit: Fictional Beverage Manufacturer A",
+          "body_html": "<p><strong>Fictional example · DEMO-ACCOUNT-A · Accepted within this illustration only.</strong></p><dl><dt>Company and territory</dt><dd>Fictional Beverage Manufacturer A; beverage manufacturing; Ireland; company-level record.</dd><dt>Invented source statement</dt><dd>DEMO-SOURCE-A: an invented company activity statement says the business operates a beverage-production facility in Ireland. No live source was retrieved.</dd><dt>Fit reason</dt><dd>The stipulated activity and location meet the example profile’s manufacturing and territory rules.</dd><dt>Research class</dt><dd>Industry-matched lead (Look Alike): <code>fit_matched_lookalike</code>.</dd><dt>Project research status</dt><dd>Not assessed—not required: <code>not_assessed_not_required</code>. This is not a finding that no project exists.</dd><dt>Unknowns</dt><dd>Installed equipment, specifications, current needs and purchasing route are not established.</dd><dt>Next check</dt><dd>In real work, verify company identity and source-supported fit, assess source-use rights and complete duplicate/conflict checks before an acceptance decision.</dd></dl><p><strong>Why include it?</strong> The written account criteria are met in the fictional scenario. No project or buyer-intent claim is needed to explain that fit.</p>",
+          "provenance": [
+            "BRAND §2",
+            "SOP fit_matched_lookalike / not_assessed_not_required",
+            "Editorial: original synthetic record, no real evidence or QA pass"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "paired-signal",
+          "heading": "Paired signal example: Fictional Beverage Manufacturer B",
+          "body_html": "<p><strong>Fictional example · DEMO-SIGNAL-B · Accepted within this illustration only.</strong></p><dl><dt>Company and territory</dt><dd>Fictional Beverage Manufacturer B; beverage manufacturing; Ireland; company-level record.</dd><dt>Invented source statements</dt><dd>DEMO-SOURCE-B-FIT describes an Irish beverage-production business. DEMO-SOURCE-B-PROJECT says it proposes adding production space at its facility. Both statements are invented; no planning record or company announcement was retrieved.</dd><dt>Observed fact within the fiction</dt><dd>A proposed facility expansion is described. Construction, procurement and equipment selection are not established.</dd><dt>Fit and signal decision</dt><dd>The company meets the same account profile, and the stipulated expansion meets this example’s signal definition.</dd><dt>Research class and status</dt><dd>Opportunity-signal lead: <code>opportunity_signal</code>; qualifying signal identified: <code>qualifying_signal_identified</code>—within the invented scenario only.</dd><dt>Interpretation</dt><dd>The proposed change gives a reason to investigate relevance to the supplier’s range. It does not establish a requirement for a particular product.</dd><dt>Unknowns and next check</dt><dd>Confirm actual stage, specifications and procurement route in real work. Package availability, buyer access and intent remain unknown. No outreach is authorised by the example.</dd></dl><p><strong>What changed?</strong> There is an additional project-evidence requirement, not a higher guarantee of quality or conversion. A real signal record would also need dates, current evidence, rights checks and independent QA.</p><p><a href=\"sample-opportunity.html\">Open the detailed fictional opportunity brief</a></p>",
+          "provenance": [
+            "BRAND §2",
+            "SOP opportunity_signal / qualifying_signal_identified",
+            "PLAN §8 paired evidence examples",
+            "Editorial: original synthetic record, no real project asserted"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "rejected-account",
+          "heading": "Rejected for fit: Fictional Home Pump Retailer C",
+          "body_html": "<p><strong>Fictional example · DEMO-REJECT-C · Rejected within this illustration.</strong></p><dl><dt>Company and territory</dt><dd>Fictional Home Pump Retailer C; residential equipment retail; Ireland; company-level candidate.</dd><dt>Invented source statement</dt><dd>DEMO-SOURCE-C says the business sells domestic pumps to householders and does not conduct food-or-beverage manufacturing. This is an invented positive description, not an inference from missing information.</dd><dt>Tested class</dt><dd>Candidate assessed for <code>fit_matched_lookalike</code>; not accepted or counted as a delivered lead.</dd><dt>Project research status</dt><dd><code>not_assessed_not_required</code>.</dd><dt>Failed criterion</dt><dd>DEMO-PROFILE-01 requires relevant manufacturing activity and excludes residential-only retailers.</dd><dt>Decision reason</dt><dd>Business-type mismatch. A shared product word—“pump”—does not override the targeting brief.</dd><dt>Next step</dt><dd>Exclude from this example scope. Do not invent a project or soften the criterion to make the candidate fit.</dd></dl><p>This is a rejection against one brief, not a claim that the business would be unsuitable for every supplier.</p>",
+          "provenance": [
+            "PLAN §11 accepted/rejected rows",
+            "SOP common mandatory fit rules and reason-coded failures",
+            "Editorial: original synthetic rejection, no named entity"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "template",
+          "heading": "Edit the fields without treating the sample as live data.",
+          "body_html": "<p>The blank worksheet and small field dictionary are available without registration. They are an educational starting point for discussing company-level research, not the full internal QA schema or an agreed delivery specification.</p><ul><li><a href=\"account-research-template.csv\">Blank account worksheet (CSV)</a></li><li><a href=\"account-research-field-dictionary.csv\">Editable field dictionary (CSV)</a></li><li><a href=\"account-research-fictional-examples.csv\">Fictional worked rows (CSV)</a></li></ul><p>The fields keep identity, profile, source references, dates, class, project status, interpretation, unknowns and decision separate. Dates are blank in the fictional rows because no source was published or reviewed. Demonstration source IDs are not live citations.</p><p>A real record needs permitted sources, current identity and fit evidence, applicable data controls and the agreed review/release checks. Downloading or completing a worksheet does not clear source rights or authorise outreach.</p>",
+          "provenance": [
+            "PLAN §§9–11",
+            "SOP Minimum delivery schema and hard boundary",
+            "Editorial: public educational subset with no contacts"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        },
+        {
+          "id": "next-step",
+          "heading": "Apply the same questions to your market.",
+          "body_html": "<p>What must a company do, where must it operate, what should be excluded and what evidence would justify inclusion? Define those answers before deciding how many accounts to research.</p><p><a href=\"methodology.html\">Read the research method</a> · <a href=\"industrial-lead-research.html\">Explore the service scope</a> · <a href=\"request-a-quote.html\">Request a quote</a></p>",
+          "provenance": [
+            "PLAN §10 C03",
+            "BRAND Industry fit first"
+          ],
+          "baseline_anchor": "NEW BLOCK"
+        }
+      ],
+      "decisions": [
+        "MAP C03 supplies the actual proposed title/H1. The brief and companies are deliberately generic fictional labels rather than real firms or realistic contact identities.",
+        "Two accepted illustrative records demonstrate both classes; a third record demonstrates a concrete rejection. This is not a 90/10 batch, simulated client delivery or execution of the separately tracked synthetic rehearsal.",
+        "All source statements are visibly invented; no fabricated URLs, retrieval dates, official records or live research receipts. No outside facts require public citations.",
+        "The CSV dictionary is a public educational subset. Canonical internal class/state identifiers are preserved exactly; public decision labels are not independent QA approval."
+      ],
+      "risks": "Keep a fiction label on every example and every exported example row. Do not restyle accepted/rejected as hot/cold or make the signal class higher quality. Do not strip the source/date and rights caveats during integration. No real-company or customer-use rights have been cleared by writing these examples.",
+      "status": "draft_for_parent_review_not_accepted_not_published",
+      "claims_checklist": [
+        "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+        "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+        "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+        "Ireland is the focus; other geography is assessed, not promised.",
+        "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+        "Source/customer-use rights and release authority remain separate from a research/QA decision."
+      ],
+      "links": [
+        {
+          "text": "Open the detailed fictional opportunity brief",
+          "href": "sample-opportunity.html"
+        },
+        {
+          "text": "Blank account worksheet (CSV)",
+          "href": "account-research-template.csv"
+        },
+        {
+          "text": "Editable field dictionary (CSV)",
+          "href": "account-research-field-dictionary.csv"
+        },
+        {
+          "text": "Fictional worked rows (CSV)",
+          "href": "account-research-fictional-examples.csv"
+        },
+        {
+          "text": "Read the research method",
+          "href": "methodology.html"
+        },
+        {
+          "text": "Explore the service scope",
+          "href": "industrial-lead-research.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Download the blank account worksheet (CSV)",
+          "href": "account-research-template.csv"
+        },
+        {
+          "text": "Download the field dictionary (CSV)",
+          "href": "account-research-field-dictionary.csv"
+        }
+      ],
+      "fragment_file": "sample-account-research.fragment.html"
+    }
+  ]
+}

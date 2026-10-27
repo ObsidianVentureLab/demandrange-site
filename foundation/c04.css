@@ -1,0 +1,10 @@
+/* C04 uses inherited typography, palette and editorial section grid. */
+#application-matrix table{min-width:660px;table-layout:fixed;width:100%;font-size:16px;line-height:1.55}
+#application-matrix th,#application-matrix td{width:33.333%;white-space:normal;vertical-align:top}
+#application-matrix caption{text-align:left;font-weight:600;padding:0 0 16px;color:var(--ink)}
+#application-matrix .table-wrap{max-width:100%;overflow-x:auto}
+#application-matrix .table-wrap:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.source-list a{overflow-wrap:anywhere}
+.source-list li:target{outline:2px solid var(--accent);outline-offset:6px}
+.foundation-prose sup a{padding:2px;font-size:13px}
+#application-matrix .table-wrap[aria-labelledby="matrix-heading"] th { color: var(--ink-2); }

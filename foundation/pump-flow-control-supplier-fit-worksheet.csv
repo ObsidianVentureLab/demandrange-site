@@ -1,0 +1,34 @@
+section,field,value,completion_guidance
+Brief,supplier_product_scope,,Describe your own pump/valve/flow-control range; not a technical approval.
+Brief,target_territory,,"Ireland focus; any other territory must be assessed, not assumed covered."
+Brief,record_unit,,Company by default; identify a facility only if separately scoped.
+Brief,application_in_scope,,"Define application to investigate, rather than relying only on sector labels."
+Brief,target_route_roles,,Operator; OEM; integrator; contractor. More than one may apply.
+Brief,inclusion_criteria,,"Write the business activity, location and role criteria needed for account fit."
+Brief,exclusions_and_conflicts,,"Existing accounts, channel conflicts, excluded business types and other rules."
+Account,company_identity,,Company-level only; do not enter personal contacts or contact details.
+Account,facility_if_scoped,,Leave unassessed unless the agreed unit requires facility research.
+Account,observed_business_activity,,A source-supported fact; do not blend with interpretation.
+Account,observed_route_role,,Only a source-supported role. Otherwise mark unknown or hypothesis in the inference field.
+Evidence,exact_source_url,,Exact URL for the activity/role fact; use additional worksheet copies for separate evidence chains.
+Evidence,source_publication_date,,YYYY-MM-DD if established; distinguish undated from a retrieval date.
+Evidence,retrieved_at,,Actual retrieval timestamp with timezone; never invent a check date.
+Evidence,short_supporting_fact,,Short original fact summary; no bulk copied prose or person-level data.
+Evidence,limitations_or_conflicts,,"Record source age, source disagreement, restricted scope and missing detail."
+Interpretation,application_fit_reason,,Explain why observed activity meets this brief; label this as your inference.
+Interpretation,route_hypothesis,,"Possible route to investigate, not proof of purchasing responsibility."
+Technical questions,fluid_and_process_unknowns,,Fluid/process characteristics remain questions unless specifically evidenced.
+Technical questions,duty_and_operating_unknowns,,"Flow, pressure and operating pattern are questions, not inferred specifications."
+Technical questions,materials_cleaning_controls_unknowns,,"Record unresolved materials, cleaning and interface requirements as relevant."
+Technical questions,equipment_suitability_status,,Unknown by default in prospect research; do not use account fit as technical approval.
+Commercial questions,purchasing_route_and_authority_unknowns,,"Do not assume operator, OEM, integrator or contractor is the purchaser."
+Commercial questions,buying_need_and_package_status,,Unknown unless separately evidenced; project announcement is not an open order.
+Classification,proposed_research_class,,Use fit_matched_lookalike or opportunity_signal only after the class evidence rules are met.
+Classification,project_research_status,,Distinguish not_assessed_not_required from a bounded search with no qualifying signal; neither means no project exists.
+Signal if in scope,signal_fact_and_stage,,Observed project fact and stage only; do not manufacture a signal to complete a record.
+Signal if in scope,signal_source_url_and_dates,,Separate source/date evidence from the account-fit source.
+Decision,account_fit_decision,,"Include, hold or exclude against the brief; this is not equipment suitability or buying intent."
+Decision,decision_reason,,Name met/failed criteria and unresolved material facts. Missing evidence is not automatically a negative fact.
+Decision,next_verification_question,,"Specify what must be checked next, without authorising outreach."
+Decision,source_use_review_status,,Record the applicable review status; filling this worksheet does not clear rights.
+Decision,reviewed_at,,Actual review timestamp and timezone; leave blank until reviewed.

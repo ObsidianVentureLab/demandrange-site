@@ -1,0 +1,156 @@
+{
+  "checked_at": "2026-09-29T23:52:49.738173+00:00",
+  "check_type": "drafter_self_check_not_independent_acceptance",
+  "status": "pass_for_draft_handoff_only",
+  "checks": [
+    {
+      "check": "homepage",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 5,
+        "word_count": 442,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "industrial-lead-research",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 6,
+        "word_count": 646,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "methodology",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 6,
+        "word_count": 721,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "about",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 4,
+        "word_count": 303,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "markets",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 4,
+        "word_count": 439,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "opportunity-intelligence",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 4,
+        "word_count": 462,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "request-a-quote",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 3,
+        "word_count": 260,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "sample-account-research",
+      "result": "pass",
+      "details": {
+        "h1_count": 1,
+        "section_count": 6,
+        "word_count": 870,
+        "links_resolved_against": "draft fragments + read-only baseline + draft CSVs",
+        "publication_status": "not_built_not_published"
+      }
+    },
+    {
+      "check": "quote_scope_only",
+      "result": "pass",
+      "details": "No form, controls, script or endpoint included; artifact explicitly forbids replacing main/form."
+    },
+    {
+      "check": "csv_sample_semantics",
+      "result": "pass",
+      "details": {
+        "fields": 21,
+        "rows": 3,
+        "decision_counts": {
+          "illustrative_accept": 2,
+          "illustrative_reject": 1
+        },
+        "blank_template_rows": 1,
+        "fictional_dates": "intentionally_blank",
+        "contact_fields": 0
+      }
+    },
+    {
+      "check": "alignment_patch_anchors",
+      "result": "pass",
+      "details": "All exact original strings exist in read-only baseline; new links resolve to drafted or existing routes."
+    },
+    {
+      "check": "section_integration_anchors",
+      "result": "pass",
+      "details": "All non-new baseline section anchors exist. Whole-main replacements remove remaining obsolete body copy."
+    },
+    {
+      "check": "source_provenance",
+      "result": "pass",
+      "details": "All internal source digests still match the files inspected. Public copy does not expose internal paths or provenance."
+    },
+    {
+      "check": "public_private_boundary",
+      "result": "pass",
+      "details": "No internal paths, task IDs, named persons, personal contacts, scripts, images or external embeds in public fragments."
+    },
+    {
+      "check": "baseline_preserved",
+      "result": "pass",
+      "details": "Read-only clone is clean at 89274b47d92f4dbf2321c754c7e78193764c5ef8. Build candidate, templates, generator, output and vault were not written by this lane."
+    }
+  ],
+  "counts": {
+    "requested_full_or_quote_pages": 8,
+    "alignment_patch_routes": 3,
+    "dictionary_fields": 21,
+    "fictional_rows": 3,
+    "integration_map_rows": 104
+  },
+  "not_executed": [
+    "Independent evidence-reading review",
+    "Website integration/build",
+    "Visual or mobile/theme QA",
+    "Quote submission or backend test",
+    "Public deployment",
+    "Real source/provider rights clearance",
+    "Canonical task closure"
+  ]
+}

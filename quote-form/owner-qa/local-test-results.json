@@ -1,0 +1,67 @@
+{
+  "status": "LOCAL_MOCK_TESTS_PASSED",
+  "live_google_tested": false,
+  "passed": 15,
+  "cases": [
+    {
+      "name": "fictional row readback, duplicate suppression and idempotent rerun",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: production mode",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: unpaused collection",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: missing pause value",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: full URL instead of ID",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: wrong executing account",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: changed headers",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: missing required tab",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: missing protection",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: warning-only protection",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: domain-wide edit protection",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: unprotected range",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: additional protected-tab editor",
+      "passed": true
+    },
+    {
+      "name": "storage error does not report PASS or attempt an alert",
+      "passed": true
+    },
+    {
+      "name": "corrupted saved scope fails readback without reporting PASS",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "status": "draft_for_parent_review_not_accepted_not_published",
+  "scope": "Apply through the parent build lane to every current header/footer, including the separately authored quote template; do not modify the name/logo/type/colour system.",
+  "provenance": [
+    "BRAND §§1, 3, 5 and 6",
+    "PLAN §§7–8 and 23",
+    "REVIEW R09"
+  ],
+  "wordmark_visual_text": "Demand Range",
+  "prose_brand": "DemandRange",
+  "wordmark_descriptor": "Industrial prospecting",
+  "category": "Industrial Lead Generation & Market Intelligence",
+  "tagline": "Industrial prospects. Matched to your market.",
+  "top_strip": [
+    "Industrial prospecting",
+    "EU industrial research"
+  ],
+  "primary_cta": {
+    "text": "Request a quote",
+    "href": "request-a-quote.html"
+  },
+  "primary_navigation": [
+    {
+      "text": "Services",
+      "href": "industrial-lead-research.html"
+    },
+    {
+      "text": "Who we help",
+      "href": "markets.html"
+    },
+    {
+      "text": "How we research",
+      "href": "methodology.html"
+    },
+    {
+      "text": "Examples",
+      "href": "sample-account-research.html"
+    },
+    {
+      "text": "About",
+      "href": "about.html"
+    }
+  ],
+  "navigation_decision": "Use the same labels/destinations in desktop and mobile navigation. Keep Contact as an auxiliary mobile/footer route. Defer Resources until a substantive hub exists and passes parent QA; no link to an unbuilt hub or vertical.",
+  "proof_labels": [
+    "Company-level research",
+    "Fit and evidence kept distinct",
+    "Written scope first"
+  ],
+  "footer_description": "Industrial lead research and market intelligence for suppliers of industrial equipment, technology and services. Industry-matched accounts, with project context where evidenced.",
+  "footer_strapline": "Industrial prospects. Matched to your market.",
+  "footer_groups": [
+    {
+      "heading": "Research",
+      "links": [
+        {
+          "text": "Industrial account research",
+          "href": "industrial-lead-research.html"
+        },
+        {
+          "text": "Opportunity Intelligence",
+          "href": "opportunity-intelligence.html"
+        },
+        {
+          "text": "Who we help",
+          "href": "markets.html"
+        },
+        {
+          "text": "How we research",
+          "href": "methodology.html"
+        }
+      ]
+    },
+    {
+      "heading": "Examples and contact",
+      "links": [
+        {
+          "text": "Fictional account examples",
+          "href": "sample-account-research.html"
+        },
+        {
+          "text": "Fictional opportunity brief",
+          "href": "sample-opportunity.html"
+        },
+        {
+          "text": "About",
+          "href": "about.html"
+        },
+        {
+          "text": "Request a quote",
+          "href": "request-a-quote.html"
+        },
+        {
+          "text": "Contact",
+          "href": "contact.html"
+        },
+        {
+          "text": "Activation boundaries",
+          "href": "campaign-activation.html"
+        }
+      ]
+    },
+    {
+      "heading": "Legal",
+      "links": [
+        {
+          "text": "Privacy",
+          "href": "privacy.html"
+        },
+        {
+          "text": "Cookies",
+          "href": "cookies.html"
+        },
+        {
+          "text": "Terms",
+          "href": "terms.html"
+        }
+      ]
+    }
+  ],
+  "preserve": [
+    "Existing logo geometry, favicon, theme control, wordmark visual text, colour and typography.",
+    "Existing footer copyright and established business email route; no new contact identity or address.",
+    "Existing Opportunity Intelligence route and fictional detailed sample/PDF.",
+    "Existing noindex legacy pumps-flow-control.html bridge.",
+    "Quote form endpoint, hidden values, client scripts, schema, privacy versions, consent wording and response semantics."
+  ],
+  "do_not_carry_forward_as_umbrella": [
+    "Opportunity intelligence",
+    "Connecting industrial suppliers to the decision-makers behind upcoming projects.",
+    "Facilities, not just companies",
+    "Opportunities, not lists",
+    "From market definition to a sales-ready view.",
+    "A defined-scope Opportunity Intelligence Sprint."
+  ],
+  "claims_checklist": [
+    "Company-level research is the default described here; named-contact delivery is not agreed or implied.",
+    "Industry fit and project evidence remain separate; no automatic MQL, buying-intent, buyer-access or open-package claim.",
+    "Any 90/10 wording is a target with written scope; no guaranteed volume, timing, price, replacement SLA or outcome.",
+    "Ireland is the focus; other geography is assessed, not promised.",
+    "No real client outcome, personal contact, named reviewer, legal entity or compliance certification is invented.",
+    "Source/customer-use rights and release authority remain separate from a research/QA decision."
+  ],
+  "risks": [
+    "Opportunity Intelligence remains a service name; do not globally remove its wording or strip accurate specialist evidence caveats.",
+    "Activation boundaries link requires the factual boundary correction in alignment-patches.json. If not accepted, retain the route but do not promote activation as part of the default package.",
+    "Review the existing OG image for legacy promise; these copy drafts do not change binary art.",
+    "Metadata is page-specific; do not substitute the homepage title across all pages."
+  ]
+}

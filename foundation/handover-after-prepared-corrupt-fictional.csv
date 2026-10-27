@@ -1,0 +1,6 @@
+fiction_notice,handover_record_id,external_entity_id,entity_kind,parent_external_company_id,relationship_status,equipment_status,optional_note,source_reviewed_at,source_review_state,reviewed_date_test_value,brief_ref,dictionary_version,export_version
+WHOLLY FICTIONAL TRANSPORT TEST; NO REAL EVIDENCE OR ACCEPTANCE,0001,7,company,,not_applicable,unknown,,,not_reviewed_in_fixture,2001-02-03,DEMO-BRIEF-A-v1,DEMO-DICT-v1,DEMO-EXPORT-v1
+WHOLLY FICTIONAL TRANSPORT TEST; NO REAL EVIDENCE OR ACCEPTANCE,0002,0008,company,,not_applicable,unknown,,,not_reviewed_in_fixture,02/03/2001,DEMO-BRIEF-A-v1,DEMO-DICT-v1,DEMO-EXPORT-v1
+WHOLLY FICTIONAL TRANSPORT TEST; NO REAL EVIDENCE OR ACCEPTANCE,0003,0101,facility,0008,known,unknown,"Fictional text: café, ""équipement""",,not_reviewed_in_fixture,2001-02-03,DEMO-BRIEF-A-v1,DEMO-DICT-v1,DEMO-EXPORT-v2
+WHOLLY FICTIONAL TRANSPORT TEST; NO REAL EVIDENCE OR ACCEPTANCE,0004,0102,facility,0007,known,unknown,"Fictional text: linea, ""test""",,not_reviewed_in_fixture,2001-02-03,DEMO-BRIEF-B-v1,DEMO-DICT-v1,DEMO-EXPORT-v1
+WHOLLY FICTIONAL TRANSPORT TEST; NO REAL EVIDENCE OR ACCEPTANCE,0005,0103,facility,,,unknown,,,not_reviewed_in_fixture,2001-02-03,DEMO-BRIEF-A-v1,DEMO-DICT-v1,DEMO-EXPORT-v1

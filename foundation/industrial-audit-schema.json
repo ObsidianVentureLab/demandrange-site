@@ -1,0 +1,160 @@
+{
+  "schema_name": "OG02 educational CSV contract",
+  "version": 2,
+  "format": "UTF-8 CSV with header; all cells strings; exact columns; no extra fields",
+  "fiction_only": true,
+  "accepted_unit": "company",
+  "columns": {
+    "fiction_label": {
+      "description": "Mandatory standalone fiction label; never remove from fictional rows.",
+      "const": "WHOLLY FICTIONAL TEACHING DATA — NOT REAL PROSPECTS OR CLIENT DATA"
+    },
+    "row_id": {
+      "description": "Unique supplied-row identifier, not a company count.",
+      "pattern": "FIC-R[0-9]{2}"
+    },
+    "supplied_name": {
+      "description": "Unmistakable invented label; not a real business.",
+      "prefix": "Fictional "
+    },
+    "supplied_unit": {
+      "description": "Original incoming unit; preserve it even after operator resolution. A nonduplicate row with an attributed company_key anchors that company, whatever its incoming unit.",
+      "enum": [
+        "company",
+        "brand",
+        "site"
+      ]
+    },
+    "company_key": {
+      "description": "Resolved company identity; blank when unresolved. Group and site IDs are not company keys.",
+      "pattern": "FIC-C[0-9]{2}|"
+    },
+    "site_keys": {
+      "description": "Optional pipe-separated invented site keys. Keep sites under the company; do not count separately.",
+      "pattern": "(FIC-S[0-9]{2})(\\|FIC-S[0-9]{2})*|"
+    },
+    "group_key": {
+      "description": "Optional invented parent-group ID; a shared group alone does not establish duplication.",
+      "pattern": "FIC-G[0-9]{2}|"
+    },
+    "identity": {
+      "description": "Company-to-evidence and company-to-site attribution. Pass requires a company key.",
+      "enum": [
+        "pass",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "activity": {
+      "description": "Pass: makes complete food-packaging machinery; fail: positive evidence of excluded activity; unknown: not established.",
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "territory": {
+      "description": "Pass: relevant manufacturing in Republic of Ireland; office-only presence fails this fictional brief.",
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "exclusions": {
+      "description": "Pass: stipulated fictional existing-account/channel check clear; fail: evidenced exclusion; unknown: not checked.",
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "source_use": {
+      "description": "Scenario-only permission for the declared simulated review, retention and customer-facing summary sharing. Pass is invented, never real permission; internal access alone is insufficient.",
+      "enum": [
+        "pass",
+        "fail",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "evidence_consistency": {
+      "description": "Pass: no unresolved material contradiction within stipulated evidence; conflict: material contradiction remains.",
+      "enum": [
+        "pass",
+        "conflict"
+      ]
+    },
+    "evidence_id": {
+      "description": "Invented evidence-card ID, NOT a retrieved citation.",
+      "pattern": "FIC-E[0-9]{2}"
+    },
+    "evidence_text": {
+      "description": "Original invented statements supporting the gate values. A human must check semantic support.",
+      "prefix": "Invented evidence: "
+    },
+    "source_url": {
+      "description": "Blank in this fictional exercise: no live source exists.",
+      "const": ""
+    },
+    "source_publication_date": {
+      "description": "Blank in fiction; never invent source dates.",
+      "const": ""
+    },
+    "source_review_date": {
+      "description": "Blank in fiction; test execution date is NOT a source review date.",
+      "const": ""
+    },
+    "project_status": {
+      "description": "Separate from account fit. Qualifying signal requires additional invented text, not equipment-fit validation.",
+      "enum": [
+        "not_assessed_not_required",
+        "no_qualifying_signal_in_bounded_review",
+        "qualifying_signal_identified"
+      ]
+    },
+    "project_evidence_text": {
+      "description": "Blank except for qualifying_signal_identified; then starts Invented signal: .",
+      "type": "string"
+    },
+    "canonical_row_id": {
+      "description": "Only for confirmed surplus duplicates: direct pointer to a nonduplicate row with the same resolved company_key; its original supplied_unit need not be company.",
+      "pattern": "FIC-R[0-9]{2}|"
+    },
+    "dedup_evidence": {
+      "description": "Invented attribution: statement naming the exact company_key and anchor row ID and explaining same-company linkage. Token presence is not semantic proof.",
+      "type": "string"
+    },
+    "next_check": {
+      "description": "Concrete unresolved verification question for holds; not an instruction to contact anyone.",
+      "type": "string"
+    },
+    "brief_id": {
+      "description": "Fictional brief identifier bound to the exercise policy; not a live customer brief.",
+      "const": "FIC-BRIEF-01"
+    },
+    "brief_version": {
+      "description": "Exact brief version shared by policy, rows and answer key. Changing the brief requires reassessment, not relabelling.",
+      "const": "1"
+    }
+  },
+  "cross_field_rules": [
+    "Policy, schema, batch and answer key use FIC-BRIEF-01 version 1; ruleset OG02-HOLD-FIRST-1. Unsupported contract changes are refused.",
+    "All row IDs unique; evidence IDs unique. Identity pass iff company_key nonblank. Identity unknown/conflict requires company-specific activity, territory and exclusions to remain unknown/conflict until attributable checks are made.",
+    "Each resolved company has exactly one nonduplicate anchor. Duplicates require the same company_key, direct nonduplicate target, matching consolidated gates/project status and an invented attribution naming that company and anchor.",
+    "Preserve supplied_name, supplied_unit, row_id and raw evidence. Resolved company_key supplies the assessment unit; resolving a brand or site must not overwrite its incoming unit.",
+    "This exercise assigns each site to at most one company; an unresolved site is allowed only while held and cannot also be assigned to a resolved company. Real shared-site cases need a different contract.",
+    "Decision order for this conservative teaching policy only: confirmed duplicate, otherwise material unknown/conflict hold, otherwise positive fail reject, otherwise include. This is not a universal rejection policy.",
+    "Duplicate rows mirror the consolidated account assessment, not independent local gate votes. Refuse stale mismatches. Preserve contradictory evidence and mark the relevant gate and evidence_consistency conflict across the group with a next check on the anchor; any conflicted gate requires evidence_consistency conflict. Duplicates can point to held or rejected anchors.",
+    "Only included anchors receive a class: qualifying_signal_identified => opportunity_signal; otherwise fit_matched_lookalike. No score override.",
+    "Signal text required iff status is qualifying_signal_identified. Fiction source URLs and dates remain blank; no real-source adapter supplied.",
+    "Reconciliation requires exactly one outcome per input row ID, known dispositions, and no class on duplicate/hold/reject. Balanced totals alone are insufficient.",
+    "Blank practice rows intentionally fail until completed. Expected counts describe the supplied worked batch only, not a new practice batch."
+  ],
+  "brief_id": "FIC-BRIEF-01",
+  "brief_version": "1",
+  "ruleset_id": "OG02-HOLD-FIRST-1"
+}

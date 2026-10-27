@@ -1,0 +1,18 @@
+[
+  {"name": "missing required fields", "patch": {"full_name": ""}},
+  {"name": "malformed email", "patch": {"work_email": "not-an-email"}},
+  {"name": "malformed website", "patch": {"company_website": "javascript:alert(1)"}},
+  {"name": "unknown industry", "patch": {"industries": ["Unknown industry"]}},
+  {"name": "unknown region", "patch": {"regions": ["GLOBAL"]}},
+  {"name": "unknown seniority", "patch": {"seniority": ["Owner"]}},
+  {"name": "phone opt-in without phone", "patch": {"phone_contact": "on", "phone_number": ""}},
+  {"name": "phone supplied without phone permission", "patch": {"phone_contact": "", "phone_number": "+353 1 555 0100"}},
+  {"name": "email acknowledgement absent", "patch": {"email_acknowledgement": ""}},
+  {"name": "honeypot filled", "patch": {"website_confirm": "spam.example"}},
+  {"name": "oversize product", "patch": {"product_or_service_repeat": "X", "product_or_service_length": 501}},
+  {"name": "formula prefix", "patch": {"additional_context": "=HYPERLINK(\"https://example.com\")"}, "expected": "accepted-and-neutralized"},
+  {"name": "script text", "patch": {"additional_context": "<script>alert(1)</script>"}, "expected": "accepted-as-inert-text"},
+  {"name": "unknown field", "patch": {"unexpected_admin": "true"}},
+  {"name": "wrong form version", "patch": {"form_version": "old"}},
+  {"name": "implausibly fast", "patch": {"form_load_ms": "now-minus-100"}}
+]

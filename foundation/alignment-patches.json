@@ -1,0 +1,163 @@
+{
+  "status": "draft_for_parent_review_not_applied",
+  "patches": [
+    {
+      "id": "sample-bridge",
+      "route": "/sample-opportunity.html",
+      "scope": "Add contextual bridge near the hero; preserve all existing fiction warnings, sample data and PDF link.",
+      "title": "Fictional Opportunity Brief | DemandRange",
+      "meta_description": "A fictional industrial opportunity brief showing evidence, interpretation and unknowns. Compare the account-research example; no real project or outcome is claimed.",
+      "h1": "Northstar Beverages.",
+      "h1_action": "Retain existing fictional company heading.",
+      "replacements": [
+        {
+          "target": "Insert after the existing fictional hero lead",
+          "old": "A fictional bottling-line and utilities expansion, created only to demonstrate the structure, caution and actionability of a Demand Range opportunity brief.",
+          "action": "insert_after_not_replace",
+          "html": "<p>This is the project-signal side of the research model, not the required format for every account. Compare it with the <a href=\"sample-account-research.html\">fictional industry-matched and rejected account examples</a>.</p><p>Scores, time windows, roles and actions in this brief are illustrative. They do not establish buyer access, equipment suitability or available work, and they do not authorise outreach. Named-contact delivery is not included by default.</p>"
+        },
+        {
+          "target": "#standard primary CTA",
+          "old": "Show me this format for my market",
+          "action": "replace_anchor_text_and_href",
+          "html": "<a href=\"request-a-quote.html\">Request a quote for a scoped research brief</a>"
+        }
+      ],
+      "provenance": [
+        "BRAND §5 retain opportunity evidence legend",
+        "PLAN §§7–8 paired examples and preserve existing fictional sample",
+        "BASELINE sample-opportunity.html"
+      ],
+      "claims_checklist": [
+        "Keep “Fictional throughout” and invented-source labels intact.",
+        "Do not make an illustrative score a universal lead-class quality score.",
+        "The PDF remains a separately labelled legacy opportunity-format example, not a newly updated hybrid services asset."
+      ],
+      "risk": "PDF and site must retain fiction disclosure; no PDF regeneration is included. Old binary branding may need separate review."
+    },
+    {
+      "id": "contact-alignment",
+      "route": "/contact.html",
+      "scope": "Small body/metadata alignment to preserve the alternative enquiry route without a project-only qualification gate.",
+      "title": "Contact DemandRange | Discuss Your Research Scope",
+      "meta_description": "Discuss company-level industrial research, targeting criteria and territory preferences. Request a written scope or use the existing non-sensitive email enquiry route.",
+      "h1": "Tell us which businesses you need to understand.",
+      "h1_action": "Replace existing H1.",
+      "replacements": [
+        {
+          "target": "Hero lead",
+          "old": "Tell us what you sell, the industries and regions that matter, and whether you need a blended lead programme or a narrower evidence-led review.",
+          "action": "replace_paragraph",
+          "html": "<p>Tell us what you sell, which industries and territories matter, and what would make an account relevant. Company-level research is the starting scope; project context can be assessed where needed. Ireland is the current focus, and other territory preferences are requests for assessment.</p>"
+        },
+        {
+          "target": "Fit check paragraph",
+          "old": "Is the category technical, facility-linked and worth entering before procurement?",
+          "action": "replace_paragraph",
+          "html": "<p>Does the brief define relevant company activities, territory and exclusions? An active project is not required for industry-matched accounts.</p>"
+        },
+        {
+          "target": "Evidence map paragraph",
+          "old": "Which approved sources and observed events could support the market thesis?",
+          "action": "replace_paragraph",
+          "html": "<p>Which permitted sources can support account fit and any project signal? Named-contact delivery and outreach remain separate, unagreed scopes.</p>"
+        },
+        {
+          "target": "Online quote anchor",
+          "old": "Request a scope & quote",
+          "action": "replace_anchor_text_and_href",
+          "html": "<a href=\"request-a-quote.html\">Request a quote</a>"
+        }
+      ],
+      "provenance": [
+        "BRAND §§1–3",
+        "PLAN §§7–8 and 23",
+        "BASELINE contact.html"
+      ],
+      "claims_checklist": [
+        "Preserve existing non-sensitive-information warning and business email route.",
+        "Retain written scope before work; no new response SLA.",
+        "No permission for marketing or named-person fulfilment follows from the enquiry."
+      ],
+      "risk": "Do not replace the business email address or privacy choices. Existing copy outside these patches may remain if it does not contradict the wider model."
+    },
+    {
+      "id": "activation-boundary",
+      "route": "/campaign-activation.html",
+      "scope": "Restrained capability-boundary clarification; no activation or live-data authority is created.",
+      "title": "Campaign Activation Boundaries | DemandRange",
+      "meta_description": "Activation is separate from industrial account research. Any outreach requires its own written scope, source and data review, channel controls and approval.",
+      "h1": "Activation is separate from account research.",
+      "h1_action": "Replace existing H1.",
+      "replacements": [
+        {
+          "target": "Hero lead",
+          "old": "Demand Range can support contact mapping, evidence-led messaging and focused outreach around opportunities the client has reviewed and approved.",
+          "action": "replace_paragraph",
+          "html": "<p>Account research does not include contact sourcing or outreach by default. Any proposed activation needs a separate written scope, permitted sources, applicable data and channel controls, and the required approvals before work begins.</p>"
+        },
+        {
+          "target": "Operational boundary paragraph",
+          "old": "this website has no transmitting form, campaign tooling, analytics or tracking. Any outreach service requires separate written scope, data/compliance review and client approval.",
+          "action": "replace_operational_boundary_only",
+          "html": "<p><strong>Operational boundary:</strong> the quote form handles an enquiry; it is not a campaign-sending tool or authority to contact researched accounts. Any outreach requires separate written scope, source and data review, channel controls and approval.</p>"
+        },
+        {
+          "target": "Final CTA heading",
+          "old": "Connect the evidence to a focused campaign.",
+          "action": "replace_heading",
+          "html": "<h2>Discuss the boundaries before any activation.</h2>"
+        },
+        {
+          "target": "Final CTA lead",
+          "old": "Review an intelligence and activation engagement for one agreed cohort.",
+          "action": "replace_paragraph",
+          "html": "<p>Any activation request is assessed separately from the company-level research brief. No live outreach service is authorised by this page.</p>"
+        }
+      ],
+      "provenance": [
+        "PLAN §7 optional/governed activation; §23 intact quote journey",
+        "TRANSITION named-data gates and commissioned quote state",
+        "BASELINE campaign-activation.html"
+      ],
+      "claims_checklist": [
+        "Do not imply the default research package includes activation.",
+        "Preserve existing prohibitions and human-review gates.",
+        "Correct the outdated no-transmitting-form assertion without inventing legal or technical certification."
+      ],
+      "risk": "This is a factual/governance correction, not activation commissioning. Parent must review the whole page for residual availability implications."
+    }
+  ],
+  "findings_not_copy_instructions": [
+    {
+      "route": "/terms.html",
+      "locator": "#data / 7. Do not submit sensitive or live data",
+      "observed": "The website has no transmitting form, and the first email route is not intended for sensitive personal data, special-category data, live client files, suppression lists, passwords, API keys or confidential material.",
+      "disposition": "Factual contradiction with the existing quote route and updated Privacy Notice. Parent must reconcile against the existing approved intake wording; no new legal-policy draft supplied."
+    },
+    {
+      "route": "/terms.html",
+      "locator": "#operator and #purpose",
+      "observed": "Opportunity-only operator descriptor and research-and-activation umbrella remain.",
+      "disposition": "Parent review for factual brand/scope alignment without amending legal rights, liability or processing terms."
+    },
+    {
+      "route": "/privacy.html",
+      "locator": "#who",
+      "observed": "Opportunity-only brand descriptor remains; the same page correctly describes the transmitting quote form.",
+      "disposition": "Parent review for factual brand descriptor only; preserve notice version, purposes, roles, choices, retention and existing legal caveats unless separately reviewed."
+    },
+    {
+      "route": "/cookies.html",
+      "locator": "#current, #resources and #banner",
+      "observed": "Copy describes theme-only site code/storage and future embedded forms; the current quote client warrants a whole-page technical-fact check.",
+      "disposition": "PENDING technical/privacy verification by parent; not enough to infer a consent violation or write a new legal conclusion."
+    },
+    {
+      "route": "/og-image.png",
+      "locator": "Binary social-preview artwork",
+      "observed": "Not visually inspected in the content drafting lane.",
+      "disposition": "PENDING visual check for outdated opportunity-only promise; preserve brand visuals and do not claim artwork QA."
+    }
+  ]
+}

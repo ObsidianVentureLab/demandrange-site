@@ -1,0 +1,45 @@
+{
+  "id": "OG02",
+  "status": "EDITORIALLY CORRECTED CANDIDATE — SEMANTIC REVIEW ONLY; NOT INTEGRATED OR PUBLISHED",
+  "recommendation": "NEW",
+  "candidate_path": "/industrial-prospect-list-audit.html",
+  "fallback_owner": "/sample-account-research.html",
+  "title": "B2B Prospect List Audit: Industrial Sales Checklist | DemandRange",
+  "h1": "How to check a B2B prospect list: an industrial sales checklist",
+  "meta_description": "Audit an industrial prospect batch with a fictional worked example, duplicate and hold rules, reconciled company counts and editable acceptance worksheets.",
+  "fragment": "article.fragment.html",
+  "public_asset_mapping": {
+    "industrial-audit-fictional-batch.csv": "industrial-audit-fictional-batch.csv",
+    "industrial-audit-answer-key.csv": "industrial-audit-answer-key.csv",
+    "industrial-audit-blank-worksheet.csv": "industrial-audit-blank-worksheet.csv",
+    "industrial-audit-blank-rows.csv": "industrial-audit-blank-rows.csv",
+    "industrial-audit-field-dictionary.csv": "industrial-audit-field-dictionary.csv",
+    "industrial-audit-schema.json": "industrial-audit-schema.json",
+    "industrial-audit-policy.json": "industrial-audit-policy.json",
+    "industrial-audit-README.txt": "industrial-audit-README.txt"
+  },
+  "asset_source_directory": "assets/",
+  "contextual_links": [
+    "/irish-manufacturing-account-research.html",
+    "/methodology.html#classes",
+    "/industrial-lead-research.html#research-approach",
+    "/sample-account-research.html",
+    "/request-a-quote.html"
+  ],
+  "incoming_links_proposed": [
+    {
+      "owner": "/industrial-lead-research.html",
+      "placement": "Quality section, following existing method link",
+      "text": "Audit a fictional prospect batch",
+      "href": "/industrial-prospect-list-audit.html"
+    },
+    {
+      "owner": "/sample-account-research.html",
+      "placement": "Downloads or next-step section; retain existing sample assets",
+      "text": "Check company counts, duplicates and holds across a batch",
+      "href": "/industrial-prospect-list-audit.html"
+    }
+  ],
+  "editorial_boundary": "No new source-discovery guide, no live account search, no general contact hygiene tutorial, no named-contact data or send-readiness claim.",
+  "publication_boundary": "Parent integrates reviewed fragment in current shell and copies allowlisted assets only; tooling/results/private handoffs must not be published. No canonical markup or live mutation authored here."
+}

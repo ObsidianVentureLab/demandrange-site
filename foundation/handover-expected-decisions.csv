@@ -1,0 +1,8 @@
+record_context,test_id,handover_record_id,target_field,expected_value,prepared_corrupt_value,expected_decision,reason
+wholly_fictional_transport_test,HT01,0001,external_entity_id,0007,7,hold_transport_review,"Text identifier lost leading zeros; restore text 0007 from before file, never pad unknown real identifiers by guesswork."
+wholly_fictional_transport_test,HT02,0003,parent_external_company_id,0007,0008,hold_transport_review,Valid-looking but wrong parent; facility 0101 must remain linked to company 0007.
+wholly_fictional_transport_test,HT03,0005,relationship_status,unknown,,hold_transport_review,Empty must not erase explicit unknown; parent remains empty because operator is unknown.
+wholly_fictional_transport_test,HT04,0002,reviewed_date_test_value,2001-02-03,02/03/2001,hold_transport_review,Ambiguous locale conversion; preserve the synthetic date string 2001-02-03.
+wholly_fictional_transport_test,HT05,0003,export_version,DEMO-EXPORT-v1,DEMO-EXPORT-v2,hold_transport_review,"Unapproved version drift; compare to the agreed version label, not the filename."
+wholly_fictional_transport_test,HT06,0004,brief_ref,DEMO-BRIEF-A-v1,DEMO-BRIEF-B-v1,hold_transport_review,Wrong brief label; preserve DEMO-BRIEF-A-v1.
+wholly_fictional_transport_test,HT07,0004,optional_note,"Fictional text: línéa, ""測試""","Fictional text: linea, ""test""",hold_transport_review,"Unicode changed; preserve every character, comma and embedded double quote."

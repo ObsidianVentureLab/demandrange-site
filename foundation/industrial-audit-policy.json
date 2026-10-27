@@ -1,0 +1,35 @@
+{
+  "fiction_label": "WHOLLY FICTIONAL TEACHING DATA — NOT REAL PROSPECTS OR CLIENT DATA",
+  "accepted_unit": "company",
+  "required_activity": "Manufacture complete food-packaging machinery",
+  "territory": "Production in Republic of Ireland",
+  "duplicate_scope": "Within this supplied batch only; no global database or CRM duplicate claim",
+  "signal_definition": "Invented proposed additional production/assembly space at a company already meeting account rules",
+  "score_override_allowed": false,
+  "expected_counts": {
+    "supplied": 14,
+    "duplicate": 2,
+    "include": 4,
+    "hold": 5,
+    "reject": 3
+  },
+  "expected_classes": {
+    "fit_matched_lookalike": 3,
+    "opportunity_signal": 1
+  },
+  "brief_id": "FIC-BRIEF-01",
+  "brief_version": "1",
+  "ruleset_id": "OG02-HOLD-FIRST-1",
+  "policy_scope": "Conservative analyst-authored teaching policy, not universal policy or a commercial delivery specification.",
+  "decision_order": [
+    "duplicate",
+    "hold",
+    "reject",
+    "include"
+  ],
+  "source_use_boundary": "Simulated internal review and retention, and customer-facing evidence-summary sharing within this invented exercise only; no real-data permission.",
+  "duplicate_assessment": "Matching consolidated account gates and project assessment; stale differences are validation errors, not automatic duplicate acceptance.",
+  "identity_dependency": "Unresolved company attribution keeps company-specific activity, territory and exclusions unresolved.",
+  "supplied_unit_handling": "Preserve incoming unit; assess the attributed company_key separately.",
+  "expected_counts_scope": "Supplied fictional worked batch only; never defaults for another batch."
+}

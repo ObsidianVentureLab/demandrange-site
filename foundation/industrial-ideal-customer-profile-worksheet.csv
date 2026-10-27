@@ -1,0 +1,47 @@
+field,value,guidance
+brief_id,,Assign a reference for this profile; this is a blank brief rather than an account record.
+brief_version,,Assign a version when the rules are agreed; preserve changes instead of overwriting the only brief.
+brief_status,,State whether choices remain unresolved or the brief is approved internally; do not imply delivery approval.
+brief_owner_role,,Record the accountable internal role rather than a personal contact.
+supplier_range,,Describe the products or services that motivate the research without asserting suitability for an account.
+research_purpose,,State the company-level question this research should answer; do not enter a revenue or ROI promise.
+primary_customer_role,,Specify the intended operator or OEM or integrator or contractor or distributor role; no role is preselected.
+required_customer_activity,,Describe the positive activity evidence needed to include an account.
+customer_activity_recipient,,Specify who the activity serves if that distinction matters to this brief.
+additional_route_rules,,Give any additional route its own inclusion rule; separate incompatible profiles into another worksheet.
+application_question,,Write the activity question to investigate rather than asserting engineering compatibility.
+technical_unknowns,,List specifications or duty conditions that remain outside this account-fit decision.
+purchasing_unknowns,,Keep component selection and purchasing authority unresolved unless separately evidenced.
+territory_definition,,Name the exact geography; specify whether Ireland means the Republic or the island if applicable.
+required_local_operation,,State whether the activity must occur in the territory or supplying it is sufficient.
+headquarters_treatment,,Specify whether headquarters location matters; do not infer an operating site from an office address.
+counting_unit,,Choose company or facility explicitly; leave unagreed choices unresolved rather than using a default.
+company_site_relationship_rule,,Define the evidence needed to attribute each relevant site to the company being counted.
+group_and_brand_rule,,Define treatment of subsidiaries and trading names; do not merge accounts on shared branding alone.
+duplicate_counting_rule,,Describe how multiple references or sites under one company affect counts for the chosen unit.
+activity_disqualifiers,,State positively evidenced activities that fail this profile; missing information belongs on hold.
+territory_disqualifiers,,Specify which supported location facts fail the territory rule; absence of evidence is not evidence of absence.
+optional_preferences,,Separate preferences from must-haves; do not use them to override a failed mandatory check.
+size_or_revenue_rule_if_needed,,Enter only a justified requirement and its evidence standard; there is no default threshold.
+existing_account_exclusion_scope,,Define whether existing-account exclusions apply to company or site or whole group.
+channel_exclusion_rules,,Define agreed protected accounts or routes or territories; do not assume all resellers are excluded.
+controlled_exclusion_reference,,Point to the permitted internal company-level exclusion reference; do not paste confidential account lists here.
+exclusion_reference_version,,Record the actual exclusion-instruction version or date; blank does not mean there are no exclusions.
+exclusion_resolution_role,,State which internal role can resolve ambiguous account or group matches.
+identity_evidence_required,,Define what will connect the company to the required activity and operating site.
+role_activity_evidence_required,,Define the observations needed to support the customer role and activity; do not fill with unverified facts.
+territory_evidence_required,,Specify how the relevant operation and its location must be evidenced.
+source_reference_and_date_rules,,Require source references and actual review dates; unknown publication dates must remain unknown.
+intended_source_use,,Define intended research and customer-output uses before retaining or sharing source content.
+source_use_review_requirement,,Specify applicable source and item-use checks separately from fit; no permissions are granted by this worksheet.
+source_rights_hold_rule,,State how unresolved source-use rights block reuse or output; do not substitute a public URL for permission.
+material_gap_and_conflict_rule,,Define when missing or conflicting identity or fit evidence requires hold and the next verification question.
+acceptance_rule,,Require all mandatory identity and fit and source-use and exclusion checks to be satisfied; role match alone is insufficient.
+project_research_scope,,Explicitly agree whether project research is required; distinguish not assessed from no qualifying signal found.
+requested_volume_and_count_basis,,Enter a requested scope with its company or site unit; this is not an available or guaranteed account count.
+research_boundary,,Agree stopping conditions and treatment of coverage gaps; never weaken the brief to fill a quota.
+deliverable_fields,,Specify the fields needed for company-level output; named-person research is not included by this worksheet.
+held_account_treatment,,Define a separate hold output and next questions; exclude holds from accepted counts.
+timing_and_acceptance_terms,,Record only terms actually agreed for this scope; do not assume a turnaround or replacement window.
+brief_change_control,,Record who may approve changed rules and how the revised brief version will be retained.
+open_scope_questions,,List unresolved choices and their next decision; a completed worksheet does not grant outreach permission or legal clearance.

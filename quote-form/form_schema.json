@@ -1,0 +1,52 @@
+{
+  "schema_version": "2026-09-11-v1",
+  "service_model": "hybrid_10_90_target",
+  "privacy_notice_version": "2026-09-11-v1",
+  "consent_text_version": "2026-09-11-v1",
+  "endpoint_host": "script.google.com",
+  "fields": {
+    "full_name": {"type": "text", "required": true, "min": 2, "max": 100},
+    "work_email": {"type": "email", "required": true, "max": 254},
+    "company_name": {"type": "text", "required": true, "min": 2, "max": 150},
+    "company_website": {"type": "url", "required": false, "max": 300},
+    "phone_number": {"type": "tel", "required": false, "max": 40},
+    "product_or_service": {"type": "text", "required": true, "min": 3, "max": 500},
+    "industries": {
+      "type": "multi",
+      "required": true,
+      "max_selections": 10,
+      "values": ["Automotive", "General manufacturing", "Electronics manufacturing", "Process manufacturing", "Aerospace & defence", "Machinery & equipment", "Construction", "Waste management", "Utilities & energy", "Mining, oil & gas"]
+    },
+    "regions": {
+      "type": "multi",
+      "required": true,
+      "max_selections": 5,
+      "values": ["EMEA", "NAM", "LATAM", "APAC", "ANZ"]
+    },
+    "seniority": {
+      "type": "multi",
+      "required": true,
+      "max_selections": 5,
+      "values": ["Entry", "Manager", "Director", "VP", "C-Suite"]
+    },
+    "specific_countries": {"type": "text", "required": false, "max": 300},
+    "additional_context": {"type": "text", "required": false, "max": 1000},
+    "email_acknowledgement": {"type": "boolean", "required": true, "must_equal": true},
+    "phone_contact": {"type": "boolean", "required": false}
+  },
+  "hidden_fields": {
+    "form_version": {"required": true, "must_equal": "2026-09-11-v1"},
+    "privacy_notice_version": {"required": true, "must_equal": "2026-09-11-v1"},
+    "consent_text_version": {"required": true, "must_equal": "2026-09-11-v1"},
+    "source_page": {"required": true, "must_equal": "request-a-quote.html"},
+    "submission_token": {"required": true, "pattern": "^[A-Za-z0-9_-]{16,80}$"},
+    "form_load_ms": {"required": true, "type": "integer"},
+    "website_confirm": {"required": false, "must_equal": ""},
+    "asset_ref": {"required": false, "max": 64},
+    "campaign_ref": {"required": false, "max": 64}
+  },
+  "operational_statuses": ["new", "triage_in_progress", "needs_information", "quote_preparation", "quote_sent", "not_a_fit", "withdrawn", "closed"],
+  "raw_response_columns": [
+    "submission_id", "submitted_at_utc", "form_version", "privacy_notice_version", "consent_text_version", "service_model", "source_page", "asset_ref", "campaign_ref", "submission_token_hash", "full_name", "work_email", "company_name", "company_website", "phone_number", "product_or_service", "industries", "target_regions", "specific_countries", "job_seniority", "email_response_requested", "phone_contact_opt_in", "additional_context", "intake_status", "assigned_owner", "first_response_at_utc", "outcome", "retention_review_at", "notification_state", "notification_attempts", "notification_last_error"
+  ]
+}

@@ -1,0 +1,4 @@
+Contact: mailto:partners@demandrange.com
+Expires: 2027-08-23T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://demandrange.com/.well-known/security.txt

@@ -1,0 +1,10 @@
+fiction_label,card_id,company_id,activity_test,territory_test,card_screen,segment,next_question,full_account_acceptance,project_status
+Wholly fictional teaching exercise; not researched or anonymised companies.,P01,FPA,unknown,unknown,hold,role_only_unresolved,"What physical work, if any, is attributable to A at an in-scope site?",not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P02,FPB,unknown,unknown,hold,office_production_unresolved,Is the required physical making attributable to B at any in-scope site?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P03,FPC,fail,pass,out_of_scope,distribution_only,Would a separately agreed distribution brief be relevant?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P04,FPD,fail,pass,out_of_scope,laboratory_only,Would a laboratory-services brief be relevant instead?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P05,FPE,fail,pass,out_of_scope,packing_only,Would a packing-activity brief be relevant instead?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P06,FPF,pass,pass,match,physical_making_in_scope,Which additional account-level checks remain before any real acceptance?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P07,FPF,unknown,unknown,hold,office_card_only,Link this office to F without creating another company.,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P08,FPG,pass,fail,out_of_scope,production_outside_territory,Would another territory brief be appropriate?,not_assessed,not_assessed_not_required
+Wholly fictional teaching exercise; not researched or anonymised companies.,P09,FPH,conflict,pass,hold,activity_conflict,Which description applies to the required work at the review point?,not_assessed,not_assessed_not_required

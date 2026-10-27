@@ -1,0 +1,1673 @@
+{
+  "baseline_source_output_bundle_sha256": "bbb7fe8c349ed2fb56a98fde87a2fe7948f63a6fc3254c033991a1c0d412a620",
+  "contract_version": 1,
+  "excluded_source_files": [
+    "README.md"
+  ],
+  "external_reference_policy": {
+    "routes": {
+      "pump-flow-control-prospecting.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://eippcb.jrc.ec.europa.eu/sites/default/files/2020-01/JRC118627_FDM_Bref_2019_published.pdf"
+          },
+          "source-link-7": {
+            "item_id": "source-7",
+            "href": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Water_abstraction"
+          },
+          "source-link-8": {
+            "item_id": "source-8",
+            "href": "https://commission.europa.eu/legal-notice_en"
+          },
+          "source-link-9": {
+            "item_id": "source-9",
+            "href": "https://data.gov.ie/dataset/group-scheme-preliminary-source-protection-areas-ireland-roi-itm"
+          },
+          "source-link-10": {
+            "item_id": "source-10",
+            "href": "https://data.gov.ie/pages/opendatalicence"
+          },
+          "source-link-11": {
+            "item_id": "source-11",
+            "href": "https://ec.europa.eu/eurostat/en/help/copyright-notice"
+          },
+          "source-link-12": {
+            "item_id": "source-12",
+            "href": "https://environment.ec.europa.eu/topics/water_en"
+          },
+          "source-link-13": {
+            "item_id": "source-13",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "source-link-14": {
+            "item_id": "source-14",
+            "href": "https://data.gov.ie/dataset/river-abstraction-pressures"
+          },
+          "source-link-15": {
+            "item_id": "source-15",
+            "href": "https://data.gov.ie/dataset/environmental-protection-agency-remedial-action-list"
+          },
+          "source-link-16": {
+            "item_id": "source-16",
+            "href": "https://data.gov.ie/license"
+          }
+        }
+      },
+      "irish-manufacturing-account-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://cro.ie/website-information-resources/disclaimer"
+          },
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://cro.ie/post-registration/company-search"
+          },
+          "source-link-8": {
+            "item_id": "source-8",
+            "href": "https://ec.europa.eu/eurostat/documents/3859598/24236479/KS-01-26-047-EN-N.pdf/5981f460-0e45-c41b-ef63-c62ccd77ba96?t=1789384187555&version=1.0"
+          },
+          "source-link-9": {
+            "item_id": "source-9",
+            "href": "https://creativecommons.org/licenses/by/4.0"
+          },
+          "manufacturing-market-link-1": {
+            "item_id": "manufacturing-market-source-1",
+            "href": "https://data.cso.ie/table/BRA31"
+          },
+          "manufacturing-market-link-2": {
+            "item_id": "manufacturing-market-source-2",
+            "href": "https://www.cso.ie/en/releasesandpublications/ep/p-biiilb/businessinireland2024-insightsonthelifecycleofbusinesses/keyfindings"
+          },
+          "manufacturing-market-link-3": {
+            "item_id": "manufacturing-market-source-3",
+            "href": "https://www.cso.ie/en/releasesandpublications/ep/p-biiilb/businessinireland2024-insightsonthelifecycleofbusinesses/backgroundnotes"
+          },
+          "manufacturing-market-link-4": {
+            "item_id": "manufacturing-market-source-4",
+            "href": "https://www.cso.ie/en/aboutus/whoweare/copyrightpolicy"
+          },
+          "manufacturing-market-link-5": {
+            "item_id": "manufacturing-market-source-5",
+            "href": "https://creativecommons.org/licenses/by/4.0"
+          },
+          "manufacturing-market-link-7": {
+            "item_id": "manufacturing-market-source-7",
+            "href": "https://demandrange.com/industrial-lead-research.html"
+          },
+          "manufacturing-market-link-8": {
+            "item_id": "manufacturing-market-source-8",
+            "href": "https://data.cso.ie/table/BRA34"
+          },
+          "manufacturing-nace-link-1": {
+            "item_id": "manufacturing-nace-source-1",
+            "href": "https://ec.europa.eu/eurostat/web/nace/correspondence-tables"
+          },
+          "manufacturing-nace-link-2": {
+            "item_id": "manufacturing-nace-source-2",
+            "href": "https://ec.europa.eu/eurostat/en/help/copyright-notice"
+          }
+        }
+      },
+      "etenders-industrial-supplier-opportunities.html": {
+        "section_id": "sources-and-limits",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://ted.europa.eu/en/simap/cpv/"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://ted.europa.eu/en/simap/eforms"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://data.gov.ie/dataset/contract-notices-published-on-etenders"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://ted.europa.eu/en/legal-notice"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://data.gov.ie/pages/opendatalicence"
+          },
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "source-link-7": {
+            "item_id": "source-7",
+            "href": "https://commission.europa.eu/legal-notice_en"
+          },
+          "source-link-8": {
+            "item_id": "source-8",
+            "href": "https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108851/What+is+eInvoicing"
+          }
+        }
+      },
+      "irish-prtr-industrial-account-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-11": {
+            "item_id": "source-11",
+            "href": "https://data.gov.ie/dataset/prtr-facilities"
+          },
+          "source-link-12": {
+            "item_id": "source-12",
+            "href": "https://data.gov.ie/pages/opendatalicence"
+          },
+          "source-link-licence": {
+            "item_id": "source-licence",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      },
+      "irish-water-investment-supplier-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-13": {
+            "item_id": "source-13",
+            "href": "https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/press-releases/government-approves-mechanism-to-provide-2-billion-investment-in-uisce-%C3%A9ireann-to-support-delivery-of-300000-homes-by-2030"
+          },
+          "source-link-14": {
+            "item_id": "source-14",
+            "href": "https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/organisation-information/re-use-of-public-sector-information-in-the-department-of-public-expenditure-ndp-delivery-and-reform"
+          },
+          "source-link-licence": {
+            "item_id": "source-licence",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "source-link-15": {
+            "item_id": "source-15",
+            "href": "https://data.gov.ie/dataset/environmental-protection-agency-remedial-action-list"
+          },
+          "source-link-16": {
+            "item_id": "source-16",
+            "href": "https://data.gov.ie/license"
+          }
+        }
+      },
+      "energy-audit-industrial-supplier-signals.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-16": {
+            "item_id": "source-16",
+            "href": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html"
+          },
+          "source-link-18": {
+            "item_id": "source-18",
+            "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023L1791-20260805"
+          },
+          "source-link-licence": {
+            "item_id": "source-licence",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      },
+      "irish-pharmaceutical-manufacturing-account-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://www.ema.europa.eu/en/human-regulatory-overview/research-development/compliance-research-development/good-manufacturing-practice/eudragmdp-database"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://www.ema.europa.eu/en/glossary-terms/marketing-authorisation"
+          },
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://www.ema.europa.eu/en/about-us/about-website/legal-notice"
+          }
+        }
+      },
+      "industrial-prospect-list-maintenance.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://data.gov.ie/dataset/river-abstraction-pressures"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://data.gov.ie/dataset/environmental-protection-agency-remedial-action-list"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://data.gov.ie/license"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://creativecommons.org/licenses/by/4.0"
+          }
+        }
+      },
+      "irish-environmental-register-evidence.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://data.gov.ie/dataset/industrial-emissions-ie-facilities"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://data.gov.ie/dataset/environmental-protection-agency-remedial-action-list"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://data.gov.ie/dataset/urban-waste-water-discharge-locations"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://data.gov.ie/dataset/water-framework-directive-section-4-discharges"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://data.gov.ie/pages/opendatalicence"
+          },
+          "source-link-licence": {
+            "item_id": "source-licence",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      },
+      "industrial-distributor-research-ireland.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://demandrange.com/industrial-lead-research.html"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://demandrange.com/methodology.html"
+          }
+        }
+      },
+      "industrial-oem-account-research-ireland.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://demandrange.com/industrial-lead-research.html"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://demandrange.com/methodology.html"
+          }
+        }
+      },
+      "industrial-account-prioritisation.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://demandrange.com/industrial-lead-research.html"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://demandrange.com/methodology.html"
+          }
+        }
+      },
+      "industrial-mro-account-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://demandrange.com/industrial-lead-research.html"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://demandrange.com/methodology.html"
+          }
+        }
+      },
+      "european-chemical-manufacturer-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://echa.europa.eu/manufacturer-communication-supply-chain-who"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://echa.europa.eu/regulations/reach/downstream-users/about-downstream-users/who-is-a-downstream-user"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://echa.europa.eu/support/getting-started/distributor"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://ec.europa.eu/eurostat/documents/3859598/21633320/KS-GQ-24-007-EN-N.pdf"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://eur-lex.europa.eu/EN/legal-content/glossary/european-economic-area-eea.html"
+          },
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://echa.europa.eu/legal-notice"
+          },
+          "source-link-7": {
+            "item_id": "source-7",
+            "href": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html"
+          },
+          "source-link-licence": {
+            "item_id": "source-licence",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      },
+      "epc-epcm-equipment-supplier-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://ted.europa.eu/en/notice/-/detail/512696-2026"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://ted.europa.eu/en/notice/-/detail/511070-2026"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://ted.europa.eu/en/notice/-/detail/343546-2025"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://ted.europa.eu/en/legal-notice"
+          }
+        }
+      },
+      "sample-account-research.html": {
+        "section_id": "real-evidence-sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "real-source-link-1": {
+            "item_id": "real-source-1",
+            "href": "https://data.gov.ie/dataset/industrial-emissions-ie-and-integrated-pollution-control-ipc-facilities"
+          },
+          "real-source-link-2": {
+            "item_id": "real-source-2",
+            "href": "https://gis.epa.ie/ContactUs/Policy"
+          },
+          "real-source-link-3": {
+            "item_id": "real-source-3",
+            "href": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      }
+    },
+    "source_use_status": "Existing reviewed sources retained; narrowly attributed TED editorial and OGP item metadata summaries parent verified for volume guide."
+  },
+  "generator_managed_files": [
+    "OG01-Evidence_Question_Log.csv",
+    "account-research-fictional-examples.csv",
+    "account-research-field-dictionary.csv",
+    "account-research-template.csv",
+    "channel-screening-blank.csv",
+    "channel-screening-fictional.csv",
+    "energy-audit-industrial-supplier-signals.html",
+    "epc-epcm-equipment-supplier-research.html",
+    "etenders-industrial-supplier-opportunities.html",
+    "european-chemical-manufacturer-research.html",
+    "exclusion-boundary-review-blank.csv",
+    "handover-after-expected-fictional.csv",
+    "handover-after-prepared-corrupt-fictional.csv",
+    "handover-before-fictional.csv",
+    "handover-expected-decisions.csv",
+    "handover-field-map-worksheet.csv",
+    "identity-entities-blank.csv",
+    "identity-entities-fictional.csv",
+    "identity-evidence-blank.csv",
+    "identity-evidence-fictional.csv",
+    "identity-mapping-blank.csv",
+    "identity-mapping-fictional.csv",
+    "industrial-account-prioritisation.html",
+    "industrial-audit-README.txt",
+    "industrial-audit-answer-key.csv",
+    "industrial-audit-blank-rows.csv",
+    "industrial-audit-blank-worksheet.csv",
+    "industrial-audit-fictional-batch.csv",
+    "industrial-audit-field-dictionary.csv",
+    "industrial-audit-policy.json",
+    "industrial-audit-schema.json",
+    "industrial-distributor-research-ireland.html",
+    "industrial-evidence-conflict-answer-key.csv",
+    "industrial-evidence-conflict-cards.csv",
+    "industrial-evidence-conflict-worksheet.csv",
+    "industrial-ideal-customer-profile-worksheet.csv",
+    "industrial-ideal-customer-profile.html",
+    "industrial-lead-research.html",
+    "industrial-lookalike-account-research.html",
+    "industrial-lookalike-comparison-worksheet.csv",
+    "industrial-mro-account-research.html",
+    "industrial-mro-scope-worksheet.csv",
+    "industrial-oem-account-research-ireland.html",
+    "industrial-prospect-list-audit.html",
+    "industrial-prospect-list-maintenance.html",
+    "industrial-prospect-review-log.csv",
+    "industrial-research-acceptance-checklist.csv",
+    "industrial-research-effort-worksheet.csv",
+    "industrial-sales-resources.html",
+    "industrial-sample-comparison-fictional.csv",
+    "industrial-tender-triage-worksheet.csv",
+    "irish-environmental-register-evidence.html",
+    "irish-food-beverage-company-research.html",
+    "irish-food-beverage-segmentation-fictional-cases.csv",
+    "irish-food-beverage-segmentation-worksheet.csv",
+    "irish-manufacturing-account-research.html",
+    "irish-pharmaceutical-manufacturing-account-research.html",
+    "irish-prtr-industrial-account-research.html",
+    "irish-water-investment-supplier-research.html",
+    "oem-component-route-blank.csv",
+    "pharma-description-answer-key.csv",
+    "pharma-description-fictional-cards.csv",
+    "pharma-description-worksheet.csv",
+    "programme-correction-register-blank.csv",
+    "programme-correction-register-fictional.csv",
+    "pump-flow-control-prospecting.html",
+    "pump-flow-control-supplier-fit-worksheet.csv",
+    "research-priority-queue-blank.csv",
+    "sample-account-research.html",
+    "territory-rule-blank.csv",
+    "territory-rule-fictional.csv",
+    "water-wastewater-buyer-route-fictional-cases.csv",
+    "water-wastewater-buyer-route-worksheet.csv"
+  ],
+  "page_routes": [
+    "404.html",
+    "about.html",
+    "campaign-activation.html",
+    "contact.html",
+    "cookies.html",
+    "energy-audit-industrial-supplier-signals.html",
+    "epc-epcm-equipment-supplier-research.html",
+    "etenders-industrial-supplier-opportunities.html",
+    "european-chemical-manufacturer-research.html",
+    "index.html",
+    "industrial-account-prioritisation.html",
+    "industrial-distributor-research-ireland.html",
+    "industrial-ideal-customer-profile.html",
+    "industrial-lead-research.html",
+    "industrial-lookalike-account-research.html",
+    "industrial-mro-account-research.html",
+    "industrial-oem-account-research-ireland.html",
+    "industrial-prospect-list-audit.html",
+    "industrial-prospect-list-maintenance.html",
+    "industrial-sales-resources.html",
+    "irish-environmental-register-evidence.html",
+    "irish-food-beverage-company-research.html",
+    "irish-manufacturing-account-research.html",
+    "irish-pharmaceutical-manufacturing-account-research.html",
+    "irish-prtr-industrial-account-research.html",
+    "irish-water-investment-supplier-research.html",
+    "markets.html",
+    "methodology.html",
+    "opportunity-intelligence.html",
+    "privacy.html",
+    "pump-flow-control-prospecting.html",
+    "request-a-quote.html",
+    "sample-account-research.html",
+    "sample-opportunity.html",
+    "terms.html"
+  ],
+  "proposed_effective_quote_template_sha256": "185ddcaf11161cfe8b7ed2f80377ada7cc97bef303173e863461d820e108d0e0",
+  "protected_sources": {
+    "quote-form/client.js": "89c19aa520fb7173d0cde9455b36aa448eb5ec055a0622821b29ed4ef21846e0",
+    "quote-form/form_schema.json": "1d4ca22d8d2d27057042186fd5b60fa3dbb4033850229b5e9f20e000e39bdf52",
+    "quote-form/quote-form.css": "db4ed5b857b04eb3336d35734b9f4663272290ffc3b48a4df30f1b4fa4018abf",
+    "quote-form/request-a-quote.template.html": "a1923b5a22eac987b1b502d267bec9b4ceb307bd5308b50f9104180718a00f77"
+  },
+  "public_base_sha": "877d36a6496d7289ddc3b4262ce08124d26c177e",
+  "public_files": [
+    ".nojekyll",
+    ".well-known/mta-sts.txt",
+    ".well-known/security.txt",
+    "404.html",
+    "CNAME",
+    "DemandRange_Sample_Opportunity_Brief.pdf",
+    "OG01-Evidence_Question_Log.csv",
+    "about.html",
+    "account-research-fictional-examples.csv",
+    "account-research-field-dictionary.csv",
+    "account-research-template.csv",
+    "campaign-activation.html",
+    "channel-screening-blank.csv",
+    "channel-screening-fictional.csv",
+    "contact.html",
+    "cookies.html",
+    "energy-audit-industrial-supplier-signals.html",
+    "epc-epcm-equipment-supplier-research.html",
+    "etenders-industrial-supplier-opportunities.html",
+    "european-chemical-manufacturer-research.html",
+    "exclusion-boundary-review-blank.csv",
+    "favicon.svg",
+    "handover-after-expected-fictional.csv",
+    "handover-after-prepared-corrupt-fictional.csv",
+    "handover-before-fictional.csv",
+    "handover-expected-decisions.csv",
+    "handover-field-map-worksheet.csv",
+    "identity-entities-blank.csv",
+    "identity-entities-fictional.csv",
+    "identity-evidence-blank.csv",
+    "identity-evidence-fictional.csv",
+    "identity-mapping-blank.csv",
+    "identity-mapping-fictional.csv",
+    "identity-mapping-workbook.xlsx",
+    "index.html",
+    "industrial-account-prioritisation.html",
+    "industrial-audit-README.txt",
+    "industrial-audit-answer-key.csv",
+    "industrial-audit-blank-rows.csv",
+    "industrial-audit-blank-worksheet.csv",
+    "industrial-audit-fictional-batch.csv",
+    "industrial-audit-field-dictionary.csv",
+    "industrial-audit-policy.json",
+    "industrial-audit-schema.json",
+    "industrial-distributor-research-ireland.html",
+    "industrial-evidence-conflict-answer-key.csv",
+    "industrial-evidence-conflict-cards.csv",
+    "industrial-evidence-conflict-worksheet.csv",
+    "industrial-ideal-customer-profile-worksheet.csv",
+    "industrial-ideal-customer-profile.html",
+    "industrial-lead-research.html",
+    "industrial-lookalike-account-research.html",
+    "industrial-lookalike-comparison-worksheet.csv",
+    "industrial-mro-account-research.html",
+    "industrial-mro-scope-worksheet.csv",
+    "industrial-oem-account-research-ireland.html",
+    "industrial-prospect-list-audit.html",
+    "industrial-prospect-list-maintenance.html",
+    "industrial-prospect-review-log.csv",
+    "industrial-research-acceptance-checklist.csv",
+    "industrial-research-effort-worksheet.csv",
+    "industrial-sales-resources.html",
+    "industrial-sample-comparison-fictional.csv",
+    "industrial-tender-triage-worksheet.csv",
+    "irish-environmental-register-evidence.html",
+    "irish-food-beverage-company-research.html",
+    "irish-food-beverage-segmentation-fictional-cases.csv",
+    "irish-food-beverage-segmentation-worksheet.csv",
+    "irish-manufacturing-account-research.html",
+    "irish-pharmaceutical-manufacturing-account-research.html",
+    "irish-prtr-industrial-account-research.html",
+    "irish-water-investment-supplier-research.html",
+    "markets.html",
+    "methodology.html",
+    "oem-component-route-blank.csv",
+    "og-image.png",
+    "opportunity-intelligence.html",
+    "pharma-description-answer-key.csv",
+    "pharma-description-fictional-cards.csv",
+    "pharma-description-worksheet.csv",
+    "privacy.html",
+    "programme-correction-register-blank.csv",
+    "programme-correction-register-fictional.csv",
+    "pump-flow-control-prospecting.html",
+    "pump-flow-control-supplier-fit-worksheet.csv",
+    "pumps-flow-control.html",
+    "request-a-quote.html",
+    "research-priority-queue-blank.csv",
+    "robots.txt",
+    "sample-account-research.html",
+    "sample-opportunity.html",
+    "sitemap.xml",
+    "styles.css",
+    "terms.html",
+    "territory-rule-blank.csv",
+    "territory-rule-fictional.csv",
+    "water-wastewater-buyer-route-fictional-cases.csv",
+    "water-wastewater-buyer-route-worksheet.csv"
+  ],
+  "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
+  "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
+  "quote_output_sha256": "958623b5e67ae39a976d6c0b9d9dd836f30026d564cfac0179e1f03e21cef6f7",
+  "retained_assets": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".well-known/mta-sts.txt": "2d9d3c86745de025003e6932732d17773e4f8adef1cc255fe91a54e5ee86e51d",
+    ".well-known/security.txt": "4d9b70bb93c7672276b02e2a310cc735f5b3662732b5103dc326055a70be351c",
+    "CNAME": "036864ec48c43508db473fd6166f30b3745ca448d6ac380c56ee71d1e3c8ec37",
+    "DemandRange_Sample_Opportunity_Brief.pdf": "a58d522f57aee273bcc798584f4976cbe9d2dc8bcd000c676c8e40c52a62337d",
+    "favicon.svg": "d9aa42c57acf62af1f19e74738c419759c2c1435ee40ca2e5c7abc0c6870c177",
+    "identity-mapping-workbook.xlsx": "66c691ffda5c7fb5bc85957c39d8de1c870a24b97dd7e0603063f0069b166b4c",
+    "og-image.png": "370c584e6276a6b3ca2e71eb4b316a43bfcee2e4e39c2994792a1496b90b7d78",
+    "pumps-flow-control.html": "ba914875ef3b0ca4fec073af88679a396f2bf135ac282c44826a44ff6073a342",
+    "robots.txt": "b9a63c89ffee6e455a94ee2e2c8ad1a4ed7b96e883c8e3a20535cc4e6bb81eaf"
+  },
+  "safe_documents": {
+    "industrial-audit-README.txt": {
+      "format": "txt",
+      "sha256": "82ec372605d239423e513d6f2fe5a27a8ab719ae24ad6d9b8c7a8aacdc69818d"
+    },
+    "industrial-audit-policy.json": {
+      "format": "json",
+      "sha256": "2fa86a61472d9b0cbfb454aadf6bd663ecc1e7a8b93a50dc6351cb9d3ab4fa3e"
+    },
+    "industrial-audit-schema.json": {
+      "format": "json",
+      "sha256": "0270142d3c0dc0ab72c14e47444a36a13d6093d58ebfb3d660658f879ce6b8a8"
+    }
+  },
+  "safe_downloads": {
+    "OG01-Evidence_Question_Log.csv": {
+      "blank_value_column": "permitted_observation",
+      "columns": [
+        "row_type",
+        "question_id",
+        "research_question",
+        "source_class_to_consider",
+        "candidate_reference",
+        "source_url",
+        "source_published_on",
+        "checked_on",
+        "intended_use",
+        "terms_url",
+        "rights_status",
+        "attribution_or_use_conditions",
+        "permitted_observation",
+        "still_unknown",
+        "question_status",
+        "next_action",
+        "usage_note"
+      ],
+      "data_rows": 5,
+      "sha256": "c9a18d54a15dab0e3381ca8e5ef375b05b81482dbc1c67cb03dc5f6a0470c6dc",
+      "unique_field_column": "question_id"
+    },
+    "account-research-fictional-examples.csv": {
+      "columns": [
+        "demonstration_notice",
+        "record_id",
+        "record_unit",
+        "company_or_site",
+        "industry",
+        "territory",
+        "profile_ref",
+        "fit_reason",
+        "source_reference",
+        "source_published_at",
+        "source_reviewed_at",
+        "evidence_rights_status",
+        "lead_class",
+        "opportunity_research_state",
+        "observed_fact",
+        "inference",
+        "unknowns",
+        "decision",
+        "decision_reason",
+        "next_check",
+        "review_due"
+      ],
+      "data_rows": 3,
+      "sha256": "07eb25a525b7bab955e6d50d3820bad2609b1161787767c469694173f3eaa8a6"
+    },
+    "account-research-field-dictionary.csv": {
+      "columns": [
+        "field",
+        "label",
+        "type",
+        "requirement",
+        "definition_or_allowed_values",
+        "boundary"
+      ],
+      "data_rows": 21,
+      "sha256": "11d56f4cf05524fe514b1a5a0f845d9ce5ada0d70678e844627ffe4f033e030c"
+    },
+    "account-research-template.csv": {
+      "columns": [
+        "demonstration_notice",
+        "record_id",
+        "record_unit",
+        "company_or_site",
+        "industry",
+        "territory",
+        "profile_ref",
+        "fit_reason",
+        "source_reference",
+        "source_published_at",
+        "source_reviewed_at",
+        "evidence_rights_status",
+        "lead_class",
+        "opportunity_research_state",
+        "observed_fact",
+        "inference",
+        "unknowns",
+        "decision",
+        "decision_reason",
+        "next_check",
+        "review_due"
+      ],
+      "data_rows": 1,
+      "sha256": "b730ea7e66978cfa86ac6d39229562a82a34c205cb5e5d3c91d08c48e5c3000d"
+    },
+    "channel-screening-blank.csv": {
+      "columns": [
+        "record_id",
+        "company_name",
+        "irish_operation",
+        "irish_operation_evidence_ref",
+        "industrial_isolation_valve_resale",
+        "industrial_isolation_valve_resale_evidence_ref",
+        "workshop_repair",
+        "workshop_repair_evidence_ref",
+        "stockholding_optional",
+        "stockholding_optional_evidence_ref",
+        "retail_only",
+        "retail_only_evidence_ref",
+        "manufacturer_relationship",
+        "manufacturer_relationship_evidence_ref",
+        "exclusivity",
+        "exclusivity_evidence_ref",
+        "new_partner_willingness",
+        "new_partner_willingness_evidence_ref",
+        "disposition",
+        "reason",
+        "source_reference",
+        "checked_date",
+        "record_context"
+      ],
+      "data_rows": 0,
+      "sha256": "93dc7f7c5ad1242cc6ed533294e891c59789b8d3de3628c51cf55d8e62fb0058"
+    },
+    "channel-screening-fictional.csv": {
+      "columns": [
+        "record_id",
+        "fictional_company",
+        "irish_operation",
+        "irish_operation_evidence_ref",
+        "industrial_isolation_valve_resale",
+        "industrial_isolation_valve_resale_evidence_ref",
+        "workshop_repair",
+        "workshop_repair_evidence_ref",
+        "stockholding_optional",
+        "stockholding_optional_evidence_ref",
+        "retail_only",
+        "retail_only_evidence_ref",
+        "manufacturer_relationship",
+        "manufacturer_relationship_evidence_ref",
+        "exclusivity",
+        "exclusivity_evidence_ref",
+        "new_partner_willingness",
+        "new_partner_willingness_evidence_ref",
+        "disposition",
+        "reason",
+        "source_reference",
+        "checked_date",
+        "example_status"
+      ],
+      "data_rows": 3,
+      "sha256": "5d6d0a8507690eb51da1cf80190a171bb041449e735c5e617e40c732780caee8"
+    },
+    "exclusion-boundary-review-blank.csv": {
+      "columns": [
+        "review_id",
+        "prior_review_id",
+        "candidate_ref",
+        "candidate_unit",
+        "brief_version",
+        "instruction_ref",
+        "instruction_version",
+        "scope_kind",
+        "scope_target_ref",
+        "identity_evidence_refs",
+        "boundary_outcome",
+        "reason",
+        "resolution_question",
+        "authorised_role",
+        "decision_ref",
+        "reviewed_at"
+      ],
+      "data_rows": 0,
+      "sha256": "290b22cb04ea6de2466e5ed76f99ae21f09ea88838d7571ed3cb3ed9f6c0c53a"
+    },
+    "handover-after-expected-fictional.csv": {
+      "columns": [
+        "fiction_notice",
+        "handover_record_id",
+        "external_entity_id",
+        "entity_kind",
+        "parent_external_company_id",
+        "relationship_status",
+        "equipment_status",
+        "optional_note",
+        "source_reviewed_at",
+        "source_review_state",
+        "reviewed_date_test_value",
+        "brief_ref",
+        "dictionary_version",
+        "export_version"
+      ],
+      "data_rows": 5,
+      "sha256": "6d142692bde3067c53633c8abfe3b9c2a0055ae57f6e65a6199c8eb795b62dc2",
+      "unique_field_column": "handover_record_id"
+    },
+    "handover-after-prepared-corrupt-fictional.csv": {
+      "columns": [
+        "fiction_notice",
+        "handover_record_id",
+        "external_entity_id",
+        "entity_kind",
+        "parent_external_company_id",
+        "relationship_status",
+        "equipment_status",
+        "optional_note",
+        "source_reviewed_at",
+        "source_review_state",
+        "reviewed_date_test_value",
+        "brief_ref",
+        "dictionary_version",
+        "export_version"
+      ],
+      "data_rows": 5,
+      "sha256": "b0ec209073dd9e106b81abec1ead7818dff976bdaa5cbe3643c1d95026813eda",
+      "unique_field_column": "handover_record_id"
+    },
+    "handover-before-fictional.csv": {
+      "columns": [
+        "fiction_notice",
+        "record_id",
+        "entity_id",
+        "record_unit",
+        "parent_company_id",
+        "relationship_status",
+        "equipment_status",
+        "optional_note",
+        "source_reviewed_at",
+        "source_review_state",
+        "reviewed_date_test_value",
+        "brief_ref",
+        "dictionary_version",
+        "export_version"
+      ],
+      "data_rows": 5,
+      "sha256": "4caafd4822ca65aebb3c290e813299188fa46d52f6f04fcce90ac9665394d75b",
+      "unique_field_column": "record_id"
+    },
+    "handover-expected-decisions.csv": {
+      "columns": [
+        "record_context",
+        "test_id",
+        "handover_record_id",
+        "target_field",
+        "expected_value",
+        "prepared_corrupt_value",
+        "expected_decision",
+        "reason"
+      ],
+      "data_rows": 7,
+      "sha256": "cebb60ea8f8e6f34ff8443a2075347889afdd1d6f3cf9ce6feab7bbf72c108b1",
+      "unique_field_column": "test_id"
+    },
+    "handover-field-map-worksheet.csv": {
+      "blank_value_column": "buyer_target_field",
+      "columns": [
+        "record_context",
+        "source_field",
+        "proposed_target_field",
+        "fixture_import_type",
+        "expected_field_decision",
+        "buyer_target_field",
+        "observed_reexport_value_or_issue",
+        "review_role",
+        "review_decision"
+      ],
+      "data_rows": 14,
+      "sha256": "0bb6334df025c5014e9d7bb7b3c3c6dcd698f0f4c3e876ad6a267154f9612b3d",
+      "unique_field_column": "source_field"
+    },
+    "identity-entities-blank.csv": {
+      "columns": [
+        "fiction_label",
+        "entity_id",
+        "entity_type",
+        "display_name",
+        "identity_status",
+        "production_status",
+        "territory_status",
+        "exclusions_status",
+        "source_use_status",
+        "consistency_status",
+        "account_decision",
+        "evidence_id",
+        "unknowns",
+        "next_question"
+      ],
+      "data_rows": 0,
+      "sha256": "d806fc5b68345cdf8e9224114cbf244a950813701b87d378082b85239a3147e6",
+      "unique_field_column": "entity_id"
+    },
+    "identity-entities-fictional.csv": {
+      "columns": [
+        "fiction_label",
+        "entity_id",
+        "entity_type",
+        "display_name",
+        "identity_status",
+        "production_status",
+        "territory_status",
+        "exclusions_status",
+        "source_use_status",
+        "consistency_status",
+        "account_decision",
+        "evidence_id",
+        "unknowns",
+        "next_question"
+      ],
+      "data_rows": 12,
+      "sha256": "fb79e51b9879754c0fbf77510fcce08a9fb82dcc280c2f8c10f720de3a286761",
+      "unique_field_column": "entity_id"
+    },
+    "identity-evidence-blank.csv": {
+      "columns": [
+        "fiction_label",
+        "evidence_id",
+        "invented_statement",
+        "source_url",
+        "source_publication_date",
+        "source_review_date",
+        "intended_use",
+        "reuse_status"
+      ],
+      "data_rows": 0,
+      "sha256": "115207ba92e3c91ca72d5d39459dd40ae77acf5ce38152c79566f4ab12bac9b4",
+      "unique_field_column": "evidence_id"
+    },
+    "identity-evidence-fictional.csv": {
+      "columns": [
+        "fiction_label",
+        "evidence_id",
+        "invented_statement",
+        "source_url",
+        "source_publication_date",
+        "source_review_date",
+        "intended_use",
+        "reuse_status"
+      ],
+      "data_rows": 23,
+      "sha256": "1d721550891077ada1d5fc32410d3d5482db567ffd5d8df7ce3388b6ab1a6183",
+      "unique_field_column": "evidence_id"
+    },
+    "identity-mapping-blank.csv": {
+      "columns": [
+        "fiction_label",
+        "mapping_id",
+        "subject_id",
+        "relationship",
+        "object_id",
+        "link_status",
+        "evidence_id",
+        "unknowns",
+        "next_question"
+      ],
+      "data_rows": 0,
+      "sha256": "dae04fca0edda18cb14bee4df74f2ce2952172fea9f8c414d09072f4585da702",
+      "unique_field_column": "mapping_id"
+    },
+    "identity-mapping-fictional.csv": {
+      "columns": [
+        "fiction_label",
+        "mapping_id",
+        "subject_id",
+        "relationship",
+        "object_id",
+        "link_status",
+        "evidence_id",
+        "unknowns",
+        "next_question"
+      ],
+      "data_rows": 11,
+      "sha256": "818ad1c405fae8d908a0b94f8df2342354fb3db5630eb49b344d8980c6c5b495",
+      "unique_field_column": "mapping_id"
+    },
+    "industrial-audit-answer-key.csv": {
+      "columns": [
+        "fiction_label",
+        "row_id",
+        "disposition",
+        "reason",
+        "research_class",
+        "canonical_row_id",
+        "next_check",
+        "brief_id",
+        "brief_version"
+      ],
+      "data_rows": 14,
+      "sha256": "eb90fe5b09eb9b2305a71095b3c50cb604501f1369b81050ddff80cf2495887e"
+    },
+    "industrial-audit-blank-rows.csv": {
+      "columns": [
+        "fiction_label",
+        "row_id",
+        "supplied_name",
+        "supplied_unit",
+        "company_key",
+        "site_keys",
+        "group_key",
+        "identity",
+        "activity",
+        "territory",
+        "exclusions",
+        "source_use",
+        "evidence_consistency",
+        "evidence_id",
+        "evidence_text",
+        "source_url",
+        "source_publication_date",
+        "source_review_date",
+        "project_status",
+        "project_evidence_text",
+        "canonical_row_id",
+        "dedup_evidence",
+        "next_check",
+        "brief_id",
+        "brief_version"
+      ],
+      "data_rows": 5,
+      "sha256": "1add1cf2f74dd905b0c2550971f8766d315dae734c8e1148d5dc7fc8ef9b4732"
+    },
+    "industrial-audit-blank-worksheet.csv": {
+      "columns": [
+        "section",
+        "field",
+        "value",
+        "instructions"
+      ],
+      "data_rows": 30,
+      "sha256": "12d9975639a4ce6741918c6dd381d2b9f5ca029aa0dd3749b307e36ff40f6fe1"
+    },
+    "industrial-audit-fictional-batch.csv": {
+      "columns": [
+        "fiction_label",
+        "row_id",
+        "supplied_name",
+        "supplied_unit",
+        "company_key",
+        "site_keys",
+        "group_key",
+        "identity",
+        "activity",
+        "territory",
+        "exclusions",
+        "source_use",
+        "evidence_consistency",
+        "evidence_id",
+        "evidence_text",
+        "source_url",
+        "source_publication_date",
+        "source_review_date",
+        "project_status",
+        "project_evidence_text",
+        "canonical_row_id",
+        "dedup_evidence",
+        "next_check",
+        "brief_id",
+        "brief_version"
+      ],
+      "data_rows": 14,
+      "sha256": "2351ac759084228dfcf1e55417a4dfc1be4abc063e8da106d395a16693bd760f"
+    },
+    "industrial-audit-field-dictionary.csv": {
+      "columns": [
+        "asset_label",
+        "field",
+        "definition",
+        "allowed_values"
+      ],
+      "data_rows": 25,
+      "sha256": "b0cf4ba04ccf62fe47346d4a1e44d1b58b502483a7b8b581fffa3233e90bdf19"
+    },
+    "industrial-evidence-conflict-answer-key.csv": {
+      "columns": [
+        "fiction_label",
+        "event_id",
+        "company_id",
+        "site_id",
+        "brief_version",
+        "evidence_ids",
+        "issue_labels",
+        "field_outcome",
+        "account_decision",
+        "reason",
+        "next_question",
+        "superseded_evidence_id",
+        "review_owner_role",
+        "real_review_date"
+      ],
+      "data_rows": 4,
+      "sha256": "13b217fafac3d92c470a18039b1c3c453bdea99e2a98123c598b8d29bab2dc50",
+      "unique_field_column": "event_id"
+    },
+    "industrial-evidence-conflict-cards.csv": {
+      "columns": [
+        "fiction_label",
+        "evidence_id",
+        "company_id",
+        "site_id",
+        "invented_statement",
+        "source_url",
+        "source_publication_date",
+        "source_retrieved_at",
+        "fictional_period",
+        "intended_use",
+        "source_use_status"
+      ],
+      "data_rows": 5,
+      "sha256": "ef6e2aa2fc9bdf7016e065c6ec5729ac7cff56604a84c5531e7ce10a174e23d1",
+      "unique_field_column": "evidence_id"
+    },
+    "industrial-evidence-conflict-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "field",
+        "value",
+        "instructions"
+      ],
+      "data_rows": 33,
+      "sha256": "85b715271691d755d4ae18e13d6dba16514f6801522942dac7becedc1d46f078",
+      "unique_field_column": "field"
+    },
+    "industrial-ideal-customer-profile-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "field",
+        "value",
+        "guidance"
+      ],
+      "data_rows": 46,
+      "sha256": "fece1e32b388fc06802e518be09e3503736c0699e98cfbb60e008608e05536e0",
+      "unique_field_column": "field"
+    },
+    "industrial-lookalike-comparison-worksheet.csv": {
+      "blank_value_column": "seed_profile",
+      "columns": [
+        "section",
+        "field",
+        "completion_guidance",
+        "seed_profile",
+        "candidate_a",
+        "candidate_b",
+        "candidate_c",
+        "candidate_d"
+      ],
+      "data_rows": 46,
+      "sha256": "4254dac46bebcb16509ce248312f3d2dfeb0a388b363f367ea8cb7a3b63a31ed",
+      "unique_field_column": "field"
+    },
+    "industrial-mro-scope-worksheet.csv": {
+      "columns": [
+        "record_id",
+        "company_id",
+        "scope_id",
+        "brief_version",
+        "record_context",
+        "service_scope",
+        "scope_basis",
+        "input_boundary",
+        "output_boundary",
+        "fact_name",
+        "fact_status",
+        "permitted_observation",
+        "evidence_reference",
+        "source_stated_date",
+        "checked_date",
+        "source_use_status",
+        "responsibility_limit",
+        "research_implication",
+        "next_question",
+        "stopping_rule"
+      ],
+      "data_rows": 0,
+      "sha256": "520b1ba2f356129666fed03027998e74e673d098a1bf6619203ec575248a1758"
+    },
+    "industrial-prospect-review-log.csv": {
+      "blank_value_column": "decision",
+      "columns": [
+        "usage_notice",
+        "record_id",
+        "record_unit",
+        "profile_ref",
+        "profile_version",
+        "company_name",
+        "site_context",
+        "trigger",
+        "previous_status",
+        "previous_evidence_ref",
+        "new_evidence_ref",
+        "checked_on",
+        "identity_result",
+        "fit_result",
+        "source_use_status",
+        "decision",
+        "reason",
+        "changed_fields",
+        "next_check",
+        "review_owner",
+        "review_due"
+      ],
+      "data_rows": 1,
+      "sha256": "b71a9716bbf8f58be8d78197110f3051411396032d703d5b9bc4e3c5ddc8be61"
+    },
+    "industrial-research-acceptance-checklist.csv": {
+      "blank_value_column": "response",
+      "columns": [
+        "item_id",
+        "area",
+        "buyer_question",
+        "completion_guidance",
+        "buyer_requirement",
+        "response",
+        "evidence_or_agreement_reference",
+        "responsible_role",
+        "blocking_for_this_buyer",
+        "status",
+        "decision_or_exception",
+        "review_trigger",
+        "decision_date"
+      ],
+      "data_rows": 32,
+      "sha256": "1e8a78567892929e6454a0409fac5f61bb3a4a9f7b6558767245568e96f2936f",
+      "unique_field_column": "item_id"
+    },
+    "industrial-research-effort-worksheet.csv": {
+      "blank_value_column": "buyer_value",
+      "columns": [
+        "section",
+        "field",
+        "buyer_value",
+        "unit",
+        "status",
+        "basis_or_notes",
+        "plain_text_guidance"
+      ],
+      "data_rows": 34,
+      "sha256": "dd73af9ff7ac3d3218c68bbc773b00897e5636baf37a59ee45cf2804a071daee",
+      "unique_field_column": "field"
+    },
+    "industrial-sample-comparison-fictional.csv": {
+      "columns": [
+        "record_context",
+        "frame_version",
+        "brief_version",
+        "company_id",
+        "company_label",
+        "counting_unit",
+        "frame_group",
+        "stipulated_condition",
+        "A_selected",
+        "A_reviewed",
+        "A_outcome",
+        "B_selected",
+        "B_reviewed",
+        "B_outcome",
+        "production_acceptance",
+        "source_url",
+        "source_date",
+        "local_comparison_note",
+        "local_next_question"
+      ],
+      "data_rows": 12,
+      "sha256": "4b4e0e1731aa6205774c9d04d3e6d0eade52c1f3dbf2a6eb85853b253c7725d6",
+      "unique_field_column": "company_id"
+    },
+    "industrial-tender-triage-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "field",
+        "value"
+      ],
+      "data_rows": 37,
+      "sha256": "c28341e64413e0c9a49688567b116a95d58460c0bb2654ef80d2da703aa1cec0",
+      "unique_field_column": "field"
+    },
+    "irish-food-beverage-segmentation-fictional-cases.csv": {
+      "columns": [
+        "fiction_notice",
+        "case_id",
+        "company_id",
+        "company_name",
+        "slice_id",
+        "fictional_site",
+        "fictional_activity",
+        "brand_relationship",
+        "site_operator_relationship",
+        "brief_m_screen",
+        "brief_p_screen",
+        "operator_required_p_screen",
+        "full_account_review_status",
+        "reason",
+        "next_question",
+        "source_url",
+        "source_publication_date",
+        "checked_at"
+      ],
+      "data_rows": 7,
+      "sha256": "b564ddc02a82c0f45c14963e3733223c5840677283f4785d792ca42e2c76cc4f",
+      "unique_field_column": "slice_id"
+    },
+    "irish-food-beverage-segmentation-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "section",
+        "field",
+        "value",
+        "completion_guidance"
+      ],
+      "data_rows": 39,
+      "sha256": "324d92843b4730f698768dc7506459e7a4a9134616080871f6c5426864865285",
+      "unique_field_column": "field"
+    },
+    "oem-component-route-blank.csv": {
+      "columns": [
+        "record_id",
+        "record_context",
+        "brief_version",
+        "company_id",
+        "map_id",
+        "component_family_question",
+        "equipment_family_question",
+        "operation_question",
+        "fact_name",
+        "fact_status",
+        "permitted_observation",
+        "scope_and_period",
+        "evidence_reference",
+        "source_location",
+        "source_stated_date",
+        "checked_date",
+        "source_use_status",
+        "research_implication",
+        "unknowns_and_conflicts",
+        "next_question",
+        "stopping_rule"
+      ],
+      "data_rows": 0,
+      "sha256": "c00d8479a3ccfc1f34cad0a59afb5f1ab32c383e450ae529193df81876226141"
+    },
+    "pharma-description-answer-key.csv": {
+      "columns": [
+        "fiction_label",
+        "card_id",
+        "company_id",
+        "activity_test",
+        "territory_test",
+        "card_screen",
+        "segment",
+        "next_question",
+        "full_account_acceptance",
+        "project_status"
+      ],
+      "data_rows": 9,
+      "sha256": "13a44ab0a6382dc57923f8f4186d9bd0e179d2698fb7e112dfb39cce46b4138e",
+      "unique_field_column": "card_id"
+    },
+    "pharma-description-fictional-cards.csv": {
+      "columns": [
+        "fiction_label",
+        "card_id",
+        "company_id",
+        "descriptor_purpose",
+        "invented_evidence",
+        "source_url",
+        "source_publication_date",
+        "source_review_date"
+      ],
+      "data_rows": 9,
+      "sha256": "1930d612f1dcf4b15897de7eb43f459c9741de23782896362f512a8e6c3f24b4",
+      "unique_field_column": "card_id"
+    },
+    "pharma-description-worksheet.csv": {
+      "columns": [
+        "card_id",
+        "company_id",
+        "brief_version",
+        "descriptor_purpose",
+        "source_reference",
+        "source_publication_date",
+        "actual_review_date",
+        "intended_use",
+        "rights_decision",
+        "permitted_observation",
+        "activity",
+        "performing_company_id",
+        "site_reference",
+        "territory",
+        "observation_limit",
+        "material_conflict",
+        "activity_test",
+        "territory_test",
+        "card_screen",
+        "company_screen",
+        "segment",
+        "next_question",
+        "full_account_acceptance",
+        "project_status"
+      ],
+      "data_rows": 0,
+      "sha256": "a53a892d9680fa2db5c09c170d12e3f5ad22c396d8073fc1ac58ba200d3b1d4b",
+      "unique_field_column": "card_id"
+    },
+    "programme-correction-register-blank.csv": {
+      "columns": [
+        "claim_id",
+        "example_kind",
+        "output_reference",
+        "prior_assertion",
+        "target_action",
+        "retained_observation",
+        "affected_signal",
+        "unaffected_fields",
+        "next_evidence",
+        "readback_status"
+      ],
+      "data_rows": 0,
+      "sha256": "b8226480f85180cae31fb54f4677349e92971204087e2a0a3633909df2772f18"
+    },
+    "programme-correction-register-fictional.csv": {
+      "columns": [
+        "claim_id",
+        "example_kind",
+        "output_reference",
+        "prior_assertion",
+        "target_action",
+        "retained_observation",
+        "affected_signal",
+        "unaffected_fields",
+        "next_evidence",
+        "readback_status"
+      ],
+      "data_rows": 4,
+      "sha256": "d6a3b1b290a70be7e562fdf6294c2198e9693ff612938af1bbde0d6b2301c906"
+    },
+    "pump-flow-control-supplier-fit-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "section",
+        "field",
+        "value",
+        "completion_guidance"
+      ],
+      "data_rows": 33,
+      "sha256": "63fd34cc4b2c750d33cc06a71d3593a4ff59fa9d251ddb8a8c08ac6a3964d09b",
+      "unique_field_column": "field"
+    },
+    "research-priority-queue-blank.csv": {
+      "columns": [
+        "queue_version",
+        "action_id",
+        "account_id",
+        "brief_version",
+        "fit_decision",
+        "fit_decision_ref",
+        "mandatory_gap",
+        "claim_question",
+        "claim_evidence_refs",
+        "uncertainty_note",
+        "buyer_importance_reason",
+        "buyer_instruction_ref",
+        "next_research_action",
+        "action_authorisation_ref",
+        "dependency_or_blocker",
+        "stop_condition",
+        "owner_role",
+        "effort_minutes_estimate",
+        "estimate_basis",
+        "pass_action_capacity_minutes",
+        "queue_state",
+        "allocation_reason",
+        "revisit_trigger",
+        "result_evidence_refs",
+        "outcome_and_remaining_gaps",
+        "reviewed_at"
+      ],
+      "data_rows": 0,
+      "sha256": "d087fc94737afb2dfde7cbef3fdad8c862b5a0836049752c54466f6f4491dca8"
+    },
+    "territory-rule-blank.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "field",
+        "value",
+        "guidance"
+      ],
+      "data_rows": 29,
+      "sha256": "5b8cd5a5df5a8baf4b81d396ed469bb55c80414c6a0f3c1fde6f06a4f8f4be96",
+      "unique_field_column": "field"
+    },
+    "territory-rule-fictional.csv": {
+      "columns": [
+        "fiction_label",
+        "company_id",
+        "common_activity_stipulation",
+        "operation_in_republic",
+        "customers_supplied_in_republic",
+        "incorporated_in_republic",
+        "O_decision",
+        "S_decision",
+        "I_decision",
+        "O_AND_S_decision",
+        "selected_overall_brief",
+        "full_account_decision_before_rule_selection",
+        "other_gates",
+        "supplier_reachability",
+        "buying_intent",
+        "source_url",
+        "source_publication_date",
+        "source_checked_at"
+      ],
+      "data_rows": 3,
+      "sha256": "17c0ad13de6074d00afa1536e9d8832044ecd01122a4d02279b2c3884b140fd2",
+      "unique_field_column": "company_id"
+    },
+    "water-wastewater-buyer-route-fictional-cases.csv": {
+      "columns": [
+        "case_id",
+        "fictional_organisation",
+        "stipulated_evidence",
+        "route_to_investigate",
+        "route_not_established",
+        "selection_boundary",
+        "package_availability",
+        "buyer_accessibility",
+        "buying_intention",
+        "technical_suitability",
+        "full_account_status",
+        "evidence_type"
+      ],
+      "data_rows": 4,
+      "sha256": "788647ba2ecc1df299b5a6e297b628d8698937c5d39db1d94e6cc324b0518dae",
+      "unique_field_column": "case_id"
+    },
+    "water-wastewater-buyer-route-worksheet.csv": {
+      "blank_value_column": "value",
+      "columns": [
+        "section",
+        "field",
+        "value",
+        "guidance"
+      ],
+      "data_rows": 43,
+      "sha256": "a2681f583026da9faf6a48e520c1b60e0db948d88b83bf8a1b161522d6f52dd6",
+      "unique_field_column": "field"
+    }
+  },
+  "sitemap_urls": [
+    "https://demandrange.com/",
+    "https://demandrange.com/about.html",
+    "https://demandrange.com/campaign-activation.html",
+    "https://demandrange.com/contact.html",
+    "https://demandrange.com/cookies.html",
+    "https://demandrange.com/energy-audit-industrial-supplier-signals.html",
+    "https://demandrange.com/epc-epcm-equipment-supplier-research.html",
+    "https://demandrange.com/etenders-industrial-supplier-opportunities.html",
+    "https://demandrange.com/european-chemical-manufacturer-research.html",
+    "https://demandrange.com/industrial-account-prioritisation.html",
+    "https://demandrange.com/industrial-distributor-research-ireland.html",
+    "https://demandrange.com/industrial-ideal-customer-profile.html",
+    "https://demandrange.com/industrial-lead-research.html",
+    "https://demandrange.com/industrial-lookalike-account-research.html",
+    "https://demandrange.com/industrial-mro-account-research.html",
+    "https://demandrange.com/industrial-oem-account-research-ireland.html",
+    "https://demandrange.com/industrial-prospect-list-audit.html",
+    "https://demandrange.com/industrial-prospect-list-maintenance.html",
+    "https://demandrange.com/industrial-sales-resources.html",
+    "https://demandrange.com/irish-environmental-register-evidence.html",
+    "https://demandrange.com/irish-food-beverage-company-research.html",
+    "https://demandrange.com/irish-manufacturing-account-research.html",
+    "https://demandrange.com/irish-pharmaceutical-manufacturing-account-research.html",
+    "https://demandrange.com/irish-prtr-industrial-account-research.html",
+    "https://demandrange.com/irish-water-investment-supplier-research.html",
+    "https://demandrange.com/markets.html",
+    "https://demandrange.com/methodology.html",
+    "https://demandrange.com/opportunity-intelligence.html",
+    "https://demandrange.com/privacy.html",
+    "https://demandrange.com/pump-flow-control-prospecting.html",
+    "https://demandrange.com/request-a-quote.html",
+    "https://demandrange.com/sample-account-research.html",
+    "https://demandrange.com/sample-opportunity.html",
+    "https://demandrange.com/terms.html"
+  ],
+  "status": "SHIFT_BATCH03_IDENTITY_SUPERVISED_RELEASE",
+  "versions": {
+    "consent_version": "2026-09-11-v1",
+    "form_version": "2026-09-11-v1",
+    "privacy_version": "2026-09-11-v1"
+  }
+}

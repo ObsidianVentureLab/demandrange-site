@@ -1,0 +1,44 @@
+section,field,value,guidance
+Brief,brief_id_and_version,,Your own reference; do not include confidential lists.
+Brief,research_question,,Specify operator; contractor; integrator; equipment-supplier or a combined role question.
+Brief,supplier_offer_and_exclusions,,State your supply role and positive exclusions; not engineering criteria.
+Brief,territory_rule,,State geographic rule explicitly; do not infer site territory from headquarters.
+Unit,map_id,,One site/system; one scope; one phase.
+Unit,responsibility_record_id,,One organisation-to-responsibility relationship; stable ID.
+Unit,company_id,,Reuse across roles and maps; no named-person data.
+Unit,organisation_label,,Company-level identifier only.
+Unit,site_or_asset_reference,,Leave unknown when no site is evidenced; do not invent an end user.
+Unit,scope_and_phase,,Distinguish capability; historic delivery; current operation; proposed scope.
+Roles,facility_ownership_observation,,Identify asset and attributed organisation; not a legal title conclusion.
+Roles,facility_ownership_status,,evidenced; explicit_negative; unknown; conflicting; not_assessed.
+Roles,operation_observation,,Who operates which site or scope; not just who works there.
+Roles,operation_status,,evidenced; explicit_negative; unknown; conflicting; not_assessed.
+Roles,design_authorship_observation,,Define the exact design task; separate requirements from detailed design.
+Roles,design_approval_observation,,Do not equate technical approval with commercial supplier selection.
+Roles,physical_supply_observation,,Who supplies the assembly or component; separate from purchasing it.
+Roles,installation_observation,,Who physically installs which supplied item.
+Roles,commissioning_observation,,Separate commissioning from installation and ongoing operation.
+Roles,maintenance_observation,,Separate routine work; fault response and spare scope.
+Roles,spare_parts_responsibility,,Labour-only versus parts-inclusive versus unknown; require evidence.
+Selection,supplier_selector_observation,,Who chooses or nominates supplier for this exact scope.
+Selection,approval_restrictions,,Customer nominations; substitution restrictions; unknown until evidenced.
+Selection,order_placement_observation,,Who places order; do not equate this with selection discretion.
+Selection,selection_authority_status,,evidenced; explicit_negative; unknown; conflicting; not_assessed.
+Evidence,evidence_id,,Use one evidence chain per record; copy for additional sources.
+Evidence,supported_field_names,,Explicitly list which observations this evidence supports.
+Evidence,exact_source_url,,Verified exact URL only; no fictional URLs.
+Evidence,source_publication_date,,Leave blank if undated; never substitute check date.
+Evidence,retrieved_at,,Actual tool/reviewer timestamp and timezone.
+Evidence,permitted_observation,,Only a minimal permitted original observation; no restricted source text.
+Evidence,source_use_status,,Original fictional; reviewed scoped use; hold restricted; hold unresolved.
+Evidence,applicable_terms_reference,,Exact applicable source/item terms reference; visibility is not permission.
+Evidence,limitations_and_conflicts,,Scope; age; entity ambiguity; contradictions and rights limits.
+Decision,role_route_decision,,investigate; hold; out_of_scope against the brief; not buyer qualification.
+Decision,decision_rule_and_reason,,State which relationship meets or contradicts which condition.
+Decision,full_account_status,,Keep hold or not_assessed until all required acceptance checks finish.
+Unknowns,package_availability,,unknown by default; historic scope is not current availability.
+Unknowns,buyer_accessibility,,unknown by default; no accessible buyer inferred from a role.
+Unknowns,buying_intention,,unknown by default; no intent inference.
+Unknowns,technical_suitability,,unknown; this worksheet does not assess equipment suitability.
+Review,next_relationship_question,,Name the evidence needed; this does not authorise outreach.
+Review,reviewer_role_and_checked_at,,Role only; actual check timestamp if completed; no personal names.
