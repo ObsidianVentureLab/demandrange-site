@@ -14,6 +14,7 @@ Key facts:
 ## Services
 
 - [Industrial lead and account research](https://demandrange.com/industrial-lead-research): company-level prospect research scoped by EU country, sector, site rules and exclusions
+- [Industrial lead generation for Ireland and the UK](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Irish and UK industrial markets using CRO, Companies House, regulator registers and public tenders
 - [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence): evidenced industrial project and development signals, separating observed change, supplier relevance and unknowns
 - [Campaign activation](https://demandrange.com/campaign-activation): optional outreach, only under its own written scope, data review and approval
 - [Markets and supplier fit](https://demandrange.com/markets): how account fit is defined by country, sector and customer route
@@ -28,6 +29,9 @@ Key facts:
 ## Guides for industrial sales teams
 
 - [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of all guides and free CSV worksheets
+- [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): Companies House SIC codes as a filter, then site confirmation from UK regulator registers
+- [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
+- [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
 - [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)
 - [Industrial account prioritisation](https://demandrange.com/industrial-account-prioritisation)

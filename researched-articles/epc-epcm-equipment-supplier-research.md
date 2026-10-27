@@ -116,6 +116,8 @@ Use the map to decide the next research action, not to grant commercial access. 
 
 If the unknown is the contracting entity, hold the buyer claim. If the evidence expressly excludes component procurement from a contractor's scope, exclude **that route for that package**, not the company from every account brief. If current status cannot be established within the agreed review, return that gap; do not fill it with a sales deadline.
 
+Public award notices are one place to start: the [TED guide](ted-eu-tenders-industrial-suppliers.html#read-the-notice-type-plan-compete-award) explains how to read EU contract award notices.
+
 ## Commission a package-responsibility note, not a contact list
 
 A useful brief is: “For [project reference] in [EU country], investigate [equipment/package boundary]. Establish the appointment scope, specification and approval roles, enquiry issuer and contracting entity. Identify nominations and free-issued items. Return the source-backed observation, unresolved procurement status and next verification question; do not assume access or identify contacts by default.”

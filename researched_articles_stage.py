@@ -25,12 +25,18 @@ def article_fragment(record):
     assert meta['meta_title'] == record['meta_title']
     prose, sources = body.rsplit('## Sources', 1)
     citations = []
-    for line in sources.strip().splitlines():
+    # Source lines first; an optional plain-prose note may follow after a blank
+    # line (no links or citation markers). Anything else is still rejected.
+    source_block, _, note = sources.strip().partition('\n\n')
+    for line in source_block.splitlines():
         m = re.fullmatch(r'\[(\d+)\] (https://\S+) — (.+)', line)
         if m:
             citations.append((m[1], m[2], m[3]))
         elif line.strip():
             raise ValueError('Unsupported source line: ' + line)
+    note = note.strip()
+    if note and (re.search(r'\[\d+\]|https?://|\]\(|<a\b', note) or re.match(r'\[\d+\] ', note)):
+        raise ValueError('Unsupported source note: ' + note)
     ids = {ident for ident, _, _ in citations}
     assert set(re.findall(r'\[(\d+)\]', prose)) == ids
     prose = re.sub(r'\[(\d+)\]', lambda m: '<a href="#source-' + m[1] + '">[' + m[1] + ']</a>', prose)
@@ -40,7 +46,7 @@ def article_fragment(record):
     result = BeautifulSoup('<main></main>', 'html.parser')
     main = result.main
     section = result.new_tag('section', id=record['key'] + '-intro')
-    eyebrow = result.new_tag('p'); eyebrow.string = 'Research guide · Source evidence and limits'
+    eyebrow = result.new_tag('p'); eyebrow.string = record.get('eyebrow', 'Research guide · Source evidence and limits')
     section.append(eyebrow); main.append(section)
     for node in list(doc.contents):
         if getattr(node, 'name', None) == 'h2':
@@ -65,7 +71,11 @@ def article_fragment(record):
         if ident.isdigit(): li['value'] = ident
         a = result.new_tag('a', id='source-link-' + ident, href=url, rel='noopener noreferrer')
         a.string = title; li.append(a); ol.append(li)
-    section.append(ol); main.append(section)
+    section.append(ol)
+    if note:
+        for node in list(BeautifulSoup(markdown.markdown(note), 'html.parser').contents):
+            section.append(node.extract())
+    main.append(section)
     return result
 
 
@@ -74,9 +84,9 @@ MAX_ARTICLES = 17
 
 def apply_researched_articles(output):
     records = json.loads((CONTENT / 'articles.json').read_text())['articles']
-    # Cap, not an exact count: 11 published today + 6 queued guides
-    # (dr-seo-growth/miranda-ready HANDOFF). Exact route coverage is still
-    # pinned by production-manifest.json public_files/page_routes.
+    # Cap, not an exact count: 11 original guides + 4 week-1 batch-1 pages
+    # today. Exact route coverage is still pinned by production-manifest.json
+    # public_files/page_routes.
     assert 1 <= len(records) <= MAX_ARTICLES and len({r['route'] for r in records}) == len(records)
     shell = (output / 'industrial-lead-research.html').read_text()
     for record in records:

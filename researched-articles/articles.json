@@ -95,6 +95,46 @@
       "route": "epc-epcm-equipment-supplier-research.html",
       "artifact": "epc-epcm-equipment-supplier-research.md",
       "include_cc_licence": false
+    },
+    {
+      "title": "Industrial lead generation for Ireland and the UK, built from evidence",
+      "meta_title": "Industrial Lead Generation for Ireland and the UK | Demand Range",
+      "meta_description": "Analyst-led industrial lead generation for suppliers selling into Ireland and the UK: industry-matched companies and sites, a fit reason and public source for every account, and no bought contact lists.",
+      "key": "content-ilg-ireland-uk",
+      "route": "industrial-lead-generation-ireland-uk.html",
+      "artifact": "industrial-lead-generation-ireland-uk.md",
+      "include_cc_licence": false,
+      "eyebrow": "Service · Ireland and the United Kingdom"
+    },
+    {
+      "title": "How to build a list of UK manufacturers that fits your brief",
+      "meta_title": "How to Build a List of UK Manufacturers | Demand Range",
+      "meta_description": "How to build a list of UK manufacturers: pull candidates from Companies House by SIC 2007 code, confirm the operating site from regulator registers, and record include, hold or reject for each company.",
+      "key": "content-uk-manufacturing",
+      "route": "uk-manufacturing-account-research.html",
+      "artifact": "uk-manufacturing-account-research.md",
+      "include_cc_licence": false,
+      "eyebrow": "Research guide · United Kingdom"
+    },
+    {
+      "title": "How to use TED to find EU tenders for industrial suppliers",
+      "meta_title": "How to Use TED EU Tenders for Industrial Suppliers | Demand Range",
+      "meta_description": "How industrial suppliers can use TED, the EU's official tenders portal: search by CPV code and place of performance, read prior information and award notices, and know the 2026–2027 EU thresholds.",
+      "key": "content-ted-eu-tenders",
+      "route": "ted-eu-tenders-industrial-suppliers.html",
+      "artifact": "ted-eu-tenders-industrial-suppliers.md",
+      "include_cc_licence": false,
+      "eyebrow": "Research guide · EU public procurement"
+    },
+    {
+      "title": "ZoomInfo, Apollo or researched accounts: what an industrial prospect list needs",
+      "meta_title": "ZoomInfo or Apollo for Industrial Prospect Lists? | Demand Range",
+      "meta_description": "When ZoomInfo or Apollo is enough for an industrial prospect list, where industrial briefs need site and activity evidence a database field may not hold, and how to test any provider on your own accounts.",
+      "key": "content-list-vs-provider",
+      "route": "industrial-prospect-list-vs-data-provider.html",
+      "artifact": "industrial-prospect-list-vs-data-provider.md",
+      "include_cc_licence": false,
+      "eyebrow": "Buyer guide · Choosing a prospect source"
     }
   ],
   "status": "human_review_candidate_not_approved"
