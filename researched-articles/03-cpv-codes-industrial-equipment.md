@@ -92,7 +92,7 @@ Descriptions follow the CPV 2008 vocabulary (Regulation (EC) No 213/2008).[1] Th
 ## How to use the list
 
 1. **Build two alert tiers.** Tier A covers your exact product codes, such as 42122220 Sewage pumps. Tier B covers the parent code and the works or maintenance codes, such as 42000000, 45252000 and 50511000. Tier B is noisier, but it catches bundled packages.
-2. **Run the same codes on every portal**: TED, Irish eTenders and UK Find a Tender. See our guides to [TED](ted-eu-tenders-industrial-suppliers.html), [eTenders](etenders-industrial-supplier-opportunities.html) and UK tenders.
+2. **Run the same codes on every portal**: TED, Irish eTenders and UK Find a Tender. See our guides to [TED](ted-eu-tenders-industrial-suppliers.html), [eTenders](etenders-industrial-supplier-opportunities.html) and [UK tenders](uk-public-tenders-industrial-suppliers.html).
 3. **Read award notices, not just open tenders.** The winning contractor on a 45252000 works contract will need pumps, valves and instruments. That contractor is your account.
 
 > **Fictional example:** A fictional instrumentation distributor alerts only on 38421000 Flow-measuring equipment and sees few notices. After adding 45252000 and 42996000, it finds several wastewater treatment works contracts where flow meters are inside a larger works package, and it contacts the winning contractors. *This example is fictional and only illustrates the method.*

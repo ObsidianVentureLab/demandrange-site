@@ -147,6 +147,15 @@
       "downloads": [
         "cpv-industrial-equipment-starter.csv"
       ]
+    },
+    {
+      "title": "Find a Tender vs Contracts Finder: UK public tenders for industrial suppliers (Procurement Act 2023)",
+      "meta_title": "Find a Tender vs Contracts Finder | Demand Range",
+      "meta_description": "Find a Tender vs Contracts Finder under the Procurement Act 2023: where UK public tenders appear, which notices matter and how to turn them into account lists.",
+      "key": "content-uk-tenders",
+      "route": "uk-public-tenders-industrial-suppliers.html",
+      "artifact": "02-uk-public-tenders-industrial-suppliers.md",
+      "include_cc_licence": false
     }
   ],
   "status": "human_review_candidate_not_approved"

@@ -612,6 +612,33 @@
             "href": "https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/cpv"
           }
         }
+      },
+      "uk-public-tenders-industrial-suppliers.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://www.legislation.gov.uk/ukpga/2023/54/section/87"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://www.gov.uk/government/collections/procurement-act-2023-guidance-documents"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://www.find-tender.service.gov.uk/"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://www.contractsfinder.service.gov.uk/"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://www.publiccontractsscotland.gov.uk/"
+          }
+        }
       }
     },
     "source_use_status": "Existing reviewed sources retained; narrowly attributed TED editorial and OGP item metadata summaries parent verified for volume guide."
@@ -697,7 +724,8 @@
     "ted-eu-tenders-industrial-suppliers.html",
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
-    "cpv-industrial-equipment-starter.csv"
+    "cpv-industrial-equipment-starter.csv",
+    "uk-public-tenders-industrial-suppliers.html"
   ],
   "page_routes": [
     "404.html",
@@ -739,7 +767,8 @@
     "uk-manufacturing-account-research.html",
     "ted-eu-tenders-industrial-suppliers.html",
     "industrial-prospect-list-vs-data-provider.html",
-    "cpv-codes-industrial-equipment.html"
+    "cpv-codes-industrial-equipment.html",
+    "uk-public-tenders-industrial-suppliers.html"
   ],
   "proposed_effective_quote_template_sha256": "36f8f13dce03a40a41b29ed897fc7a8d5551f3d4d99730d97fd1c2f86b96e9d8",
   "protected_sources": {
@@ -855,7 +884,8 @@
     "ted-eu-tenders-industrial-suppliers.html",
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
-    "cpv-industrial-equipment-starter.csv"
+    "cpv-industrial-equipment-starter.csv",
+    "uk-public-tenders-industrial-suppliers.html"
   ],
   "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
   "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
@@ -1879,7 +1909,8 @@
     "https://demandrange.com/uk-manufacturing-account-research.html",
     "https://demandrange.com/ted-eu-tenders-industrial-suppliers.html",
     "https://demandrange.com/industrial-prospect-list-vs-data-provider.html",
-    "https://demandrange.com/cpv-codes-industrial-equipment.html"
+    "https://demandrange.com/cpv-codes-industrial-equipment.html",
+    "https://demandrange.com/uk-public-tenders-industrial-suppliers.html"
   ],
   "status": "SHIFT_BATCH03_IDENTITY_SUPERVISED_RELEASE",
   "versions": {
