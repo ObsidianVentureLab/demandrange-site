@@ -116,7 +116,7 @@ A useful enquiry is: “We supply [range] and want company-level research into [
 
 Compare the [fictional account-research sample](sample-account-research.html) with the worksheet, or review the [industrial account-research service](industrial-lead-research.html). Coverage, source availability, language needs, fields and commercial terms require assessment and a written scope. Do not send confidential customer records or personal contact data in an initial enquiry; named-contact delivery and outreach are separate scopes.
 
-To locate candidate sites across the EU, see how to [find EU industrial facilities with the Industrial Emissions Portal](eu-industrial-emissions-portal-research.html). A listed installation is a starting point, not evidence of the operation fit above.
+To locate candidate sites across the EU, see how to [find EU industrial facilities with the Industrial Emissions Portal](eu-industrial-emissions-portal-research.html). A listed installation is a starting point, not evidence of the operation fit above. For German producers, see [finding industrial customers in Germany](germany-industrial-account-research.html).
 
 [Request a written research scope](request-a-quote.html)
 

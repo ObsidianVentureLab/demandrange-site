@@ -183,6 +183,15 @@
       "route": "eu-industrial-emissions-portal-research.html",
       "artifact": "04-eu-industrial-emissions-portal-research.md",
       "include_cc_licence": false
+    },
+    {
+      "title": "How to find industrial customers in Germany: a public-data account research guide",
+      "meta_title": "Find Industrial Customers in Germany | Demand Range",
+      "meta_description": "Find industrial customers in Germany with public data: Handelsregister, Unternehmensregister, WZ 2025 codes, export directories, thru.de PRTR and TED tenders.",
+      "key": "content-germany",
+      "route": "germany-industrial-account-research.html",
+      "artifact": "06-germany-industrial-account-research.md",
+      "include_cc_licence": false
     }
   ],
   "status": "human_review_candidate_not_approved"
