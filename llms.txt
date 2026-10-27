@@ -41,6 +41,7 @@ Key facts:
 - [NACE Rev. 2.1 codes for industrial account lists](https://demandrange.com/nace-rev-2-1-industrial-account-lists): the manufacturing (Section C) changes and how to recode an existing target list
 - [EU Industrial Emissions Portal for account research](https://demandrange.com/eu-industrial-emissions-portal-research): using the EEA's EU-wide facility data to find large industrial sites by country and activity
 - [Germany industrial account research](https://demandrange.com/germany-industrial-account-research): Handelsregister, Unternehmensregister, WZ 2025 codes and other public sources for German manufacturers and plants
+- [EU approved food establishment lists: how equipment suppliers find food and beverage plants](https://demandrange.com/eu-food-beverage-plant-research): Where to find EU approved food establishments lists for each member state, Ireland and the UK, what each row shows, and how suppliers turn rows into accounts.
 - [SIC codes for manufacturing companies in the UK: the Section C list, SIC 2026 and how to search](https://demandrange.com/uk-sic-codes-manufacturing): The full UK SIC 2007 Section C list of manufacturing codes as accepted by Companies House, what SIC 2026 changes, and how to search manufacturers by code, with a CSV.
 - [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
@@ -57,6 +58,7 @@ Key facts:
 ## Ireland-specific research guides
 
 - [Irish manufacturing account research](https://demandrange.com/irish-manufacturing-account-research)
+- [NACE codes for Irish manufacturing: using CSO data to size and build account lists](https://demandrange.com/irish-manufacturing-nace-codes): Which NACE divisions matter to industrial suppliers in Ireland, how many enterprises CSO and Eurostat count in each, and how to build account lists from them.
 - [Irish pharmaceutical manufacturing account research](https://demandrange.com/irish-pharmaceutical-manufacturing-account-research)
 - [Irish food and beverage company research](https://demandrange.com/irish-food-beverage-company-research)
 - [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research)
