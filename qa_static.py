@@ -93,6 +93,7 @@ class AuditParser(HTMLParser):
     def handle_data(self, data):
         if self.title_depth: self.title_text += data
 
+BRAND_VARIANT = re.compile(r'Demand\.?Range')
 errors = []
 ENTITY_CORE = set()
 checks = 0
@@ -181,6 +182,16 @@ for route in ROUTES:
     for field in ['og:image', 'twitter:image']:
         check(p.meta.get(field) == 'https://demandrange.com/og-image.png', f'{route}: social image metadata missing')
     check(p.images_missing_alt == 0, f"{route}: image missing alt")
+    # Brand spelling: visible text and human-readable metadata must use
+    # "Demand Range" (two words). Script/JSON-LD bodies, URLs, emails and file
+    # names are not visible text and are not scanned.
+    visible = [str(t) for t in soup.find_all(string=True)
+               if not any(parent.name in {'script', 'style', 'template'} for parent in t.parents)
+               and type(t).__name__ in {'NavigableString', 'CData'}]
+    visible += [el.get(attr, '') for el in soup.find_all(True) for attr in ('alt', 'title', 'aria-label', 'placeholder') if el.has_attr(attr)]
+    visible += [m.get('content', '') for m in soup.find_all('meta') if (m.get('name') or m.get('property') or '').split(':')[0] in {'description', 'og', 'twitter'}]
+    bad_brand = sorted({m.group(0) for v in visible for m in BRAND_VARIANT.finditer(v)})
+    check(not bad_brand, f"{route}: brand must be written 'Demand Range' in visible text, found {bad_brand}")
     for download in soup.select('a[href$=".csv"]'):
         check(download['href'] in CONTRACT['safe_downloads'] and download.has_attr('download'), f'{route}: undeclared or non-download CSV')
     if route == 'irish-manufacturing-account-research.html':
