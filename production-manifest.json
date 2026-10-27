@@ -551,7 +551,7 @@
     "sample-opportunity.html",
     "terms.html"
   ],
-  "proposed_effective_quote_template_sha256": "185ddcaf11161cfe8b7ed2f80377ada7cc97bef303173e863461d820e108d0e0",
+  "proposed_effective_quote_template_sha256": "6fb38659b0440bf0129b42072d6c44e387cf1b99ac5d72a3be646829a7b7fa27",
   "protected_sources": {
     "quote-form/client.js": "89c19aa520fb7173d0cde9455b36aa448eb5ec055a0622821b29ed4ef21846e0",
     "quote-form/form_schema.json": "1d4ca22d8d2d27057042186fd5b60fa3dbb4033850229b5e9f20e000e39bdf52",
@@ -663,7 +663,7 @@
   ],
   "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
   "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
-  "quote_output_sha256": "958623b5e67ae39a976d6c0b9d9dd836f30026d564cfac0179e1f03e21cef6f7",
+  "quote_output_sha256": "189157d185be7ad796ba2845c1d8cb9108d8876fb8f79e8a05d3c168e5eab56d",
   "retained_assets": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     ".well-known/mta-sts.txt": "2d9d3c86745de025003e6932732d17773e4f8adef1cc255fe91a54e5ee86e51d",
