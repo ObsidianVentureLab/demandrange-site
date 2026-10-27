@@ -69,9 +69,15 @@ def article_fragment(record):
     return result
 
 
+MAX_ARTICLES = 17
+
+
 def apply_researched_articles(output):
     records = json.loads((CONTENT / 'articles.json').read_text())['articles']
-    assert len(records) == 11 and len({r['route'] for r in records}) == 11
+    # Cap, not an exact count: 11 published today + 6 queued guides
+    # (dr-seo-growth/miranda-ready HANDOFF). Exact route coverage is still
+    # pinned by production-manifest.json public_files/page_routes.
+    assert 1 <= len(records) <= MAX_ARTICLES and len({r['route'] for r in records}) == len(records)
     shell = (output / 'industrial-lead-research.html').read_text()
     for record in records:
         doc = article_fragment(record)
