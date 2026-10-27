@@ -670,6 +670,33 @@
             "href": "https://www.find-tender.service.gov.uk/"
           }
         }
+      },
+      "nace-rev-2-1-industrial-account-lists.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://eur-lex.europa.eu/eli/reg_del/2023/137/oj"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://ec.europa.eu/eurostat/web/products-manuals-and-guidelines/w/ks-gq-24-007"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://ec.europa.eu/eurostat/web/nace/correspondence-tables"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2025.html"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://resources.companieshouse.gov.uk/sic/"
+          }
+        }
       }
     },
     "source_use_status": "Existing reviewed sources retained; narrowly attributed TED editorial and OGP item metadata summaries parent verified for volume guide."
@@ -757,7 +784,8 @@
     "cpv-codes-industrial-equipment.html",
     "cpv-industrial-equipment-starter.csv",
     "uk-public-tenders-industrial-suppliers.html",
-    "uk-water-industry-supplier-research.html"
+    "uk-water-industry-supplier-research.html",
+    "nace-rev-2-1-industrial-account-lists.html"
   ],
   "page_routes": [
     "404.html",
@@ -801,7 +829,8 @@
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
     "uk-public-tenders-industrial-suppliers.html",
-    "uk-water-industry-supplier-research.html"
+    "uk-water-industry-supplier-research.html",
+    "nace-rev-2-1-industrial-account-lists.html"
   ],
   "proposed_effective_quote_template_sha256": "36f8f13dce03a40a41b29ed897fc7a8d5551f3d4d99730d97fd1c2f86b96e9d8",
   "protected_sources": {
@@ -919,7 +948,8 @@
     "cpv-codes-industrial-equipment.html",
     "cpv-industrial-equipment-starter.csv",
     "uk-public-tenders-industrial-suppliers.html",
-    "uk-water-industry-supplier-research.html"
+    "uk-water-industry-supplier-research.html",
+    "nace-rev-2-1-industrial-account-lists.html"
   ],
   "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
   "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
@@ -1945,7 +1975,8 @@
     "https://demandrange.com/industrial-prospect-list-vs-data-provider.html",
     "https://demandrange.com/cpv-codes-industrial-equipment.html",
     "https://demandrange.com/uk-public-tenders-industrial-suppliers.html",
-    "https://demandrange.com/uk-water-industry-supplier-research.html"
+    "https://demandrange.com/uk-water-industry-supplier-research.html",
+    "https://demandrange.com/nace-rev-2-1-industrial-account-lists.html"
   ],
   "status": "SHIFT_BATCH03_IDENTITY_SUPERVISED_RELEASE",
   "versions": {

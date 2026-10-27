@@ -165,6 +165,15 @@
       "route": "uk-water-industry-supplier-research.html",
       "artifact": "01-uk-water-industry-supplier-research.md",
       "include_cc_licence": false
+    },
+    {
+      "title": "NACE Rev. 2.1 manufacturing codes: what changed and how to fix your industrial account lists",
+      "meta_title": "NACE Rev. 2.1 Manufacturing Codes | Demand Range",
+      "meta_description": "What NACE Rev. 2.1 changes in manufacturing (Section C) and how to map old NACE Rev. 2 codes to new ones in industrial account lists without losing accounts.",
+      "key": "content-nace",
+      "route": "nace-rev-2-1-industrial-account-lists.html",
+      "artifact": "05-nace-rev-2-1-industrial-account-lists.md",
+      "include_cc_licence": false
     }
   ],
   "status": "human_review_candidate_not_approved"
