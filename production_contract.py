@@ -105,6 +105,7 @@ def preflight_source(contract):
     check_file_set(SOURCE, expected | set(contract['excluded_source_files']))
     check_retained(SOURCE, contract)
     file_set(HERE / 'foundation')  # Includes new generator inputs in symlink checks.
+    check_csv_cell_rule()
     for name in contract['safe_downloads']:
         validate_csv(HERE / 'foundation' / name, contract['safe_downloads'][name])
     from og02_guards import validate_assets
@@ -115,6 +116,30 @@ def check_retained(root, contract):
     for name, expected in contract['retained_assets'].items():
         path = root / name
         require(path.is_file() and digest(path) == expected, 'Retained asset drift: ' + name)
+
+
+# A cell may start with '-' only when the whole cell is a plain decimal number
+# (e.g. Eurostat's published -12.43). '=', '+', '@' and any other leading '-'
+# (including '-1+1', '-A1', ' -1', '-1e3') stay blocked as formula risk.
+PLAIN_NUMBER = re.compile(r'-?[0-9]+(?:\.[0-9]+)?')  # ASCII digits only
+
+
+def csv_formula_risk(cell):
+    if not cell.lstrip().startswith(('=', '+', '-', '@')):
+        return False
+    return not (cell.startswith('-') and PLAIN_NUMBER.fullmatch(cell) is not None)
+
+
+def check_csv_cell_rule():
+    """Fail-closed self-test of the narrowed leading-character rule."""
+    allowed = ['-12.43', '-7', '-0.5', '12.43', '', 'Manufacturing', 'a-b', 'enterprises_total=C']
+    blocked = ['=1', '+1', '@SUM(A1)', '-', '-1+1', '-A1', '-1e3', '-.5', '-1.', ' -1', '-1 ', '- 1',
+               '-12.43=1', '=-12.43', '+-1', '-0x10', '-1,000', '-\u0661', '\t-1', '-cmd|calc']
+    for cell in allowed:
+        require(not csv_formula_risk(cell), 'CSV cell rule self-test: should allow ' + repr(cell))
+    for cell in blocked:
+        require(csv_formula_risk(cell), 'CSV cell rule self-test: should block ' + repr(cell))
+    return len(allowed) + len(blocked)
 
 
 def validate_csv(path, declaration):
@@ -134,7 +159,7 @@ def validate_csv(path, declaration):
         require(len(row) == len(rows[0]), 'CSV row width mismatch')
         for cell in row:
             require(not any(ord(c) < 32 or 127 <= ord(c) <= 159 for c in cell), 'CSV control-character risk')
-            require(not cell.lstrip().startswith(('=', '+', '-', '@')), 'CSV spreadsheet formula risk')
+            require(not csv_formula_risk(cell), 'CSV spreadsheet formula risk')
             require(not re.search(r'https?://|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}', cell, re.I), 'CSV live URL/contact risk')
 
 
