@@ -116,7 +116,17 @@ def page_main(key, document=None):
     for a in hero.select('a[href$=".csv"]'): a['download'] = ''
     out = '<main id="main" class="foundation-main"><section class="foundation-hero" id="' + hero['id'] + '"><div class="wrap foundation-hero-grid"><div><p class="label label-accent">' + inner(eyebrow) + '</p>' + str(title) + '</div><div class="foundation-intro">' + inner(hero) + '</div></div></section>'
     short = {'lead-mix':'Research classes','research-brief':'The brief','examples':'Examples','scope':'Written scope','enquiry':'Next step','example-brief':'Example brief','accepted-account':'Account fit','paired-signal':'Project signal','rejected-account':'Rejection','template':'Downloads','next-step':'Next step'}
-    nav = ''.join('<a href="#' + s['id'] + '">' + escape(short.get(s['id'], s['id'].replace('-',' ').capitalize())) + '</a>' for s in sections[1:])
+    def jump_label(s):
+        # Curated short label first. When the section id is just the slug of its
+        # own h2 (researched articles), use the h2 text as written instead of
+        # the lowercased slug, so names like "Demand Range", "Ireland", "UK",
+        # "EU", "TED" and "CPV" keep their case. Hand-picked ids keep their
+        # existing id-derived label.
+        if s['id'] in short: return short[s['id']]
+        text = ' '.join(s.h2.get_text().split()) if s.h2 else ''
+        if text and re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-') == s['id']: return text
+        return s['id'].replace('-',' ').capitalize()
+    nav = ''.join('<a href="#' + s['id'] + '">' + escape(jump_label(s)) + '</a>' for s in sections[1:])
     out += '<div class="wrap"><nav class="foundation-jump" aria-label="On this page">' + nav + '</nav></div>'
     for n,section in enumerate(sections[1:],1):
         heading = section.h2.extract()
