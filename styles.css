@@ -597,3 +597,10 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 #manufacturing-market-context th { color: var(--ink-2); white-space: normal; }
 
 #worked-batch .table-wrap[aria-describedby="audit-table-instructions"] th { color: var(--ink-2); }
+
+.eurostat-index{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;padding-left:0}
+.eurostat-index li{margin:0}
+#full-data-table .foundation-grid{grid-template-columns:minmax(0,1fr)}
+.eurostat-table td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.eurostat-table td:last-child{text-align:left;white-space:normal;min-width:12em}
+.eurostat-table th[scope="row"]{min-width:16em;white-space:normal}
