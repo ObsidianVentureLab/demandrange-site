@@ -35,6 +35,7 @@ Key facts:
 - [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
 - [CPV codes for pumps, valves and industrial equipment](https://demandrange.com/cpv-codes-industrial-equipment): official CPV wording for pumps, valves, instruments, water treatment and plant maintenance, with a free CSV starter list for tender alerts
 - [UK public tenders for industrial suppliers](https://demandrange.com/uk-public-tenders-industrial-suppliers): Find a Tender vs Contracts Finder under the Procurement Act 2023, and which notices matter
+- [UK water industry supplier research (AMP8)](https://demandrange.com/uk-water-industry-supplier-research): water companies, framework contractors and DPC routes in England and Wales for 2025–2030
 - [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
 - [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)

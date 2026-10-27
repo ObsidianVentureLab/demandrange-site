@@ -639,6 +639,37 @@
             "href": "https://www.publiccontractsscotland.gov.uk/"
           }
         }
+      },
+      "uk-water-industry-supplier-research.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://www.ofwat.gov.uk/ofwat-approves-104bn-upgrade-to-accelerate-delivery-of-cleaner-rivers-and-seas-and-secure-long-term-drinking-water-supplies-for-customers/"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://www.ofwat.gov.uk/regulated-companies/price-review/2024-price-review/final-determinations/"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://www.ofwat.gov.uk/wp-content/uploads/2024/12/11.-PR24-final-determinations-Major-Projects-development-and-delivery.pdf"
+          },
+          "source-link-4": {
+            "item_id": "source-4",
+            "href": "https://assets.publishing.service.gov.uk/media/69afb3e2917847c0a4c89a23/PR24_Final_determinations_summary.pdf"
+          },
+          "source-link-5": {
+            "item_id": "source-5",
+            "href": "https://www.achilles.com/uvdb/"
+          },
+          "source-link-6": {
+            "item_id": "source-6",
+            "href": "https://www.find-tender.service.gov.uk/"
+          }
+        }
       }
     },
     "source_use_status": "Existing reviewed sources retained; narrowly attributed TED editorial and OGP item metadata summaries parent verified for volume guide."
@@ -725,7 +756,8 @@
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
     "cpv-industrial-equipment-starter.csv",
-    "uk-public-tenders-industrial-suppliers.html"
+    "uk-public-tenders-industrial-suppliers.html",
+    "uk-water-industry-supplier-research.html"
   ],
   "page_routes": [
     "404.html",
@@ -768,7 +800,8 @@
     "ted-eu-tenders-industrial-suppliers.html",
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
-    "uk-public-tenders-industrial-suppliers.html"
+    "uk-public-tenders-industrial-suppliers.html",
+    "uk-water-industry-supplier-research.html"
   ],
   "proposed_effective_quote_template_sha256": "36f8f13dce03a40a41b29ed897fc7a8d5551f3d4d99730d97fd1c2f86b96e9d8",
   "protected_sources": {
@@ -885,7 +918,8 @@
     "industrial-prospect-list-vs-data-provider.html",
     "cpv-codes-industrial-equipment.html",
     "cpv-industrial-equipment-starter.csv",
-    "uk-public-tenders-industrial-suppliers.html"
+    "uk-public-tenders-industrial-suppliers.html",
+    "uk-water-industry-supplier-research.html"
   ],
   "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
   "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
@@ -1910,7 +1944,8 @@
     "https://demandrange.com/ted-eu-tenders-industrial-suppliers.html",
     "https://demandrange.com/industrial-prospect-list-vs-data-provider.html",
     "https://demandrange.com/cpv-codes-industrial-equipment.html",
-    "https://demandrange.com/uk-public-tenders-industrial-suppliers.html"
+    "https://demandrange.com/uk-public-tenders-industrial-suppliers.html",
+    "https://demandrange.com/uk-water-industry-supplier-research.html"
   ],
   "status": "SHIFT_BATCH03_IDENTITY_SUPERVISED_RELEASE",
   "versions": {

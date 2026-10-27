@@ -166,6 +166,8 @@ For a record that has progressed beyond programme context, inspect the [fictiona
 
 If a specific procurement notice is the next evidence item, use the [industrial tender-relevance guide](https://demandrange.com/etenders-industrial-supplier-opportunities.html). If the uncertainty is who does what at the site, use the existing [pump and flow-control responsibility guide](https://demandrange.com/pump-flow-control-prospecting.html). This article does not replace either exercise.
 
+Researching water companies in England and Wales as well? See [selling to UK water companies in AMP8](https://demandrange.com/uk-water-industry-supplier-research.html) for the water company, framework contractor and DPC routes.
+
 Review [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence.html), then [request a written research scope](https://demandrange.com/request-a-quote.html). State your range, territory, qualifying development and the questions you need answered. Do not ask a programme headline to stand in for an evidenced supply route.
 
 ## Evidence, attribution and limits

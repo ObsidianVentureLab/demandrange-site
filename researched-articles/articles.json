@@ -156,6 +156,15 @@
       "route": "uk-public-tenders-industrial-suppliers.html",
       "artifact": "02-uk-public-tenders-industrial-suppliers.md",
       "include_cc_licence": false
+    },
+    {
+      "title": "How to sell to UK water companies in AMP8: supplier account research guide",
+      "meta_title": "Selling to UK Water Companies in AMP8 | Demand Range",
+      "meta_description": "How UK water companies buy in AMP8: water companies, framework contractors and DPC routes, plus the public sources suppliers use to research the right accounts.",
+      "key": "content-uk-water",
+      "route": "uk-water-industry-supplier-research.html",
+      "artifact": "01-uk-water-industry-supplier-research.md",
+      "include_cc_licence": false
     }
   ],
   "status": "human_review_candidate_not_approved"
