@@ -94,6 +94,7 @@ class AuditParser(HTMLParser):
         if self.title_depth: self.title_text += data
 
 errors = []
+ENTITY_CORE = set()
 checks = 0
 parsers = {}
 
@@ -142,7 +143,35 @@ for route in ROUTES:
         expected_canonical = 'https://demandrange.com/' if route == 'index.html' else 'https://demandrange.com/' + route
         check(len(canonicals) == 1 and canonicals[0].get('href') == expected_canonical,
               f'{route}: canonical must be unique and self-referencing')
-    scripts = soup.find_all('script')
+    # Structured data is non-executable: exactly one reviewed-shape JSON-LD
+    # block (#dr-entity, in <head>) per indexable page, none on 404. It is
+    # validated structurally below; every executable script stays hash-pinned.
+    entity_scripts = [s for s in soup.find_all('script') if s.get('type') == 'application/ld+json']
+    scripts = [s for s in soup.find_all('script') if s.get('type') != 'application/ld+json']
+    if route == '404.html':
+        check(not entity_scripts, '404.html: recovery document must not carry JSON-LD')
+    else:
+        entity_ok = False
+        if len(entity_scripts) == 1:
+            node = entity_scripts[0]
+            raw = node.get_text()
+            try:
+                data = json.loads(raw)
+                graph = {n.get('@id'): n for n in data['@graph']}
+                page_node = graph.get(expected_canonical + '#webpage')
+                description = soup.find('meta', attrs={'name': 'description'})
+                entity_ok = (set(node.attrs) == {'type', 'id'} and node.get('id') == 'dr-entity' and node.parent.name == 'head'
+                    and '</' not in raw and set(data) == {'@context', '@graph'} and data['@context'] == 'https://schema.org'
+                    and len(data['@graph']) == 3 and len(graph) == 3
+                    and 'https://demandrange.com/#organization' in graph and 'https://demandrange.com/#website' in graph
+                    and page_node is not None and page_node.get('url') == expected_canonical
+                    and page_node.get('name') == soup.title.get_text()
+                    and description is not None and page_node.get('description') == description.get('content')
+                    and page_node.get('inLanguage') == 'en-IE')
+                ENTITY_CORE.add(json.dumps([graph['https://demandrange.com/#organization'], graph['https://demandrange.com/#website']], sort_keys=True))
+            except (ValueError, KeyError, TypeError, AttributeError):
+                entity_ok = False
+        check(entity_ok, f"{route}: JSON-LD must be one #dr-entity head block matching this page's canonical, title and description")
     script_hashes = [hashlib.sha256(s.get_text().encode()).hexdigest() for s in scripts if not s.get('src')]
     expected_hashes = ALLOWED_THEME_SCRIPTS | ({QUOTE_SCRIPT_HASH} if route == 'request-a-quote.html' else set())
     expected_script_count = 3 if route == 'request-a-quote.html' else 2
@@ -297,6 +326,7 @@ if HAS_QUOTE:
 else:
     check(QUOTE_ENDPOINT is None, 'QA endpoint supplied but the quote form is absent')
 
+check(len(ENTITY_CORE) == 1, 'JSON-LD Organization/WebSite nodes must be identical on every page')
 if errors:
     print(f"FAIL: {len(errors)} error(s) across {checks} assertions")
     for error in errors: print(f"- {error}")

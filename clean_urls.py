@@ -219,13 +219,16 @@ def validate_raw(root, contract):
             resolve(value, name, node.name == 'link' and 'canonical' in node.get('rel', []))
         for script in soup.select('script[type="application/ld+json"]'):
             structured_count += 1
-            def walk(value):
+            def walk(value, key=None):
                 if isinstance(value, dict):
-                    for child in value.values(): walk(child)
+                    for child_key, child in value.items(): walk(child, child_key)
                 elif isinstance(value, list):
-                    for child in value: walk(child)
+                    for child in value: walk(child, key)
                 elif isinstance(value, str) and urlsplit(value).hostname == 'demandrange.com':
-                    resolve(value, name)
+                    # JSON-LD @id values are node identifiers (#organization,
+                    # #webpage, #service), not HTML anchors: the page part must
+                    # still resolve, but the fragment need not be an element id.
+                    resolve(value.split('#', 1)[0] if key == '@id' else value, name)
             walk(json.loads(script.get_text()))
         refresh = soup.select('meta[http-equiv="refresh"]')
         if name == LEGACY:
