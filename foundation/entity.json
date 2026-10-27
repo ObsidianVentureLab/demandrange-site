@@ -101,7 +101,7 @@
             "name": "Industrial lead and account research",
             "serviceType": "Industrial lead research",
             "url": "https://demandrange.com/industrial-lead-research.html",
-            "description": "Company-level, industry-matched (Look Alike) prospect research scoped by EU country, sector, operating-site rules and exclusions, with source traceability.",
+            "description": "Company-level, industry-matched (Look Alike) prospect research for Ireland, the UK and the EU, scoped by country, sector, operating-site rules and exclusions, with source traceability.",
             "provider": {
               "@id": "https://demandrange.com/#organization"
             },
