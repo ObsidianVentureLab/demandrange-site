@@ -51,7 +51,7 @@ Check each row against the Eurostat publication before you recode production dat
 
 ## 4. Codes are a starting point, not a list
 
-Activity codes are self-declared and often out of date. Use them to build a first cut. Then confirm each account with evidence: products on the website, permits (see the EU Industrial Emissions Portal guide), tenders and hiring. Our [industrial ideal customer profile](industrial-ideal-customer-profile.html) and [prospect list maintenance](industrial-prospect-list-maintenance.html) guides cover that step.
+Activity codes are self-declared and often out of date. Use them to build a first cut. Then confirm each account with evidence: products on the website, permits (see the [EU Industrial Emissions Portal guide](eu-industrial-emissions-portal-research.html)), tenders and hiring. Our [industrial ideal customer profile](industrial-ideal-customer-profile.html) and [prospect list maintenance](industrial-prospect-list-maintenance.html) guides cover that step.
 
 ## How Demand Range helps
 

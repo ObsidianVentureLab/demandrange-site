@@ -86,6 +86,8 @@ A useful outcome is a short **source-admission note**: the source's bounded purp
 
 Start with the [Irish manufacturing account-discovery guide](https://demandrange.com/irish-manufacturing-account-research.html) to define the company and activity you need. Then compare the [fictional account-research examples](https://demandrange.com/sample-account-research.html), where inclusion reasons and unknowns remain visible.
 
+For facilities in other EU countries, the guide to [EU Industrial Emissions Portal research](https://demandrange.com/eu-industrial-emissions-portal-research.html) covers the EU-wide facility data and its limits.
+
 If that is the output your team needs, review the existing [industrial account-research service](https://demandrange.com/industrial-lead-research.html), then [request a written scope](https://demandrange.com/request-a-quote.html). Describe your product range, operating activity, territory and exclusions. Ask which fields the proposed evidence can actually support; do not submit confidential customer lists or personal contact details.
 
 ## Evidence, attribution and limits

@@ -108,6 +108,8 @@ For an enquiry, write: “We supply [range] and want company-level research for 
 
 Compare the [fictional account examples](https://demandrange.com/sample-account-research.html), review [industrial account research](https://demandrange.com/industrial-lead-research.html), or [request a written scope](https://demandrange.com/request-a-quote.html). The purpose is a more inspectable research decision—not a promise of demand, available work or commercial outcomes.
 
+For facilities in other EU countries, start with [EU-wide facility data from the Industrial Emissions Portal](https://demandrange.com/eu-industrial-emissions-portal-research.html), and keep the same separation between a regulator's record and an account decision.
+
 ## Evidence attribution and limits
 
 Sources checked **9 October 2026**. The sourced descriptions above concern the identified data.gov.ie metadata only. No linked facility dataset, licence dossier, current priority list or individual discharge record was examined. Historical metadata dates are retained rather than presented as current operating status. Source descriptions are not independent confirmation of a real company or project.
