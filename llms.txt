@@ -2,7 +2,7 @@
 
 > Demand Range is an Irish industrial lead and account research business serving Ireland, the UK and the EU. We build analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
 
-Also written DemandRange or Demand.Range. Tagline: Industrial prospects. Matched to your market.
+Tagline: Industrial prospects. Matched to your market.
 
 Key facts:
 - Website: https://demandrange.com
@@ -31,7 +31,8 @@ Key facts:
 ## Guides for industrial sales teams
 
 - [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of all guides and free CSV worksheets
-- [Manufacturing enterprises in the EU by country and NACE division (2023 data)](https://demandrange.com/eu-industrial-enterprises-by-country): EU manufacturing enterprises by country and NACE division for 2023, from Eurostat, with a downloadable CSV and notes on what the counts can and cannot tell you
+- [What is industrial account research? A definition for industrial suppliers](https://demandrange.com/what-is-industrial-account-research): A definition of industrial account research: what it is, how it differs from bought contact data and lead generation, and what evidence a good account record carries.
+- [Manufacturing enterprises in the EU by country and NACE division (2024 data)](https://demandrange.com/eu-industrial-enterprises-by-country): EU manufacturing enterprises by country and NACE division for 2024, from Eurostat, with a downloadable CSV and notes on what the counts can and cannot tell you
 - [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): Companies House SIC codes as a filter, then site confirmation from UK regulator registers
 - [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
 - [CPV codes for pumps, valves and industrial equipment](https://demandrange.com/cpv-codes-industrial-equipment): official CPV wording for pumps, valves, instruments, water treatment and plant maintenance, with a free CSV starter list for tender alerts
@@ -40,6 +41,7 @@ Key facts:
 - [NACE Rev. 2.1 codes for industrial account lists](https://demandrange.com/nace-rev-2-1-industrial-account-lists): the manufacturing (Section C) changes and how to recode an existing target list
 - [EU Industrial Emissions Portal for account research](https://demandrange.com/eu-industrial-emissions-portal-research): using the EEA's EU-wide facility data to find large industrial sites by country and activity
 - [Germany industrial account research](https://demandrange.com/germany-industrial-account-research): Handelsregister, Unternehmensregister, WZ 2025 codes and other public sources for German manufacturers and plants
+- [SIC codes for manufacturing companies in the UK: the Section C list, SIC 2026 and how to search](https://demandrange.com/uk-sic-codes-manufacturing): The full UK SIC 2007 Section C list of manufacturing codes as accepted by Companies House, what SIC 2026 changes, and how to search manufacturers by code, with a CSV.
 - [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
 - [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)

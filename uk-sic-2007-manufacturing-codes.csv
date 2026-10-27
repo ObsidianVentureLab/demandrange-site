@@ -1,0 +1,260 @@
+sic_2007_code,companies_house_description,ons_sic_2007_code,sic_2026_codes,sic_2026_headings,change_type,active_companies_listing_code
+10110,Processing and preserving of meat,10.11,10.11,"Processing and preserving of meat, except of poultry meat",same code,719
+10120,Processing and preserving of poultry meat,10.12,10.12,Processing and preserving of poultry meat,same code,254
+10130,Production of meat and poultry meat products,10.13,10.13,Production of meat and poultry meat products,same code,976
+10200,"Processing and preserving of fish, crustaceans and molluscs",10.20,10.20,"Processing and preserving of fish, crustaceans and molluscs",same code,446
+10310,Processing and preserving of potatoes,10.31,10.31,Processing and preserving of potatoes,same code,86
+10320,Manufacture of fruit and vegetable juice,10.32,10.32,Manufacture of fruit and vegetable juice,same code,580
+10390,Other processing and preserving of fruit and vegetables,10.39,10.39,Other processing and preserving of fruit and vegetables,same code,855
+10410,Manufacture of oils and fats,10.41,10.41,Manufacture of oils and fats,same code,276
+10420,Manufacture of margarine and similar edible fats,10.42,10.42,Manufacture of margarine and similar edible fats,same code,18
+10511,Liquid milk and cream production,10.51/1,10.51/1,Liquid milk and cream production,same code,241
+10512,Butter and cheese production,10.51/2,10.51/2,Butter and cheese production,same code,297
+10519,Manufacture of other milk products,10.51/9,10.51/9,"Manufacture of milk products (other than liquid milk and cream, butter, cheese) n.e.c.",same code,275
+10520,Manufacture of ice cream,10.52,10.52,Manufacture of ice cream and other edible ice,same code,762
+10611,Grain milling,10.61/1,10.61/1,Grain milling,same code,150
+10612,Manufacture of breakfast cereals and cereals-based food,10.61/2,10.61/2,Manufacture of breakfast cereals and cereals-based foods,same code,309
+10620,Manufacture of starches and starch products,10.62,10.62,Manufacture of starches and starch products,same code,36
+10710,Manufacture of bread; manufacture of fresh pastry goods and cakes,10.71,10.71,Manufacture of bread; manufacture of fresh pastry goods and cakes,same code,5288
+10720,Manufacture of rusks and biscuits; manufacture of preserved pastry goods and cakes,10.72,10.72,"Manufacture of rusks, biscuits, preserved pastries and cakes",same code,874
+10730,"Manufacture of macaroni, noodles, couscous and similar farinaceous products",10.73,10.73,Manufacture of farinaceous products,same code,78
+10810,Manufacture of sugar,10.81,10.81,Manufacture of sugar,same code,26
+10821,Manufacture of cocoa and chocolate confectionery,10.82/1,10.82/1,"Manufacture of cocoa, and chocolate confectionery",same code,846
+10822,Manufacture of sugar confectionery,10.82/2,10.82/2,Manufacture of sugar confectionery,same code,490
+10831,Tea processing,10.83/1,10.83/1,Tea processing,same code,427
+10832,Production of coffee and coffee substitutes,10.83/2,10.83/2,Production of coffee and coffee substitutes,same code,1705
+10840,Manufacture of condiments and seasonings,10.84,10.84,Manufacture of condiments and seasonings,same code,985
+10850,Manufacture of prepared meals and dishes,10.85,10.85,Manufacture of prepared meals and dishes,same code,1175
+10860,Manufacture of homogenized food preparations and dietetic food,10.86,10.61; 10.62; 10.71; 10.72; 10.73; 10.86,"Manufacture of grain mill products; Manufacture of starches and starch products; Manufacture of bread; manufacture of fresh pastry goods and cakes; Manufacture of rusks, biscuits, preserved pastries and cakes; Manufacture of farinaceous products; Manufacture of homogenised food preparations and dietetic food",split,568
+10890,Manufacture of other food products n.e.c.,10.89,10.89; 11.07,Manufacture of other food products n.e.c.; Manufacture of soft drinks and bottled waters,split,6400
+10910,Manufacture of prepared feeds for farm animals,10.91,10.91,Manufacture of prepared feeds for farm animals,same code,388
+10920,Manufacture of prepared pet foods,10.92,10.92,Manufacture of prepared pet foods,same code,767
+11010,"Distilling, rectifying and blending of spirits",11.01,11.01,"Distilling, rectifying and blending of spirits",same code,2001
+11020,Manufacture of wine from grape,11.02,11.02,Manufacture of wine from grape,same code,455
+11030,Manufacture of cider and other fruit wines,11.03,11.03,Manufacture of cider and other fruit fermented beverages,same code,451
+11040,Manufacture of other non-distilled fermented beverages,11.04,11.04,Manufacture of other non-distilled fermented beverages,same code,317
+11050,Manufacture of beer,11.05,11.05,Manufacture of beer,same code,1990
+11060,Manufacture of malt,11.06,11.06,Manufacture of malt,same code,42
+11070,Manufacture of soft drinks; production of mineral waters and other bottled waters,11.07,11.07,Manufacture of soft drinks and bottled waters,same code,1792
+12000,Manufacture of tobacco products,12.00,12.00,Manufacture of tobacco products,same code,114
+13100,Preparation and spinning of textile fibres,13.10,13.10,Preparation and spinning of textile fibres,same code,272
+13200,Weaving of textiles,13.20,13.20; 13.96; 23.99,Weaving of textiles; Manufacture of other technical and industrial textiles; Manufacture of other non-metallic mineral products n.e.c.,split,373
+13300,Finishing of textiles,13.30,13.30,Finishing of textiles,same code,1155
+13910,Manufacture of knitted and crocheted fabrics,13.91,13.91,Manufacture of knitted and crocheted fabrics,same code,355
+13921,Manufacture of soft furnishings,13.92/1,13.92/1; 13.96,Manufacture of soft furnishings; Manufacture of other technical and industrial textiles,split,1507
+13922,"Manufacture of canvas goods, sacks, etc.",13.92/2,13.96; 13.92/2,"Manufacture of other technical and industrial textiles; Manufacture of sacks, flags, banners etc.",split,178
+13923,Manufacture of household textiles,13.92/3,13.92/9,Manufacture of household textiles and made-up furnishing articles n.e.c,moved or merged,763
+13931,Manufacture of woven or tufted carpets and rugs,13.93/1,13.93/1,Manufacture of woven or tufted carpets and rugs,same code,140
+13939,Manufacture of other carpets and rugs,13.93/9,13.93/9,Manufacture of carpets and rugs (other than woven or tufted) n.e.c.,same code,139
+13940,"Manufacture of cordage, rope, twine and netting",13.94,13.94,"Manufacture of cordage, rope, twine and netting",same code,89
+13950,"Manufacture of non-wovens and articles made from non-wovens, except apparel",13.95,13.95,Manufacture of non-wovens and non-woven articles,same code,166
+13960,Manufacture of other technical and industrial textiles,13.96,13.96,Manufacture of other technical and industrial textiles,same code,419
+13990,Manufacture of other textiles n.e.c.,13.99,13.99,Manufacture of other textiles n.e.c.,same code,1569
+14110,Manufacture of leather clothes,14.11,14.24,Manufacture of leather clothes and fur apparel,moved or merged,535
+14120,Manufacture of workwear,14.12,14.23,Manufacture of workwear,moved or merged,636
+14131,Manufacture of other men's outerwear,14.13/1,14.21/1; 14.21/3; 14.10,"Manufacture of men's and boy's outerwear, other than leather clothes and workwear; Manufacture of babies' outerwear; Manufacture of knitted and crocheted apparel",split,1280
+14132,Manufacture of other women's outerwear,14.13/2,14.21/2; 14.21/3; 14.10,"Manufacture of women's and girl's outerwear, other than leather clothes and workwear; Manufacture of babies' outerwear; Manufacture of knitted and crocheted apparel",split,1962
+14141,Manufacture of men's underwear,14.14/1,14.10; 14.21/1; 14.22/1; 14.22/3,"Manufacture of knitted and crocheted apparel; Manufacture of men's and boy's outerwear, other than leather clothes and workwear; Manufacture of men's and boy's underwear; Manufacture of babies' underwear",split,153
+14142,Manufacture of women's underwear,14.14/2,14.10; 14.21/2; 14.22/2; 14.22/3,"Manufacture of knitted and crocheted apparel; Manufacture of women's and girl's outerwear, other than leather clothes and workwear; Manufacture of women's and girl's underwear; Manufacture of babies' underwear",split,375
+14190,Manufacture of other wearing apparel and accessories n.e.c.,14.19,14.21; 14.22; 14.29; 14.10,Manufacture of outerwear; Manufacture of underwear; Manufacture of other wearing apparel and accessories n.e.c.; Manufacture of knitted and crocheted apparel,split,5591
+14200,Manufacture of articles of fur,14.20,14.24,Manufacture of leather clothes and fur apparel,moved or merged,33
+14310,Manufacture of knitted and crocheted hosiery,14.31,14.10,Manufacture of knitted and crocheted apparel,moved or merged,115
+14390,Manufacture of other knitted and crocheted apparel,14.39,14.10,Manufacture of knitted and crocheted apparel,moved or merged,328
+15110,Tanning and dressing of leather; dressing and dyeing of fur,15.11,15.11,"Tanning, dressing, dyeing of leather and fur",same code,124
+15120,"Manufacture of luggage, handbags and the like, saddlery and harness",15.12,15.12,"Manufacture of luggage, handbags, saddlery and harness of any material",same code,1230
+15200,Manufacture of footwear,15.20,15.20,Manufacture of footwear,same code,524
+16100,Sawmilling and planing of wood,16.10,16.11; 16.12,Sawmilling and planing of wood; Processing and finishing of wood,split,714
+16210,Manufacture of veneer sheets and wood-based panels,16.21,16.21; 16.27,Manufacture of veneer sheets and wood-based panels; Finishing of wooden products,split,294
+16220,Manufacture of assembled parquet floors,16.22,16.22; 16.27,Manufacture of assembled parquet floors; Finishing of wooden products,split,93
+16230,Manufacture of other builders' carpentry and joinery,16.23,16.23; 16.25; 16.27,Manufacture of other builders' carpentry and joinery; Manufacture of doors and windows of wood; Finishing of wooden products,split,7968
+16240,Manufacture of wooden containers,16.24,16.24; 16.27,Manufacture of wooden containers; Finishing of wooden products,split,403
+16290,"Manufacture of other products of wood; manufacture of articles of cork, straw and plaiting materials",16.29,15.20; 16.26; 16.27; 16.28,"Manufacture of footwear; Manufacture of solid fuels from vegetable biomass; Finishing of wooden products; Manufacture of other products of wood and articles of cork, straw and plaiting materials",split,1993
+17110,Manufacture of pulp,17.11,17.11,Manufacture of pulp,same code,35
+17120,Manufacture of paper and paperboard,17.12,17.12,Manufacture of paper and paperboard,same code,235
+17211,"Manufacture of corrugated paper and paperboard, sacks and bags",17.21/1,17.21/1,Manufacture of corrugated paper and paperboard; manufacture of sacks and bags of paper,same code,181
+17219,Manufacture of other paper and paperboard containers,17.21/9,17.21/9,Manufacture of paper and paperboard containers other than sacks and bags,same code,538
+17220,Manufacture of household and sanitary goods and of toilet requisites,17.22,17.22,Manufacture of household and sanitary goods and of toilet requisites,same code,573
+17230,Manufacture of paper stationery,17.23,17.23,Manufacture of paper stationery,same code,915
+17240,Manufacture of wallpaper,17.24,17.24,Manufacture of wallpaper,same code,93
+17290,Manufacture of other articles of paper and paperboard n.e.c.,17.29,17.25,Manufacture of other articles of paper and paperboard,moved or merged,520
+18110,Printing of newspapers,18.11,18.11,Printing of newspapers,same code,126
+18121,Manufacture of printed labels,18.12/1,18.12/1,Manufacture of printed labels,same code,698
+18129,Printing n.e.c.,18.12/9,13.30; 18.12/9,Finishing of textiles; Other printing n.e.c,split,8670
+18130,Pre-press and pre-media services,18.13,18.13,Pre-press and pre-media services,same code,1482
+18140,Binding and related services,18.14,18.14,Binding and related services,same code,361
+18201,Reproduction of sound recording,18.20/1,18.20/1,Reproduction of sound recording,same code,1042
+18202,Reproduction of video recording,18.20/2,18.20/2,Reproduction of video recording,same code,509
+18203,Reproduction of computer media,18.20/3,18.20/3,Reproduction of computer media,same code,735
+19100,Manufacture of coke oven products,19.10,19.10,Manufacture of coke oven products,same code,15
+19201,Mineral oil refining,19.20/1,19.20/1,Mineral oil refining,same code,150
+19209,Other treatment of petroleum products (excluding petrochemicals manufacture),19.20/9,19.20/9,Other treatment of petroleum products (excluding mineral oil refining petrochemicals manufacture),same code,166
+20110,Manufacture of industrial gases,20.11,20.11; 20.14,Manufacture of industrial gases; Manufacture of other organic basic chemicals,split,180
+20120,Manufacture of dyes and pigments,20.12,20.12,Manufacture of dyes and pigments,same code,146
+20130,Manufacture of other inorganic basic chemicals,20.13,20.13,Manufacture of other inorganic basic chemicals,same code,336
+20140,Manufacture of other organic basic chemicals,20.14,20.14; 20.51,Manufacture of other organic basic chemicals; Manufacture of liquid biofuels,split,402
+20150,Manufacture of fertilizers and nitrogen compounds,20.15,20.15,Manufacture of fertilisers and nitrogen compounds,same code,729
+20160,Manufacture of plastics in primary forms,20.16,20.16,Manufacture of plastics in primary forms,same code,363
+20170,Manufacture of synthetic rubber in primary forms,20.17,20.17,Manufacture of synthetic rubber in primary forms,same code,38
+20200,Manufacture of pesticides and other agrochemical products,20.20,20.20,"Manufacture of pesticides, disinfectants and other agrochemical products",same code,506
+20301,"Manufacture of paints, varnishes and similar coatings, mastics and sealants",20.30/1,20.30/1,"Manufacture of paints, varnishes and similar coatings, mastics and sealants",same code,592
+20302,Manufacture of printing ink,20.30/2,20.30/2,Manufacture of printing ink,same code,100
+20411,Manufacture of soap and detergents,20.41/1,20.41/1,Manufacture of soap and detergents,same code,972
+20412,Manufacture of cleaning and polishing preparations,20.41/2,20.41/2,Manufacture of cleaning and polishing preparations,same code,445
+20420,Manufacture of perfumes and toilet preparations,20.42,20.42,Manufacture of perfumes and toilet preparations,same code,2834
+20510,Manufacture of explosives,20.51,20.59,Manufacture of other chemical products n.e.c.,moved or merged,22
+20520,Manufacture of glues,20.52,20.59,Manufacture of other chemical products n.e.c.,moved or merged,101
+20530,Manufacture of essential oils,20.53,20.59,Manufacture of other chemical products n.e.c.,moved or merged,338
+20590,Manufacture of other chemical products n.e.c.,20.59,20.59; 20.51,Manufacture of other chemical products n.e.c.; Manufacture of liquid biofuels,split,1464
+20600,Manufacture of man-made fibres,20.60,20.60,Manufacture of man-made fibres,same code,68
+21100,Manufacture of basic pharmaceutical products,21.10,21.10,Manufacture of basic pharmaceutical products,same code,1240
+21200,Manufacture of pharmaceutical preparations,21.20,21.20,Manufacture of pharmaceutical preparations,same code,786
+22110,Manufacture of rubber tyres and tubes; retreading and rebuilding of rubber tyres,22.11,22.11,"Manufacture, retreading and rebuilding of rubber tyres and manufacture of tubes",same code,278
+22190,Manufacture of other rubber products,22.19,15.20; 22.12,Manufacture of footwear; Manufacture of other rubber products,split,747
+22210,"Manufacture of plastic plates, sheets, tubes and profiles",22.21,22.21; 22.25,"Manufacture of plastic plates, sheets, tubes and profiles; Processing and finishing of plastic products",split,333
+22220,Manufacture of plastic packing goods,22.22,22.25; 22.22,Processing and finishing of plastic products; Manufacture of plastic packing goods,split,587
+22230,Manufacture of builders ware of plastic,22.23,22.25; 22.24; 22.23; 23.66,"Processing and finishing of plastic products; Manufacture of builders’ ware of plastic; Manufacture of doors and windows of plastic; Manufacture of other articles of concrete, cement and plaster",split,380
+22290,Manufacture of other plastic products,22.29,15.20; 22.21; 22.25; 22.26,"Manufacture of footwear; Manufacture of plastic plates, sheets, tubes and profiles; Processing and finishing of plastic products; Manufacture of other plastic products",split,4102
+23110,Manufacture of flat glass,23.11,23.11,Manufacture of flat glass,same code,176
+23120,Shaping and processing of flat glass,23.12,23.12; 29.32,Shaping and processing of flat glass; Manufacture of other parts and accessories for motor vehicles,split,371
+23130,Manufacture of hollow glass,23.13,23.13,Manufacture of hollow glass,same code,42
+23140,Manufacture of glass fibres,23.14,23.14,Manufacture of glass fibres,same code,124
+23190,"Manufacture and processing of other glass, including technical glassware",23.19,23.15,"Manufacture and processing of other glass, including technical glassware",moved or merged,350
+23200,Manufacture of refractory products,23.20,23.20,Manufacture of refractory products,same code,99
+23310,Manufacture of ceramic tiles and flags,23.31,23.31,Manufacture of ceramic tiles and flags,same code,77
+23320,"Manufacture of bricks, tiles and construction products, in baked clay",23.32,23.32,"Manufacture of bricks, tiles and construction products, in baked clay",same code,254
+23410,Manufacture of ceramic household and ornamental articles,23.41,23.41,Manufacture of ceramic household and ornamental articles,same code,639
+23420,Manufacture of ceramic sanitary fixtures,23.42,23.42; 31.00,Manufacture of ceramic sanitary fixtures; Manufacture of furniture,split,50
+23430,Manufacture of ceramic insulators and insulating fittings,23.43,23.43,Manufacture of ceramic insulators and insulating fittings,same code,50
+23440,Manufacture of other technical ceramic products,23.44,23.44,Manufacture of other technical ceramic products,same code,134
+23490,Manufacture of other ceramic products n.e.c.,23.49,23.45,Manufacture of other ceramic products,moved or merged,185
+23510,Manufacture of cement,23.51,23.51,Manufacture of cement,same code,69
+23520,Manufacture of lime and plaster,23.52,23.52,Manufacture of lime and plaster,same code,27
+23610,Manufacture of concrete products for construction purposes,23.61,23.61,Manufacture of concrete products for construction purposes,same code,676
+23620,Manufacture of plaster products for construction purposes,23.62,23.62,Manufacture of plaster products for construction purposes,same code,193
+23630,Manufacture of ready-mixed concrete,23.63,23.63,Manufacture of ready-mixed concrete,same code,390
+23640,Manufacture of mortars,23.64,23.64,Manufacture of mortars,same code,29
+23650,Manufacture of fibre cement,23.65,23.65,Manufacture of fibre cement,same code,24
+23690,"Manufacture of other articles of concrete, plaster and cement",23.69,23.66,"Manufacture of other articles of concrete, cement and plaster",moved or merged,265
+23700,"Cutting, shaping and finishing of stone",23.70,23.70,"Cutting, shaping and finishing of stone",same code,1265
+23910,Production of abrasive products,23.91,23.91,Manufacture of abrasive products,same code,63
+23990,Manufacture of other non-metallic mineral products n.e.c.,23.99,23.99,Manufacture of other non-metallic mineral products n.e.c.,same code,351
+24100,Manufacture of basic iron and steel and of ferro-alloys,24.10,24.10,Manufacture of basic iron and steel and of ferro-alloys,same code,717
+24200,"Manufacture of tubes, pipes, hollow profiles and related fittings, of steel",24.20,24.20,"Manufacture of tubes, pipes, hollow profiles and related fittings, of steel",same code,703
+24310,Cold drawing of bars,24.31,24.31,Cold drawing of bars,same code,24
+24320,Cold rolling of narrow strip,24.32,24.32,Cold rolling of narrow strip,same code,36
+24330,Cold forming or folding,24.33,24.33,Cold forming or folding,same code,148
+24340,Cold drawing of wire,24.34,24.34,Cold drawing of wire,same code,44
+24410,Precious metals production,24.41,24.41,Precious metals production,same code,297
+24420,Aluminium production,24.42,24.42,Aluminium production,same code,206
+24430,"Lead, zinc and tin production",24.43,24.43,"Lead, zinc and tin production",same code,25
+24440,Copper production,24.44,24.44,Copper production,same code,56
+24450,Other non-ferrous metal production,24.45,24.45,Other non-ferrous metal production,same code,290
+24460,Processing of nuclear fuel,24.46,24.46,Processing of nuclear fuel,same code,11
+24510,Casting of iron,24.51,24.51,Casting of iron,same code,122
+24520,Casting of steel,24.52,24.52,Casting of steel,same code,171
+24530,Casting of light metals,24.53,24.53; 24.54,Casting of light metals; Casting of other non-ferrous metals,split,158
+24540,Casting of other non-ferrous metals,24.54,24.54,Casting of other non-ferrous metals,same code,210
+25110,Manufacture of metal structures and parts of structures,25.11,25.11,Manufacture of metal structures and parts of structures,same code,4899
+25120,Manufacture of doors and windows of metal,25.12,25.12,Manufacture of doors and windows of metal,same code,1647
+25210,Manufacture of central heating radiators and boilers,25.21,25.21; 28.21,"Manufacture of central heating radiators, steam generators and boilers; Manufacture of ovens, furnaces and permanent household heating equipment",split,206
+25290,"Manufacture of other tanks, reservoirs and containers of metal",25.29,25.22,"Manufacture of other tanks, reservoirs and containers of metal",moved or merged,272
+25300,"Manufacture of steam generators, except central heating hot water boilers",25.30,25.21,"Manufacture of central heating radiators, steam generators and boilers",moved or merged,33
+25400,Manufacture of weapons and ammunition,25.40,25.30,Manufacture of weapons and ammunition,moved or merged,96
+25500,"Forging, pressing, stamping and roll-forming of metal; powder metallurgy",25.50,25.40,Forging and shaping metal and powder metallurgy,moved or merged,480
+25610,Treatment and coating of metals,25.61,25.51; 25.52; 25.53,Coating of metals; Heat treatment of metals; Machining of metals,split,1225
+25620,Machining,25.62,25.53,Machining of metals,moved or merged,2950
+25710,Manufacture of cutlery,25.71,25.61,Manufacture of cutlery,moved or merged,113
+25720,Manufacture of locks and hinges,25.72,25.62,Manufacture of locks and hinges,moved or merged,337
+25730,Manufacture of tools,25.73,25.63,Manufacture of tools,moved or merged,950
+25910,Manufacture of steel drums and similar containers,25.91,25.91,Manufacture of steel drums and similar containers,same code,70
+25920,Manufacture of light metal packaging,25.92,25.92,Manufacture of light metal packaging,same code,118
+25930,"Manufacture of wire products, chain and springs",25.93,25.93,"Manufacture of wire products, chain and springs",same code,325
+25940,Manufacture of fasteners and screw machine products,25.94,25.94,Manufacture of fasteners and screw machine products,same code,339
+25990,Manufacture of other fabricated metal products n.e.c.,25.99,25.99,Manufacture of other fabricated metal products n.e.c.,same code,8719
+26110,Manufacture of electronic components,26.11,26.11,Manufacture of electronic components,same code,1637
+26120,Manufacture of loaded electronic boards,26.12,26.12,Manufacture of loaded electronic boards,same code,502
+26200,Manufacture of computers and peripheral equipment,26.20,26.20; 26.40,Manufacture of computers and peripheral equipment; Manufacture of consumer electronics,split,1091
+26301,Manufacture of telegraph and telephone apparatus and equipment,26.30/1,26.30/1; 26.51,"Manufacture of telephone apparatus and equipment; Manufacture of instruments and appliances for measuring, testing and navigation",split,192
+26309,"Manufacture of communication equipment other than telegraph, and telephone apparatus and equipment",26.30/9,26.30/9,Manufacture of communication equipment (other than telegraph and telephone apparatus and equipment),same code,453
+26400,Manufacture of consumer electronics,26.40,26.40,Manufacture of consumer electronics,same code,1649
+26511,"Manufacture of electronic measuring, testing etc. equipment, not for industrial process control",26.51/1,26.51/1,"Manufacture of electronic instruments and appliances for measuring, testing, and navigation, except industrial process control equipment",same code,1512
+26512,Manufacture of electronic industrial process control equipment,26.51/2,26.51/2,Manufacture of electronic industrial process control equipment,same code,1114
+26513,"Manufacture of non-electronic measuring, testing etc. equipment, not for industrial process control",26.51/3,26.51/3,"Manufacture of non-electronic instruments and appliances for measuring, testing and navigation, except industrial process control equipment",same code,109
+26514,Manufacture of non-electronic industrial process control equipment,26.51/4,26.51/4,Manufacture of non-electronic industrial process control equipment,same code,108
+26520,Manufacture of watches and clocks,26.52,26.52,Manufacture of watches and clocks,same code,268
+26600,"Manufacture of irradiation, electromedical and electrotherapeutic equipment",26.60,26.60,"Manufacture of irradiation, electromedical and electrotherapeutic equipment",same code,231
+26701,Manufacture of optical precision instruments,26.70/1,26.70/1,Manufacture of optical precision instruments,same code,400
+26702,Manufacture of photographic and cinematographic equipment,26.70/2,26.70/2,Manufacture of photographic and cinematographic equipment,same code,169
+26800,Manufacture of magnetic and optical media,26.80,26.70/3,Manufacture of magnetic and optical media,moved or merged,42
+27110,"Manufacture of electric motors, generators and transformers",27.11,27.11; 29.11,"Manufacture of electric motors, generators and transformers; Manufacture of motor vehicle engines",split,569
+27120,Manufacture of electricity distribution and control apparatus,27.12,27.11; 27.12,"Manufacture of electric motors, generators and transformers; Manufacture of electricity distribution and control apparatus",split,784
+27200,Manufacture of batteries and accumulators,27.20,27.20,Manufacture of batteries and accumulators,same code,358
+27310,Manufacture of fibre optic cables,27.31,27.31,Manufacture of fibre optic cables,same code,87
+27320,Manufacture of other electronic and electric wires and cables,27.32,27.32,Manufacture of other electronic and electric wires and cables,same code,497
+27330,Manufacture of wiring devices,27.33,27.33,Manufacture of wiring devices,same code,112
+27400,Manufacture of electric lighting equipment,27.40,27.40,Manufacture of lighting equipment,same code,1122
+27510,Manufacture of electric domestic appliances,27.51,27.51,Manufacture of electric domestic appliances,same code,503
+27520,Manufacture of non-electric domestic appliances,27.52,27.52,Manufacture of non-electric domestic appliances,same code,147
+27900,Manufacture of other electrical equipment,27.90,27.11; 27.90; 29.31; 32.99,"Manufacture of electric motors, generators and transformers; Manufacture of other electrical equipment; Manufacture of electrical and electronic equipment for motor vehicles; Other manufacturing n.e.c.",split,2890
+28110,"Manufacture of engines and turbines, except aircraft, vehicle and cycle engines",28.11,28.11; 29.32; 30.91,"Manufacture of engines and turbines, except aircraft, vehicle and cycle engines; Manufacture of other parts and accessories for motor vehicles; Manufacture of motorcycles",split,395
+28120,Manufacture of fluid power equipment,28.12,28.12,Manufacture of fluid power equipment,same code,254
+28131,Manufacture of pumps,28.13/1,28.13/1,Manufacture of pumps,same code,457
+28132,Manufacture of compressors,28.13/2,28.13/2,Manufacture of compressors,same code,104
+28140,Manufacture of taps and valves,28.14,28.14,Manufacture of other taps and valves,same code,356
+28150,"Manufacture of bearings, gears, gearing and driving elements",28.15,28.15,"Manufacture of bearings, gears, gearing and driving elements",same code,329
+28210,"Manufacture of ovens, furnaces and furnace burners",28.21,28.21,"Manufacture of ovens, furnaces and permanent household heating equipment",same code,161
+28220,Manufacture of lifting and handling equipment,28.22,28.22,Manufacture of lifting and handling equipment,same code,873
+28230,Manufacture of office machinery and equipment (except computers and peripheral equipment),28.23,26.20; 28.23,"Manufacture of computers and peripheral equipment; Manufacture of office machinery and equipment, except computers and peripheral equipment",split,70
+28240,Manufacture of power-driven hand tools,28.24,28.24,Manufacture of power-driven hand tools,same code,77
+28250,Manufacture of non-domestic cooling and ventilation equipment,28.25,28.25; 29.32,Manufacture of non-domestic air conditioning equipment; Manufacture of other parts and accessories for motor vehicles,split,555
+28290,Manufacture of other general-purpose machinery n.e.c.,28.29,28.29; 28.93,"Manufacture of other general-purpose machinery n.e.c.; Manufacture of machinery for food, beverage and tobacco processing",split,1216
+28301,Manufacture of agricultural tractors,28.30/1,28.30/1,Manufacture of agricultural tractors,same code,35
+28302,Manufacture of agricultural and forestry machinery other than tractors,28.30/2,28.30/2,Manufacture of agricultural and forestry machinery (other than agricultural tractors),same code,437
+28410,Manufacture of metal forming machinery,28.41,28.41,Manufacture of metal forming machinery and machine tools for metal work,same code,173
+28490,Manufacture of other machine tools,28.49,27.90; 28.41; 28.42,Manufacture of other electrical equipment; Manufacture of metal forming machinery and machine tools for metal work; Manufacture of other machine tools,split,597
+28910,Manufacture of machinery for metallurgy,28.91,28.91,Manufacture of machinery for metallurgy,same code,46
+28921,Manufacture of machinery for mining,28.92/1,28.30; 28.92/1,Manufacture of agricultural and forestry machinery; Manufacture of machinery for mining,split,126
+28922,Manufacture of earthmoving equipment,28.92/2,28.92/2,Manufacture of earthmoving equipment,same code,63
+28923,Manufacture of equipment for concrete crushing and screening and roadworks,28.92/3,28.30; 28.92/3,Manufacture of agricultural and forestry machinery; Manufacture of equipment for concrete crushing and screening roadworks,split,79
+28930,"Manufacture of machinery for food, beverage and tobacco processing",28.93,28.93,"Manufacture of machinery for food, beverage and tobacco processing",same code,400
+28940,"Manufacture of machinery for textile, apparel and leather production",28.94,28.94,"Manufacture of machinery for textile, apparel and leather production",same code,147
+28950,Manufacture of machinery for paper and paperboard production,28.95,28.95,Manufacture of machinery for paper and paperboard production,same code,80
+28960,Manufacture of plastics and rubber machinery,28.96,28.96; 28.97,Manufacture of plastics and rubber machinery; Manufacture of additive manufacturing machinery,split,187
+28990,Manufacture of other special-purpose machinery n.e.c.,28.99,28.97; 28.99,Manufacture of additive manufacturing machinery; Manufacture of other special-purpose machinery n.e.c.,split,3238
+29100,Manufacture of motor vehicles,29.10,29.11; 29.12,Manufacture of motor vehicle engines; Manufacture of motor vehicles,split,1156
+29201,Manufacture of bodies (coachwork) for motor vehicles (except caravans),29.20/1,29.20/1,Manufacture of bodies (coachwork) for motor vehicles (except caravans),same code,898
+29202,Manufacture of trailers and semi-trailers,29.20/2,29.20/2,Manufacture of trailers and semi-trailers,same code,302
+29203,Manufacture of caravans,29.20/3,29.20/3,Manufacture of caravans,same code,287
+29310,Manufacture of electrical and electronic equipment for motor vehicles and their engines,29.31,29.31,Manufacture of electrical and electronic equipment for motor vehicles,same code,549
+29320,Manufacture of other parts and accessories for motor vehicles,29.32,29.32,Manufacture of other parts and accessories for motor vehicles,same code,2529
+30110,Building of ships and floating structures,30.11,30.11; 30.13,Building of civilian ships and floating structures; Building of military ships and vessels,split,448
+30120,Building of pleasure and sporting boats,30.12,30.12,Building of pleasure and sporting boats,same code,742
+30200,Manufacture of railway locomotives and rolling stock,30.20,30.20,Manufacture of railway locomotives and rolling stock,same code,218
+30300,Manufacture of air and spacecraft and related machinery,30.30,30.31; 30.32; 30.33,Manufacture of civilian aircraft; Manufacture of military aircraft; Manufacture of spacecraft and related machinery,split,1036
+30400,Manufacture of military fighting vehicles,30.40,30.40; 33.18,"Manufacture of military fighting vehicles; Repair and maintenance of military fighting vehicles, ships, boats, air and spacecraft",split,32
+30910,Manufacture of motorcycles,30.91,30.91; 30.92,Manufacture of motorcycles; Manufacture of bicycles and mobility chairs,split,172
+30920,Manufacture of bicycles and invalid carriages,30.92,30.92,Manufacture of bicycles and mobility chairs,same code,340
+30990,Manufacture of other transport equipment n.e.c.,30.99,30.99,Manufacture of other transport equipment n.e.c.,same code,860
+31010,Manufacture of office and shop furniture,31.01,31.00,Manufacture of furniture,moved or merged,1239
+31020,Manufacture of kitchen furniture,31.02,31.00,Manufacture of furniture,moved or merged,2734
+31030,Manufacture of mattresses,31.03,31.00,Manufacture of furniture,moved or merged,419
+31090,Manufacture of other furniture,31.09,31.00,Manufacture of furniture,moved or merged,6561
+32110,Striking of coins,32.11,32.11,Striking of coins,same code,22
+32120,Manufacture of jewellery and related articles,32.12,32.12,Manufacture of jewellery and related articles,same code,3799
+32130,Manufacture of imitation jewellery and related articles,32.13,32.13,Manufacture of imitation jewellery and related articles,same code,475
+32200,Manufacture of musical instruments,32.20,32.20,Manufacture of musical instruments,same code,513
+32300,Manufacture of sports goods,32.30,32.30; 32.99,Manufacture of sports goods; Other manufacturing n.e.c.,split,2164
+32401,Manufacture of professional and arcade games and toys,32.40/1,32.40/1,Manufacture of professional and arcade games and toys,same code,340
+32409,"Manufacture of other games and toys, n.e.c.",32.40/9,32.40/9,Manufacture of games and toys (other than professional and arcade games and toys) n.e.c.,same code,1917
+32500,Manufacture of medical and dental instruments and supplies,32.50,26.60; 32.50,"Manufacture of irradiation, electromedical and electrotherapeutic equipment; Manufacture of medical and dental instruments and supplies",split,3140
+32910,Manufacture of brooms and brushes,32.91,32.91,Manufacture of brooms and brushes,same code,66
+32990,Other manufacturing n.e.c.,32.99,32.50; 32.99,Manufacture of medical and dental instruments and supplies; Other manufacturing n.e.c.,split,18413
+33110,Repair of fabricated metal products,33.11,03.30; 33.11; 33.17,Support activities for fishing and aquaculture; Repair and maintenance of fabricated metal products; Repair and maintenance of other civilian transport equipment,split,1704
+33120,Repair of machinery,33.12,33.18; 33.12; 33.15,"Repair and maintenance of military fighting vehicles, ships, boats, air and spacecraft; Repair and maintenance of machinery; Repair and maintenance of civilian ships and boats",split,5775
+33130,Repair of electronic and optical equipment,33.13,33.13,Repair and maintenance of electronic and optical equipment,same code,930
+33140,Repair of electrical equipment,33.14,33.14,Repair and maintenance of electrical equipment,same code,5488
+33150,Repair and maintenance of ships and boats,33.15,33.18; 33.15,"Repair and maintenance of military fighting vehicles, ships, boats, air and spacecraft; Repair and maintenance of civilian ships and boats",split,2406
+33160,Repair and maintenance of aircraft and spacecraft,33.16,33.18; 33.16,"Repair and maintenance of military fighting vehicles, ships, boats, air and spacecraft; Repair and maintenance of civilian air and spacecraft",split,2613
+33170,Repair and maintenance of other transport equipment n.e.c.,33.17,33.17,Repair and maintenance of other civilian transport equipment,same code,3745
+33190,Repair of other equipment,33.19,33.19; 91.30,"Repair and maintenance of other equipment; Conservation, restoration and other support activities for cultural heritage",split,6813
+33200,Installation of industrial machinery and equipment,33.20,33.20,Installation of industrial machinery and equipment,same code,5214
