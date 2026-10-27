@@ -22,7 +22,7 @@ CSV_PINS = {n:{k:v for k,v in d.items() if k != 'format'} for n,d in OG02_DOWNLO
 
 def validate_declarations(contract):
     need(contract.get('safe_documents') == DOCUMENTS, 'OG02 exact JSON/TXT declarations changed')
-    need(set(DOCUMENTS) == {n for n in contract['public_files'] if n.endswith(('.json','.txt')) and not n.startswith('.well-known/') and n!='robots.txt'}, 'OG02 document coverage mismatch')
+    need(set(DOCUMENTS) == {n for n in contract['public_files'] if n.endswith(('.json','.txt')) and not n.startswith('.well-known/') and n not in {'robots.txt','llms.txt'}}, 'OG02 document coverage mismatch')
     for name,decl in CSV_PINS.items():
         need(contract['safe_downloads'].get(name)==decl, 'OG02 exact CSV declaration changed: '+name)
     need(set(OG02_DOWNLOADS) | {ROUTE} <= set(contract['generator_managed_files']), 'OG02 generated coverage missing')
