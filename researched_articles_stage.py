@@ -80,13 +80,14 @@ def article_fragment(record):
     return result
 
 
-MAX_ARTICLES = 21
+MAX_ARTICLES = 25
 
 
 def apply_researched_articles(output):
     records = json.loads((CONTENT / 'articles.json').read_text())['articles']
     # Cap, not an exact count: 11 original guides + 4 batch-1 pages + 6
-    # SEO/GEO guides (released over two days). Exact route coverage is still
+    # SEO/GEO guides (released over two days) + 4 content-batch pages
+    # (27 Oct 2026; released one at a time). Exact route coverage is still
     # pinned by production-manifest.json public_files/page_routes.
     assert 1 <= len(records) <= MAX_ARTICLES and len({r['route'] for r in records}) == len(records)
     shell = (output / 'industrial-lead-research.html').read_text()
