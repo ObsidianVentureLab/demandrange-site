@@ -135,6 +135,18 @@
       "artifact": "industrial-prospect-list-vs-data-provider.md",
       "include_cc_licence": false,
       "eyebrow": "Buyer guide · Choosing a prospect source"
+    },
+    {
+      "title": "CPV codes for pumps, valves and industrial equipment: a supplier's reference list",
+      "meta_title": "CPV Codes for Pumps, Valves and Equipment | Demand Range",
+      "meta_description": "CPV codes for pumps, valves, actuators, instruments, water treatment and plant maintenance, with official wording and a free CSV starter list for tender alerts.",
+      "key": "content-cpv",
+      "route": "cpv-codes-industrial-equipment.html",
+      "artifact": "03-cpv-codes-industrial-equipment.md",
+      "include_cc_licence": false,
+      "downloads": [
+        "cpv-industrial-equipment-starter.csv"
+      ]
     }
   ],
   "status": "human_review_candidate_not_approved"

@@ -4,6 +4,7 @@ Local human-review candidate only. No changes to quote, legal or claim guards.
 from pathlib import Path
 import json
 import re
+import shutil
 from html import escape
 from urllib.parse import urlsplit
 import markdown
@@ -94,5 +95,9 @@ def apply_researched_articles(output):
         text = metadata(shell, {'title':record['meta_title'], 'meta_description':record['meta_description']}, record['route'])
         text = shared_shell(block(text, r'<main\b.*?</main>', page_main(record['key'], doc)), record['route'])
         (output / record['route']).write_text(text, encoding='utf-8')
+        # Optional pinned downloads that belong to an article (e.g. a CSV);
+        # each must also be pinned in production-manifest.json safe_downloads.
+        for name in record.get('downloads', []):
+            shutil.copy2(HERE / 'foundation' / name, output / name)
     sitemap = output / 'sitemap.xml'
     sitemap.write_text(once(sitemap.read_text(), '</urlset>', ''.join('  <url><loc>https://demandrange.com/' + r['route'] + '</loc></url>\n' for r in records) + '</urlset>'))

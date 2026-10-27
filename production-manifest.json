@@ -593,6 +593,25 @@
             "href": "https://www.dataprotection.ie/en/faqs/direct-marketing/consent-explicitly-required-all-cases-electronic-direct-marketing"
           }
         }
+      },
+      "cpv-codes-industrial-equipment.html": {
+        "section_id": "sources",
+        "list_tag": "ol",
+        "list_class": "source-list",
+        "anchors": {
+          "source-link-1": {
+            "item_id": "source-1",
+            "href": "https://eur-lex.europa.eu/eli/reg/2008/213/oj"
+          },
+          "source-link-2": {
+            "item_id": "source-2",
+            "href": "https://ted.europa.eu/en/simap/cpv"
+          },
+          "source-link-3": {
+            "item_id": "source-3",
+            "href": "https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/cpv"
+          }
+        }
       }
     },
     "source_use_status": "Existing reviewed sources retained; narrowly attributed TED editorial and OGP item metadata summaries parent verified for volume guide."
@@ -676,7 +695,9 @@
     "industrial-lead-generation-ireland-uk.html",
     "uk-manufacturing-account-research.html",
     "ted-eu-tenders-industrial-suppliers.html",
-    "industrial-prospect-list-vs-data-provider.html"
+    "industrial-prospect-list-vs-data-provider.html",
+    "cpv-codes-industrial-equipment.html",
+    "cpv-industrial-equipment-starter.csv"
   ],
   "page_routes": [
     "404.html",
@@ -717,7 +738,8 @@
     "industrial-lead-generation-ireland-uk.html",
     "uk-manufacturing-account-research.html",
     "ted-eu-tenders-industrial-suppliers.html",
-    "industrial-prospect-list-vs-data-provider.html"
+    "industrial-prospect-list-vs-data-provider.html",
+    "cpv-codes-industrial-equipment.html"
   ],
   "proposed_effective_quote_template_sha256": "36f8f13dce03a40a41b29ed897fc7a8d5551f3d4d99730d97fd1c2f86b96e9d8",
   "protected_sources": {
@@ -831,7 +853,9 @@
     "industrial-lead-generation-ireland-uk.html",
     "uk-manufacturing-account-research.html",
     "ted-eu-tenders-industrial-suppliers.html",
-    "industrial-prospect-list-vs-data-provider.html"
+    "industrial-prospect-list-vs-data-provider.html",
+    "cpv-codes-industrial-equipment.html",
+    "cpv-industrial-equipment-starter.csv"
   ],
   "quote_endpoint_sha256": "ecc6f84cdef1c919c0a01639318c41ee9afa2c751682c358dcec2dd8c0781cfd",
   "quote_inline_script_sha256": "ca7a7daf94c50c5d0653a72524e65c97dcd3b547072ae9dbd6759f91533b53d9",
@@ -1802,6 +1826,18 @@
       "data_rows": 43,
       "sha256": "a2681f583026da9faf6a48e520c1b60e0db948d88b83bf8a1b161522d6f52dd6",
       "unique_field_column": "field"
+    },
+    "cpv-industrial-equipment-starter.csv": {
+      "columns": [
+        "cpv_code",
+        "official_description",
+        "group",
+        "alert_tier",
+        "notes"
+      ],
+      "data_rows": 42,
+      "sha256": "d24b25c4bdd9840a522eac839598f7b9d623c58941d4a3c6a698fa86b3435f8b",
+      "unique_field_column": "cpv_code"
     }
   },
   "sitemap_urls": [
@@ -1842,7 +1878,8 @@
     "https://demandrange.com/industrial-lead-generation-ireland-uk.html",
     "https://demandrange.com/uk-manufacturing-account-research.html",
     "https://demandrange.com/ted-eu-tenders-industrial-suppliers.html",
-    "https://demandrange.com/industrial-prospect-list-vs-data-provider.html"
+    "https://demandrange.com/industrial-prospect-list-vs-data-provider.html",
+    "https://demandrange.com/cpv-codes-industrial-equipment.html"
   ],
   "status": "SHIFT_BATCH03_IDENTITY_SUPERVISED_RELEASE",
   "versions": {
