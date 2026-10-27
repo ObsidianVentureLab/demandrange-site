@@ -169,5 +169,98 @@
     "publisher": {
       "@id": "https://demandrange.com/#organization"
     }
+  },
+  "datasets": {
+    "eu-industrial-enterprises-by-country.html": {
+      "name": "Manufacturing enterprises in the EU by country and NACE division, 2023",
+      "description": "Number of enterprises (total and by 10–19, 20–49, 50–249 and 250+ persons employed), persons employed, net turnover and gross investment in machinery and equipment for each EU-27 member state and the EU-27 aggregate, by NACE Rev. 2 activity in mining (B), manufacturing (C, C10–C33), energy supply (D35) and water, sewerage and waste (E36–E39). Reference year 2023. Values as published by Eurostat (Structural Business Statistics), reshaped by Demand Range; confidential and estimated cells are flagged. UK not included.",
+      "keywords": [
+        "EU manufacturing enterprises",
+        "number of manufacturers by country",
+        "NACE Rev. 2",
+        "structural business statistics",
+        "enterprise size class",
+        "industrial market sizing",
+        "Ireland manufacturing",
+        "machinery investment",
+        "Eurostat SBS",
+        "EU-27"
+      ],
+      "temporalCoverage": "2023",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "European Union (EU-27): Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden"
+      },
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Enterprises - number",
+          "unitText": "enterprises"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Enterprises with 10-19 persons employed",
+          "unitText": "enterprises"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Enterprises with 20-49 persons employed",
+          "unitText": "enterprises"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Enterprises with 50-249 persons employed",
+          "unitText": "enterprises"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Enterprises with 250 or more persons employed",
+          "unitText": "enterprises"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Persons employed",
+          "unitText": "persons"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Net turnover",
+          "unitText": "EUR million"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Gross investment in machinery and equipment",
+          "unitText": "EUR million"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@type": "Dataset",
+          "name": "Eurostat: Enterprises by detailed NACE Rev. 2 activity and special aggregates (sbs_ovw_act)",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/sbs_ovw_act/default/table",
+          "identifier": "https://doi.org/10.2908/SBS_OVW_ACT"
+        },
+        {
+          "@type": "Dataset",
+          "name": "Eurostat: Enterprise statistics by size class and NACE Rev. 2 activity (from 2021 onwards) (sbs_sc_ovw)",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/sbs_sc_ovw/default/table",
+          "identifier": "https://doi.org/10.2908/SBS_SC_OVW"
+        }
+      ],
+      "citation": "Demand Range analysis of Eurostat data (sbs_ovw_act, sbs_sc_ovw), 2023 reference year.",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "sourceOrganization": {
+        "@type": "Organization",
+        "name": "Eurostat"
+      },
+      "datePublished": "2026-10-27",
+      "dateModified": "2026-10-27",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/csv",
+        "contentUrl": "https://demandrange.com/eu-industrial-enterprises-by-country-nace-2023.csv"
+      }
+    }
   }
 }

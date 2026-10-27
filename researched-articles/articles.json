@@ -192,6 +192,20 @@
       "route": "germany-industrial-account-research.html",
       "artifact": "06-germany-industrial-account-research.md",
       "include_cc_licence": false
+    },
+    {
+      "title": "Manufacturing enterprises in the EU by country and NACE division (2023 data)",
+      "meta_title": "EU Manufacturing Enterprises by Country (2023) | Demand Range",
+      "meta_description": "How many manufacturing enterprises each EU country had in 2023, by size class and NACE division, from Eurostat business statistics. Free CSV, with caveats.",
+      "key": "content-eu-enterprises",
+      "route": "eu-industrial-enterprises-by-country.html",
+      "artifact": "eu-industrial-enterprises-by-country.md",
+      "eyebrow": "Dataset · Eurostat structural business statistics",
+      "include_cc_licence": true,
+      "downloads": [
+        "eu-industrial-enterprises-by-country-nace-2023.csv"
+      ],
+      "extension": "eurostat"
     }
   ],
   "status": "human_review_candidate_not_approved"

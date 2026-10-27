@@ -39,7 +39,18 @@ def article_fragment(record):
     if note and (re.search(r'\[\d+\]|https?://|\]\(|<a\b', note) or re.match(r'\[\d+\] ', note)):
         raise ValueError('Unsupported source note: ' + note)
     ids = {ident for ident, _, _ in citations}
-    assert set(re.findall(r'\[(\d+)\]', prose)) == ids
+    # Optional generated sections that follow the prose (the Eurostat data
+    # page's index, full table and citation block). They cite sources only as
+    # #source-n links, which count towards the same exact citation check.
+    extension = []
+    if record.get('extension') == 'eurostat':
+        from eurostat_stage import article_sections
+        extension = article_sections().main.find_all('section', recursive=False)
+    elif 'extension' in record:
+        raise ValueError('Unknown article extension: ' + record['extension'])
+    cited = set(re.findall(r'\[(\d+)\]', prose)) | {a['href'][len('#source-'):] for s in extension
+        for a in s.select('a[href^="#source-"]') if a['href'][len('#source-'):].isdigit()}
+    assert cited == ids
     prose = re.sub(r'\[(\d+)\]', lambda m: '<a href="#source-' + m[1] + '">[' + m[1] + ']</a>', prose)
     # These are editorial checklists, not added form controls.
     prose = prose.replace('- [ ] ', '- ☐ ')
@@ -54,6 +65,8 @@ def article_fragment(record):
             ident = re.sub(r'[^a-z0-9]+', '-', node.get_text().lower()).strip('-')
             section = result.new_tag('section', id=ident); main.append(section)
         section.append(node.extract())
+    for node in extension:
+        main.append(node.extract())
     for table in result.select('table'):
         for th in table.select('thead th'): th['scope'] = 'col'
     for anchor in result.select('a[href]'):

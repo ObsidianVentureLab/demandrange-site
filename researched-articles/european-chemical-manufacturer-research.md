@@ -25,6 +25,8 @@ This guide is for research into operating sites in **named EU countries**, not a
 
 **Statistical activity.** Eurostat's NACE Rev. 2.1 explanatory notes include custom resin mixing and blending in class 20.16, paints and varnishes in 20.30, and detergent preparations in 20.41.[4] These are activity-classification examples, not a list of installed processes at every company carrying a chemical-sector code. Record the classification version you encountered; do not translate a code into a plant description or silently relabel older records as Rev. 2.1.
 
+To see [how many chemical manufacturers each EU country has](eu-industrial-enterprises-by-country.html#eu27-c20) (NACE Rev. 2 division C20, by size class), use our Eurostat dataset page. Those are Eurostat enterprise counts, not sites or evidence of a particular operation.
+
 Keep these meanings in separate fields. “Manufactures cleaning products” in a company description, a NACE heading and “manufacturer under REACH” are not interchangeable evidence. Nor does the absence of the regulatory manufacturer label establish an absence of industrial operations.
 
 ## Test the distributor label without discarding a formulator
