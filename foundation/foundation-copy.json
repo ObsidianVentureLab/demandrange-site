@@ -403,10 +403,10 @@
       "mode": "Replace main body and metadata; no biography, reviewer byline or entity additions.",
       "purpose": "Explain the business and operating priorities without software-roadmap, uniqueness or customer-result claims.",
       "title": "About Demand Range | Industrial Lead Research",
-      "meta_description": "Demand Range is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.",
+      "meta_description": "Demand Range is an Irish industrial lead and account research business that builds analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services selling into Ireland, the UK and the EU.",
       "eyebrow": "About Demand Range",
       "h1": "Industrial prospects. Matched to your market.",
-      "intro_html": "<p>Demand Range is an industrial lead research and market intelligence business. We help suppliers identify prospects that match their target industries and agreed customer profile.</p><p>Our model combines a broad base of industry-matched Look Alike leads with a smaller share supported by identified project or development signals. Relevance comes first; an active project is not required for every lead.</p>",
+      "intro_html": "<p>Demand Range is an Irish industrial lead and account research business serving Ireland, the UK and the EU. We build analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.</p><p>Our model combines a broad base of industry-matched Look Alike leads with a smaller share supported by identified project or development signals. Relevance comes first; an active project is not required for every lead.</p>",
       "hero_links": [
         {
           "text": "Explore the research service",
@@ -437,7 +437,7 @@
         {
           "id": "focus",
           "heading": "An Irish business serving Ireland, the UK and the EU.",
-          "body_html": "<p>Demand Range is an Irish business serving suppliers selling into Ireland, the UK and the EU. Each country is scoped on its own sources and language needs, and other territory preferences can be submitted for assessment; they are not a promise of worldwide coverage.</p><p>The service described here is company-level research. Named-person delivery and outreach are separate, unagreed scopes unless expressly authorised and confirmed. The site does not offer a live research platform or guarantee sales outcomes.</p>",
+          "body_html": "<p>Each country is scoped on its own sources and language needs, and other territory preferences can be submitted for assessment; they are not a promise of worldwide coverage.</p><p>The service described here is company-level research. Named-person delivery and outreach are separate, unagreed scopes unless expressly authorised and confirmed. The site does not offer a live research platform or guarantee sales outcomes.</p>",
           "provenance": [
             "PLAN §§6–8 and 23",
             "TRANSITION Gated decisions",

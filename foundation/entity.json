@@ -38,7 +38,11 @@
     },
     "image": "https://demandrange.com/og-image.png",
     "email": "partners@demandrange.com",
-    "description": "Analyst-led industrial lead research and market intelligence for suppliers of industrial equipment, technology and services selling into Ireland, the UK and the EU. Company-level, industry-matched account research with evidenced project and development signals where available.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IE"
+    },
+    "description": "Demand Range is an Irish industrial lead and account research business that builds analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services selling into Ireland, the UK and the EU.",
     "slogan": "Industrial prospects. Matched to your market.",
     "areaServed": [
       {
@@ -147,7 +151,10 @@
         }
       ]
     },
-    "sameAs": []
+    "sameAs": [
+      "https://www.brownbook.net/business/56037094/demand-range",
+      "https://www.f6s.com/demand-range"
+    ]
   },
   "website": {
     "@type": "WebSite",
