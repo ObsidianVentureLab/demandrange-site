@@ -1,7 +1,7 @@
 ---
 title: "Read Irish environmental registers without inventing a sales opportunity"
 intended_route: "/irish-environmental-register-evidence.html"
-meta_title: "Irish Environmental Register Evidence for Suppliers | DemandRange"
+meta_title: "Irish Environmental Register Evidence for Suppliers | Demand Range"
 meta_description: "Separate register coverage, dossier records, water-system identity and discharge evidence before accepting an Irish industrial account or project signal."
 audience: "Irish process-equipment, pump, valve and flow-control suppliers buying account research"
 content_role: "Joined decision guide for accepting or holding environmental-source evidence"
@@ -118,7 +118,7 @@ The Section 4 metadata displays the same licence.[4]
 
 The portal's guidance requires attribution and excludes personal data and third-party rights from its licence scope.[5]
 
-**Contains Irish Public Sector Data licensed under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).** Source: Environmental Protection Agency metadata for Industrial Emissions (IE) Facilities, Environmental Protection Agency Remedial Action List, Urban Waste Water Discharge Locations and Water Framework Directive Section 4 Discharges, via data.gov.ie. The attributed metadata summaries are shortened and paraphrased. Those summaries remain available under CC BY 4.0 without additional DemandRange reuse restrictions; no official endorsement is implied. The decision tools and fictional cases are original editorial material. This attribution does not license other EPA or Uisce Éireann website content or any linked resource.
+**Contains Irish Public Sector Data licensed under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).** Source: Environmental Protection Agency metadata for Industrial Emissions (IE) Facilities, Environmental Protection Agency Remedial Action List, Urban Waste Water Discharge Locations and Water Framework Directive Section 4 Discharges, via data.gov.ie. The attributed metadata summaries are shortened and paraphrased. Those summaries remain available under CC BY 4.0 without additional Demand Range reuse restrictions; no official endorsement is implied. The decision tools and fictional cases are original editorial material. This attribution does not license other EPA or Uisce Éireann website content or any linked resource.
 
 ## Sources
 

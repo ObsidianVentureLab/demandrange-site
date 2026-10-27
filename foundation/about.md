@@ -5,10 +5,10 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/about.html`
 - Purpose: Explain the business and operating priorities without software-roadmap, uniqueness or customer-result claims.
 - Integration mode: Replace main body and metadata; no biography, reviewer byline or entity additions.
-- Exact title: **About DemandRange | Industrial Lead Research**
-- Exact meta description: DemandRange is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.
+- Exact title: **About Demand Range | Industrial Lead Research**
+- Exact meta description: Demand Range is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.
 - Exact H1: **Industrial prospects. Matched to your market.**
-- Eyebrow: About DemandRange
+- Eyebrow: About Demand Range
 - Public copy: `about.fragment.html` (unstyled content fragment, not a website template)
 
 ## Section / link map
@@ -22,7 +22,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - [Read how the research is assessed](methodology.html)
 - [Inspect the fictional examples](sample-account-research.html)
 - [Request a quote](request-a-quote.html)
-- [Contact DemandRange](contact.html)
+- [Contact Demand Range](contact.html)
 - [Explore the research service](industrial-lead-research.html)
 
 ## Source / decision provenance (internal; do not publish)

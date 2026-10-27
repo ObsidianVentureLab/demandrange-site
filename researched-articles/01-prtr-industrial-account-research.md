@@ -1,7 +1,7 @@
 ---
 title: "Irish PRTR data for industrial account research"
 intended_route: "/irish-prtr-industrial-account-research.html"
-meta_title: "Irish PRTR Data for Industrial Account Research | DemandRange"
+meta_title: "Irish PRTR Data for Industrial Account Research | Demand Range"
 meta_description: "Use Irish emissions-register metadata to frame industrial account research. Check facility scope, reporting dates and gaps without implying equipment demand."
 audience: "Irish pump, valve, flow-control and process-equipment suppliers"
 content_role: "Source-selection guide: environmental dataset coverage and limitations"
@@ -94,7 +94,7 @@ Sources accessed **1 October 2026**. The real-world observations above are limit
 
 The record explicitly identifies Creative Commons Attribution 4.0; the portal's licence guidance sets attribution requirements and excludes personal data and third-party rights.[11][12] This is a bounded source-use note, not legal clearance for a different resource or customer delivery.
 
-**Contains Irish Public Sector Data licensed under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).** Source: Environmental Protection Agency, PRTR Facilities metadata via data.gov.ie. The identified metadata summaries have been shortened and paraphrased and remain available under CC BY 4.0 without additional DemandRange reuse restrictions. No official endorsement is implied.
+**Contains Irish Public Sector Data licensed under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).** Source: Environmental Protection Agency, PRTR Facilities metadata via data.gov.ie. The identified metadata summaries have been shortened and paraphrased and remain available under CC BY 4.0 without additional Demand Range reuse restrictions. No official endorsement is implied.
 
 ## Sources
 

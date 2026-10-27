@@ -5,7 +5,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/markets.html`
 - Purpose: Help industrial suppliers define relevant account types and market boundaries, not attract equipment shoppers.
 - Integration mode: Replace main body and metadata; retain URL as the audience/application hub.
-- Exact title: **Industrial Markets and Supplier Fit | DemandRange**
+- Exact title: **Industrial Markets and Supplier Fit | Demand Range**
 - Exact meta description: Define relevant industrial accounts by sector, territory and route to market. Company-level research for equipment, technology and service suppliers.
 - Exact H1: **Built for suppliers selling into industrial markets.**
 - Eyebrow: Who we help

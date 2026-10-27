@@ -4,7 +4,7 @@ version: '1.0'
 created: '2026-10-13'
 intended_route: industrial-oem-account-research-ireland.html
 title: 'Irish industrial OEM account research: from component to build operation'
-meta_title: Irish Industrial OEM Account Research | DemandRange
+meta_title: Irish Industrial OEM Account Research | Demand Range
 meta_description: Map a component family to equipment and build operations. Separate
   brand, assembly and contract-build roles, with fictional cases and a blank OEM research
   tool.
@@ -104,11 +104,11 @@ Check source/item conditions for the intended use before retaining content. A pu
 
 A useful brief is: “We supply [component family] and want to investigate [equipment family/build operation] in [defined Irish territory]. Establish the performed work and component-provision boundary. Separate model choice, supplier choice, approval constraints and ordering. Leave technical suitability and current demand unassessed. Apply [agreed exclusions] and return [specified missing questions].”
 
-DemandRange describes company-level, industry-matched research against an agreed brief; an active project is not required for that class.[1] Its methodology separates observed facts, interpretation and unknowns and does not treat either research class as automatically marketing-qualified.[2] These first-party references explain service scope only. They do not empirically validate the original method or fictional maps above.
+Demand Range describes company-level, industry-matched research against an agreed brief; an active project is not required for that class.[1] Its methodology separates observed facts, interpretation and unknowns and does not treat either research class as automatically marketing-qualified.[2] These first-party references explain service scope only. They do not empirically validate the original method or fictional maps above.
 
 Review the [industrial account-research service](industrial-lead-research.html), inspect the [fictional account sample](sample-account-research.html), then [request a scoped quote](request-a-quote.html). Share non-confidential range and research questions, not live customer records. This guide provides no guarantee of buying intent or marketing-qualified leads, supplier qualification, engineering or legal advice, or authority to contact anyone.
 
 ## Sources
 
-[1] https://demandrange.com/industrial-lead-research.html — DemandRange: industrial account-research service and scope
-[2] https://demandrange.com/methodology.html — DemandRange: research classes, evidence layers and boundaries
+[1] https://demandrange.com/industrial-lead-research.html — Demand Range: industrial account-research service and scope
+[2] https://demandrange.com/methodology.html — Demand Range: research classes, evidence layers and boundaries

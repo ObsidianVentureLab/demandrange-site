@@ -5,7 +5,7 @@ Status: draft for parent review; not publication or independent acceptance.
 Use `shared-copy.json` as the exact copy bank. The shared system has no separate title/meta/H1: each route uses its own page entry in `foundation-copy.json`.
 
 - Visual wordmark: **Demand Range** (unchanged).
-- Brand in prose: **DemandRange**.
+- Brand in prose: **Demand Range**.
 - Wordmark descriptor: **Industrial prospecting**.
 - Category: **Industrial Lead Generation & Market Intelligence**.
 - Tagline/footer strapline: **Industrial prospects. Matched to your market.**

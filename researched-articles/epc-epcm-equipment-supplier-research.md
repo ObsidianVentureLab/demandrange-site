@@ -1,6 +1,6 @@
 ---
 title: "EPC and EPCM projects: who controls your equipment package?"
-meta_title: "EPC/EPCM Equipment Supplier Research | DemandRange"
+meta_title: "EPC/EPCM Equipment Supplier Research | Demand Range"
 meta_description: "Research EU industrial project buying routes: separate EPC/EPCM appointments, package scope, specification, enquiries and contracting, with a fictional worked map."
 intended_route: "/epc-epcm-equipment-supplier-research.html"
 ---
@@ -122,15 +122,15 @@ A useful brief is: “For [project reference] in [EU country], investigate [equi
 
 Ask for one evidence entry per responsibility: **package and phase; organisation and capacity; observed task; exact source/section; source date or not stated; actual checked date; intended source use; limitation; next check**. Preserve contradictory observations separately. A source that resolves specification authorship need not resolve ordering authority.
 
-DemandRange's [project-intelligence service](https://demandrange.com/opportunity-intelligence.html) is the relevant onward discussion when an evidenced development changes the question. Compare the [fictional account-research sample](https://demandrange.com/sample-account-research.html) for the separate company-fit output. Agree country-specific sources, language requirements, fields and limits in writing. Share non-sensitive product and research questions—not confidential tender documents, private correspondence or customer records.
+Demand Range's [project-intelligence service](https://demandrange.com/opportunity-intelligence.html) is the relevant onward discussion when an evidenced development changes the question. Compare the [fictional account-research sample](https://demandrange.com/sample-account-research.html) for the separate company-fit output. Agree country-specific sources, language requirements, fields and limits in writing. Share non-sensitive product and research questions—not confidential tender documents, private correspondence or customer records.
 
 ## Evidence, attribution and reuse
 
 The three notice versions were checked on **23 October 2026**. They are selective historical readings, not a complete procurement history or confirmation of today's opportunities. No linked procurement attachments, qualification decisions or subsequent award outcomes have been assessed. No claim is made that these examples represent all EU industrial projects.
 
-Notice summaries are shortened and paraphrased from **TED, Publications Office of the European Union, © European Union, 1998–2026**. The Finnish service-scope summary is our working translation. TED permits commercial and non-commercial reuse of procurement notices unless otherwise noted; this is distinct from its CC BY 4.0 licence for website editorial content.[4] No additional DemandRange reuse restrictions apply to the identified notice summaries. No personal contacts, illustrations, logos or third-party attachments are reproduced. No official or company endorsement is implied.
+Notice summaries are shortened and paraphrased from **TED, Publications Office of the European Union, © European Union, 1998–2026**. The Finnish service-scope summary is our working translation. TED permits commercial and non-commercial reuse of procurement notices unless otherwise noted; this is distinct from its CC BY 4.0 licence for website editorial content.[4] No additional Demand Range reuse restrictions apply to the identified notice summaries. No personal contacts, illustrations, logos or third-party attachments are reproduced. No official or company endorsement is implied.
 
-The research branches, responsibility questions and fictional cards are DemandRange's original analysis, not official classifications or legal conclusions. The public-source facts are limited to the cited statements; no corporate service-page definition is used as authority for a universal EPC/EPCM rule.
+The research branches, responsibility questions and fictional cards are Demand Range's original analysis, not official classifications or legal conclusions. The public-source facts are limited to the cited statements; no corporate service-page definition is used as authority for a universal EPC/EPCM rule.
 
 ## Sources
 

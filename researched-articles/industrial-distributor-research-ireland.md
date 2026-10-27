@@ -4,7 +4,7 @@ version: '1.0'
 created: '2026-10-12'
 intended_route: industrial-distributor-research-ireland.html
 title: 'Irish industrial distributor research: building a channel shortlist'
-meta_title: Irish Industrial Distributor Research | DemandRange
+meta_title: Irish Industrial Distributor Research | Demand Range
 meta_description: Define a distributor brief, distinguish product coverage from partnership
   availability, and review fictional Irish industrial channel-research decisions.
 content_type: original-analyst-method
@@ -100,12 +100,12 @@ The method and examples here are original analyst guidance, not a validated scor
 
 ## Method, context and limits
 
-This is original DemandRange analyst guidance with invented teaching cases. DemandRange's existing service page asks for a targeting brief and separates company-level research from contact sourcing and outreach. [1] Its methodology distinguishes observed facts, analyst interpretation and unknowns. [2] Those first-party pages provide scope context only: they do not validate this proposed channel-screening method, establish a company's capabilities or prove partnership availability.
+This is original Demand Range analyst guidance with invented teaching cases. Demand Range's existing service page asks for a targeting brief and separates company-level research from contact sourcing and outreach. [1] Its methodology distinguishes observed facts, analyst interpretation and unknowns. [2] Those first-party pages provide scope context only: they do not validate this proposed channel-screening method, establish a company's capabilities or prove partnership availability.
 
 No external directory or real company record has been reproduced here. The case names, stipulated evidence and decisions are fictional. No third-party dataset, publisher attribution or Creative Commons notice is inherited from another guide.
 
 ## Sources
 
-[1] https://demandrange.com/industrial-lead-research.html — DemandRange: industrial account-research service and scope
-[2] https://demandrange.com/methodology.html — DemandRange: research classes, evidence layers and boundaries
+[1] https://demandrange.com/industrial-lead-research.html — Demand Range: industrial account-research service and scope
+[2] https://demandrange.com/methodology.html — Demand Range: research classes, evidence layers and boundaries
 

@@ -3,9 +3,9 @@
 Status: draft for parent review; not independent acceptance or publication.
 
 - Route: `/request-a-quote.html`
-- Purpose: Clarify what a request asks DemandRange to assess without changing the commissioned intake.
+- Purpose: Clarify what a request asks Demand Range to assess without changing the commissioned intake.
 - Integration mode: COPY-ONLY PATCH: metadata + hero + pre-form explanation/model cards. Never replace the whole main element or alter the form/client/schema/backend.
-- Exact title: **Request an Industrial Research Quote | DemandRange**
+- Exact title: **Request an Industrial Research Quote | Demand Range**
 - Exact meta description: Request a written scope for industrial account research. State your market and territory preferences; fields, coverage and deliverables are assessed before agreement.
 - Exact H1: **Request a lead programme scope & quote.**
 - Eyebrow: Written scope first

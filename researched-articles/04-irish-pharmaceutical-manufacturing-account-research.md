@@ -1,7 +1,7 @@
 ---
 title: "Researching Irish pharmaceutical manufacturing accounts"
 intended_route: "/irish-pharmaceutical-manufacturing-account-research.html"
-meta_title: "Irish Pharma Manufacturing Account Research | DemandRange"
+meta_title: "Irish Pharma Manufacturing Account Research | Demand Range"
 meta_description: "Research Irish pharmaceutical accounts by site, evidenced activity and supplier role. Separate medicine approval from facility evidence and equipment claims."
 audience: "Industrial equipment, maintenance, instrumentation and engineering-service suppliers researching the Republic of Ireland"
 content_role: "Decide whether a pharmaceutical company, facility or engineering business belongs in a supplier's account brief"
@@ -90,7 +90,7 @@ Compare the [fictional account-research sample](https://demandrange.com/sample-a
 
 EMA guidance and its source-use notice were checked on **5 October 2026**. The brief descriptions of marketing authorisation and EudraGMDP above are attributed to the **European Medicines Agency, © EMA 1995–2026**.[4][5] EMA's website notice permits commercial reproduction with source acknowledgement, subject to its stated exceptions; no third-party document, database entry, photograph or logo is reproduced here.[6]
 
-The supplier-selection questions, fictional example, facility-fit note and checklist are DemandRange's original analysis. They are not official EMA classifications. EMA does not endorse DemandRange or this guide. No individual facility's current authorisation, equipment requirements or purchasing plans were assessed; nothing here confers regulatory approval, engineering assurance or rights to reuse another source in a customer deliverable.
+The supplier-selection questions, fictional example, facility-fit note and checklist are Demand Range's original analysis. They are not official EMA classifications. EMA does not endorse Demand Range or this guide. No individual facility's current authorisation, equipment requirements or purchasing plans were assessed; nothing here confers regulatory approval, engineering assurance or rights to reuse another source in a customer deliverable.
 
 ## Sources
 

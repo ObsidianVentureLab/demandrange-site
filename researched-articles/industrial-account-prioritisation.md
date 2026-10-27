@@ -4,7 +4,7 @@ version: '1.0'
 created: '2026-10-13'
 intended_route: industrial-account-prioritisation.html
 title: 'Prioritise research actions across industrial accounts'
-meta_title: 'Industrial Research-Action Prioritisation | DemandRange'
+meta_title: 'Industrial Research-Action Prioritisation | Demand Range'
 meta_description: 'Allocate limited research time across screened industrial accounts using a fictional action queue and blank CSV. Plan evidence checks, not sales-account rankings.'
 content_type: original-analyst-method
 ---
@@ -109,11 +109,11 @@ When you [request a written scope](request-a-quote.html), summarise the account 
 
 ## Method and source boundaries
 
-This is original DemandRange analyst teaching. The existing service description separates company-level account research from named-contact work and outreach. [1] The methodology separates observed facts, interpretation and unknowns, and explains that a score cannot replace the fit decision. [2] Those first-party pages supply scope context only. They do not empirically validate this ordering rule, its invented time estimates or its fictional outcomes.
+This is original Demand Range analyst teaching. The existing service description separates company-level account research from named-contact work and outreach. [1] The methodology separates observed facts, interpretation and unknowns, and explains that a score cannot replace the fit decision. [2] Those first-party pages supply scope context only. They do not empirically validate this ordering rule, its invented time estimates or its fictional outcomes.
 
 No third-party dataset, real company record or licensed extract is reproduced. The worklist and blank template are original educational material; no Creative Commons attribution is borrowed from unrelated articles. This is research-planning guidance, not technical equipment selection or legal advice.
 
 ## Sources
 
-[1] https://demandrange.com/industrial-lead-research.html — DemandRange: industrial account-research service and scope
-[2] https://demandrange.com/methodology.html — DemandRange: evidence layers, account decisions and scope boundaries
+[1] https://demandrange.com/industrial-lead-research.html — Demand Range: industrial account-research service and scope
+[2] https://demandrange.com/methodology.html — Demand Range: evidence layers, account decisions and scope boundaries

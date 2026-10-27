@@ -7,11 +7,11 @@
       "route": "/",
       "mode": "Replace main body and metadata; apply shared-copy.json separately.",
       "purpose": "Brand overview for industrial suppliers; commercial detail belongs to industrial-lead-research.html.",
-      "title": "Industrial Prospect Research for EU Markets | DemandRange",
+      "title": "Industrial Prospect Research for EU Markets | Demand Range",
       "meta_description": "Industrial prospect research for your target EU countries. Company-level fit and evidenced project signals, with sources, languages and deliverables scoped first.",
       "eyebrow": "Industrial Lead Generation & Market Intelligence",
       "h1": "Find the right industrial prospects.",
-      "intro_html": "<p>DemandRange helps industrial suppliers build a relevant prospect base through industry-matched lead research, with identified project and development signals where available.</p><p>For suppliers of industrial equipment, technology and services. Ireland is our current focus; other territory requests are assessed before scope is agreed.</p>",
+      "intro_html": "<p>Demand Range helps industrial suppliers build a relevant prospect base through industry-matched lead research, with identified project and development signals where available.</p><p>For suppliers of industrial equipment, technology and services. Ireland is our current focus; other territory requests are assessed before scope is agreed.</p>",
       "hero_links": [
         {
           "text": "Request a quote",
@@ -139,11 +139,11 @@
       "route": "/industrial-lead-research.html",
       "mode": "New page main body and metadata; use existing visual system.",
       "purpose": "Commercial intent owner: what company-level industrial research contains, who it is for and how to scope it.",
-      "title": "Industrial Lead Research for EU Markets | DemandRange",
+      "title": "Industrial Lead Research for EU Markets | Demand Range",
       "meta_description": "Scope company-level industrial lead research by EU country. Define operating-site rules, exclusions, evidence and language needs before agreeing deliverables.",
       "eyebrow": "Industrial account and lead research",
       "h1": "Account research for industrial suppliers selling into Ireland.",
-      "intro_html": "<p>Build a prospect base around the companies that fit your market—not only those with a newly announced project. DemandRange researches industry-matched accounts and adds project context where an evidenced signal is identified.</p><p>This is scoped, company-level research for suppliers of industrial equipment, technology and services, not a self-service contact database or a promise of meetings.</p>",
+      "intro_html": "<p>Build a prospect base around the companies that fit your market—not only those with a newly announced project. Demand Range researches industry-matched accounts and adds project context where an evidenced signal is identified.</p><p>This is scoped, company-level research for suppliers of industrial equipment, technology and services, not a self-service contact database or a promise of meetings.</p>",
       "hero_links": [
         {
           "text": "Request a quote",
@@ -276,8 +276,8 @@
       "route": "/methodology.html",
       "mode": "Replace main body and metadata; retain existing method/scoring/principles/learning fragment IDs where used below.",
       "purpose": "Explain common fit checks, class-specific evidence, uncertainty and correction without duplicating the service offer.",
-      "title": "How the Research Classes and QA Work | DemandRange",
-      "meta_description": "How DemandRange checks company fit, distinguishes project signals and records sources, review dates and unknowns. Inspect the method and fictional examples.",
+      "title": "How the Research Classes and QA Work | Demand Range",
+      "meta_description": "How Demand Range checks company fit, distinguishes project signals and records sources, review dates and unknowns. Inspect the method and fictional examples.",
       "eyebrow": "Research method",
       "h1": "How the research classes and QA work",
       "intro_html": "<p>Relevance comes first. A company must meet the written targeting criteria; a project signal is an additional evidence requirement for one class, not the definition of every lead.</p><p>Our method keeps company fit, observed evidence, interpretation and uncertainty separate. It does not infer private buying intent.</p>",
@@ -402,11 +402,11 @@
       "route": "/about.html",
       "mode": "Replace main body and metadata; no biography, reviewer byline or entity additions.",
       "purpose": "Explain the business and operating priorities without software-roadmap, uniqueness or customer-result claims.",
-      "title": "About DemandRange | Industrial Lead Research",
-      "meta_description": "DemandRange is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.",
-      "eyebrow": "About DemandRange",
+      "title": "About Demand Range | Industrial Lead Research",
+      "meta_description": "Demand Range is an industrial lead research and market intelligence business focused on relevant accounts, traceable evidence and clearly agreed scope.",
+      "eyebrow": "About Demand Range",
       "h1": "Industrial prospects. Matched to your market.",
-      "intro_html": "<p>DemandRange is an industrial lead research and market intelligence business. We help suppliers identify prospects that match their target industries and agreed customer profile.</p><p>Our model combines a broad base of industry-matched Look Alike leads with a smaller share supported by identified project or development signals. Relevance comes first; an active project is not required for every lead.</p>",
+      "intro_html": "<p>Demand Range is an industrial lead research and market intelligence business. We help suppliers identify prospects that match their target industries and agreed customer profile.</p><p>Our model combines a broad base of industry-matched Look Alike leads with a smaller share supported by identified project or development signals. Relevance comes first; an active project is not required for every lead.</p>",
       "hero_links": [
         {
           "text": "Explore the research service",
@@ -448,7 +448,7 @@
         {
           "id": "enquiry",
           "heading": "Tell us what relevance means for your business.",
-          "body_html": "<p>Start with your product range, target industries, territory and exclusions. We will assess the brief before proposing a written scope.</p><p><a href=\"request-a-quote.html\">Request a quote</a> · <a href=\"contact.html\">Contact DemandRange</a></p>",
+          "body_html": "<p>Start with your product range, target industries, territory and exclusions. We will assess the brief before proposing a written scope.</p><p><a href=\"request-a-quote.html\">Request a quote</a> · <a href=\"contact.html\">Contact Demand Range</a></p>",
           "provenance": [
             "BRAND CTA",
             "PLAN §23"
@@ -489,7 +489,7 @@
           "href": "request-a-quote.html"
         },
         {
-          "text": "Contact DemandRange",
+          "text": "Contact Demand Range",
           "href": "contact.html"
         },
         {
@@ -504,11 +504,11 @@
       "route": "/markets.html",
       "mode": "Replace main body and metadata; retain URL as the audience/application hub.",
       "purpose": "Help industrial suppliers define relevant account types and market boundaries, not attract equipment shoppers.",
-      "title": "EU Industrial Markets & Supplier Fit | DemandRange",
+      "title": "EU Industrial Markets & Supplier Fit | Demand Range",
       "meta_description": "Define industrial account fit by EU country, sector and customer route. Research scope, country-specific sources and language requirements are assessed first.",
       "eyebrow": "Who we help",
       "h1": "Built for suppliers selling into industrial markets.",
-      "intro_html": "<p>DemandRange helps suppliers of industrial equipment, technology and services define and research relevant businesses. Ireland is the current focus; every brief needs its own territory, account criteria and exclusions.</p><p>A company can fit your market without a new project. Project and development signals add context where evidenced; they do not establish equipment demand.</p>",
+      "intro_html": "<p>Demand Range helps suppliers of industrial equipment, technology and services define and research relevant businesses. Ireland is the current focus; every brief needs its own territory, account criteria and exclusions.</p><p>A company can fit your market without a new project. Project and development signals add context where evidenced; they do not establish equipment demand.</p>",
       "hero_links": [
         {
           "text": "Request a quote",
@@ -606,11 +606,11 @@
       "route": "/opportunity-intelligence.html",
       "mode": "Replace main body and metadata; preserve #receive, #credible, #fit and #scope anchors.",
       "purpose": "Specialist project-research capability; not the generic company-wide offer or a duplicate core service.",
-      "title": "EU Industrial Project Intelligence | DemandRange",
+      "title": "EU Industrial Project Intelligence | Demand Range",
       "meta_description": "Scope industrial project intelligence for target EU countries. Separate observed change, supplier relevance and unknowns; agree source and language limits first.",
       "eyebrow": "Opportunity Intelligence",
       "h1": "What a supplier project-intelligence brief includes",
-      "intro_html": "<p>When an evidenced industrial project or development is relevant to your range, the useful question is what it actually establishes. DemandRange’s Opportunity Intelligence capability brings the source record, supplier relevance and unresolved questions into a reviewable brief.</p><p>It supports the opportunity-signal component of our wider account-research model. Not every industry-matched account needs a project.</p>",
+      "intro_html": "<p>When an evidenced industrial project or development is relevant to your range, the useful question is what it actually establishes. Demand Range’s Opportunity Intelligence capability brings the source record, supplier relevance and unresolved questions into a reviewable brief.</p><p>It supports the opportunity-signal component of our wider account-research model. Not every industry-matched account needs a project.</p>",
       "hero_links": [
         {
           "text": "View the fictional opportunity brief",
@@ -713,8 +713,8 @@
       "key": "request-a-quote",
       "route": "/request-a-quote.html",
       "mode": "COPY-ONLY PATCH: metadata + hero + pre-form explanation/model cards. Never replace the whole main element or alter the form/client/schema/backend.",
-      "purpose": "Clarify what a request asks DemandRange to assess without changing the commissioned intake.",
-      "title": "Request an Industrial Research Quote | DemandRange",
+      "purpose": "Clarify what a request asks Demand Range to assess without changing the commissioned intake.",
+      "title": "Request an Industrial Research Quote | Demand Range",
       "meta_description": "Request a written scope for industrial account research. State your market and territory preferences; fields, coverage and deliverables are assessed before agreement.",
       "eyebrow": "Written scope first",
       "h1": "Request a lead programme scope & quote.",
@@ -786,7 +786,7 @@
       "route": "/sample-account-research.html",
       "mode": "New ungated page and downloadable educational CSV assets; no form or email capture.",
       "purpose": "Show a written fit decision through an accepted account, a paired project-signalled account and a rejected mismatch; provide editable fields.",
-      "title": "Industrial Account-Research Sample and Template | DemandRange",
+      "title": "Industrial Account-Research Sample and Template | Demand Range",
       "meta_description": "Inspect a real EPA facility-evidence demonstration, then separate fictional account-fit examples and editable company-level research templates.",
       "eyebrow": "Real facility evidence and separate fictional examples",
       "h1": "Industrial account-research sample and template",

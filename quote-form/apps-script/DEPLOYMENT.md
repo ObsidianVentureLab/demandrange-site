@@ -12,7 +12,7 @@ Run `node tests/test_manifest.js` and `node tests/test_local.js` from the quote-
 
 ## Required owner actions
 
-1. Sign in to the intended DemandRange Google Workspace account.
+1. Sign in to the intended Demand Range Google Workspace account.
 2. Create a private spreadsheet named `DemandRange — Quote Requests — Restricted`.
 3. Create a standalone Apps Script project owned by the same Workspace owner.
 4. Add `Code.gs` and `appsscript.json` from this directory.

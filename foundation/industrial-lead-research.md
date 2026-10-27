@@ -5,7 +5,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/industrial-lead-research.html`
 - Purpose: Commercial intent owner: what company-level industrial research contains, who it is for and how to scope it.
 - Integration mode: New page main body and metadata; use existing visual system.
-- Exact title: **Industrial Account & Lead Research | DemandRange**
+- Exact title: **Industrial Account & Lead Research | Demand Range**
 - Exact meta description: Company-level research for industrial suppliers selling into Ireland. See targeting criteria, record fields, exclusions and how project signals are treated.
 - Exact H1: **Account research for industrial suppliers selling into Ireland.**
 - Eyebrow: Industrial account and lead research

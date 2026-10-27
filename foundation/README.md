@@ -1,4 +1,4 @@
-# DemandRange foundation copy — parent handoff
+# Demand Range foundation copy — parent handoff
 
 **Drafts only. No website/template/generator/output/vault changes; no publishing, external sends, spend, backend edits, live data or canonical task closure.**
 

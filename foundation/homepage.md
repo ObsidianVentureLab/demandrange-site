@@ -5,7 +5,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/`
 - Purpose: Brand overview for industrial suppliers; commercial detail belongs to industrial-lead-research.html.
 - Integration mode: Replace main body and metadata; apply shared-copy.json separately.
-- Exact title: **DemandRange | Industrial Prospect Research**
+- Exact title: **Demand Range | Industrial Prospect Research**
 - Exact meta description: Industrial prospect research for suppliers selling into Ireland. Industry-matched accounts, with project signals where evidenced. Explore our method and examples.
 - Exact H1: **Find the right industrial prospects.**
 - Eyebrow: Industrial Lead Generation & Market Intelligence

@@ -5,7 +5,7 @@
       "route": "irish-prtr-industrial-account-research.html",
       "artifact": "01-prtr-industrial-account-research.md",
       "title": "Irish PRTR data for industrial account research",
-      "meta_title": "Irish PRTR Data for Industrial Account Research | DemandRange",
+      "meta_title": "Irish PRTR Data for Industrial Account Research | Demand Range",
       "meta_description": "Use Irish emissions-register metadata to frame industrial account research. Check facility scope, reporting dates and gaps without implying equipment demand."
     },
     {
@@ -13,7 +13,7 @@
       "route": "irish-water-investment-supplier-research.html",
       "artifact": "02-water-investment-supplier-research.md",
       "title": "Irish water investment announcements: what suppliers can infer",
-      "meta_title": "Irish Water Investment Research for Suppliers | DemandRange",
+      "meta_title": "Irish Water Investment Research for Suppliers | Demand Range",
       "meta_description": "Separate Irish water funding announcements from project and equipment evidence. A practical research guide for pump, valve and wastewater suppliers."
     },
     {
@@ -21,12 +21,12 @@
       "route": "energy-audit-industrial-supplier-signals.html",
       "artifact": "03-energy-audit-supplier-signals.md",
       "title": "An energy audit is not a pump order",
-      "meta_title": "Energy-Audit Signals for Industrial Suppliers | DemandRange",
+      "meta_title": "Energy-Audit Signals for Industrial Suppliers | Demand Range",
       "meta_description": "Read industrial energy-audit and upgrade announcements without inventing pump demand. Separate findings, decisions and measured outcomes, with a fictional case."
     },
     {
       "title": "Researching Irish pharmaceutical manufacturing accounts",
-      "meta_title": "Irish Pharma Manufacturing Account Research | DemandRange",
+      "meta_title": "Irish Pharma Manufacturing Account Research | Demand Range",
       "meta_description": "Research Irish pharmaceutical accounts by site, evidenced activity and supplier role. Separate medicine approval from facility evidence and equipment claims.",
       "key": "content-pharma",
       "route": "irish-pharmaceutical-manufacturing-account-research.html",
@@ -35,7 +35,7 @@
     },
     {
       "title": "Read Irish environmental registers without inventing a sales opportunity",
-      "meta_title": "Irish Environmental Register Evidence for Suppliers | DemandRange",
+      "meta_title": "Irish Environmental Register Evidence for Suppliers | Demand Range",
       "meta_description": "Separate register coverage, dossier records, water-system identity and discharge evidence before accepting an Irish industrial account or project signal.",
       "key": "content-register-evidence",
       "route": "irish-environmental-register-evidence.html",
@@ -47,7 +47,7 @@
       "route": "industrial-distributor-research-ireland.html",
       "artifact": "industrial-distributor-research-ireland.md",
       "title": "Irish industrial distributor research: building a channel shortlist",
-      "meta_title": "Irish Industrial Distributor Research | DemandRange",
+      "meta_title": "Irish Industrial Distributor Research | Demand Range",
       "meta_description": "Define a distributor brief, distinguish product coverage from partnership availability, and review fictional Irish industrial channel-research decisions.",
       "include_cc_licence": false
     },
@@ -56,13 +56,13 @@
       "route": "industrial-oem-account-research-ireland.html",
       "artifact": "industrial-oem-account-research-ireland.md",
       "title": "Irish industrial OEM account research: from component to build operation",
-      "meta_title": "Irish Industrial OEM Account Research | DemandRange",
+      "meta_title": "Irish Industrial OEM Account Research | Demand Range",
       "meta_description": "Map a component family to equipment and build operations. Separate brand, assembly and contract-build roles, with fictional cases and a blank OEM research tool.",
       "include_cc_licence": false
     },
     {
       "title": "Prioritise research actions across industrial accounts",
-      "meta_title": "Industrial Research-Action Prioritisation | DemandRange",
+      "meta_title": "Industrial Research-Action Prioritisation | Demand Range",
       "meta_description": "Allocate limited research time across screened industrial accounts using a fictional action queue and blank CSV. Plan evidence checks, not sales-account rankings.",
       "key": "content-prioritisation",
       "route": "industrial-account-prioritisation.html",
@@ -71,7 +71,7 @@
     },
     {
       "title": "Industrial MRO account research: follow the service scope, not the label",
-      "meta_title": "Industrial MRO Account Research | DemandRange",
+      "meta_title": "Industrial MRO Account Research | Demand Range",
       "meta_description": "Separate inspection, repair, parts provision and replenishment in industrial maintenance research. Work a fictional service chain and use a blank scope worksheet.",
       "key": "content-mro",
       "route": "industrial-mro-account-research.html",
@@ -83,13 +83,13 @@
       "route": "european-chemical-manufacturer-research.html",
       "artifact": "european-chemical-manufacturer-research.md",
       "title": "European chemical manufacturer research: find the operation behind the label",
-      "meta_title": "European Chemical Manufacturer Research | DemandRange",
+      "meta_title": "European Chemical Manufacturer Research | Demand Range",
       "meta_description": "Distinguish chemical production, formulation, import and distribution in EU account research. Map site activity to a supplier brief without inventing equipment demand.",
       "include_cc_licence": true
     },
     {
       "title": "EPC and EPCM projects: who controls your equipment package?",
-      "meta_title": "EPC/EPCM Equipment Supplier Research | DemandRange",
+      "meta_title": "EPC/EPCM Equipment Supplier Research | Demand Range",
       "meta_description": "Research EU industrial project buying routes: separate EPC/EPCM appointments, package scope, specification, enquiries and contracting, with a fictional worked map.",
       "key": "content-epc-epcm",
       "route": "epc-epcm-equipment-supplier-research.html",

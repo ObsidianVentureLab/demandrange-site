@@ -5,7 +5,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/opportunity-intelligence.html`
 - Purpose: Specialist project-research capability; not the generic company-wide offer or a duplicate core service.
 - Integration mode: Replace main body and metadata; preserve #receive, #credible, #fit and #scope anchors.
-- Exact title: **What a Supplier Project-Intelligence Brief Includes | DemandRange**
+- Exact title: **What a Supplier Project-Intelligence Brief Includes | Demand Range**
 - Exact meta description: See how a supplier project brief separates observed change, category relevance, stage and unknowns—without implying an open equipment package or buyer access.
 - Exact H1: **What a supplier project-intelligence brief includes**
 - Eyebrow: Opportunity Intelligence

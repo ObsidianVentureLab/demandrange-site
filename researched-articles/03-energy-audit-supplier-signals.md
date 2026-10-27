@@ -1,7 +1,7 @@
 ---
 title: "An energy audit is not a pump order"
 intended_route: "/energy-audit-industrial-supplier-signals.html"
-meta_title: "Energy-Audit Signals for Industrial Suppliers | DemandRange"
+meta_title: "Energy-Audit Signals for Industrial Suppliers | Demand Range"
 meta_description: "Read industrial energy-audit and upgrade announcements without inventing pump demand. Separate findings, decisions and measured outcomes, with a fictional case."
 audience: "Irish pump, valve, flow-control and process-equipment suppliers"
 content_role: "Interpret an efficiency signal before commissioning account or project research"
@@ -109,7 +109,7 @@ For an activity-led brief, review [industrial account research](https://demandra
 
 All cited sources were accessed **1 October 2026**. No private energy-audit report, manufacturer performance claim or named facility record is used. The research framework and fictional example are original; neither supplies engineering, grant-eligibility or legal advice.
 
-The definitions and audit-criteria summaries are adapted from Directive (EU) 2023/1791, consolidated text of 5 August 2026, © European Union, 1998–2026. EUR-Lex licenses its EU-owned consolidated texts under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).[16] The identified summaries have been shortened and paraphrased and remain available under that licence without additional DemandRange reuse restrictions. No EU endorsement is implied.
+The definitions and audit-criteria summaries are adapted from Directive (EU) 2023/1791, consolidated text of 5 August 2026, © European Union, 1998–2026. EUR-Lex licenses its EU-owned consolidated texts under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).[16] The identified summaries have been shortened and paraphrased and remain available under that licence without additional Demand Range reuse restrictions. No EU endorsement is implied.
 
 ## Sources
 

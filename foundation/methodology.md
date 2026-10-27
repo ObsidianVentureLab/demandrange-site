@@ -5,8 +5,8 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/methodology.html`
 - Purpose: Explain common fit checks, class-specific evidence, uncertainty and correction without duplicating the service offer.
 - Integration mode: Replace main body and metadata; retain existing method/scoring/principles/learning fragment IDs where used below.
-- Exact title: **How the Research Classes and QA Work | DemandRange**
-- Exact meta description: How DemandRange checks company fit, distinguishes project signals and records sources, review dates and unknowns. Inspect the method and fictional examples.
+- Exact title: **How the Research Classes and QA Work | Demand Range**
+- Exact meta description: How Demand Range checks company fit, distinguishes project signals and records sources, review dates and unknowns. Inspect the method and fictional examples.
 - Exact H1: **How the research classes and QA work**
 - Eyebrow: Research method
 - Public copy: `methodology.fragment.html` (unstyled content fragment, not a website template)

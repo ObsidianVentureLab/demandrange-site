@@ -4,7 +4,7 @@ version: '1.0'
 created: '2026-10-23'
 intended_route: european-chemical-manufacturer-research.html
 title: 'European chemical manufacturer research: find the operation behind the label'
-meta_title: 'European Chemical Manufacturer Research | DemandRange'
+meta_title: 'European Chemical Manufacturer Research | Demand Range'
 meta_description: 'Distinguish chemical production, formulation, import and distribution in EU account research. Map site activity to a supplier brief without inventing equipment demand.'
 content_type: primary-source-guide-and-original-supplier-decision
 ---
@@ -122,13 +122,13 @@ Compare the [fictional account-research sample](sample-account-research.html) wi
 
 - **ECHA role guidance:** the manufacturer/downstream-user distinction, formulator and re-filler examples, and the distributor/importer distinction.[1][2][3] It does not identify a researched plant or establish any individual company's status here.
 - **Eurostat's 2025 NACE Rev. 2.1 manual:** the selected activity examples in classes 20.16, 20.30 and 20.41, printed pages 136–137.[4] It does not describe a particular site's process or provide a market-size estimate.
-- **EUR-Lex's EEA glossary:** the territory distinction used at the start of the guide.[5] It does not define the territory of a DemandRange assignment.
+- **EUR-Lex's EEA glossary:** the territory distinction used at the start of the guide.[5] It does not define the territory of a Demand Range assignment.
 
-Sources were checked on **23 October 2026**. The ECHA guidance pages and EUR-Lex glossary did not state publication dates in the retrieved main text; the check date is not their publication date. No registrant records, database exports, real plant examples or current procurement were assessed. The decision method, worksheet and fictional cases are DemandRange's own work, not official guidance or source-institution endorsement.
+Sources were checked on **23 October 2026**. The ECHA guidance pages and EUR-Lex glossary did not state publication dates in the retrieved main text; the check date is not their publication date. No registrant records, database exports, real plant examples or current procurement were assessed. The decision method, worksheet and fictional cases are Demand Range's own work, not official guidance or source-institution endorsement.
 
 **ECHA attribution:** Source: European Chemicals Agency, https://echa.europa.eu/. © European Chemicals Agency, 2007–2026. The short role descriptions above are paraphrased from ECHA's own guidance, preserving their distinction between substances, mixtures and distribution. ECHA accepts no responsibility and/or liability for any use made of its information. The linked ECHA information is free of charge and non-exclusive. ECHA's legal notice permits this bounded use subject to its conditions; it does not extend that permission to third-party material or whole or substantial database replication.[6] No logo, chemical record, CAS information, study summary or EUCLEF data is reproduced.
 
-**EU attribution:** the identified NACE activity summary is adapted from Eurostat, *NACE Rev. 2.1 — Statistical classification of economic activities in the European Union*, 2025 edition, © European Union, 2025; doi:10.2785/155339. Its item-specific notice permits reuse under CC BY 4.0; no cover image or third-party element is reused.[4] The EEA summary is adapted from EUR-Lex, © European Union, under the editorial-content terms in its copyright notice.[7] Both summaries have been shortened and paraphrased. They remain available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) without additional DemandRange reuse restrictions. The European Union institutions do not endorse the commercial interpretation.
+**EU attribution:** the identified NACE activity summary is adapted from Eurostat, *NACE Rev. 2.1 — Statistical classification of economic activities in the European Union*, 2025 edition, © European Union, 2025; doi:10.2785/155339. Its item-specific notice permits reuse under CC BY 4.0; no cover image or third-party element is reused.[4] The EEA summary is adapted from EUR-Lex, © European Union, under the editorial-content terms in its copyright notice.[7] Both summaries have been shortened and paraphrased. They remain available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) without additional Demand Range reuse restrictions. The European Union institutions do not endorse the commercial interpretation.
 
 ## Sources
 

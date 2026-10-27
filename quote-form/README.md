@@ -1,4 +1,4 @@
-# DemandRange quote-request form
+# Demand Range quote-request form
 
 Status: staged implementation; not deployed.
 

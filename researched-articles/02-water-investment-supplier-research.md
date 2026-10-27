@@ -1,7 +1,7 @@
 ---
 title: "Irish water investment announcements: what suppliers can infer"
 intended_route: "/irish-water-investment-supplier-research.html"
-meta_title: "Irish Water Investment Research for Suppliers | DemandRange"
+meta_title: "Irish Water Investment Research for Suppliers | Demand Range"
 meta_description: "Separate Irish water funding announcements from project and equipment evidence. A practical research guide for pump, valve and wastewater suppliers."
 audience: "Irish pump, valve, flow-control and water/process suppliers"
 content_role: "Programme-to-project evidence guide; not tender triage or buyer-role mapping"
@@ -52,7 +52,7 @@ The stated work spans nitrogen and phosphorus treatment, final filtration and UV
 
 These two records report **total investment and an EU fund contribution**—not proposed or signed EIB loans. <a href="#eu-finance-source-1">EU source 1</a> <a href="#eu-finance-source-2">EU source 2</a> Do not invent a loan-signature date, a disbursement status or a supplier-accessible revenue figure. A finance record is neither an open procurement notice nor a buyer contact. The distinct outputs are a historical single-asset change note for Bétera and a phase-level, multi-site scope note for Regi Lagni; both still need separate evidence before any present equipment opportunity can be claimed.
 
-The identified project summaries are shortened and paraphrased from European Commission Inforegio content under CC BY 4.0; they remain available under that licence without additional DemandRange reuse restrictions. <a href="#eu-finance-source-3">EU source 3</a> Research decisions are original commentary. No photographs, personal quotations, contact details or attachments are reproduced, and no Commission endorsement is implied.
+The identified project summaries are shortened and paraphrased from European Commission Inforegio content under CC BY 4.0; they remain available under that licence without additional Demand Range reuse restrictions. <a href="#eu-finance-source-3">EU source 3</a> Research decisions are original commentary. No photographs, personal quotations, contact details or attachments are reproduced, and no Commission endorsement is implied.
 
 ### Cross-EU sources: copyable URLs
 
@@ -172,9 +172,9 @@ Review [Opportunity Intelligence](https://demandrange.com/opportunity-intelligen
 
 Source checked **1 October 2026**; the funding announcement was published and last updated **29 July 2026**.[13] The note describes that announcement, not a verification of every subsequent programme decision. Recheck it before relying on a current funding statement.
 
-Information provided courtesy of the Department of Public Expenditure, Infrastructure, Public Service Reform and Digitalisation under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).[14] The identified funding summaries have been shortened and paraphrased and remain available under CC BY 4.0 without additional DemandRange reuse restrictions. The framework and fictional example are original. No government endorsement, complete project coverage, package availability or compliance clearance is implied.
+Information provided courtesy of the Department of Public Expenditure, Infrastructure, Public Service Reform and Digitalisation under a [Creative Commons Attribution 4.0 International (CC BY 4.0) licence](https://creativecommons.org/licenses/by/4.0/).[14] The identified funding summaries have been shortened and paraphrased and remain available under CC BY 4.0 without additional Demand Range reuse restrictions. The framework and fictional example are original. No government endorsement, complete project coverage, package availability or compliance clearance is implied.
 
-The narrow RAL catalogue summary is adapted from Environmental Protection Agency metadata on data.gov.ie, checked 9 October 2026; it is not a current supply-status extraction.[15] Contains Irish Public Sector Data licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.[16] The identified metadata summary is paraphrased and remains available under CC BY 4.0 without additional DemandRange reuse restrictions.[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) The method, table and exercise are original; no source endorsement is implied.
+The narrow RAL catalogue summary is adapted from Environmental Protection Agency metadata on data.gov.ie, checked 9 October 2026; it is not a current supply-status extraction.[15] Contains Irish Public Sector Data licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.[16] The identified metadata summary is paraphrased and remains available under CC BY 4.0 without additional Demand Range reuse restrictions.[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) The method, table and exercise are original; no source endorsement is implied.
 
 ## Sources
 

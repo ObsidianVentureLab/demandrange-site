@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build DemandRange's supplied redesign into an explicitly named public tree.
+"""Build Demand Range's supplied redesign into an explicitly named public tree.
 
 Canonical source remains outside the published repository. The source directory
 combines the unmodified user export with retained production assets. All intake

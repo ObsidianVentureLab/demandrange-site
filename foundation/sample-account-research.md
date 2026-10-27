@@ -5,7 +5,7 @@ Status: draft for parent review; not independent acceptance or publication.
 - Route: `/sample-account-research.html`
 - Purpose: Show a written fit decision through an accepted account, a paired project-signalled account and a rejected mismatch; provide editable fields.
 - Integration mode: New ungated page and downloadable educational CSV assets; no form or email capture.
-- Exact title: **Industrial Account-Research Sample and Template | DemandRange**
+- Exact title: **Industrial Account-Research Sample and Template | Demand Range**
 - Exact meta description: Inspect fictional accepted and rejected accounts, compare a project-signal example, and download an editable company-level worksheet and field dictionary.
 - Exact H1: **Industrial account-research sample and template**
 - Eyebrow: Fictional worked examples · Company-level research

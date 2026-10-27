@@ -4,7 +4,7 @@ version: '1.0'
 created: '2026-10-14'
 intended_route: industrial-mro-account-research.html
 title: 'Industrial MRO account research: follow the service scope, not the label'
-meta_title: 'Industrial MRO Account Research | DemandRange'
+meta_title: 'Industrial MRO Account Research | Demand Range'
 meta_description: 'Separate inspection, repair, parts provision and replenishment in industrial maintenance research. Work a fictional service chain and use a blank scope worksheet.'
 content_type: original-analyst-method
 ---
@@ -91,7 +91,7 @@ A positive or negative finding needs its own supporting reference. Preserve comp
 
 Try: “Investigate [service activity/territory] accounts for [parts family]. Establish the service output and parts-provision boundary. Separate client-supplied materials, approval, selection, ordering and replenishment. Return unresolved questions without inferring installed assets or current need.”
 
-DemandRange's service describes company-level research against an agreed brief, with contacts and outreach separately scoped.[1] Its methodology separates observations, interpretations and unknowns.[2] These references provide offer context only, not validation of this proposed MRO method or its fictional cases.
+Demand Range's service describes company-level research against an agreed brief, with contacts and outreach separately scoped.[1] Its methodology separates observations, interpretations and unknowns.[2] These references provide offer context only, not validation of this proposed MRO method or its fictional cases.
 
 Review the [industrial account-research service](industrial-lead-research.html), inspect the [fictional account sample](sample-account-research.html), or [request a scoped quote](request-a-quote.html).
 
@@ -99,5 +99,5 @@ Share only non-sensitive range and scope questions. This worksheet grants no sou
 
 ## Sources
 
-[1] https://demandrange.com/industrial-lead-research.html — DemandRange: company-level research service and scope
-[2] https://demandrange.com/methodology.html — DemandRange: observations, interpretation and unknowns
+[1] https://demandrange.com/industrial-lead-research.html — Demand Range: company-level research service and scope
+[2] https://demandrange.com/methodology.html — Demand Range: observations, interpretation and unknowns
