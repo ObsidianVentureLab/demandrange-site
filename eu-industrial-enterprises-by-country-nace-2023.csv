@@ -1,0 +1,869 @@
+country_code,country,nace_r2_code,nace_r2_activity,reference_year,enterprises_total,enterprises_10_19_persons,enterprises_20_49_persons,enterprises_50_249_persons,enterprises_250plus_persons,persons_employed,net_turnover_eur_million,gross_investment_machinery_equipment_eur_million,eurostat_flags
+BE,Belgium,B,Mining and quarrying,2023,169,17,10,,,2356,948.81,70.38,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C,Manufacturing,2023,42355,1779,1684,1142,326,519209,362980.55,12137.27,
+BE,Belgium,C10,Manufacture of food products,2023,7123,451,330,241,70,100655,74334.07,1705.02,
+BE,Belgium,C11,Manufacture of beverages,2023,944,22,30,15,9,13202,9368.66,1264.73,
+BE,Belgium,C12,Manufacture of tobacco products,2023,19,,,,,1188,517.55,10.56,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C13,Manufacture of textiles,2023,1188,52,54,49,12,15749,4611.93,165.01,
+BE,Belgium,C14,Manufacture of wearing apparel,2023,816,16,14,,,2766,828.8,10.43,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C15,Manufacture of leather and related products,2023,105,,,,0,397,60.33,1.26,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+BE,Belgium,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2113,63,,36,,12031,4963.92,298.32,enterprises_20_49_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C17,Manufacture of paper and paper products,2023,213,14,30,37,10,11671,5974.99,298,
+BE,Belgium,C18,Printing and reproduction of recorded media,2023,4337,75,60,28,3,12214,2486.32,98.99,
+BE,Belgium,C19,Manufacture of coke and refined petroleum products,2023,14,0,,3,,4766,45728.47,239.55,enterprises_20_49_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C20,Manufacture of chemicals and chemical products,2023,672,44,84,112,40,44437,40695.88,3052.7,
+BE,Belgium,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,196,8,13,16,17,33251,45884.86,1201.39,
+BE,Belgium,C22,Manufacture of rubber and plastic products,2023,768,80,87,86,26,24354,9895.87,340.66,
+BE,Belgium,C23,Manufacture of other non-metallic mineral products,2023,1549,98,98,49,22,27198,12581.62,509.85,
+BE,Belgium,C24,Manufacture of basic metals,2023,284,23,10,34,14,26422,26188.53,674.35,
+BE,Belgium,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,8552,409,340,129,15,48928,15241.36,716.82,
+BE,Belgium,C26,"Manufacture of computer, electronic and optical products",2023,439,40,34,25,11,10655,4846.68,115.78,
+BE,Belgium,C27,Manufacture of electrical equipment,2023,592,23,51,25,10,12021,4381.14,141.9,
+BE,Belgium,C28,Manufacture of machinery and equipment n.e.c.,2023,1366,95,129,89,17,33066,16299.19,371.97,
+BE,Belgium,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,470,29,40,28,15,29488,22048.98,335.32,
+BE,Belgium,C30,Manufacture of other transport equipment,2023,187,7,8,8,6,6452,2322.36,66.97,
+BE,Belgium,C31,Manufacture of furniture,2023,2339,,65,39,,10559,2310.62,127.61,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+BE,Belgium,C32,Other manufacturing,2023,2747,60,40,23,5,10685,3803.45,147.25,
+BE,Belgium,C33,Repair and installation of machinery and equipment,2023,5322,101,104,59,17,27054,7604.98,242.86,
+BE,Belgium,D35,"Electricity, gas, steam and air conditioning supply",2023,948,11,22,11,8,22346,42072.83,2020.66,
+BE,Belgium,E36,"Water collection, treatment and supply",2023,45,,,,7,7352,3229.45,839.17,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+BE,Belgium,E37,Sewerage,2023,233,11,,,,2777,1172.11,359.88,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+BE,Belgium,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,1096,90,88,39,13,16841,7842.41,517.46,
+BE,Belgium,E39,Remediation activities and other waste management services,2023,169,,7,7,,1309,792.11,41.93,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+BG,Bulgaria,B,Mining and quarrying,2023,263,36,36,19,11,18781,1963.32,115.76,
+BG,Bulgaria,C,Manufacturing,2023,29512,2909,2273,1434,266,494008,52154.45,1836.34,
+BG,Bulgaria,C10,Manufacture of food products,2023,5034,594,429,297,33,77483,8419.85,235.69,
+BG,Bulgaria,C11,Manufacture of beverages,2023,847,58,45,24,9,11212,1248.34,63.53,
+BG,Bulgaria,C12,Manufacture of tobacco products,2023,7,,0,,,,,,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+BG,Bulgaria,C13,Manufacture of textiles,2023,724,58,46,25,4,10414,586.31,25.25,
+BG,Bulgaria,C14,Manufacture of wearing apparel,2023,3360,384,402,222,22,57703,1443.23,33.82,
+BG,Bulgaria,C15,Manufacture of leather and related products,2023,358,41,49,37,3,7723,142.05,4.39,
+BG,Bulgaria,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,1613,216,132,25,3,13498,816.18,46.73,
+BG,Bulgaria,C17,Manufacture of paper and paper products,2023,473,67,53,25,6,8321,923.46,57,
+BG,Bulgaria,C18,Printing and reproduction of recorded media,2023,963,97,47,33,5,8871,503.79,34.07,
+BG,Bulgaria,C19,Manufacture of coke and refined petroleum products,2023,9,0,,,,2428,,,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+BG,Bulgaria,C20,Manufacture of chemicals and chemical products,2023,726,75,59,49,11,14868,2496.57,98,
+BG,Bulgaria,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,60,7,9,8,7,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+BG,Bulgaria,C22,Manufacture of rubber and plastic products,2023,1525,149,140,102,15,31337,2593.34,125.35,
+BG,Bulgaria,C23,Manufacture of other non-metallic mineral products,2023,1218,156,101,66,12,21204,2542.5,201.8,
+BG,Bulgaria,C24,Manufacture of basic metals,2023,160,24,16,33,12,12922,7322.32,163.74,
+BG,Bulgaria,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,3285,314,270,146,18,54709,4098.79,196.86,
+BG,Bulgaria,C26,"Manufacture of computer, electronic and optical products",2023,371,46,47,31,8,10825,1282.58,53.51,
+BG,Bulgaria,C27,Manufacture of electrical equipment,2023,525,55,58,68,23,26604,2888.6,81.03,
+BG,Bulgaria,C28,Manufacture of machinery and equipment n.e.c.,2023,914,132,110,105,21,32232,2548.94,121.94,
+BG,Bulgaria,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,142,17,13,15,20,25499,2595.33,101.43,
+BG,Bulgaria,C30,Manufacture of other transport equipment,2023,82,,,11,,6753,1082.52,25.53,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C
+BG,Bulgaria,C31,Manufacture of furniture,2023,2574,218,108,48,9,20949,855.5,41.9,
+BG,Bulgaria,C32,Other manufacturing,2023,1995,59,47,18,7,12006,832.62,31.43,
+BG,Bulgaria,C33,Repair and installation of machinery and equipment,2023,2547,132,87,40,7,17617,1053.1,33.97,
+BG,Bulgaria,D35,"Electricity, gas, steam and air conditioning supply",2023,4901,49,31,26,16,33326,19775.02,904.31,
+BG,Bulgaria,E36,"Water collection, treatment and supply",2023,40,7,,6,,15652,494.64,,enterprises_20_49_persons=C; enterprises_250plus_persons=C; gross_investment_machinery_equipment_eur_million=C
+BG,Bulgaria,E37,Sewerage,2023,55,3,,,0,381,17.28,3.55,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+BG,Bulgaria,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,595,56,74,38,10,13502,905.54,,gross_investment_machinery_equipment_eur_million=C
+BG,Bulgaria,E39,Remediation activities and other waste management services,2023,79,7,,,,1268,112.55,3.46,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+CZ,Czechia,B,Mining and quarrying,2023,504,40,38,19,14,18840,5499.46,182.83,
+CZ,Czechia,C,Manufacturing,2023,189479,4655,3731,2860,843,1273289,253561.88,8556.37,
+CZ,Czechia,C10,Manufacture of food products,2023,10238,523,398,294,62,98913,18252.68,503.16,
+CZ,Czechia,C11,Manufacture of beverages,2023,3308,85,60,35,11,18222,3979.98,160.48,
+CZ,Czechia,C12,Manufacture of tobacco products,2023,12,0,2,0,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+CZ,Czechia,C13,Manufacture of textiles,2023,2106,113,70,79,14,21837,2461.57,81.29,
+CZ,Czechia,C14,Manufacture of wearing apparel,2023,16574,148,99,40,4,25781,1070.88,32.09,
+CZ,Czechia,C15,Manufacture of leather and related products,2023,511,27,29,13,2,3584,247.28,21.61,
+CZ,Czechia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,24753,350,186,74,13,48796,4792.28,249.82,
+CZ,Czechia,C17,Manufacture of paper and paper products,2023,1164,65,72,77,13,21324,4686.1,265.02,
+CZ,Czechia,C18,Printing and reproduction of recorded media,2023,9502,143,89,44,8,22830,2074.16,103.08,
+CZ,Czechia,C19,Manufacture of coke and refined petroleum products,2023,19,1,1,1,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+CZ,Czechia,C20,Manufacture of chemicals and chemical products,2023,1858,74,76,93,27,31781,14822.99,301.26,
+CZ,Czechia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,85,11,12,16,12,11433,2977.15,66.58,
+CZ,Czechia,C22,Manufacture of rubber and plastic products,2023,3742,231,293,279,70,84001,15474.42,610.3,
+CZ,Czechia,C23,Manufacture of other non-metallic mineral products,2023,6160,172,115,108,47,53745,8168.06,460.06,
+CZ,Czechia,C24,Manufacture of basic metals,2023,1333,49,46,85,30,40543,9936.75,283.03,
+CZ,Czechia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,53611,1212,911,518,83,194029,21324.37,1104.37,
+CZ,Czechia,C26,"Manufacture of computer, electronic and optical products",2023,3472,148,79,98,31,45182,13601.37,451.6,
+CZ,Czechia,C27,Manufacture of electrical equipment,2023,8929,217,172,168,86,105734,18718.04,614.61,
+CZ,Czechia,C28,Manufacture of machinery and equipment n.e.c.,2023,4617,293,375,375,103,120573,19467.88,666.22,
+CZ,Czechia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,1164,47,109,161,139,172414,71508.26,1911.57,
+CZ,Czechia,C30,Manufacture of other transport equipment,2023,1092,38,39,51,23,25554,5320.08,158.09,
+CZ,Czechia,C31,Manufacture of furniture,2023,5001,157,140,71,5,21765,1983.41,95.43,
+CZ,Czechia,C32,Other manufacturing,2023,10547,174,139,80,27,43554,3734.9,164.07,
+CZ,Czechia,C33,Repair and installation of machinery and equipment,2023,19681,377,219,100,31,59680,7820.2,222.91,
+CZ,Czechia,D35,"Electricity, gas, steam and air conditioning supply",2023,12727,131,80,62,25,42093,72867.4,1050.34,
+CZ,Czechia,E36,"Water collection, treatment and supply",2023,860,22,21,33,19,18265,2605.45,73.36,
+CZ,Czechia,E37,Sewerage,2023,189,6,7,5,1,1402,153.04,8.58,
+CZ,Czechia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,5985,216,162,110,11,36624,4575.54,310.56,
+CZ,Czechia,E39,Remediation activities and other waste management services,2023,45,4,1,2,0,408,52.59,6.51,
+DK,Denmark,B,Mining and quarrying,2023,220,15,19,8,4,4006,3554.22,609.89,
+DK,Denmark,C,Manufacturing,2023,15563,1386,1188,858,195,338756,162703.33,4736.77,
+DK,Denmark,C10,Manufacture of food products,2023,1406,232,171,105,35,55378,31128.73,746.91,
+DK,Denmark,C11,Manufacture of beverages,2023,282,23,14,7,2,4287,1511.66,42.71,
+DK,Denmark,C12,Manufacture of tobacco products,2023,10,0,1,4,0,469,146.52,9.42,
+DK,Denmark,C13,Manufacture of textiles,2023,295,24,16,16,1,3024,965.73,17.07,
+DK,Denmark,C14,Manufacture of wearing apparel,2023,408,11,16,2,1,1901,633.09,10.79,
+DK,Denmark,C15,Manufacture of leather and related products,2023,61,1,1,0,0,154,25.78,0.93,
+DK,Denmark,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,485,39,32,31,6,7956,1863.82,53.78,
+DK,Denmark,C17,Manufacture of paper and paper products,2023,115,17,15,11,5,4675,1398.64,58.62,
+DK,Denmark,C18,Printing and reproduction of recorded media,2023,474,38,23,12,3,3993,836.25,65.17,
+DK,Denmark,C19,Manufacture of coke and refined petroleum products,2023,15,1,1,1,2,773,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+DK,Denmark,C20,Manufacture of chemicals and chemical products,2023,267,29,23,33,7,12630,6849.33,287.29,
+DK,Denmark,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,149,12,11,8,10,35782,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+DK,Denmark,C22,Manufacture of rubber and plastic products,2023,448,64,54,60,8,11757,3209.33,102.38,
+DK,Denmark,C23,Manufacture of other non-metallic mineral products,2023,478,37,26,40,16,14372,4323.77,140.08,
+DK,Denmark,C24,Manufacture of basic metals,2023,150,16,13,15,8,5547,2169.86,52.07,
+DK,Denmark,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,2825,299,263,138,13,34934,8606.58,268.29,
+DK,Denmark,C26,"Manufacture of computer, electronic and optical products",2023,578,47,71,37,14,17922,6588.37,104.13,
+DK,Denmark,C27,Manufacture of electrical equipment,2023,482,53,44,49,5,11769,3541.58,48.91,
+DK,Denmark,C28,Manufacture of machinery and equipment n.e.c.,2023,1819,180,200,180,37,65944,27802.13,695.64,
+DK,Denmark,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,139,11,19,15,4,4026,1110.84,16.88,
+DK,Denmark,C30,Manufacture of other transport equipment,2023,147,13,22,8,3,3149,1062.67,27.19,
+DK,Denmark,C31,Manufacture of furniture,2023,668,68,47,33,5,9619,2458.98,28.18,
+DK,Denmark,C32,Other manufacturing,2023,1199,40,33,16,6,15036,10834.74,232.09,
+DK,Denmark,C33,Repair and installation of machinery and equipment,2023,2663,131,72,37,4,13659,3581.2,77.45,
+DK,Denmark,D35,"Electricity, gas, steam and air conditioning supply",2023,2256,63,46,26,17,17806,71689.34,2215.5,
+DK,Denmark,E36,"Water collection, treatment and supply",2023,1704,13,6,1,1,2336,780.96,339.43,
+DK,Denmark,E37,Sewerage,2023,300,18,19,7,0,1807,1606.83,709.38,
+DK,Denmark,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,297,21,22,21,10,9330,3705.37,486.19,
+DK,Denmark,E39,Remediation activities and other waste management services,2023,29,1,2,0,0,109,76.96,5.5,
+DE,Germany,B,Mining and quarrying,2023,1553,162,209,121,22,36596,14681.01,654.8,
+DE,Germany,C,Manufacturing,2023,201177,25899,26041,15265,4806,8161765,2892454.8,66620.27,
+DE,Germany,C10,Manufacture of food products,2023,24118,3966,5900,1951,630,900046,243602.99,4880.96,
+DE,Germany,C11,Manufacture of beverages,2023,2511,146,263,293,47,108313,33950.52,1098.18,
+DE,Germany,C12,Manufacture of tobacco products,2023,55,20,5,1,9,8494,12863.21,98.73,
+DE,Germany,C13,Manufacture of textiles,2023,4236,509,385,266,49,76145,14742.34,326.69,
+DE,Germany,C14,Manufacture of wearing apparel,2023,2602,96,132,76,33,39030,9700.84,93.03,
+DE,Germany,C15,Manufacture of leather and related products,2023,1286,95,100,37,14,27159,4321.85,88.58,
+DE,Germany,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,11587,905,956,312,68,142893,34498.9,1246.63,
+DE,Germany,C17,Manufacture of paper and paper products,2023,1421,147,206,248,124,142221,48527.18,1887.18,
+DE,Germany,C18,Printing and reproduction of recorded media,2023,9589,1139,904,362,47,131836,17428.78,394.12,
+DE,Germany,C19,Manufacture of coke and refined petroleum products,2023,84,6,7,14,21,23708,127844.88,1601.33,
+DE,Germany,C20,Manufacture of chemicals and chemical products,2023,3572,420,439,531,250,396140,197354.79,6103.58,
+DE,Germany,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,671,54,53,86,93,169200,98912.96,2878.49,
+DE,Germany,C22,Manufacture of rubber and plastic products,2023,6874,947,1355,1299,664,562482,138768.65,3050.08,
+DE,Germany,C23,Manufacture of other non-metallic mineral products,2023,9077,858,687,483,189,248459,62575.16,2467.23,
+DE,Germany,C24,Manufacture of basic metals,2023,2073,310,221,321,180,256552,148677.71,2943.42,
+DE,Germany,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,41273,5147,6290,3385,486,933828,179612.59,4653.59,
+DE,Germany,C26,"Manufacture of computer, electronic and optical products",2023,7958,1125,911,747,237,401536,119515.59,3568.9,
+DE,Germany,C27,Manufacture of electrical equipment,2023,6021,890,788,845,285,566361,173811.52,3864.64,
+DE,Germany,C28,Manufacture of machinery and equipment n.e.c.,2023,15749,2667,2443,2123,807,1277601,373074.55,8256.57,
+DE,Germany,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,2965,279,427,347,207,875396,661713.97,13430.76,
+DE,Germany,C30,Manufacture of other transport equipment,2023,1370,230,180,123,69,174338,61044.11,1232.88,
+DE,Germany,C31,Manufacture of furniture,2023,10192,985,744,324,69,141644,23720.01,488.65,
+DE,Germany,C32,Other manufacturing,2023,19052,2962,1344,534,130,304866,54229.19,1425.52,
+DE,Germany,C33,Repair and installation of machinery and equipment,2023,16841,1997,1301,557,97,253521,51962.52,540.55,
+DE,Germany,D35,"Electricity, gas, steam and air conditioning supply",2023,74086,588,429,498,223,424508,1251390.03,30602.68,
+DE,Germany,E36,"Water collection, treatment and supply",2023,1705,178,181,151,17,37792,17101.59,2762.56,
+DE,Germany,E37,Sewerage,2023,1905,314,235,107,30,47104,11567.81,3269.12,
+DE,Germany,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,5699,732,638,489,114,210939,56429.29,2887.35,
+DE,Germany,E39,Remediation activities and other waste management services,2023,440,50,41,19,5,7277,1423.92,67.74,
+EE,Estonia,B,Mining and quarrying,2023,169,11,26,8,1,2260,387.99,36.87,
+EE,Estonia,C,Manufacturing,2023,9622,647,609,395,51,108980,17662.3,473.9,
+EE,Estonia,C10,Manufacture of food products,2023,902,63,60,47,9,12994,2689.47,67.71,
+EE,Estonia,C11,Manufacture of beverages,2023,141,11,6,4,2,1639,350.87,21.41,
+EE,Estonia,C12,Manufacture of tobacco products,2023,0,0,0,0,0,0,0,0,
+EE,Estonia,C13,Manufacture of textiles,2023,368,19,25,14,1,3556,344.18,5.26,
+EE,Estonia,C14,Manufacture of wearing apparel,2023,714,31,35,15,0,4304,217.37,2.41,
+EE,Estonia,C15,Manufacture of leather and related products,2023,78,2,5,3,0,614,36.2,0.43,
+EE,Estonia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,1301,102,83,66,8,17049,3401.49,103.35,
+EE,Estonia,C17,Manufacture of paper and paper products,2023,64,5,4,8,1,1277,257.62,6.61,
+EE,Estonia,C18,Printing and reproduction of recorded media,2023,388,21,16,10,0,2472,256.39,14.66,
+EE,Estonia,C19,Manufacture of coke and refined petroleum products,2023,5,1,0,0,2,1205,384.19,3.81,
+EE,Estonia,C20,Manufacture of chemicals and chemical products,2023,160,13,7,11,1,2364,548.98,25.34,
+EE,Estonia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,18,0,2,4,0,461,72.38,5.46,
+EE,Estonia,C22,Manufacture of rubber and plastic products,2023,216,28,31,14,2,4247,596.63,18,
+EE,Estonia,C23,Manufacture of other non-metallic mineral products,2023,313,16,35,15,2,4214,742.11,23.25,
+EE,Estonia,C24,Manufacture of basic metals,2023,20,3,0,3,1,618,121.35,2.51,
+EE,Estonia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,1640,143,125,44,3,13941,1869.8,58.79,
+EE,Estonia,C26,"Manufacture of computer, electronic and optical products",2023,146,13,13,13,6,6863,1498.24,27.41,
+EE,Estonia,C27,Manufacture of electrical equipment,2023,159,12,19,27,5,6191,1062.22,15.85,
+EE,Estonia,C28,Manufacture of machinery and equipment n.e.c.,2023,233,22,36,18,1,3929,683.62,13.99,
+EE,Estonia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,90,7,12,14,2,3655,671.75,16.77,
+EE,Estonia,C30,Manufacture of other transport equipment,2023,133,7,9,8,0,1247,157.46,2.86,
+EE,Estonia,C31,Manufacture of furniture,2023,952,46,52,32,0,6851,640.41,11.78,
+EE,Estonia,C32,Other manufacturing,2023,500,26,12,9,2,2838,251.38,12.05,
+EE,Estonia,C33,Repair and installation of machinery and equipment,2023,1081,56,22,16,3,6451,808.19,14.19,
+EE,Estonia,D35,"Electricity, gas, steam and air conditioning supply",2023,648,15,12,10,3,5640,4248.19,539.49,
+EE,Estonia,E36,"Water collection, treatment and supply",2023,70,13,8,5,1,1150,154.24,8.45,
+EE,Estonia,E37,Sewerage,2023,70,2,0,0,0,164,12.25,0.43,
+EE,Estonia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,168,14,13,8,2,2294,616.66,19.64,
+EE,Estonia,E39,Remediation activities and other waste management services,2023,14,3,0,0,0,62,3.75,0.39,
+IE,Ireland,B,Mining and quarrying,2023,494,25,30,,,3415,925.49,4.09,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+IE,Ireland,C,Manufacturing,2023,19416,901,762,603,197,272438,431254.98,330.79,
+IE,Ireland,C10,Manufacture of food products,2023,2139,152,132,147,56,57642,36269.28,40.89,
+IE,Ireland,C11,Manufacture of beverages,2023,,20,16,,,,,,enterprises_total=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C12,Manufacture of tobacco products,2023,,,0,0,0,,,0,enterprises_total=C; enterprises_10_19_persons=C; persons_employed=C; net_turnover_eur_million=C
+IE,Ireland,C13,Manufacture of textiles,2023,515,23,13,7,0,2103,278.76,1.12,
+IE,Ireland,C14,Manufacture of wearing apparel,2023,435,,10,,0,1365,169.39,0.58,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+IE,Ireland,C15,Manufacture of leather and related products,2023,,,,,0,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,1605,59,39,27,0,7218,1684.36,7.57,
+IE,Ireland,C17,Manufacture of paper and paper products,2023,204,,20,,,3889,1011.12,,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C18,Printing and reproduction of recorded media,2023,1365,,26,,0,4913,652.16,2.4,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+IE,Ireland,C19,Manufacture of coke and refined petroleum products,2023,,,,0,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C20,Manufacture of chemicals and chemical products,2023,483,8,31,28,11,11629,17419.13,20.7,
+IE,Ireland,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,247,10,10,27,29,28184,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C22,Manufacture of rubber and plastic products,2023,481,,47,,,10310,2849.35,7.21,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+IE,Ireland,C23,Manufacture of other non-metallic mineral products,2023,,64,61,,,,,,enterprises_total=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C24,Manufacture of basic metals,2023,,35,22,,,,,3.23,enterprises_total=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C
+IE,Ireland,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,3467,135,109,69,8,20238,3643.53,29.54,
+IE,Ireland,C26,"Manufacture of computer, electronic and optical products",2023,417,19,18,17,13,22760,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C27,Manufacture of electrical equipment,2023,,23,17,,,,,,enterprises_total=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C28,Manufacture of machinery and equipment n.e.c.,2023,717,52,60,50,9,13711,4122.08,11.34,
+IE,Ireland,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,,13,,,,,,,enterprises_total=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C30,Manufacture of other transport equipment,2023,116,,,,0,635,89.56,0.2,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+IE,Ireland,C31,Manufacture of furniture,2023,,,52,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C32,Other manufacturing,2023,1227,38,21,26,35,43566,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,C33,Repair and installation of machinery and equipment,2023,1972,50,38,,,8692,1695.01,6.15,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+IE,Ireland,D35,"Electricity, gas, steam and air conditioning supply",2023,970,11,9,,,13345,21312.13,228.45,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+IE,Ireland,E36,"Water collection, treatment and supply",2023,,,,0,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,E37,Sewerage,2023,219,,,,0,1661,435.71,2.7,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+IE,Ireland,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+IE,Ireland,E39,Remediation activities and other waste management services,2023,67,3,0,3,0,476,84.9,,gross_investment_machinery_equipment_eur_million=C
+EL,Greece,B,Mining and quarrying,2023,551,41,23,11,6,6047,913.28,51.01,
+EL,Greece,C,Manufacturing,2023,57326,3151,1830,839,174,388350,90329.81,2058.76,
+EL,Greece,C10,Manufacture of food products,2023,14527,1178,612,287,74,133204,20981.67,428.03,
+EL,Greece,C11,Manufacture of beverages,2023,1185,52,43,29,5,10625,2544.82,88.96,
+EL,Greece,C12,Manufacture of tobacco products,2023,24,0,,,,3183,1305.38,109.61,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,C13,Manufacture of textiles,2023,1526,74,49,17,3,8757,940.68,13.48,
+EL,Greece,C14,Manufacture of wearing apparel,2023,3322,162,78,28,3,14084,924.09,9.11,
+EL,Greece,C15,Manufacture of leather and related products,2023,642,23,14,7,0,2613,167.71,2,
+EL,Greece,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2279,92,,,,7290,634.57,14.58,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,C17,Manufacture of paper and paper products,2023,590,67,44,38,8,10303,2222.24,63.66,
+EL,Greece,C18,Printing and reproduction of recorded media,2023,2894,115,,,,10462,809.56,26.21,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,C19,Manufacture of coke and refined petroleum products,2023,34,,,0,,5177,23586.53,195.05,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C
+EL,Greece,C20,Manufacture of chemicals and chemical products,2023,1004,64,65,45,8,12930,3530.12,45.02,
+EL,Greece,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,126,4,15,17,16,12455,3812.47,68.48,
+EL,Greece,C22,Manufacture of rubber and plastic products,2023,958,87,81,46,9,13530,2450.08,84.35,
+EL,Greece,C23,Manufacture of other non-metallic mineral products,2023,3005,151,91,45,7,18768,3307.96,85.18,
+EL,Greece,C24,Manufacture of basic metals,2023,295,20,12,11,10,11011,10249.22,523.92,
+EL,Greece,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,7981,345,184,72,6,35208,3908.8,154.52,
+EL,Greece,C26,"Manufacture of computer, electronic and optical products",2023,418,26,17,11,3,4122,1002.97,11.1,
+EL,Greece,C27,Manufacture of electrical equipment,2023,824,55,48,23,4,9954,2898.03,35.82,
+EL,Greece,C28,Manufacture of machinery and equipment n.e.c.,2023,1816,125,,27,,12128,1367.24,22.64,enterprises_20_49_persons=C; enterprises_250plus_persons=C
+EL,Greece,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,474,16,,,0,1687,211.9,4.03,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+EL,Greece,C30,Manufacture of other transport equipment,2023,337,,,8,,3144,282.96,12.55,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C
+EL,Greece,C31,Manufacture of furniture,2023,3496,158,,,,13345,811.58,18.06,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,C32,Other manufacturing,2023,4390,114,,,,11539,619.21,12.14,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,C33,Repair and installation of machinery and equipment,2023,5179,200,127,58,5,22831,1760.02,30.28,
+EL,Greece,D35,"Electricity, gas, steam and air conditioning supply",2023,12315,45,23,20,7,30959,22447.45,1481.96,
+EL,Greece,E36,"Water collection, treatment and supply",2023,590,,22,,,6434,508.71,8.52,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,E37,Sewerage,2023,443,,,,0,1069,66.66,2.53,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+EL,Greece,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,886,73,,,,8617,1310.62,41.67,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EL,Greece,E39,Remediation activities and other waste management services,2023,94,,3,,0,422,44.57,4.47,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+ES,Spain,B,Mining and quarrying,2023,1602,200,144,48,6,19002,6754.66,765.12,
+ES,Spain,C,Manufacturing,2023,167401,13895,10369,4963,1073,2144778,695856.81,20171.86,
+ES,Spain,C10,Manufacture of food products,2023,24277,2603,1868,981,239,435922,154655.95,3988.89,
+ES,Spain,C11,Manufacture of beverages,2023,5053,404,324,129,27,63172,24267.36,1036.4,
+ES,Spain,C12,Manufacture of tobacco products,2023,36,,5,,,1557,839.41,35.06,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+ES,Spain,C13,Manufacture of textiles,2023,6396,439,338,146,10,46463,7015.3,201.7,
+ES,Spain,C14,Manufacture of wearing apparel,2023,8997,417,218,64,8,35545,3852.73,53.22,
+ES,Spain,C15,Manufacture of leather and related products,2023,3776,405,342,104,12,39924,4837.39,79.15,
+ES,Spain,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,9079,670,383,109,12,54292,9959.11,586.36,
+ES,Spain,C17,Manufacture of paper and paper products,2023,1467,219,186,146,32,49841,17680.79,778.44,
+ES,Spain,C18,Printing and reproduction of recorded media,2023,13686,610,331,122,14,55174,6349.65,240.18,
+ES,Spain,C19,Manufacture of coke and refined petroleum products,2023,15,0,0,,,8612,59149.5,1100.94,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+ES,Spain,C20,Manufacture of chemicals and chemical products,2023,3557,406,432,338,84,104572,52430.82,1824.68,
+ES,Spain,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,371,,36,,70,58855,19901.6,1097.29,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+ES,Spain,C22,Manufacture of rubber and plastic products,2023,3841,514,565,330,60,102361,25386.26,1236.93,
+ES,Spain,C23,Manufacture of other non-metallic mineral products,2023,7224,674,593,249,66,105878,28549.73,1227.46,
+ES,Spain,C24,Manufacture of basic metals,2023,1365,183,168,137,49,62243,34966.34,929.72,
+ES,Spain,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,31153,2732,1923,680,72,259025,48161.63,1477.59,
+ES,Spain,C26,"Manufacture of computer, electronic and optical products",2023,2043,198,161,112,23,33393,6530.61,156.02,
+ES,Spain,C27,Manufacture of electrical equipment,2023,1787,225,218,149,45,78692,23737.63,394.11,
+ES,Spain,C28,Manufacture of machinery and equipment n.e.c.,2023,5569,862,756,376,68,123085,27766.97,544.14,
+ES,Spain,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,1602,201,158,165,86,156267,93363.7,1792.45,
+ES,Spain,C30,Manufacture of other transport equipment,2023,939,99,82,64,21,56035,19359.24,399.97,
+ES,Spain,C31,Manufacture of furniture,2023,10481,694,450,157,17,62668,8075.99,201.73,
+ES,Spain,C32,Other manufacturing,2023,10147,421,272,94,9,44407,5821.75,520.74,
+ES,Spain,C33,Repair and installation of machinery and equipment,2023,14540,895,560,241,46,106796,13197.35,268.7,
+ES,Spain,D35,"Electricity, gas, steam and air conditioning supply",2023,11681,213,136,68,31,45066,136868.33,8029.02,
+ES,Spain,E36,"Water collection, treatment and supply",2023,3171,,83,66,,47710,9329.1,416.43,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+ES,Spain,E37,Sewerage,2023,605,,47,18,,6347,808.01,24.05,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+ES,Spain,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,2842,332,300,156,40,125794,14892.63,1010.01,
+ES,Spain,E39,Remediation activities and other waste management services,2023,457,36,15,6,0,1983,218.29,7.88,
+FR,France,B,Mining and quarrying,2023,960,86,71,,,15401,5719.92,266.3,enterprises_50_249_persons=C; enterprises_250plus_persons=C; gross_investment_machinery_equipment_eur_million=e
+FR,France,C,Manufacturing,2023,266065,13131,7831,4564,1537,3260700,1246723.01,24483.11,gross_investment_machinery_equipment_eur_million=e
+FR,France,C10,Manufacture of food products,2023,55302,5403,1919,741,251,693272,226993.22,3904.3,gross_investment_machinery_equipment_eur_million=e
+FR,France,C11,Manufacture of beverages,2023,5939,244,175,96,30,64202,38486.22,634.07,gross_investment_machinery_equipment_eur_million=e
+FR,France,C12,Manufacture of tobacco products,2023,8,,0,0,0,,,,enterprises_10_19_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FR,France,C13,Manufacture of textiles,2023,12026,218,164,134,14,38674,8113.76,166.21,gross_investment_machinery_equipment_eur_million=e
+FR,France,C14,Manufacture of wearing apparel,2023,21758,156,115,86,20,40943,,26.43,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=e
+FR,France,C15,Manufacture of leather and related products,2023,4765,56,57,47,22,41959,12031.63,,gross_investment_machinery_equipment_eur_million=C
+FR,France,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,13902,533,353,164,33,67398,15955.33,516.76,gross_investment_machinery_equipment_eur_million=e
+FR,France,C17,Manufacture of paper and paper products,2023,2459,100,134,106,54,63919,21433.73,972.32,gross_investment_machinery_equipment_eur_million=e
+FR,France,C18,Printing and reproduction of recorded media,2023,16042,395,226,111,17,50119,7806.83,195.96,gross_investment_machinery_equipment_eur_million=e
+FR,France,C19,Manufacture of coke and refined petroleum products,2023,16,0,4,3,6,,50444.59,,persons_employed=C; gross_investment_machinery_equipment_eur_million=C
+FR,France,C20,Manufacture of chemicals and chemical products,2023,4598,168,218,236,132,211940,101665.73,3056.48,gross_investment_machinery_equipment_eur_million=e
+FR,France,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,242,,16,35,60,96547,57713.76,808.59,enterprises_10_19_persons=C; gross_investment_machinery_equipment_eur_million=e
+FR,France,C22,Manufacture of rubber and plastic products,2023,3411,357,359,330,89,132900,38001.95,982.44,gross_investment_machinery_equipment_eur_million=e
+FR,France,C23,Manufacture of other non-metallic mineral products,2023,11950,272,233,164,69,123676,37427.9,1411.77,gross_investment_machinery_equipment_eur_million=e
+FR,France,C24,Manufacture of basic metals,2023,857,75,69,89,49,70169,36134.56,862.82,gross_investment_machinery_equipment_eur_million=e
+FR,France,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,20265,2149,1579,758,170,321792,76148.76,1827.41,gross_investment_machinery_equipment_eur_million=e
+FR,France,C26,"Manufacture of computer, electronic and optical products",2023,2600,213,176,192,73,146070,43118.28,1116.27,gross_investment_machinery_equipment_eur_million=e
+FR,France,C27,Manufacture of electrical equipment,2023,2451,180,198,152,66,122759,42243.24,645.1,gross_investment_machinery_equipment_eur_million=e
+FR,France,C28,Manufacture of machinery and equipment n.e.c.,2023,4144,437,470,391,128,193293,69504.28,1391.53,gross_investment_machinery_equipment_eur_million=e
+FR,France,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,2051,148,141,136,80,216673,169836.35,2906.02,gross_investment_machinery_equipment_eur_million=e
+FR,France,C30,Manufacture of other transport equipment,2023,1253,66,67,66,36,203024,117971.91,1446.95,gross_investment_machinery_equipment_eur_million=e
+FR,France,C31,Manufacture of furniture,2023,13742,262,174,94,19,49416,8514.49,155.16,gross_investment_machinery_equipment_eur_million=e
+FR,France,C32,Other manufacturing,2023,40147,526,280,137,53,116360,24316.91,472.21,gross_investment_machinery_equipment_eur_million=e
+FR,France,C33,Repair and installation of machinery and equipment,2023,26137,1161,704,296,66,177458,37369.81,565.24,gross_investment_machinery_equipment_eur_million=e
+FR,France,D35,"Electricity, gas, steam and air conditioning supply",2023,42764,87,73,,,231737,240147.65,18800.42,enterprises_50_249_persons=C; enterprises_250plus_persons=C; gross_investment_machinery_equipment_eur_million=e
+FR,France,E36,"Water collection, treatment and supply",2023,1403,72,61,17,19,23350,4981.56,622.53,gross_investment_machinery_equipment_eur_million=e
+FR,France,E37,Sewerage,2023,1443,82,38,20,4,10501,2017.93,297.97,gross_investment_machinery_equipment_eur_million=e
+FR,France,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,9279,262,203,137,34,180866,43430.82,1046.09,gross_investment_machinery_equipment_eur_million=e
+FR,France,E39,Remediation activities and other waste management services,2023,468,72,49,22,5,8055,1369.54,16.78,gross_investment_machinery_equipment_eur_million=e
+HR,Croatia,B,Mining and quarrying,2023,180,22,20,7,0,1966,225.71,16.05,
+HR,Croatia,C,Manufacturing,2023,24731,1840,1105,634,152,276433,31197.86,1101.83,
+HR,Croatia,C10,Manufacture of food products,2023,2830,402,165,93,26,50017,5550.66,148.9,
+HR,Croatia,C11,Manufacture of beverages,2023,612,41,17,11,7,7299,1251.77,34.42,
+HR,Croatia,C12,Manufacture of tobacco products,2023,3,1,0,1,1,922,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+HR,Croatia,C13,Manufacture of textiles,2023,727,32,23,12,1,3998,243.14,10.15,
+HR,Croatia,C14,Manufacture of wearing apparel,2023,1143,52,71,28,3,11557,536.42,6.86,
+HR,Croatia,C15,Manufacture of leather and related products,2023,195,9,15,18,8,8706,395.29,4.89,
+HR,Croatia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2027,190,99,45,9,19650,1651.81,89.21,
+HR,Croatia,C17,Manufacture of paper and paper products,2023,304,34,24,18,4,5422,708.79,40.19,
+HR,Croatia,C18,Printing and reproduction of recorded media,2023,1425,42,30,17,3,7741,786.34,68.6,
+HR,Croatia,C19,Manufacture of coke and refined petroleum products,2023,3,1,0,0,1,8579,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+HR,Croatia,C20,Manufacture of chemicals and chemical products,2023,382,27,17,18,4,6080,815.23,24.6,
+HR,Croatia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,50,2,2,1,5,6380,1109.71,40.59,
+HR,Croatia,C22,Manufacture of rubber and plastic products,2023,1085,115,72,33,8,12913,1407.73,46.86,
+HR,Croatia,C23,Manufacture of other non-metallic mineral products,2023,1238,97,61,38,8,13809,2032.24,128.46,
+HR,Croatia,C24,Manufacture of basic metals,2023,99,5,15,6,5,4305,528.86,23.64,
+HR,Croatia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,4227,327,203,114,14,38401,3010.64,94.98,
+HR,Croatia,C26,"Manufacture of computer, electronic and optical products",2023,509,33,19,7,3,3790,484.29,12.54,
+HR,Croatia,C27,Manufacture of electrical equipment,2023,431,36,36,28,8,11304,1506.9,35.36,
+HR,Croatia,C28,Manufacture of machinery and equipment n.e.c.,2023,705,66,46,40,11,12529,1564.06,36.05,
+HR,Croatia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,152,15,7,6,3,2404,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+HR,Croatia,C30,Manufacture of other transport equipment,2023,347,27,21,16,9,7379,835.24,17.41,
+HR,Croatia,C31,Manufacture of furniture,2023,1337,95,40,23,7,10990,828.16,31.91,
+HR,Croatia,C32,Other manufacturing,2023,2343,58,25,15,0,6455,347.96,7,
+HR,Croatia,C33,Repair and installation of machinery and equipment,2023,2557,133,97,46,4,15803,1339.87,19.56,
+HR,Croatia,D35,"Electricity, gas, steam and air conditioning supply",2023,825,24,16,12,3,15121,11467.62,282.84,
+HR,Croatia,E36,"Water collection, treatment and supply",2023,111,17,32,31,6,7008,294.31,32.38,
+HR,Croatia,E37,Sewerage,2023,78,3,4,1,0,381,71.09,0.84,
+HR,Croatia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,542,66,89,76,6,22098,1506.62,68.74,
+HR,Croatia,E39,Remediation activities and other waste management services,2023,79,15,16,6,0,1362,130.97,5.69,
+IT,Italy,B,Mining and quarrying,2023,1569,244,113,48,2,15989,8488.48,2185.19,
+IT,Italy,C,Manufacturing,2023,352446,37408,19783,9516,1578,3917564,1248591.65,33003.2,
+IT,Italy,C10,Manufacture of food products,2023,47863,4345,2002,874,150,436005,164863.2,3583.67,
+IT,Italy,C11,Manufacture of beverages,2023,3142,327,209,107,21,42703,26227.19,811.49,
+IT,Italy,C12,Manufacture of tobacco products,2023,8,0,2,2,2,3667,2807.52,174.79,
+IT,Italy,C13,Manufacture of textiles,2023,10979,1268,721,337,33,108225,22079.73,532.47,
+IT,Italy,C14,Manufacture of wearing apparel,2023,27668,2955,1135,300,50,209438,40829.98,491.76,
+IT,Italy,C15,Manufacture of leather and related products,2023,12493,1632,967,346,55,147737,33494.26,723.16,
+IT,Italy,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,20297,1339,480,148,12,91594,17221.68,586.42,
+IT,Italy,C17,Manufacture of paper and paper products,2023,3170,568,375,232,43,77500,30167.84,1034.06,
+IT,Italy,C18,Printing and reproduction of recorded media,2023,12688,951,366,135,12,70451,10470.77,351.71,
+IT,Italy,C19,Manufacture of coke and refined petroleum products,2023,254,57,44,15,10,17894,68930.67,1038.43,
+IT,Italy,C20,Manufacture of chemicals and chemical products,2023,3899,594,548,385,77,116909,61677.01,1775.85,
+IT,Italy,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,392,35,41,99,64,64799,28358.75,1176.56,
+IT,Italy,C22,Manufacture of rubber and plastic products,2023,8890,1631,1142,683,90,187887,56988.04,2131.55,
+IT,Italy,C23,Manufacture of other non-metallic mineral products,2023,16122,1520,674,326,68,151726,42366.78,1886.12,
+IT,Italy,C24,Manufacture of basic metals,2023,3006,500,350,291,70,117429,79821.99,1866.38,
+IT,Italy,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,69264,9090,4252,1644,120,610707,118979.82,4917.71,
+IT,Italy,C26,"Manufacture of computer, electronic and optical products",2023,4577,591,452,292,53,96596,24378.97,1067.77,
+IT,Italy,C27,Manufacture of electrical equipment,2023,7902,1162,712,406,81,151105,52099.77,929.84,
+IT,Italy,C28,Manufacture of machinery and equipment n.e.c.,2023,17592,3354,2517,1564,297,498283,156206.85,2894.66,
+IT,Italy,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,2351,377,288,239,99,168112,90738.57,2250.82,
+IT,Italy,C30,Manufacture of other transport equipment,2023,2661,368,258,172,47,119490,40828.85,792.72,
+IT,Italy,C31,Manufacture of furniture,2023,14938,1470,795,303,43,128593,26955.85,626.23,
+IT,Italy,C32,Other manufacturing,2023,27186,1029,497,254,49,130287,27044.55,764.63,
+IT,Italy,C33,Repair and installation of machinery and equipment,2023,35104,2245,956,362,32,170427,25053.02,594.42,
+IT,Italy,D35,"Electricity, gas, steam and air conditioning supply",2023,10102,242,179,103,42,97860,293035.19,9771.73,
+IT,Italy,E36,"Water collection, treatment and supply",2023,741,40,29,61,36,36552,10409.92,2179.09,
+IT,Italy,E37,Sewerage,2023,1367,178,72,34,1,11257,1935.34,157.64,
+IT,Italy,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,6703,1008,562,399,112,173897,35987.58,2367.22,
+IT,Italy,E39,Remediation activities and other waste management services,2023,649,84,49,27,2,7643,2542.15,134.8,
+CY,Cyprus,B,Mining and quarrying,2023,45,,,0,0,586,167.59,,enterprises_10_19_persons=C; enterprises_20_49_persons=C; gross_investment_machinery_equipment_eur_million=C
+CY,Cyprus,C,Manufacturing,2023,5027,367,191,88,10,37675,5312.09,132.34,
+CY,Cyprus,C10,Manufacture of food products,2023,846,95,53,46,5,14343,2116.68,37.99,
+CY,Cyprus,C11,Manufacture of beverages,2023,99,10,,,,1011,161.95,8.95,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+CY,Cyprus,C12,Manufacture of tobacco products,2023,0,0,0,0,0,0,0,0,
+CY,Cyprus,C13,Manufacture of textiles,2023,88,,3,,0,559,43.33,0.78,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C14,Manufacture of wearing apparel,2023,171,3,0,0,0,300,13.27,0.06,
+CY,Cyprus,C15,Manufacture of leather and related products,2023,16,0,0,0,0,31,2.12,0.01,
+CY,Cyprus,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,781,,20,,0,2577,220.08,5.61,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C17,Manufacture of paper and paper products,2023,34,,5,,0,453,65.59,1.13,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C18,Printing and reproduction of recorded media,2023,253,10,,,0,816,63.4,1.14,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C19,Manufacture of coke and refined petroleum products,2023,3,,0,0,0,26,8.49,0.43,enterprises_10_19_persons=C
+CY,Cyprus,C20,Manufacture of chemicals and chemical products,2023,67,8,6,4,0,760,135.11,2.39,
+CY,Cyprus,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,11,,0,3,,2214,361.1,11.73,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+CY,Cyprus,C22,Manufacture of rubber and plastic products,2023,79,11,11,3,0,1187,150.18,5.37,
+CY,Cyprus,C23,Manufacture of other non-metallic mineral products,2023,288,53,33,3,0,2676,656.77,18.38,
+CY,Cyprus,C24,Manufacture of basic metals,2023,8,,0,,0,360,96.7,13.35,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,1176,71,23,6,0,4749,566.12,13.53,
+CY,Cyprus,C26,"Manufacture of computer, electronic and optical products",2023,,,0,,0,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_50_249_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+CY,Cyprus,C27,Manufacture of electrical equipment,2023,,15,,0,0,,,,enterprises_total=C; enterprises_20_49_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+CY,Cyprus,C28,Manufacture of machinery and equipment n.e.c.,2023,49,,6,,0,517,80.63,1.03,enterprises_10_19_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,60,,,0,0,178,23.73,0.39,enterprises_10_19_persons=C; enterprises_20_49_persons=C
+CY,Cyprus,C30,Manufacture of other transport equipment,2023,9,0,,,0,135,20.37,0.27,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+CY,Cyprus,C31,Manufacture of furniture,2023,309,17,3,3,0,1135,85.33,2.1,
+CY,Cyprus,C32,Other manufacturing,2023,274,6,7,0,0,734,57.08,1.39,
+CY,Cyprus,C33,Repair and installation of machinery and equipment,2023,336,,6,7,,2243,281.65,5,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+CY,Cyprus,D35,"Electricity, gas, steam and air conditioning supply",2023,124,0,,0,,2377,1395.06,,enterprises_20_49_persons=C; enterprises_250plus_persons=C; gross_investment_machinery_equipment_eur_million=C
+CY,Cyprus,E36,"Water collection, treatment and supply",2023,6,0,3,3,0,416,149.53,2.22,
+CY,Cyprus,E37,Sewerage,2023,64,6,3,3,0,496,139.1,2.59,
+CY,Cyprus,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,,17,12,6,0,,,,enterprises_total=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+CY,Cyprus,E39,Remediation activities and other waste management services,2023,,0,0,0,0,,,,enterprises_total=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,B,Mining and quarrying,2023,249,22,20,16,2,3389,372.13,14.39,
+LV,Latvia,C,Manufacturing,2023,10994,694,618,394,62,115512,13544.31,551.51,
+LV,Latvia,C10,Manufacture of food products,2023,1200,79,85,79,12,20095,2465.93,163.23,
+LV,Latvia,C11,Manufacture of beverages,2023,189,9,7,8,3,2558,363.88,12.72,
+LV,Latvia,C12,Manufacture of tobacco products,2023,1,0,0,0,0,1,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,C13,Manufacture of textiles,2023,569,21,9,8,2,2804,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,C14,Manufacture of wearing apparel,2023,1252,54,47,32,1,6885,195.28,1.6,
+LV,Latvia,C15,Manufacture of leather and related products,2023,83,3,2,0,0,217,5.55,0.1,
+LV,Latvia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,1740,158,177,73,11,23438,3597.89,213.12,
+LV,Latvia,C17,Manufacture of paper and paper products,2023,108,10,17,6,0,1561,170.48,6.62,
+LV,Latvia,C18,Printing and reproduction of recorded media,2023,395,17,16,7,3,3592,332.34,5.41,
+LV,Latvia,C19,Manufacture of coke and refined petroleum products,2023,7,0,0,0,0,15,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,C20,Manufacture of chemicals and chemical products,2023,247,14,16,15,1,3053,610.36,8.36,
+LV,Latvia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,27,4,2,4,2,2142,378.03,10.27,
+LV,Latvia,C22,Manufacture of rubber and plastic products,2023,239,20,26,14,1,2999,322.77,21.75,
+LV,Latvia,C23,Manufacture of other non-metallic mineral products,2023,441,24,16,17,2,5111,706.56,12.34,
+LV,Latvia,C24,Manufacture of basic metals,2023,37,3,8,5,0,949,209.75,2.42,
+LV,Latvia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,1102,91,84,50,3,12155,1103.91,24.61,
+LV,Latvia,C26,"Manufacture of computer, electronic and optical products",2023,156,10,6,9,4,2833,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,C27,Manufacture of electrical equipment,2023,143,12,10,4,6,4215,532.89,31.98,
+LV,Latvia,C28,Manufacture of machinery and equipment n.e.c.,2023,178,22,21,14,2,3399,364.67,9.71,
+LV,Latvia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,66,12,5,4,4,2375,320.48,5.47,
+LV,Latvia,C30,Manufacture of other transport equipment,2023,82,7,8,6,1,1874,175.22,2.03,
+LV,Latvia,C31,Manufacture of furniture,2023,948,53,24,17,4,6306,413.63,8.28,
+LV,Latvia,C32,Other manufacturing,2023,809,18,8,8,0,2509,134,1.93,
+LV,Latvia,C33,Repair and installation of machinery and equipment,2023,975,53,24,14,0,4426,327.88,2.96,
+LV,Latvia,D35,"Electricity, gas, steam and air conditioning supply",2023,500,38,27,18,4,9526,3735.61,152.05,
+LV,Latvia,E36,"Water collection, treatment and supply",2023,64,3,7,2,2,1573,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LV,Latvia,E37,Sewerage,2023,51,2,6,10,0,1315,73.87,3.21,
+LV,Latvia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,162,22,17,15,2,3829,481.67,30.31,
+LV,Latvia,E39,Remediation activities and other waste management services,2023,18,0,1,0,0,49,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LT,Lithuania,B,Mining and quarrying,2023,138,14,22,13,0,2426,285.55,24.71,
+LT,Lithuania,C,Manufacturing,2023,25127,1105,908,677,150,231893,34040.3,767.07,
+LT,Lithuania,C10,Manufacture of food products,2023,2307,139,120,97,24,38053,5635.88,104.68,
+LT,Lithuania,C11,Manufacture of beverages,2023,99,8,8,10,4,3108,653.54,17.89,
+LT,Lithuania,C12,Manufacture of tobacco products,2023,1,0,0,0,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LT,Lithuania,C13,Manufacture of textiles,2023,1292,36,27,34,7,9365,623.65,18.43,
+LT,Lithuania,C14,Manufacture of wearing apparel,2023,3327,72,74,41,9,14378,498.32,8.41,
+LT,Lithuania,C15,Manufacture of leather and related products,2023,281,4,3,2,0,568,17.36,0.19,
+LT,Lithuania,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,3214,166,148,69,5,20405,2105.82,81.18,
+LT,Lithuania,C17,Manufacture of paper and paper products,2023,251,18,25,21,4,5612,941.07,31.24,
+LT,Lithuania,C18,Printing and reproduction of recorded media,2023,749,33,18,19,0,3913,343.59,28.71,
+LT,Lithuania,C19,Manufacture of coke and refined petroleum products,2023,3,0,1,0,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LT,Lithuania,C20,Manufacture of chemicals and chemical products,2023,228,32,20,14,4,7423,2348.36,24.82,
+LT,Lithuania,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,19,1,2,3,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LT,Lithuania,C22,Manufacture of rubber and plastic products,2023,473,39,51,46,6,10025,1997.76,74.78,
+LT,Lithuania,C23,Manufacture of other non-metallic mineral products,2023,1629,55,34,27,6,8958,1069.05,59.76,
+LT,Lithuania,C24,Manufacture of basic metals,2023,37,5,4,3,0,623,37,2.11,
+LT,Lithuania,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,2662,175,120,68,9,19930,2053.24,72.99,
+LT,Lithuania,C26,"Manufacture of computer, electronic and optical products",2023,183,12,25,23,8,7578,1325.48,36.91,
+LT,Lithuania,C27,Manufacture of electrical equipment,2023,130,14,14,24,6,5082,554,11.96,
+LT,Lithuania,C28,Manufacture of machinery and equipment n.e.c.,2023,214,34,30,27,6,6911,762.01,20.24,
+LT,Lithuania,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,64,5,8,11,7,7103,976.43,20.78,
+LT,Lithuania,C30,Manufacture of other transport equipment,2023,119,10,14,27,7,7787,717.9,11.89,
+LT,Lithuania,C31,Manufacture of furniture,2023,2870,146,96,71,23,30642,2828.41,71.44,
+LT,Lithuania,C32,Other manufacturing,2023,2674,41,27,13,2,8789,599.76,16.65,
+LT,Lithuania,C33,Repair and installation of machinery and equipment,2023,2301,60,39,27,11,12013,1053.06,28.89,
+LT,Lithuania,D35,"Electricity, gas, steam and air conditioning supply",2023,1346,33,36,24,11,13103,5041.21,288.62,
+LT,Lithuania,E36,"Water collection, treatment and supply",2023,57,0,16,25,3,4399,268.78,16.85,
+LT,Lithuania,E37,Sewerage,2023,49,2,6,4,0,591,26.7,1.58,
+LT,Lithuania,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,247,26,26,34,4,7261,645.04,58.6,
+LT,Lithuania,E39,Remediation activities and other waste management services,2023,0,0,0,0,0,0,0,0,
+LU,Luxembourg,B,Mining and quarrying,2023,9,2,2,2,0,258,90.14,6.08,
+LU,Luxembourg,C,Manufacturing,2023,846,87,101,91,26,34204,16695.04,493.52,
+LU,Luxembourg,C10,Manufacture of food products,2023,109,15,14,13,5,4712,974.44,21.41,
+LU,Luxembourg,C11,Manufacture of beverages,2023,45,6,5,3,0,523,191.45,5.62,
+LU,Luxembourg,C12,Manufacture of tobacco products,2023,1,0,0,0,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C13,Manufacture of textiles,2023,24,0,0,3,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C14,Manufacture of wearing apparel,2023,17,0,0,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C15,Manufacture of leather and related products,2023,0,0,0,0,0,0,0,0,
+LU,Luxembourg,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,21,3,4,2,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C17,Manufacture of paper and paper products,2023,3,0,1,0,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C18,Printing and reproduction of recorded media,2023,59,4,4,3,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C19,Manufacture of coke and refined petroleum products,2023,0,0,0,0,0,0,0,0,
+LU,Luxembourg,C20,Manufacture of chemicals and chemical products,2023,19,0,1,10,1,1430,505.87,9.35,
+LU,Luxembourg,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,1,0,1,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C22,Manufacture of rubber and plastic products,2023,22,2,2,7,4,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C23,Manufacture of other non-metallic mineral products,2023,40,5,3,6,3,2107,920.75,49.31,
+LU,Luxembourg,C24,Manufacture of basic metals,2023,8,0,1,3,3,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,213,28,36,20,0,3862,741.78,23.81,
+LU,Luxembourg,C26,"Manufacture of computer, electronic and optical products",2023,14,0,2,1,2,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C27,Manufacture of electrical equipment,2023,10,2,2,3,0,416,98,2.94,
+LU,Luxembourg,C28,Manufacture of machinery and equipment n.e.c.,2023,27,4,1,10,4,4722,1727.68,17.79,
+LU,Luxembourg,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,7,1,1,3,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C30,Manufacture of other transport equipment,2023,5,1,0,1,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,C31,Manufacture of furniture,2023,24,4,2,0,0,158,21.88,0.15,
+LU,Luxembourg,C32,Other manufacturing,2023,115,6,11,0,0,592,67.18,1.42,
+LU,Luxembourg,C33,Repair and installation of machinery and equipment,2023,62,6,10,3,0,779,182.88,28.44,
+LU,Luxembourg,D35,"Electricity, gas, steam and air conditioning supply",2023,150,2,3,6,1,2030,10014.01,239.05,
+LU,Luxembourg,E36,"Water collection, treatment and supply",2023,6,0,1,2,0,188,82.19,3.87,
+LU,Luxembourg,E37,Sewerage,2023,9,1,0,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+LU,Luxembourg,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,46,3,8,6,1,1324,279.96,14.97,
+LU,Luxembourg,E39,Remediation activities and other waste management services,2023,7,4,0,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+HU,Hungary,B,Mining and quarrying,2023,389,40,28,,,3685,901.19,48.61,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+HU,Hungary,C,Manufacturing,2023,56369,3189,2385,1595,461,778611,160655.91,8536.1,
+HU,Hungary,C10,Manufacture of food products,2023,4783,559,403,248,55,95884,17173.28,711.47,
+HU,Hungary,C11,Manufacture of beverages,2023,2128,92,54,28,8,14336,2840.94,176.53,
+HU,Hungary,C12,Manufacture of tobacco products,2023,4,0,,0,,1873,847.87,11.54,enterprises_20_49_persons=C; enterprises_250plus_persons=C
+HU,Hungary,C13,Manufacture of textiles,2023,1531,51,38,32,3,8762,679.08,17.29,
+HU,Hungary,C14,Manufacture of wearing apparel,2023,2790,108,80,48,4,15975,424.27,9.86,
+HU,Hungary,C15,Manufacture of leather and related products,2023,554,22,27,24,7,8847,532.17,14.87,
+HU,Hungary,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,3432,182,115,36,3,17582,1591.22,85.85,
+HU,Hungary,C17,Manufacture of paper and paper products,2023,473,41,50,34,14,15864,2601.33,196.94,
+HU,Hungary,C18,Printing and reproduction of recorded media,2023,2954,102,56,34,7,13862,1181.99,64.03,
+HU,Hungary,C19,Manufacture of coke and refined petroleum products,2023,7,,0,0,,11384,11774.67,360.69,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+HU,Hungary,C20,Manufacture of chemicals and chemical products,2023,666,44,61,51,11,16043,6308.73,331.49,
+HU,Hungary,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,105,,,21,,20210,5173.86,208.55,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C
+HU,Hungary,C22,Manufacture of rubber and plastic products,2023,1833,195,199,170,33,57182,8505.47,360.55,
+HU,Hungary,C23,Manufacture of other non-metallic mineral products,2023,2184,125,76,61,19,25188,3556.45,296.86,
+HU,Hungary,C24,Manufacture of basic metals,2023,229,22,21,34,12,13858,2993.47,170.21,
+HU,Hungary,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,9795,749,543,311,30,88128,7944.07,436.07,
+HU,Hungary,C26,"Manufacture of computer, electronic and optical products",2023,1286,75,62,53,33,50745,16643.29,381.5,
+HU,Hungary,C27,Manufacture of electrical equipment,2023,857,57,73,82,47,54086,16313.08,2242.15,
+HU,Hungary,C28,Manufacture of machinery and equipment n.e.c.,2023,2215,198,172,129,43,62426,9049.52,356.54,
+HU,Hungary,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,493,31,40,67,79,104814,37240.29,1701.18,
+HU,Hungary,C30,Manufacture of other transport equipment,2023,236,18,21,14,8,9285,1696.95,74.57,
+HU,Hungary,C31,Manufacture of furniture,2023,3847,149,91,37,10,19069,1120.92,35.62,
+HU,Hungary,C32,Other manufacturing,2023,6240,147,66,35,13,27664,1961.2,223.46,
+HU,Hungary,C33,Repair and installation of machinery and equipment,2023,7727,213,123,46,7,25544,2501.78,68.26,
+HU,Hungary,D35,"Electricity, gas, steam and air conditioning supply",2023,1762,35,16,27,7,38665,30125.18,765.29,
+HU,Hungary,E36,"Water collection, treatment and supply",2023,165,5,,,14,15726,610.21,24.08,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+HU,Hungary,E37,Sewerage,2023,516,12,,,8,5744,316.81,9.55,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+HU,Hungary,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,1005,106,91,73,16,21566,2149.39,95.61,
+HU,Hungary,E39,Remediation activities and other waste management services,2023,128,10,6,0,0,489,52.34,4.61,
+MT,Malta,B,Mining and quarrying,2023,62,5,0,0,0,178,23.66,0.48,
+MT,Malta,C,Manufacturing,2023,3026,127,110,67,15,25486,3987.16,134.76,
+MT,Malta,C10,Manufacture of food products,2023,410,27,14,15,1,3311,481.51,5.32,
+MT,Malta,C11,Manufacture of beverages,2023,16,0,3,4,1,1058,144.19,6.78,
+MT,Malta,C12,Manufacture of tobacco products,2023,0,0,0,0,0,0,0,0,
+MT,Malta,C13,Manufacture of textiles,2023,77,0,2,1,0,402,35.43,,gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C14,Manufacture of wearing apparel,2023,112,1,1,0,0,198,8.01,,gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C15,Manufacture of leather and related products,2023,2,1,0,0,0,14,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,114,2,1,0,0,205,10.18,0.22,
+MT,Malta,C17,Manufacture of paper and paper products,2023,12,0,3,2,0,232,25.96,1.07,
+MT,Malta,C18,Printing and reproduction of recorded media,2023,248,7,4,5,2,1969,390.75,14.85,
+MT,Malta,C19,Manufacture of coke and refined petroleum products,2023,0,0,0,0,0,0,0,0,
+MT,Malta,C20,Manufacture of chemicals and chemical products,2023,43,3,4,0,0,254,41.21,0.92,
+MT,Malta,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,26,1,5,7,1,1498,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C22,Manufacture of rubber and plastic products,2023,51,5,7,5,2,1626,169.52,7.9,
+MT,Malta,C23,Manufacture of other non-metallic mineral products,2023,182,15,16,4,0,1476,215.09,7.37,
+MT,Malta,C24,Manufacture of basic metals,2023,89,0,2,0,0,185,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,430,21,12,5,0,1663,190.79,3.79,
+MT,Malta,C26,"Manufacture of computer, electronic and optical products",2023,12,2,2,4,1,2481,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C27,Manufacture of electrical equipment,2023,29,5,4,4,0,627,77.97,1.77,
+MT,Malta,C28,Manufacture of machinery and equipment n.e.c.,2023,38,6,1,2,1,626,66.13,,gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,9,0,1,0,1,1184,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C30,Manufacture of other transport equipment,2023,8,0,0,0,0,24,1.71,0.13,
+MT,Malta,C31,Manufacture of furniture,2023,454,14,8,2,0,1333,83.89,1.45,
+MT,Malta,C32,Other manufacturing,2023,218,7,4,3,3,2630,261.6,,gross_investment_machinery_equipment_eur_million=C
+MT,Malta,C33,Repair and installation of machinery and equipment,2023,446,10,16,4,2,2490,355.82,10.9,
+MT,Malta,D35,"Electricity, gas, steam and air conditioning supply",2023,25,0,2,1,1,1836,705.45,,gross_investment_machinery_equipment_eur_million=C
+MT,Malta,E36,"Water collection, treatment and supply",2023,30,0,0,0,1,1139,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,E37,Sewerage,2023,7,0,0,0,0,12,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+MT,Malta,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,121,8,4,0,1,808,96.63,4.14,
+MT,Malta,E39,Remediation activities and other waste management services,2023,7,1,1,0,0,48,12.71,,gross_investment_machinery_equipment_eur_million=C
+NL,Netherlands,B,Mining and quarrying,2023,688,23,20,36,3,8287,29479.22,317.59,
+NL,Netherlands,C,Manufacturing,2023,85945,3401,2691,2021,413,768937,484428.52,7529.72,
+NL,Netherlands,C10,Manufacture of food products,2023,7952,501,369,325,82,138545,106920.13,1603.02,
+NL,Netherlands,C11,Manufacture of beverages,2023,1334,20,16,11,8,10215,10453.44,,gross_investment_machinery_equipment_eur_million=C
+NL,Netherlands,C12,Manufacture of tobacco products,2023,13,0,2,2,0,375,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+NL,Netherlands,C13,Manufacture of textiles,2023,3167,71,51,33,7,12417,3439.72,55.33,
+NL,Netherlands,C14,Manufacture of wearing apparel,2023,2760,22,12,1,0,2954,,2.69,net_turnover_eur_million=C
+NL,Netherlands,C15,Manufacture of leather and related products,2023,777,13,5,6,1,2121,481.27,6.17,
+NL,Netherlands,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,3646,159,97,59,3,17779,5397.03,96.32,
+NL,Netherlands,C17,Manufacture of paper and paper products,2023,376,40,38,66,18,18692,9207.09,274.47,
+NL,Netherlands,C18,Printing and reproduction of recorded media,2023,3319,139,96,40,5,16502,3107.26,101.9,
+NL,Netherlands,C19,Manufacture of coke and refined petroleum products,2023,41,0,3,8,4,5500,52136.69,235.12,
+NL,Netherlands,C20,Manufacture of chemicals and chemical products,2023,1288,65,99,122,50,48228,68182.9,1464.97,
+NL,Netherlands,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,263,21,11,33,17,18818,17564.7,224.74,
+NL,Netherlands,C22,Manufacture of rubber and plastic products,2023,1498,125,149,153,17,34286,11797.08,293.31,
+NL,Netherlands,C23,Manufacture of other non-metallic mineral products,2023,2286,98,81,70,18,22905,8893.55,238.78,
+NL,Netherlands,C24,Manufacture of basic metals,2023,447,22,34,35,14,20652,10348.56,848.57,
+NL,Netherlands,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,15856,755,611,323,29,98050,28953.73,533.8,
+NL,Netherlands,C26,"Manufacture of computer, electronic and optical products",2023,1717,98,87,73,13,28489,19840.12,135.6,
+NL,Netherlands,C27,Manufacture of electrical equipment,2023,1310,87,77,57,17,25632,16214.9,102.95,
+NL,Netherlands,C28,Manufacture of machinery and equipment n.e.c.,2023,3467,335,344,317,46,104083,57735.52,850.61,
+NL,Netherlands,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,851,54,64,42,15,23293,16026.17,92.91,
+NL,Netherlands,C30,Manufacture of other transport equipment,2023,1472,53,53,44,13,19063,10551.21,34.39,
+NL,Netherlands,C31,Manufacture of furniture,2023,11005,229,131,47,7,27522,5080.13,64.13,
+NL,Netherlands,C32,Other manufacturing,2023,7600,149,72,46,8,21180,3553.14,84.87,
+NL,Netherlands,C33,Repair and installation of machinery and equipment,2023,13500,345,189,108,21,51636,17431.21,89.35,
+NL,Netherlands,D35,"Electricity, gas, steam and air conditioning supply",2023,3022,25,28,34,18,35077,76255.09,2037.88,
+NL,Netherlands,E36,"Water collection, treatment and supply",2023,38,1,1,3,6,6014,1880.04,102.2,
+NL,Netherlands,E37,Sewerage,2023,128,8,10,4,3,2368,422.36,3.58,
+NL,Netherlands,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,1011,66,77,60,11,20747,10095.28,454.25,
+NL,Netherlands,E39,Remediation activities and other waste management services,2023,926,14,19,6,0,2346,613.17,18.42,
+AT,Austria,B,Mining and quarrying,2023,325,39,45,20,3,7477,26919.32,258.55,
+AT,Austria,C,Manufacturing,2023,32369,2624,2087,1427,525,733695,272441.31,9087.66,
+AT,Austria,C10,Manufacture of food products,2023,4331,548,424,212,69,86030,26777.71,586.49,
+AT,Austria,C11,Manufacture of beverages,2023,694,49,39,17,6,11871,10560.02,212.75,
+AT,Austria,C12,Manufacture of tobacco products,2023,0,0,0,0,0,0,0,0,
+AT,Austria,C13,Manufacture of textiles,2023,850,40,39,28,3,7764,1740.99,46.31,
+AT,Austria,C14,Manufacture of wearing apparel,2023,1759,23,20,12,1,4908,644.04,9.38,
+AT,Austria,C15,Manufacture of leather and related products,2023,294,19,5,9,4,3382,741.99,8.22,
+AT,Austria,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2902,225,181,86,21,36618,11717.65,476.01,
+AT,Austria,C17,Manufacture of paper and paper products,2023,205,15,19,31,23,18509,15438.75,427.32,
+AT,Austria,C18,Printing and reproduction of recorded media,2023,909,87,54,32,8,9725,1920.67,57.19,
+AT,Austria,C19,Manufacture of coke and refined petroleum products,2023,5,0,1,1,1,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+AT,Austria,C20,Manufacture of chemicals and chemical products,2023,685,50,29,48,18,21608,18336.73,465.51,
+AT,Austria,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,105,11,13,12,15,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+AT,Austria,C22,Manufacture of rubber and plastic products,2023,699,77,88,93,29,33623,8479.32,305.27,
+AT,Austria,C23,Manufacture of other non-metallic mineral products,2023,1414,116,80,80,23,30045,8093.87,291.61,
+AT,Austria,C24,Manufacture of basic metals,2023,118,9,9,30,32,46539,25254.62,1091.81,
+AT,Austria,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,4114,410,399,226,48,83123,19794.96,783.43,
+AT,Austria,C26,"Manufacture of computer, electronic and optical products",2023,704,61,50,54,19,34888,13398.25,959.83,
+AT,Austria,C27,Manufacture of electrical equipment,2023,625,58,60,71,42,52050,16278.2,440.12,
+AT,Austria,C28,Manufacture of machinery and equipment n.e.c.,2023,1426,185,197,192,98,104506,35252.45,639.37,
+AT,Austria,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,249,36,23,33,26,37520,19808.41,656.23,
+AT,Austria,C30,Manufacture of other transport equipment,2023,118,16,14,13,8,15889,6791.21,140.37,
+AT,Austria,C31,Manufacture of furniture,2023,3106,282,163,52,11,25742,3736.87,113.57,
+AT,Austria,C32,Other manufacturing,2023,4144,157,71,40,10,21717,5245.32,96.91,
+AT,Austria,C33,Repair and installation of machinery and equipment,2023,2913,150,109,55,10,24416,5426.96,74.54,
+AT,Austria,D35,"Electricity, gas, steam and air conditioning supply",2023,4765,58,38,36,21,38259,61713.71,3174.3,
+AT,Austria,E36,"Water collection, treatment and supply",2023,1054,17,8,4,1,1816,598.88,18.58,
+AT,Austria,E37,Sewerage,2023,1012,55,20,10,1,3917,1142.47,44.06,
+AT,Austria,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,745,82,72,50,10,17955,5728.5,204.63,
+AT,Austria,E39,Remediation activities and other waste management services,2023,31,0,3,0,0,136,25.58,0.12,
+PL,Poland,B,Mining and quarrying,2023,2390,195,136,86,25,147303,19680.75,1387.69,
+PL,Poland,C,Manufacturing,2023,241254,12286,8895,5622,1566,2881122,518953.13,17363.32,
+PL,Poland,C10,Manufacture of food products,2023,18442,2043,1570,913,262,433172,95673.4,2355.09,
+PL,Poland,C11,Manufacture of beverages,2023,800,51,52,38,16,23906,6911.03,282.51,
+PL,Poland,C12,Manufacture of tobacco products,2023,28,2,3,5,3,11132,3516.62,184.5,
+PL,Poland,C13,Manufacture of textiles,2023,6247,319,260,128,26,53807,4673.83,101.79,
+PL,Poland,C14,Manufacture of wearing apparel,2023,11040,740,414,172,13,67229,2730.91,37.86,
+PL,Poland,C15,Manufacture of leather and related products,2023,2193,162,95,38,7,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+PL,Poland,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,20305,1100,657,273,40,133358,14204.31,617.95,
+PL,Poland,C17,Manufacture of paper and paper products,2023,2943,269,193,168,58,72276,14959.32,766.02,
+PL,Poland,C18,Printing and reproduction of recorded media,2023,8969,302,207,123,22,52158,5126.96,188.69,
+PL,Poland,C19,Manufacture of coke and refined petroleum products,2023,97,6,9,15,5,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+PL,Poland,C20,Manufacture of chemicals and chemical products,2023,3089,235,212,178,75,99464,24386.55,1403.21,
+PL,Poland,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,323,19,23,37,26,28034,5615.41,180.48,
+PL,Poland,C22,Manufacture of rubber and plastic products,2023,8913,765,729,533,168,236498,33392.99,1405.46,
+PL,Poland,C23,Manufacture of other non-metallic mineral products,2023,10433,599,460,251,73,147517,21441.9,951.79,
+PL,Poland,C24,Manufacture of basic metals,2023,1346,128,123,105,43,72074,19461.56,777.73,
+PL,Poland,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,51770,2436,1662,985,173,395074,46971.07,1428.1,
+PL,Poland,C26,"Manufacture of computer, electronic and optical products",2023,3453,169,128,106,39,60558,11347.2,229.46,
+PL,Poland,C27,Manufacture of electrical equipment,2023,2742,180,202,184,99,147632,38532.25,1156.8,
+PL,Poland,C28,Manufacture of machinery and equipment n.e.c.,2023,6071,494,459,416,86,138943,18627.61,579.32,
+PL,Poland,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,1738,129,149,183,131,223608,63269.79,2195.93,
+PL,Poland,C30,Manufacture of other transport equipment,2023,2064,87,90,66,36,55621,8806.86,185.43,
+PL,Poland,C31,Manufacture of furniture,2023,24723,898,544,371,95,195822,15360.95,382.39,
+PL,Poland,C32,Other manufacturing,2023,14403,333,174,134,30,65414,5954.79,209.59,
+PL,Poland,C33,Repair and installation of machinery and equipment,2023,39122,820,480,200,40,127615,15137.72,197.54,
+PL,Poland,D35,"Electricity, gas, steam and air conditioning supply",2023,4961,143,139,122,44,147984,136790.33,3731.63,
+PL,Poland,E36,"Water collection, treatment and supply",2023,786,110,186,124,18,27762,1792.76,78.39,
+PL,Poland,E37,Sewerage,2023,2441,75,149,201,22,42503,3081.67,162.73,
+PL,Poland,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,4540,404,339,271,42,77042,9468.68,460.78,
+PL,Poland,E39,Remediation activities and other waste management services,2023,390,18,18,9,1,2866,398.69,8.34,
+PT,Portugal,B,Mining and quarrying,2023,990,98,65,22,5,9656,1534.51,275.02,
+PT,Portugal,C,Manufacturing,2023,69138,5462,4179,2416,326,752655,124141.95,4409.28,
+PT,Portugal,C10,Manufacture of food products,2023,9481,760,531,302,46,95171,19497.26,501.51,
+PT,Portugal,C11,Manufacture of beverages,2023,2035,123,113,50,8,18421,4385.9,180.26,
+PT,Portugal,C12,Manufacture of tobacco products,2023,6,0,0,2,1,626,876.67,9.6,
+PT,Portugal,C13,Manufacture of textiles,2023,3620,303,240,167,23,46542,4187.83,152.25,
+PT,Portugal,C14,Manufacture of wearing apparel,2023,8511,666,581,329,14,77994,4177.4,71.48,
+PT,Portugal,C15,Manufacture of leather and related products,2023,2684,293,304,200,13,44003,2729.57,66.82,
+PT,Portugal,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,4921,313,203,74,9,30658,4613.86,220.34,
+PT,Portugal,C17,Manufacture of paper and paper products,2023,570,54,66,50,8,15387,5442.73,392.32,
+PT,Portugal,C18,Printing and reproduction of recorded media,2023,2314,167,99,31,2,13145,1058.51,55.99,
+PT,Portugal,C19,Manufacture of coke and refined petroleum products,2023,21,2,4,1,1,1993,10533.39,164.51,
+PT,Portugal,C20,Manufacture of chemicals and chemical products,2023,931,89,86,62,8,14856,6061.36,195.76,
+PT,Portugal,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,194,20,12,18,13,10220,2103.58,131.74,
+PT,Portugal,C22,Manufacture of rubber and plastic products,2023,1125,181,155,123,23,33348,6321.28,290.68,
+PT,Portugal,C23,Manufacture of other non-metallic mineral products,2023,3732,347,242,146,24,46679,6530.82,415.81,
+PT,Portugal,C24,Manufacture of basic metals,2023,300,28,37,41,7,9048,4007.36,84.68,
+PT,Portugal,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,12193,976,690,327,24,100141,10083.41,484.89,
+PT,Portugal,C26,"Manufacture of computer, electronic and optical products",2023,304,22,23,34,7,13272,3075.33,148.44,
+PT,Portugal,C27,Manufacture of electrical equipment,2023,573,81,63,38,15,20182,3874.44,96.34,
+PT,Portugal,C28,Manufacture of machinery and equipment n.e.c.,2023,1497,178,168,113,12,28705,3918.18,138.3,
+PT,Portugal,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,680,57,57,68,38,42892,12589.88,278.86,
+PT,Portugal,C30,Manufacture of other transport equipment,2023,297,31,20,30,8,9098,1408.77,53.19,
+PT,Portugal,C31,Manufacture of furniture,2023,4490,408,245,114,7,36887,2603.41,111.02,
+PT,Portugal,C32,Other manufacturing,2023,3625,138,89,41,6,16940,1288.65,59.56,
+PT,Portugal,C33,Repair and installation of machinery and equipment,2023,5034,225,151,55,9,26447,2772.34,104.96,
+PT,Portugal,D35,"Electricity, gas, steam and air conditioning supply",2023,5206,33,26,16,5,16608,21789.75,726.05,
+PT,Portugal,E36,"Water collection, treatment and supply",2023,171,12,16,49,16,14972,1905.5,128.43,
+PT,Portugal,E37,Sewerage,2023,86,6,3,8,3,2586,457.02,2.97,
+PT,Portugal,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,1009,108,80,47,17,21773,2582.16,127.49,
+PT,Portugal,E39,Remediation activities and other waste management services,2023,17,1,1,0,0,83,5.5,0.08,
+RO,Romania,B,Mining and quarrying,2023,1282,139,138,60,13,27146,4117.3,276.1,
+RO,Romania,C,Manufacturing,2023,78194,4690,3675,2316,621,1108269,132939.17,6618.65,
+RO,Romania,C10,Manufacture of food products,2023,13545,1138,817,401,100,168832,16460.03,682.5,
+RO,Romania,C11,Manufacture of beverages,2023,1716,50,38,38,14,21996,4062.88,246.35,
+RO,Romania,C12,Manufacture of tobacco products,2023,10,0,1,1,2,2296,818.83,,gross_investment_machinery_equipment_eur_million=C
+RO,Romania,C13,Manufacture of textiles,2023,2210,110,93,61,18,25498,1886.07,82.68,
+RO,Romania,C14,Manufacture of wearing apparel,2023,6915,407,393,263,43,78419,2053.65,62.8,
+RO,Romania,C15,Manufacture of leather and related products,2023,1496,108,130,110,19,30019,1043.18,27.39,
+RO,Romania,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,7673,460,271,104,13,47011,3837.17,303.83,
+RO,Romania,C17,Manufacture of paper and paper products,2023,933,76,79,33,9,14452,1905.75,120.29,
+RO,Romania,C18,Printing and reproduction of recorded media,2023,2870,106,72,45,5,14955,1093.34,59.98,
+RO,Romania,C19,Manufacture of coke and refined petroleum products,2023,38,8,1,3,2,13182,13802.05,,gross_investment_machinery_equipment_eur_million=C
+RO,Romania,C20,Manufacture of chemicals and chemical products,2023,958,59,71,50,17,19243,4071.68,184.68,
+RO,Romania,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,119,11,17,18,14,11857,1836.95,48.85,
+RO,Romania,C22,Manufacture of rubber and plastic products,2023,3368,263,237,197,39,70689,8989.99,537.91,
+RO,Romania,C23,Manufacture of other non-metallic mineral products,2023,4469,238,164,92,30,42436,5394.04,450.7,
+RO,Romania,C24,Manufacture of basic metals,2023,377,48,31,36,17,26177,5068.05,249.93,
+RO,Romania,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,10441,659,517,284,32,90087,7543.27,398.03,
+RO,Romania,C26,"Manufacture of computer, electronic and optical products",2023,729,42,44,40,34,38207,3999.49,192.04,
+RO,Romania,C27,Manufacture of electrical equipment,2023,691,67,80,83,47,54994,7900,261.36,
+RO,Romania,C28,Manufacture of machinery and equipment n.e.c.,2023,1189,108,103,112,31,45602,5647.94,238.55,
+RO,Romania,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,524,43,67,90,69,161330,27927.26,1557.49,
+RO,Romania,C30,Manufacture of other transport equipment,2023,442,53,44,31,24,28552,2327.12,123.25,
+RO,Romania,C31,Manufacture of furniture,2023,6512,308,215,121,23,53889,2672.3,126.23,
+RO,Romania,C32,Other manufacturing,2023,6482,137,77,46,8,23070,1018.66,44.47,
+RO,Romania,C33,Repair and installation of machinery and equipment,2023,4487,191,113,57,11,25476,1579.47,54.66,
+RO,Romania,D35,"Electricity, gas, steam and air conditioning supply",2023,1333,55,43,42,22,62481,23236.33,875.94,
+RO,Romania,E36,"Water collection, treatment and supply",2023,365,35,18,16,43,34898,1409.98,242.72,
+RO,Romania,E37,Sewerage,2023,318,21,8,3,1,1841,97.79,12.04,
+RO,Romania,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,2789,222,186,105,32,50168,3823.67,250.5,
+RO,Romania,E39,Remediation activities and other waste management services,2023,45,3,4,2,0,503,50.79,1.64,
+SI,Slovenia,B,Mining and quarrying,2023,91,16,6,4,1,2297,426.25,40.99,
+SI,Slovenia,C,Manufacturing,2023,21262,1148,777,526,132,224814,41502.75,1706.69,
+SI,Slovenia,C10,Manufacture of food products,2023,2676,83,45,42,13,18271,3067.3,128.36,
+SI,Slovenia,C11,Manufacture of beverages,2023,282,7,4,4,1,,350.11,20.06,persons_employed=C
+SI,Slovenia,C12,Manufacture of tobacco products,2023,1,0,0,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SI,Slovenia,C13,Manufacture of textiles,2023,336,18,8,15,2,3106,476.03,7.56,
+SI,Slovenia,C14,Manufacture of wearing apparel,2023,656,16,13,7,0,2456,242.45,4.58,
+SI,Slovenia,C15,Manufacture of leather and related products,2023,139,2,5,4,2,1869,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SI,Slovenia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2234,102,59,24,2,9789,1311.21,90.18,
+SI,Slovenia,C17,Manufacture of paper and paper products,2023,171,14,16,13,4,4281,1036.41,63.91,
+SI,Slovenia,C18,Printing and reproduction of recorded media,2023,1125,36,22,14,1,4395,559.39,34.17,
+SI,Slovenia,C19,Manufacture of coke and refined petroleum products,2023,2,1,0,0,0,,,,persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SI,Slovenia,C20,Manufacture of chemicals and chemical products,2023,265,13,17,18,7,7095,1824.7,96.18,
+SI,Slovenia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,29,4,1,2,3,12897,3665.44,151.39,
+SI,Slovenia,C22,Manufacture of rubber and plastic products,2023,939,90,58,54,11,16270,2681.68,123.71,
+SI,Slovenia,C23,Manufacture of other non-metallic mineral products,2023,543,36,20,21,4,7154,1305.34,75.22,
+SI,Slovenia,C24,Manufacture of basic metals,2023,95,11,10,13,10,10805,3294.72,137.92,
+SI,Slovenia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,5196,378,269,115,9,39145,4842.68,245.87,
+SI,Slovenia,C26,"Manufacture of computer, electronic and optical products",2023,321,26,24,21,5,6095,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SI,Slovenia,C27,Manufacture of electrical equipment,2023,384,27,22,22,21,23032,5990.19,167.48,
+SI,Slovenia,C28,Manufacture of machinery and equipment n.e.c.,2023,726,77,62,70,16,17673,3370.98,144.4,
+SI,Slovenia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,186,17,13,22,13,15713,3710.67,96.54,
+SI,Slovenia,C30,Manufacture of other transport equipment,2023,130,8,5,5,0,,213.34,8.31,persons_employed=C
+SI,Slovenia,C31,Manufacture of furniture,2023,1237,64,32,10,2,5581,525.86,31.83,
+SI,Slovenia,C32,Other manufacturing,2023,856,14,17,14,3,4794,626.46,18.81,
+SI,Slovenia,C33,Repair and installation of machinery and equipment,2023,2733,104,55,16,3,11618,1042.96,25.76,
+SI,Slovenia,D35,"Electricity, gas, steam and air conditioning supply",2023,1361,6,8,12,11,8949,13024.14,234.28,
+SI,Slovenia,E36,"Water collection, treatment and supply",2023,82,2,17,28,2,4820,652.92,22.53,
+SI,Slovenia,E37,Sewerage,2023,44,5,2,2,0,578,72.07,3.01,
+SI,Slovenia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,261,19,14,23,4,5474,1162.91,41.49,
+SI,Slovenia,E39,Remediation activities and other waste management services,2023,25,4,0,1,0,185,23.41,1.5,
+SK,Slovakia,B,Mining and quarrying,2023,330,21,,,,4646,499.62,21.77,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+SK,Slovakia,C,Manufacturing,2023,89803,1519,1227,995,291,491418,107283.56,3148.21,
+SK,Slovakia,C10,Manufacture of food products,2023,5195,248,193,108,24,41674,6323.58,180.65,
+SK,Slovakia,C11,Manufacture of beverages,2023,1132,31,22,16,3,5599,1081.94,31.3,
+SK,Slovakia,C12,Manufacture of tobacco products,2023,3,0,0,0,0,4,0,0,
+SK,Slovakia,C13,Manufacture of textiles,2023,1997,34,,20,,6531,476.3,13.31,enterprises_20_49_persons=C; enterprises_250plus_persons=C
+SK,Slovakia,C14,Manufacture of wearing apparel,2023,3973,63,49,34,5,12813,513.99,8.41,
+SK,Slovakia,C15,Manufacture of leather and related products,2023,478,12,27,12,7,8206,524.27,14.28,
+SK,Slovakia,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,14028,172,102,,,25392,2373.58,47.13,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+SK,Slovakia,C17,Manufacture of paper and paper products,2023,417,11,23,22,6,7539,1865.37,139.34,
+SK,Slovakia,C18,Printing and reproduction of recorded media,2023,1658,37,22,7,3,5254,458.66,16.86,
+SK,Slovakia,C19,Manufacture of coke and refined petroleum products,2023,33,0,,,,,,,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SK,Slovakia,C20,Manufacture of chemicals and chemical products,2023,615,26,19,23,5,8185,2236.52,104.73,
+SK,Slovakia,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,30,0,,9,,,,,enterprises_20_49_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SK,Slovakia,C22,Manufacture of rubber and plastic products,2023,1984,95,85,91,25,31428,5501.3,178.4,
+SK,Slovakia,C23,Manufacture of other non-metallic mineral products,2023,2482,63,50,47,13,17654,2799.37,135.35,
+SK,Slovakia,C24,Manufacture of basic metals,2023,1261,10,25,35,10,23035,6485.62,156.38,
+SK,Slovakia,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,36486,391,263,175,19,80709,8693.9,289.68,
+SK,Slovakia,C26,"Manufacture of computer, electronic and optical products",2023,2072,33,25,32,8,12454,3842.01,54.17,
+SK,Slovakia,C27,Manufacture of electrical equipment,2023,2298,37,45,80,30,37479,6316.02,301.36,
+SK,Slovakia,C28,Manufacture of machinery and equipment n.e.c.,2023,2001,83,96,95,44,45010,7389.01,246.03,
+SK,Slovakia,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,1358,24,25,78,62,76826,39797.37,1021.41,
+SK,Slovakia,C30,Manufacture of other transport equipment,2023,57,,,9,,4681,909.31,9.73,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_250plus_persons=C
+SK,Slovakia,C31,Manufacture of furniture,2023,1024,55,51,23,7,10100,968.1,27.9,
+SK,Slovakia,C32,Other manufacturing,2023,3808,,21,,,10251,755.41,39.62,enterprises_10_19_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+SK,Slovakia,C33,Repair and installation of machinery and equipment,2023,5413,71,40,36,6,15012,1760.32,29.81,
+SK,Slovakia,D35,"Electricity, gas, steam and air conditioning supply",2023,827,52,48,15,13,17605,25892.27,500.28,
+SK,Slovakia,E36,"Water collection, treatment and supply",2023,70,,,,7,7999,547.63,23,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C
+SK,Slovakia,E37,Sewerage,2023,457,7,,,0,832,55.2,1.5,enterprises_20_49_persons=C; enterprises_50_249_persons=C
+SK,Slovakia,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,1523,54,37,42,4,10589,1363.05,50.54,
+SK,Slovakia,E39,Remediation activities and other waste management services,2023,49,,,0,0,126,11.79,0.07,enterprises_10_19_persons=C; enterprises_20_49_persons=C
+FI,Finland,B,Mining and quarrying,2023,1139,36,27,10,4,6566,2643.47,-12.43,
+FI,Finland,C,Manufacturing,2023,28539,1427,1214,806,195,329974,161329.68,4732.97,
+FI,Finland,C10,Manufacture of food products,2023,2287,147,122,84,16,35093,12111.26,267.16,
+FI,Finland,C11,Manufacture of beverages,2023,260,15,8,5,4,3325,1623.36,48.59,
+FI,Finland,C12,Manufacture of tobacco products,2023,0,0,0,0,0,0,0,0,
+FI,Finland,C13,Manufacture of textiles,2023,1205,26,19,13,0,2801,509.64,15.15,
+FI,Finland,C14,Manufacture of wearing apparel,2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FI,Finland,C15,Manufacture of leather and related products,2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FI,Finland,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,2290,99,90,52,12,20324,9235.55,832.52,
+FI,Finland,C17,Manufacture of paper and paper products,2023,202,25,22,20,15,18685,16906.04,940.68,
+FI,Finland,C18,Printing and reproduction of recorded media,2023,1284,36,16,20,3,5446,993.91,21.58,
+FI,Finland,C19,Manufacture of coke and refined petroleum products,2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FI,Finland,C20,Manufacture of chemicals and chemical products,2023,417,29,35,33,15,12531,8542.28,505.88,
+FI,Finland,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FI,Finland,C22,Manufacture of rubber and plastic products,2023,631,62,61,53,8,12312,3821.57,141.43,
+FI,Finland,C23,Manufacture of other non-metallic mineral products,2023,910,46,57,39,7,11331,3538.38,121.09,
+FI,Finland,C24,Manufacture of basic metals,2023,145,12,15,17,10,13009,11916.07,273.53,
+FI,Finland,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,5319,362,322,141,15,40674,9679.12,322.15,
+FI,Finland,C26,"Manufacture of computer, electronic and optical products",2023,724,58,57,45,16,23503,17593.22,192.65,
+FI,Finland,C27,Manufacture of electrical equipment,2023,571,50,54,43,14,20065,8060.6,201.5,
+FI,Finland,C28,Manufacture of machinery and equipment n.e.c.,2023,1506,143,119,119,30,52497,23926.44,290.97,
+FI,Finland,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,301,28,22,22,7,7739,2474.91,66.42,
+FI,Finland,C30,Manufacture of other transport equipment,2023,577,25,27,22,6,8091,3521.79,38.66,
+FI,Finland,C31,Manufacture of furniture,2023,1069,54,34,17,4,6277,1411.49,25.58,
+FI,Finland,C32,Other manufacturing,2023,,,,,,,,,enterprises_total=C; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C; persons_employed=C; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+FI,Finland,C33,Repair and installation of machinery and equipment,2023,4345,138,81,31,6,17495,3058.51,66.31,
+FI,Finland,D35,"Electricity, gas, steam and air conditioning supply",2023,1664,64,76,42,8,14908,22094.12,3582.44,
+FI,Finland,E36,"Water collection, treatment and supply",2023,1330,32,20,,,3364,1199.17,62.34,enterprises_50_249_persons=C; enterprises_250plus_persons=C
+FI,Finland,E37,Sewerage,2023,338,15,,,,1621,417.82,31.35,enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+FI,Finland,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,632,,37,24,,7561,2373.67,122.55,enterprises_10_19_persons=C; enterprises_250plus_persons=C
+FI,Finland,E39,Remediation activities and other waste management services,2023,107,,,0,0,231,40.69,1.64,enterprises_10_19_persons=C; enterprises_20_49_persons=C
+SE,Sweden,B,Mining and quarrying,2023,571,14,19,8,4,8544,5017.85,465.63,
+SE,Sweden,C,Manufacturing,2023,45183,2139,1440,1023,389,621069,287587.31,10429.44,
+SE,Sweden,C10,Manufacture of food products,2023,3654,304,185,85,37,52703,19320.21,420.2,
+SE,Sweden,C11,Manufacture of beverages,2023,730,20,8,9,7,6820,3072.54,101.95,
+SE,Sweden,C12,Manufacture of tobacco products,2023,36,3,0,2,4,2446,1357.24,52.64,
+SE,Sweden,C13,Manufacture of textiles,2023,1672,30,27,17,2,5785,975.53,33.54,
+SE,Sweden,C14,Manufacture of wearing apparel,2023,1502,8,3,1,1,2371,220.42,4.65,
+SE,Sweden,C15,Manufacture of leather and related products,2023,482,3,7,2,0,1009,151.67,4.28,
+SE,Sweden,C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,4143,176,95,67,26,32336,11389.69,309.7,
+SE,Sweden,C17,Manufacture of paper and paper products,2023,247,14,28,26,25,32995,17516.31,1105.75,
+SE,Sweden,C18,Printing and reproduction of recorded media,2023,2189,65,34,24,2,8581,1381.83,27.7,
+SE,Sweden,C19,Manufacture of coke and refined petroleum products,2023,21,0,2,3,3,3226,17171.4,570.89,
+SE,Sweden,C20,Manufacture of chemicals and chemical products,2023,695,46,38,54,20,20498,10583.47,501.22,
+SE,Sweden,C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,117,13,7,7,11,18208,21037.36,416.65,
+SE,Sweden,C22,Manufacture of rubber and plastic products,2023,1040,95,67,65,19,21814,5634.44,221.48,
+SE,Sweden,C23,Manufacture of other non-metallic mineral products,2023,1774,49,45,26,15,16289,4562.5,198.25,
+SE,Sweden,C24,Manufacture of basic metals,2023,266,33,23,37,17,31504,21349.2,1031.36,
+SE,Sweden,C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,8412,617,353,204,45,76671,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SE,Sweden,C26,"Manufacture of computer, electronic and optical products",2023,1212,66,58,41,21,16487,,,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=C
+SE,Sweden,C27,Manufacture of electrical equipment,2023,721,50,60,43,15,27649,9121.22,1509.36,
+SE,Sweden,C28,Manufacture of machinery and equipment n.e.c.,2023,2154,161,156,152,63,86665,39806.58,812.26,
+SE,Sweden,C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,843,34,40,49,27,86443,63709.82,1953.59,
+SE,Sweden,C30,Manufacture of other transport equipment,2023,786,24,24,20,7,23460,6483.74,187.15,
+SE,Sweden,C31,Manufacture of furniture,2023,2095,96,51,33,9,14360,3332.82,175.73,
+SE,Sweden,C32,Other manufacturing,2023,3846,63,40,19,7,12226,2543.26,58.85,
+SE,Sweden,C33,Repair and installation of machinery and equipment,2023,6546,169,89,37,6,20523,3450.72,58.43,
+SE,Sweden,D35,"Electricity, gas, steam and air conditioning supply",2023,2247,62,70,70,26,36436,34072.08,5583.73,
+SE,Sweden,E36,"Water collection, treatment and supply",2023,323,6,4,13,1,2723,877.51,434.97,
+SE,Sweden,E37,Sewerage,2023,266,13,8,21,2,4211,931.87,205.78,
+SE,Sweden,E38,"Waste collection, treatment and disposal activities; materials recovery",2023,736,51,46,37,14,17459,5968.34,448.27,
+SE,Sweden,E39,Remediation activities and other waste management services,2023,113,5,7,1,0,481,67.24,2.8,
+EU27_2020,European Union - 27 countries (from 2020),B,Mining and quarrying,2023,16932,1600,1300,643,142,377103,142220.87,8100,enterprises_10_19_persons=e; enterprises_20_49_persons=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C,Manufacturing,2023,2168169,147866,107704,63137,16380,30291604,9850313.62,251151.71,
+EU27_2020,European Union - 27 countries (from 2020),C10,Manufacture of food products,2023,272977,26598,18931,9028,2386,4297420,1322740.39,28003.21,
+EU27_2020,European Union - 27 countries (from 2020),C11,Manufacture of beverages,2023,36000,1924,1580,1000,,475732,200000,7000,enterprises_total=e; enterprises_20_49_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=C; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C12,Manufacture of tobacco products,2023,300,,,,,41573,28184.77,894.88,enterprises_total=e; enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EU27_2020,European Union - 27 countries (from 2020),C13,Manufacture of textiles,2023,65971,3900,2700,1660,240,530000,80000,2100,enterprises_10_19_persons=e; enterprises_20_49_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C14,Manufacture of wearing apparel,2023,130000,6652,4000,1816,240,730000,78720.96,1000,enterprises_total=e; enterprises_20_49_persons=e; enterprises_250plus_persons=e; persons_employed=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C15,Manufacture of leather and related products,2023,34082,2945,2195,1020,180,400000,63666.98,1211.24,enterprises_50_249_persons=e; enterprises_250plus_persons=e; persons_employed=e
+EU27_2020,European Union - 27 countries (from 2020),C16,"Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials",2023,162485,7900,5066,1985,320,910000,169000,7200,enterprises_10_19_persons=e; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C17,Manufacture of paper and paper products,2023,18589,1900,1748,,490,627000,223000,9943.52,enterprises_10_19_persons=e; enterprises_50_249_persons=C; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C18,Printing and reproduction of recorded media,2023,102648,4800,2906,1309,180,540000,70000,2300,enterprises_10_19_persons=e; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C19,Manufacture of coke and refined petroleum products,2023,789,,,,,162249,581931.74,8956.52,enterprises_10_19_persons=C; enterprises_20_49_persons=C; enterprises_50_249_persons=C; enterprises_250plus_persons=C
+EU27_2020,European Union - 27 countries (from 2020),C20,Manufacture of chemicals and chemical products,2023,31391,2635,2713,2561,884,1246951,654482.4,21914.96,
+EU27_2020,European Union - 27 countries (from 2020),C21,Manufacture of basic pharmaceutical products and pharmaceutical preparations,2023,4000,290,338,560,503,680850,498042.74,11180.24,enterprises_total=e; enterprises_10_19_persons=e; enterprises_50_249_persons=e
+EU27_2020,European Union - 27 countries (from 2020),C22,Manufacture of rubber and plastic products,2023,55133,6000,6151,4900,1430,1700000,400000,13000,enterprises_10_19_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C23,Manufacture of other non-metallic mineral products,2023,90000,5984,4152,2500,,1200000,,11900,enterprises_total=e; enterprises_50_249_persons=e; enterprises_250plus_persons=C; persons_employed=e; net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C24,Manufacture of basic metals,2023,,1600,1285,1400,600,884000,470761.26,13000,enterprises_total=C; enterprises_10_19_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=e; persons_employed=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C25,"Manufacture of fabricated metal products, except machinery and equipment",2023,412708,30421,22353,10937,1444,3699901,,21000,net_turnover_eur_million=C; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C26,"Manufacture of computer, electronic and optical products",2023,36400,3170,2591,2120,685,1100000,,9235.27,enterprises_total=e; enterprises_10_19_persons=e; enterprises_50_249_persons=e; persons_employed=e; net_turnover_eur_million=C
+EU27_2020,European Union - 27 countries (from 2020),C27,Manufacture of electrical equipment,2023,40000,3673,3130,2700,980,1580000,460000,13340.47,enterprises_total=e; enterprises_20_49_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C28,Manufacture of machinery and equipment n.e.c.,2023,77999,10300,9000,7110,1980,3088659,908133.15,19400,enterprises_10_19_persons=e; enterprises_20_49_persons=e; enterprises_50_249_persons=e; enterprises_250plus_persons=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C29,"Manufacture of motor vehicles, trailers and semi-trailers",2023,19000,1630,1754,1806,1100,2450000,1403191.06,32432.22,enterprises_total=e; enterprises_10_19_persons=e; enterprises_250plus_persons=e; persons_employed=e
+EU27_2020,European Union - 27 countries (from 2020),C30,Manufacture of other transport equipment,2023,15066,1222,1040,800,344,790000,294000,5050,enterprises_50_249_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C31,Manufacture of furniture,2023,130000,7075,4400,2088,379,900000,120000,3000,enterprises_total=e; enterprises_20_49_persons=e; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),C32,Other manufacturing,2023,180000,6776,3476,1653,419,1000000,,4721.93,enterprises_total=e; persons_employed=e; net_turnover_eur_million=C
+EU27_2020,European Union - 27 countries (from 2020),C33,Repair and installation of machinery and equipment,2023,229564,10000,5812,2500,452,1247722,209608.54,3462.08,enterprises_10_19_persons=e; enterprises_50_249_persons=e
+EU27_2020,European Union - 27 countries (from 2020),D35,"Electricity, gas, steam and air conditioning supply",2023,203516,2090,1620,,600,1425651,2653205.51,97962.15,enterprises_10_19_persons=e; enterprises_20_49_persons=e; enterprises_50_249_persons=C; enterprises_250plus_persons=e
+EU27_2020,European Union - 27 countries (from 2020),E36,"Water collection, treatment and supply",2023,15000,759,751,680,260,330000,62186.96,8519.88,enterprises_total=e; enterprises_250plus_persons=e; persons_employed=e
+EU27_2020,European Union - 27 countries (from 2020),E37,Sewerage,2023,12693,956,679,482,,153000,27100,5320,enterprises_250plus_persons=C; persons_employed=e; net_turnover_eur_million=e; gross_investment_machinery_equipment_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),E38,"Waste collection, treatment and disposal activities; materials recovery",2023,49724,4156,3291,2333,520,1100000,220000,11171.14,enterprises_250plus_persons=e; persons_employed=e; net_turnover_eur_million=e
+EU27_2020,European Union - 27 countries (from 2020),E39,Remediation activities and other waste management services,2023,4450,349,254,118,,38000,8176.36,335.18,enterprises_total=e; enterprises_250plus_persons=C; persons_employed=e
