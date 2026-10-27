@@ -96,6 +96,61 @@ class AuditParser(HTMLParser):
 BRAND_VARIANT = re.compile(r'Demand\.?Range')
 errors = []
 ENTITY_CORE = set()
+DATASET_CHECKED = set()
+# Dataset JSON-LD is allowed only on routes declared in entity.json "datasets"
+# and is checked structurally (exact keys, identity, licence, authorship,
+# reviewed source URLs and a pinned CSV distribution), not merely tolerated.
+DATASET_ROUTES = set(json.loads((HERE / 'foundation' / 'entity.json').read_text(encoding='utf-8')).get('datasets', {}))
+DATASET_KEYS = {'@type', '@id', 'name', 'description', 'url', 'keywords', 'citation', 'license', 'isAccessibleForFree',
+                'creator', 'publisher', 'sourceOrganization', 'isBasedOn', 'temporalCoverage', 'spatialCoverage',
+                'variableMeasured', 'datePublished', 'dateModified', 'distribution'}
+DATASET_REQUIRED = {'@type', '@id', 'name', 'description', 'url', 'license', 'creator', 'publisher',
+                    'isBasedOn', 'temporalCoverage', 'spatialCoverage', 'distribution'}
+DATASET_LICENCE = 'https://creativecommons.org/licenses/by/4.0/'
+ORG_ID = 'https://demandrange.com/#organization'
+
+
+def dataset_ok(node, route, canonical, soup):
+    """Structural check of one schema.org Dataset node on a declared data route."""
+    text = lambda v: isinstance(v, str) and v.strip() == v and bool(v)
+    declaration = CONTRACT.get('external_reference_policy', {}).get('routes', {}).get(route, {})
+    reviewed = {a['href'] for a in declaration.get('anchors', {}).values()}
+    based = node.get('isBasedOn')
+    based = based if isinstance(based, list) else [based]
+    based_ok = bool(based) and all(
+        isinstance(b, dict) and set(b) <= {'@type', 'name', 'url', 'identifier'} and b.get('@type') == 'Dataset'
+        and text(b.get('name')) and b.get('url') in reviewed and b.get('identifier', b['url']) in reviewed
+        for b in based)
+    dist = node.get('distribution')
+    dist = dist if isinstance(dist, list) else [dist]
+    downloads = CONTRACT.get('safe_downloads', {})
+    def download_ok(d):
+        if not (isinstance(d, dict) and set(d) <= {'@type', 'name', 'contentUrl', 'encodingFormat', 'license'}
+                and d.get('@type') == 'DataDownload' and d.get('encodingFormat') == 'text/csv'
+                and d.get('license', DATASET_LICENCE) == DATASET_LICENCE and isinstance(d.get('contentUrl'), str)):
+            return False
+        name = d['contentUrl'].removeprefix('https://demandrange.com/')
+        return ('/' not in name and name.endswith('.csv') and name in downloads and (ROOT / name).is_file()
+                and soup.find('a', href=name, download=True) is not None)
+    place = node.get('spatialCoverage')
+    org = node.get('sourceOrganization', {'@type': 'Organization', 'name': 'x'})
+    return (isinstance(node, dict) and DATASET_REQUIRED <= set(node) <= DATASET_KEYS
+        and node['@type'] == 'Dataset' and node['@id'] == canonical + '#dataset' and node['url'] == canonical
+        and text(node['name']) and text(node['description']) and node['license'] == DATASET_LICENCE
+        and node['creator'] == {'@id': ORG_ID} and node['publisher'] == {'@id': ORG_ID}
+        and node.get('isAccessibleForFree', True) is True and based_ok
+        and isinstance(node['temporalCoverage'], str) and re.fullmatch(r'[0-9]{4}(?:/[0-9]{4})?', node['temporalCoverage']) is not None
+        and isinstance(place, dict) and set(place) == {'@type', 'name'} and place['@type'] == 'Place' and text(place['name'])
+        and isinstance(org, dict) and set(org) == {'@type', 'name'} and org['@type'] == 'Organization' and text(org['name'])
+        and all(isinstance(node.get(k, '2000-01-01'), str) and re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}', node.get(k, '2000-01-01'))
+                for k in ('datePublished', 'dateModified'))
+        and text(node.get('citation', 'x'))
+        and isinstance(node.get('keywords', ['x']), list) and node.get('keywords', ['x']) and all(text(x) for x in node.get('keywords', ['x']))
+        and isinstance(node.get('variableMeasured', ['x']), list) and node.get('variableMeasured', ['x'])
+        and all(text(v) or (isinstance(v, dict) and set(v) == {'@type', 'name', 'unitText'} and v['@type'] == 'PropertyValue'
+                            and text(v['name']) and text(v['unitText']))
+                for v in node.get('variableMeasured', ['x']))
+        and bool(dist) and all(download_ok(d) for d in dist))
 checks = 0
 parsers = {}
 
@@ -158,17 +213,25 @@ for route in ROUTES:
             raw = node.get_text()
             try:
                 data = json.loads(raw)
+                expected_nodes = 4 if route in DATASET_ROUTES else 3
                 graph = {n.get('@id'): n for n in data['@graph']}
                 page_node = graph.get(expected_canonical + '#webpage')
                 description = soup.find('meta', attrs={'name': 'description'})
                 entity_ok = (set(node.attrs) == {'type', 'id'} and node.get('id') == 'dr-entity' and node.parent.name == 'head'
                     and '</' not in raw and set(data) == {'@context', '@graph'} and data['@context'] == 'https://schema.org'
-                    and len(data['@graph']) == 3 and len(graph) == 3
+                    and len(data['@graph']) == expected_nodes and len(graph) == expected_nodes
                     and 'https://demandrange.com/#organization' in graph and 'https://demandrange.com/#website' in graph
                     and page_node is not None and page_node.get('url') == expected_canonical
                     and page_node.get('name') == soup.title.get_text()
                     and description is not None and page_node.get('description') == description.get('content')
                     and page_node.get('inLanguage') == 'en-IE')
+                if route in DATASET_ROUTES:
+                    entity_ok = (entity_ok and page_node.get('mainEntity') == {'@id': expected_canonical + '#dataset'}
+                        and [n.get('@type') for n in data['@graph']][3:] == ['Dataset']
+                        and dataset_ok(data['@graph'][3], route, expected_canonical, soup))
+                    DATASET_CHECKED.add(route)
+                else:
+                    entity_ok = entity_ok and 'mainEntity' not in page_node and not any(n.get('@type') == 'Dataset' for n in data['@graph'])
                 ENTITY_CORE.add(json.dumps([graph['https://demandrange.com/#organization'], graph['https://demandrange.com/#website']], sort_keys=True))
             except (ValueError, KeyError, TypeError, AttributeError):
                 entity_ok = False
@@ -338,6 +401,7 @@ else:
     check(QUOTE_ENDPOINT is None, 'QA endpoint supplied but the quote form is absent')
 
 check(len(ENTITY_CORE) == 1, 'JSON-LD Organization/WebSite nodes must be identical on every page')
+check(DATASET_ROUTES <= set(CONTRACT['page_routes']) and DATASET_CHECKED == DATASET_ROUTES & set(ROUTES), 'Every declared Dataset route must be a page route with a structurally checked Dataset node')
 if errors:
     print(f"FAIL: {len(errors)} error(s) across {checks} assertions")
     for error in errors: print(f"- {error}")

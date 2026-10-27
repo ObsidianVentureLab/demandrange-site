@@ -39,7 +39,19 @@ def entity_script(data, route, title, description, canonical):
         'primaryImageOfPage': {'@id': data['organization']['logo']['@id']} if route == 'index.html'
             else {'@type': 'ImageObject', 'url': data['page_image']},
     }
-    graph = {'@context': 'https://schema.org', '@graph': [data['organization'], data['website'], page]}
+    nodes = [data['organization'], data['website'], page]
+    dataset = data.get('datasets', {}).get(route)
+    if dataset is not None:
+        # One reviewed Dataset node per declared data route; identity, URL and
+        # authorship are derived here, never authored per page.
+        if set(dataset) & {'@id', 'url', 'creator', 'publisher', 'measurementTechnique'}:
+            raise ValueError('Entity stage: dataset ' + route + ' authors derived or excluded fields')
+        node = {'@type': 'Dataset', '@id': canonical + '#dataset', 'url': canonical}
+        node.update(dataset)
+        node['creator'] = node['publisher'] = {'@id': data['organization']['@id']}
+        page['mainEntity'] = {'@id': node['@id']}
+        nodes.append(node)
+    graph = {'@context': 'https://schema.org', '@graph': nodes}
     body = json.dumps(graph, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     if not canonical.startswith(site + '/'):
         raise ValueError('Entity stage: off-site canonical ' + canonical)
