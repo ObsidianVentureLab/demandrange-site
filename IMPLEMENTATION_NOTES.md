@@ -1,7 +1,7 @@
 # Industrial Opportunity Intelligence — Implementation Notes
 
 Date: 2026-08-23  
-Worktree: `/root/miranda/files/strategy/demandrange-industrial-opportunity-intelligence-2026-08-23/worktrees/site-industrial`  
+Worktree: `miranda:files/strategy/demandrange-industrial-opportunity-intelligence-2026-08-23/worktrees/site-industrial` (internal authoring workspace; host path removed)  
 Base commit: `2fffea217411fd47c37ca777bf157f49ae15b7fd`  
 Local branch: `industrial-intelligence-positioning`
 

@@ -1,7 +1,7 @@
 {
   "status": "LOCAL_MOCK_TESTS_PASSED",
   "live_google_tested": false,
-  "passed": 15,
+  "passed": 16,
   "cases": [
     {
       "name": "fictional row readback, duplicate suppression and idempotent rerun",
@@ -25,6 +25,10 @@
     },
     {
       "name": "blocks before writing: wrong executing account",
+      "passed": true
+    },
+    {
+      "name": "blocks before writing: missing owner configuration",
       "passed": true
     },
     {

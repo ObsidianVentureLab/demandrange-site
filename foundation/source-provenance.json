@@ -3,47 +3,47 @@
   "baseline_commit": "89274b47d92f4dbf2321c754c7e78193764c5ef8",
   "sources": {
     "BRAND": {
-      "path": "/root/miranda/vault/02-Projects/DemandRange Brand Identity and Messaging.md",
+      "path": "miranda:vault/02-Projects/DemandRange Brand Identity and Messaging.md",
       "locator": "Canonical internal brand standard v1.1; §§1–6; lines 19–70, 74–114, 116–165",
       "sha256": "b6311a8b25d78f2bdd4988c9455bfb830c225a02ac74ad0c3b19d4eec17ed290"
     },
     "TRANSITION": {
-      "path": "/root/miranda/vault/02-Projects/Project - DemandRange Hybrid Industrial Lead Model Transition.md",
+      "path": "miranda:vault/02-Projects/Project - DemandRange Hybrid Industrial Lead Model Transition.md",
       "locator": "Current product source; Objective, Approved internal direction, Current implementation state, Gated decisions; lines 20–31, 72–92, 100–109",
       "sha256": "1b61e0d2d012f12db5e8343fddde531057ea2cc9d1292d4df60cd210a30369c8"
     },
     "DECISION": {
-      "path": "/root/miranda/vault/07-Decisions/Decision - Adopt Hybrid 10-90 Industrial Lead Model - 2026-09-11.md",
+      "path": "miranda:vault/07-Decisions/Decision - Adopt Hybrid 10-90 Industrial Lead Model - 2026-09-11.md",
       "locator": "Internal direction; Record classes, Account versus named-person boundary, Commercial implications; lines 20–41, 51–118",
       "sha256": "df1debcec7a105f4d9045e4812bdc38cee765888fe5d19aa312ec56fd45bc458"
     },
     "SOP": {
-      "path": "/root/miranda/vault/04-SOPs/Hybrid Industrial Lead Batch Composition and QA SOP.md",
+      "path": "miranda:vault/04-SOPs/Hybrid Industrial Lead Batch Composition and QA SOP.md",
       "locator": "Canonical classes/states; common/class acceptance; delivery authority; lines 28–48, 71–127, 172–219, 222–252",
       "sha256": "5f8f3ea2e677dc01e94950017fa733f7a8efc2d7cbf4ba013941b09b156a20d2"
     },
     "PLAN": {
-      "path": "/root/miranda/files/seo/demandrange-2026-09-30/DemandRange_SEO_Plan_v1.0.md",
+      "path": "miranda:files/seo/demandrange-2026-09-30/DemandRange_SEO_Plan_v1.0.md",
       "locator": "§§7–11, 23–26; architecture, candidate headings, paired examples, company default, quote scope, evidence/rights and release boundaries",
       "sha256": "18d03ba6a8ed5515191e3e04b5ddba9520dda628fd0cf3ed8890fdc997a03412"
     },
     "MAP": {
-      "path": "/root/miranda/files/seo/demandrange-2026-09-30/page-query-map.csv",
+      "path": "miranda:files/seo/demandrange-2026-09-30/page-query-map.csv",
       "locator": "H00, C01, C02, C03, C07 and R00 intent ownership; metadata candidates",
       "sha256": "11cecaf289ec345474852270c0a93ce52107b38a2d80355d8a21b2739036df06"
     },
     "QUEUE": {
-      "path": "/root/miranda/files/seo/demandrange-2026-09-30/content-queue.csv",
+      "path": "miranda:files/seo/demandrange-2026-09-30/content-queue.csv",
       "locator": "C01, C02, C03, C07 foundation acceptance",
       "sha256": "bfeee11b5fc78742f761b80678fee0843b7ca5a5d34da4f414bb10ccbfe64a43"
     },
     "REVIEW": {
-      "path": "/root/miranda/files/seo/demandrange-2026-09-30/review-resolution.md",
+      "path": "miranda:files/seo/demandrange-2026-09-30/review-resolution.md",
       "locator": "R05, R08, R09, R10; reviewer separation, page map, quote consistency, output QA",
       "sha256": "6124e15ec1d825f6017a9ea7a71fb879213034913ac2fe1e91dbfb17ba44343e"
     }
   },
-  "baseline_root": "/root/miranda/files/seo/demandrange-2026-09-30/execution-01/site-baseline",
+  "baseline_root": "miranda:files/seo/demandrange-2026-09-30/execution-01/site-baseline",
   "baseline_files": {
     "index.html": {
       "sha256": "c3d05cc788996ebba374314ee13e29be3ab75b8af3514d8881826aafc66f9a65",

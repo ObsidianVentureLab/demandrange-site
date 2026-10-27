@@ -8,11 +8,11 @@ const crypto = require('crypto');
 const root = path.resolve(__dirname, '..');
 const backend = fs.readFileSync(path.join(root, 'apps-script/Code.gs'), 'utf8');
 const helper = fs.readFileSync(path.join(root, 'owner-qa/OwnerQA.gs'), 'utf8');
-const owner = 'sean@demandrange.com';
+const owner = 'owner@fixture.example';
 const fixtureId = 'LocalMockSpreadsheetIdOnly123';
 
 function environment(options = {}) {
-  const properties = {MODE: 'test', PAUSED: 'true', SPREADSHEET_ID: fixtureId, ...options.properties};
+  const properties = {MODE: 'test', PAUSED: 'true', SPREADSHEET_ID: fixtureId, OWNER_QA_EMAIL: owner, ...options.properties};
   const logs = [];
   const writes = [];
   let networkCalls = 0;
@@ -135,7 +135,8 @@ const blocked = [
   ['unpaused collection', {properties: {PAUSED: 'false'}}, /PAUSED must be exactly true/],
   ['missing pause value', {properties: {PAUSED: null}}, /PAUSED must be exactly true/],
   ['full URL instead of ID', {properties: {SPREADSHEET_ID: 'https://docs.google.com/spreadsheets/d/example/edit'}}, /bare ID/],
-  ['wrong executing account', {owner: 'other@fixture.example'}, /intended Sean account/],
+  ['wrong executing account', {owner: 'other@fixture.example'}, /configured owner account/],
+  ['missing owner configuration', {properties: {OWNER_QA_EMAIL: null}}, /OWNER_QA_EMAIL script property/],
   ['changed headers', {badHeaders: true}, /headers_do_not_match_schema/],
   ['missing required tab', {missingTab: true}, /Missing setup tab/],
   ['missing protection', {noProtection: true}, /Expected protection missing/],

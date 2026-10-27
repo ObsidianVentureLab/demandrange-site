@@ -14,8 +14,12 @@ function runOwnerStorageTest() {
   ownerQARequire_(properties.getProperty('PAUSED') === 'true', 'PAUSED must be exactly true');
   const spreadsheetId = properties.getProperty('SPREADSHEET_ID') || '';
   ownerQARequire_(/^[A-Za-z0-9_-]+$/.test(spreadsheetId), 'SPREADSHEET_ID must be a bare ID');
+  // Expected owner comes from the OWNER_QA_EMAIL script property (set once in
+  // Project Settings > Script properties); no account address is kept in source.
+  const expectedOwner = String(properties.getProperty('OWNER_QA_EMAIL') || '').trim().toLowerCase();
+  ownerQARequire_(/^[^@\s]+@[^@\s]+$/.test(expectedOwner), 'OWNER_QA_EMAIL script property must name the owner account');
   const ownerEmail = String(Session.getEffectiveUser().getEmail()).toLowerCase();
-  ownerQARequire_(ownerEmail === 'sean@demandrange.com', 'Run from the intended Sean account');
+  ownerQARequire_(ownerEmail === expectedOwner, 'Run from the configured owner account (OWNER_QA_EMAIL)');
   ownerQARequire_(FORM.formVersion === '2026-09-11-v1', 'Unexpected form version; stop for review');
 
   const book = SpreadsheetApp.openById(spreadsheetId);
