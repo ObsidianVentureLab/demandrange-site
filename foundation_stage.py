@@ -105,7 +105,9 @@ def page_main(key, document=None):
     title = hero.h1.extract()
     for p in hero.find_all('p', recursive=False):
         p['class'] = ['lede' if p == hero.find('p') else 'research-intro-note']
-        if p.find('a'):
+        # Only a paragraph of links plus separator punctuation (e.g. ' · ') is a
+        # call-to-action row; prose containing a link or [n] citation keeps its text.
+        if p.find('a') and all(getattr(c, 'name', None) == 'a' or (getattr(c, 'name', None) is None and not re.search(r'\w', str(c))) for c in p.children):
             p['class'] = ['actions']
             for child in list(p.children):
                 if getattr(child, 'name', None) != 'a': child.extract()
