@@ -109,7 +109,9 @@ for route in ROUTES:
     text = path.read_text(encoding="utf-8")
     p = AuditParser(); p.feed(text); p.close(); parsers[route] = p
     check(text.lower().startswith("<!doctype html>"), f"{route}: missing HTML5 doctype")
-    check(p.lang == "en", f"{route}: html lang must be en")
+    check(p.lang == "en-IE", f"{route}: html lang must be en-IE")
+    if 'property="og:site_name"' in text:
+        check(text.count('<meta property="og:locale" content="en_IE">') == 1, f"{route}: og:locale must be en_IE exactly once")
     check(bool(p.title_text.strip()), f"{route}: missing title")
     check(bool(p.meta.get("description", "").strip()), f"{route}: missing meta description")
     check(p.meta.get("viewport") == "width=device-width, initial-scale=1", f"{route}: invalid viewport")
