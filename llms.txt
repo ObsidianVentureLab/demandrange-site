@@ -36,6 +36,9 @@ Key facts:
 - [CPV codes for pumps, valves and industrial equipment](https://demandrange.com/cpv-codes-industrial-equipment): official CPV wording for pumps, valves, instruments, water treatment and plant maintenance, with a free CSV starter list for tender alerts
 - [UK public tenders for industrial suppliers](https://demandrange.com/uk-public-tenders-industrial-suppliers): Find a Tender vs Contracts Finder under the Procurement Act 2023, and which notices matter
 - [UK water industry supplier research (AMP8)](https://demandrange.com/uk-water-industry-supplier-research): water companies, framework contractors and DPC routes in England and Wales for 2025–2030
+- [NACE Rev. 2.1 codes for industrial account lists](https://demandrange.com/nace-rev-2-1-industrial-account-lists): the manufacturing (Section C) changes and how to recode an existing target list
+- [EU Industrial Emissions Portal for account research](https://demandrange.com/eu-industrial-emissions-portal-research): using the EEA's EU-wide facility data to find large industrial sites by country and activity
+- [Germany industrial account research](https://demandrange.com/germany-industrial-account-research): Handelsregister, Unternehmensregister, WZ 2025 codes and other public sources for German manufacturers and plants
 - [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
 - [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)
