@@ -1,11 +1,13 @@
 # Demand Range
 
-> Demand Range (also written DemandRange or Demand.Range) is an analyst-led industrial lead research and market intelligence service for suppliers of industrial equipment, technology and services. It builds company-level prospect lists for target markets in Ireland, the United Kingdom and the European Union. Each account comes with source-supported fit evidence and, where available, evidenced project or development signals.
+> Demand Range is an Irish industrial lead and account research business serving Ireland, the UK and the EU. We build analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
+
+Also written DemandRange or Demand.Range. Tagline: Industrial prospects. Matched to your market.
 
 Key facts:
 - Website: https://demandrange.com
 - Contact: partners@demandrange.com, or request a written scope at https://demandrange.com/request-a-quote
-- Markets served: Ireland (current focus), the United Kingdom and EU countries. Each territory's sources and language needs are assessed per brief.
+- Markets served: Ireland, the UK and the EU. Each territory's sources and language needs are assessed per brief.
 - Customers: suppliers of industrial equipment, technology and services, such as pumps and flow control, water and wastewater, process equipment, MRO, OEM components and distribution.
 - Two research classes: industry-matched ("Look Alike") leads that match an agreed brief, and opportunity-signal leads with an identified, evidenced project or development. The target mix is about 90/10 but not guaranteed, and is agreed in writing.
 - Deliverable: company-level account records with fit reasoning, sources, review dates and open questions. Named contacts, emails and direct dials are not included by default.
@@ -13,7 +15,8 @@ Key facts:
 
 ## Services
 
-- [Industrial lead and account research](https://demandrange.com/industrial-lead-research): company-level prospect research scoped by EU country, sector, site rules and exclusions
+- [Industrial lead and account research](https://demandrange.com/industrial-lead-research): company-level prospect research for Ireland, the UK and the EU, scoped by country, sector, site rules and exclusions
+- [Industrial lead generation for Ireland and the UK](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Irish and UK industrial markets using CRO, Companies House, regulator registers and public tenders
 - [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence): evidenced industrial project and development signals, separating observed change, supplier relevance and unknowns
 - [Campaign activation](https://demandrange.com/campaign-activation): optional outreach, only under its own written scope, data review and approval
 - [Markets and supplier fit](https://demandrange.com/markets): how account fit is defined by country, sector and customer route
@@ -28,6 +31,9 @@ Key facts:
 ## Guides for industrial sales teams
 
 - [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of all guides and free CSV worksheets
+- [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): Companies House SIC codes as a filter, then site confirmation from UK regulator registers
+- [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
+- [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
 - [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
 - [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)
 - [Industrial account prioritisation](https://demandrange.com/industrial-account-prioritisation)
