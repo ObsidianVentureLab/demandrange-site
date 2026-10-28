@@ -30,7 +30,7 @@ Key facts:
 ## Guides for industrial sales teams
 
 - [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of all guides and free CSV worksheets
-- [What is industrial account research? A definition for industrial suppliers](https://demandrange.com/what-is-industrial-account-research): A definition of industrial account research: what it is, how it differs from bought contact data and lead generation, and what evidence a good account record carries.
+- [What is industrial account research? A definition for industrial suppliers](https://demandrange.com/what-is-industrial-account-research): A definition of industrial account research: what it is, how it differs from bought contact data and meeting-booking services, and what evidence a good account record carries.
 - [Manufacturing enterprises in the EU by country and NACE division (2024 data)](https://demandrange.com/eu-industrial-enterprises-by-country): EU manufacturing enterprises by country and NACE division for 2024, from Eurostat, with a downloadable CSV and notes on what the counts can and cannot tell you
 - [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): Companies House SIC codes as a filter, then site confirmation from UK regulator registers
 - [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
