@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Industrial Research-Action Prioritisation | Demand Range</title>
-  <meta name="description" content="Allocate limited research time across screened industrial accounts using a fictional action queue and blank CSV. Plan evidence checks, not sales-account rankings.">
+  <title>Industrial Account Prioritisation Scoring | Demand Range</title>
+  <meta name="description" content="Prioritise industrial accounts with a weighted fit, evidence and timing score, a scored fictional example and a research queue. Fit stays a gate.">
   <link rel="canonical" href="https://demandrange.com/industrial-account-prioritisation">
   <meta name="theme-color" content="#111820">
-  <meta property="og:title" content="Industrial Research-Action Prioritisation | Demand Range">
-  <meta property="og:description" content="Allocate limited research time across screened industrial accounts using a fictional action queue and blank CSV. Plan evidence checks, not sales-account rankings.">
+  <meta property="og:title" content="Industrial Account Prioritisation Scoring | Demand Range">
+  <meta property="og:description" content="Prioritise industrial accounts with a weighted fit, evidence and timing score, a scored fictional example and a research queue. Fit stays a gate.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://demandrange.com/industrial-account-prioritisation">
   <meta property="og:image" content="https://demandrange.com/og-image.png">
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="styles.css">
   <script>try{if(localStorage.getItem('dr-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}</script>
 <script type="application/ld+json" id="dr-entity">
-{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://demandrange.com/#organization","name":"Demand Range","url":"https://demandrange.com/","logo":{"@type":"ImageObject","@id":"https://demandrange.com/#logo","url":"https://demandrange.com/logo.png","width":512,"height":512,"caption":"Demand Range"},"image":"https://demandrange.com/og-image.png","email":"partners@demandrange.com","address":{"@type":"PostalAddress","addressCountry":"IE"},"description":"Evidence-backed industrial account research for Ireland, the UK and the EU","slogan":"Evidence-backed industrial account research for Ireland, the UK and the EU","areaServed":[{"@type":"Country","name":"Ireland","identifier":"IE"},{"@type":"Country","name":"United Kingdom","identifier":"GB"},{"@type":"Place","name":"European Union","identifier":"EU"}],"knowsAbout":["Industrial account research","Account list research","Industrial market intelligence","Project and development signal research","Ideal customer profile definition","Account list audit and maintenance","Project and opportunity evidence","Pumps and flow control","Water and wastewater","Pharmaceutical manufacturing","Food and beverage manufacturing","Chemical manufacturing","EPC/EPCM project buying routes","Industrial MRO","Industrial OEMs and distributors","Public tenders (eTenders)"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"partners@demandrange.com","areaServed":["IE","GB","EU"],"availableLanguage":["en"],"url":"https://demandrange.com/request-a-quote"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Industrial research services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://demandrange.com/industrial-lead-research#service","name":"Industrial account research","serviceType":"Industrial account research","url":"https://demandrange.com/industrial-lead-research","description":"Company-level, industry-matched (Look Alike) account research for Ireland, the UK and the EU, scoped by country, sector, operating-site rules and exclusions, with source traceability.","provider":{"@id":"https://demandrange.com/#organization"},"areaServed":["IE","GB","EU"]}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://demandrange.com/opportunity-intelligence#service","name":"Opportunity Intelligence","serviceType":"Industrial project intelligence","url":"https://demandrange.com/opportunity-intelligence","description":"Research into evidenced industrial projects and developments, separating observed change, supplier relevance and unknowns.","provider":{"@id":"https://demandrange.com/#organization"},"areaServed":["IE","GB","EU"]}}]},"sameAs":["https://wellfound.com/company/demand-range-1"]},{"@type":"WebSite","@id":"https://demandrange.com/#website","url":"https://demandrange.com/","name":"Demand Range","inLanguage":"en-IE","publisher":{"@id":"https://demandrange.com/#organization"}},{"@type":"WebPage","@id":"https://demandrange.com/industrial-account-prioritisation#webpage","url":"https://demandrange.com/industrial-account-prioritisation","name":"Industrial Research-Action Prioritisation | Demand Range","description":"Allocate limited research time across screened industrial accounts using a fictional action queue and blank CSV. Plan evidence checks, not sales-account rankings.","inLanguage":"en-IE","isPartOf":{"@id":"https://demandrange.com/#website"},"publisher":{"@id":"https://demandrange.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://demandrange.com/og-image.png"},"dateModified":"2026-10-27","author":{"@type":"Organization","@id":"https://demandrange.com/#organization","name":"Demand Range"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://demandrange.com/#organization","name":"Demand Range","url":"https://demandrange.com/","logo":{"@type":"ImageObject","@id":"https://demandrange.com/#logo","url":"https://demandrange.com/logo.png","width":512,"height":512,"caption":"Demand Range"},"image":"https://demandrange.com/og-image.png","email":"partners@demandrange.com","address":{"@type":"PostalAddress","addressCountry":"IE"},"description":"Evidence-backed industrial account research for Ireland, the UK and the EU","slogan":"Evidence-backed industrial account research for Ireland, the UK and the EU","areaServed":[{"@type":"Country","name":"Ireland","identifier":"IE"},{"@type":"Country","name":"United Kingdom","identifier":"GB"},{"@type":"Place","name":"European Union","identifier":"EU"}],"knowsAbout":["Industrial account research","Account list research","Industrial market intelligence","Project and development signal research","Ideal customer profile definition","Account list audit and maintenance","Project and opportunity evidence","Pumps and flow control","Water and wastewater","Pharmaceutical manufacturing","Food and beverage manufacturing","Chemical manufacturing","EPC/EPCM project buying routes","Industrial MRO","Industrial OEMs and distributors","Public tenders (eTenders)"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"partners@demandrange.com","areaServed":["IE","GB","EU"],"availableLanguage":["en"],"url":"https://demandrange.com/request-a-quote"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Industrial research services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://demandrange.com/industrial-lead-research#service","name":"Industrial account research","serviceType":"Industrial account research","url":"https://demandrange.com/industrial-lead-research","description":"Company-level, industry-matched (Look Alike) account research for Ireland, the UK and the EU, scoped by country, sector, operating-site rules and exclusions, with source traceability.","provider":{"@id":"https://demandrange.com/#organization"},"areaServed":["IE","GB","EU"]}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://demandrange.com/opportunity-intelligence#service","name":"Opportunity Intelligence","serviceType":"Industrial project intelligence","url":"https://demandrange.com/opportunity-intelligence","description":"Research into evidenced industrial projects and developments, separating observed change, supplier relevance and unknowns.","provider":{"@id":"https://demandrange.com/#organization"},"areaServed":["IE","GB","EU"]}}]},"sameAs":["https://wellfound.com/company/demand-range-1"]},{"@type":"WebSite","@id":"https://demandrange.com/#website","url":"https://demandrange.com/","name":"Demand Range","inLanguage":"en-IE","publisher":{"@id":"https://demandrange.com/#organization"}},{"@type":"WebPage","@id":"https://demandrange.com/industrial-account-prioritisation#webpage","url":"https://demandrange.com/industrial-account-prioritisation","name":"Industrial Account Prioritisation Scoring | Demand Range","description":"Prioritise industrial accounts with a weighted fit, evidence and timing score, a scored fictional example and a research queue. Fit stays a gate.","inLanguage":"en-IE","isPartOf":{"@id":"https://demandrange.com/#website"},"publisher":{"@id":"https://demandrange.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://demandrange.com/og-image.png"},"dateModified":"2026-10-28","author":{"@type":"Organization","@id":"https://demandrange.com/#organization","name":"Demand Range"}}]}
 </script>
 </head>
 <body>
@@ -40,72 +40,276 @@
     </details>
   </div>
 </header>
-<main id="main" class="foundation-main"><section class="foundation-hero" id="content-prioritisation-intro"><div class="wrap foundation-hero-grid"><div><p class="label label-accent">Research guide · Source evidence and limits</p><h1>Prioritise research actions across industrial accounts</h1><p class="content-byline" id="content-byline">By Demand Range research team · Last reviewed <time datetime="2026-10-27">27 October 2026</time></p></div><div class="foundation-intro">
-<p class="lede">You have screened a set of industrial accounts, recorded the gaps and reached the limit of the research time available. Which question should an analyst work on next—and which should wait? Prioritise the <strong>research action</strong>, not the company’s supposed willingness to buy.</p>
-<p class="research-intro-note">This guide starts after an initial screen. It keeps the account decision intact while comparing possible next checks across accounts. It is not another list audit, refresh schedule or contact queue. A held candidate can merit the next verification check without becoming an approved account; an accepted account can reasonably receive no further research in this work period.</p>
-<p class="research-intro-note">The worked worklist is entirely invented. Its capacity, effort estimates and ordering policy are teaching assumptions, not observed productivity, standard service times or a tested scoring model.</p>
+<main id="main" class="foundation-main"><section class="foundation-hero" id="content-prioritisation-intro"><div class="wrap foundation-hero-grid"><div><p class="label label-accent">Research guide · Source evidence and limits</p><h1>Industrial account prioritisation: score fit, evidence and timing</h1><p class="content-byline" id="content-byline">By Demand Range research team · Last reviewed <time datetime="2026-10-28">28 October 2026</time></p></div><div class="foundation-intro">
+<p class="lede"><strong>Once accounts have passed your fit screen, you still have to choose which to work first.</strong> A short weighted score for fit, evidence and timing makes that choice visible and repeatable. The score orders accepted and held accounts. It never turns an excluded account into a target, and it does not measure willingness to buy.</p>
+<p class="research-intro-note">This guide applies to account lists for Ireland, the UK and the EU. It starts after the <a href="industrial-ideal-customer-profile">industrial ICP screen</a>, where each account has a fit decision. The weights and the worked example are illustrative and fictional. They are not a tested model, a Demand Range standard or observed results.</p>
 <p class="actions"><a class="btn btn-primary" href="industrial-sales-resources#research-priority-download">Blank research-action queue in the resource library</a><a class="btn btn-secondary" href="#use-the-blank-research-action-queue">Column guide below</a></p>
-</div></div></section><div class="wrap"><nav class="foundation-jump" aria-label="On this page"><a href="#keep-five-questions-separate">Keep five questions separate</a><a href="#write-a-question-that-can-change-a-decision">Write a question that can change a decision</a><a href="#set-a-work-period-rule-before-ordering-the-queue">Set a work-period rule before ordering the queue</a><a href="#work-a-finite-fictional-queue">Work a finite fictional queue</a><a href="#reopen-the-allocation-when-evidence-arrives">Reopen the allocation when evidence arrives</a><a href="#use-the-blank-research-action-queue">Use the blank research-action queue</a><a href="#bring-the-unresolved-decision-to-the-brief">Bring the unresolved decision to the brief</a><a href="#method-and-source-boundaries">Method and source boundaries</a><a href="#sources">Sources</a></nav></div><section class="foundation-section" id="keep-five-questions-separate"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">01 / keep five questions separate</span><h2>Keep five questions separate</h2></div><div class="foundation-prose">
-<ol>
-<li><strong>Fit decision:</strong> does the account meet the authorised brief? Carry forward its decision, brief version and decision reference. Prioritisation cannot supply a missing mandatory fact or reverse an exclusion.</li>
-<li><strong>Evidence gap:</strong> which exact assertion remains unsupported, conflicting or insufficiently attributed? Name the field and its evidence reference, not just “needs more research”.</li>
-<li><strong>Uncertainty:</strong> what remains unknown, and what would resolve it? Keep an untested hypothesis distinct from a negative finding. A large gap is not automatically a large commercial opportunity.</li>
-<li><strong>Buyer-defined importance:</strong> which decision matters to the buyer, and why? An authorised instruction to understand one activity segment first is a preference about research. It is not evidence that a particular account has more demand, margin or purchasing authority.</li>
-<li><strong>Authorised next action:</strong> what may this researcher actually do with the available sources and time? Permission to review internally, retain evidence and include material in a customer output are separate questions. Queue position grants none of them.</li>
-</ol>
-<p>Use the <a href="industrial-ideal-customer-profile">industrial ICP brief</a> to establish the fit rules and the <a href="industrial-sales-resources#review-quality">library’s batch-audit resources</a> to reconcile account decisions. If a changed fact reopens a decision, use the <a href="industrial-prospect-list-maintenance">maintenance guide</a>. Here, the additional question is how to allocate the next bounded research block across those recorded decisions.</p>
-</div></div></section><section class="foundation-section" id="write-a-question-that-can-change-a-decision"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">02 / write a question that can change a decision</span><h2>Write a question that can change a decision</h2></div><div class="foundation-prose">
-<p>For each proposed action, finish this sentence: “If this check establishes ___, we will change ___; if it does not, we will record ___.” A source search with no specified consequence is difficult to prioritise responsibly.</p>
-<p>“Find more information about this company” is too broad. “Check whether the permitted activity statement attributes the process to this company rather than its parent; retain or withdraw that optional process note” is bounded. The latter does not promise that the check will succeed.</p>
-<p>Challenge commercially attractive assumptions before using them as reasons. Does having several sites actually matter to this buyer’s brief? Is purchasing shared across those sites? Is the described activity performed by the screened account? If those answers are unsupported, write questions—not “high value”, a readiness label or a made-up numerical advantage. Do not introduce revenue or equipment-fit claims to break a tie.</p>
-<p>Identify the stopping point: one specified permitted source, one internal rule clarification, or a time cap followed by an unresolved outcome. A time cap limits effort; it does not prove that no evidence exists elsewhere. An action blocked on source-use permission should name a permitted clarification route rather than invite the researcher to copy the restricted material anyway.</p>
-</div></div></section><section class="foundation-section" id="set-a-work-period-rule-before-ordering-the-queue"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">03 / set a work period rule before ordering the queue</span><h2>Set a work-period rule before ordering the queue</h2></div><div class="foundation-prose">
-<p>Record the actual capacity available for this pass and set aside time for review and recording. Estimate the complete action, including its evidence note; do not count only browsing. Label estimates as estimates. Unknown effort is not zero: first scope the action or defer it. Do not quietly let an attractive account consume the whole work period.</p>
-<p>Choose a local ordering rule with the buyer. One possible rule is to consider authorised checks that could resolve mandatory decision gaps first, then optional checks that address an explicitly named buyer question. That is a proposal, not a universal duty to investigate every held or excluded record. Apply the brief’s stopping rules; some further work will be out of scope.</p>
-<p>Within the same category, compare the decision consequence and feasible action, then record any tie-break openly. A stable action-ID order can break a genuine tie for one pass without pretending one account is better. Keep the unselected action and revisit the tie at the next authorised allocation. Do not manufacture decimal scores to conceal an unresolved preference.</p>
-</div></div></section><section class="foundation-section" id="work-a-finite-fictional-queue"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">04 / work a finite fictional queue</span><h2>Work a finite fictional queue</h2></div><div class="foundation-prose">
-<p><strong>Everything in this exercise is invented:</strong> five distinct screened company records, six proposed actions, the prior evidence references, the buyer instruction and every time estimate. They are not researched companies or client results. No real source dates, URLs, people or prices are supplied.</p>
-<p>The imaginary brief seeks company-level research on food-and-beverage manufacturers operating production facilities in the Republic of Ireland, excluding existing accounts. A project is not required. Identity is stipulated resolved for all five companies; all mandatory checks pass except the specific gaps stated below. A pass here means the fictional account-fit decision only, not delivery approval.</p>
-<p>The invented buyer instruction Q-BRIEF-1 asks first for actionable mandatory-gap checks, then for attribution of a particular production-process description where account fit already passes. “Important” means that instruction, not estimated account revenue. Optional descriptive detail with no decision consequence comes last. Equal optional checks use ascending action ID for this pass. The buyer has stipulated this ordering only for the exercise.</p>
-<p><strong>Capacity:</strong> 60 analyst minutes for this fictional pass, with 10 reserved for cross-worklist review and recording. That leaves 50 minutes for actions. Each action estimate below already includes its individual evidence note. Estimates are not guarantees; stop and reassess if an action reaches its cap.</p>
-<h3>The six proposed actions</h3>
+</div></div></section><div class="wrap"><nav class="foundation-jump" aria-label="On this page"><a href="#the-scoring-table-fit-evidence-and-timing">The scoring table: fit, evidence and timing</a><a href="#what-counts-as-a-timing-signal">What counts as a timing signal</a><a href="#worked-example-five-fictional-accounts-scored">Worked example: five fictional accounts scored</a><a href="#turn-the-score-into-research-actions">Turn the score into research actions</a><a href="#rescore-when-evidence-arrives">Rescore when evidence arrives</a><a href="#what-the-score-is-for-and-what-it-is-not">What the score is for, and what it is not</a><a href="#use-the-blank-research-action-queue">Use the blank research-action queue</a><a href="#frequently-asked-questions">Frequently asked questions</a><a href="#related-guides">Related guides</a><a href="#how-demand-range-helps">How Demand Range helps</a><a href="#method-and-source-boundaries">Method and source boundaries</a><a href="#sources">Sources</a></nav></div><section class="foundation-section" id="the-scoring-table-fit-evidence-and-timing"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">01 / the scoring table fit evidence and timing</span><h2>The scoring table: fit, evidence and timing</h2></div><div class="foundation-prose">
+<p>Agree the weights before anyone scores an account. The table below is an illustrative starting point for a process-equipment supplier. Change the weights to suit your offer, then keep them fixed for the whole list.</p>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Factor</th>
+<th scope="col">Weight</th>
+<th scope="col">Score 2</th>
+<th scope="col">Score 1</th>
+<th scope="col">Score 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate: fit decision</td>
+<td>Gate</td>
+<td>Accepted or held: score the account</td>
+<td>—</td>
+<td>Excluded or rejected: stop, do not score</td>
+</tr>
+<tr>
+<td>Fit</td>
+<td>50</td>
+<td>ICP points 90 to 100</td>
+<td>ICP points 75 to 89</td>
+<td>Held (ICP points 50 to 74)</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>30</td>
+<td>Every scored fit field has a named source checked in the last 12 months</td>
+<td>Every field has a source, but one is older than 12 months or only covers the group</td>
+<td>At least one field is not checked, or two sources conflict</td>
+</tr>
+<tr>
+<td>Timing</td>
+<td>20</td>
+<td>A dated, site-level public signal relevant to the brief, published in the last 12 months or scheduled in the next 12</td>
+<td>A signal that is undated or only at group level</td>
+<td>No signal found in the bounded review</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Priority points</strong> are the weight multiplied by the score, divided by 2, added across the three factors. The maximum is 100. An illustrative decision rule:</p>
 <ul>
-<li><strong>Q01 · Company P-A · 20 estimated minutes.</strong> The prior screen holds this candidate: exclusion status and attribution of a qualifying production location are both unresolved, recorded in invented decision P-A-D1. First ask the authorised internal exclusion reviewer to resolve the possible existing-account match using the controlled record. Q01 is authorised within the fiction; no confidential list is copied into the queue. It can settle one mandatory gate, not both. Select it first under Q-BRIEF-1.</li>
-<li><strong>Q02 · Company P-B · 25 estimated minutes.</strong> Account fit passes under invented decision P-B-D1. A separate process note P-B-E2 is attributed only to the group, not this company. Check one stipulated permitted activity source for company-level attribution and retain, narrow or withdraw that optional note. Select this action next because the buyer specifically requested that distinction.</li>
-<li><strong>Q03 · Company P-C · 25 estimated minutes.</strong> Account fit also passes. Invented reference P-C-E2 leaves the same optional process-attribution question. The action and consequence are otherwise tied with Q02. Defer Q03 for capacity, using the disclosed action-ID tie-break. This does not rank P-C as a worse account or make its evidence less important.</li>
-<li><strong>Q04 · Company P-D · effort unknown.</strong> Intended customer use of the material supporting a mandatory claim remains unresolved in P-D-D1, so the candidate stays held. A proposed source-extraction action is not authorised. Defer that action; ask the internal source-use owner to define a permitted verification route and scope its effort before allocation. The clarification itself is not booked into this pass. Do not reuse the material while waiting.</li>
-<li><strong>Q05 · Company P-E · 60 estimated minutes.</strong> Account fit passes. The attractive idea that several sites share purchasing is only question P-E-U1. A separately permitted document review has been scoped, but the buyer has not established that this optional distinction takes precedence over the process question. Defer: the whole action exceeds this pass’s action capacity and lacks the chosen importance basis. Do not label the account a larger opportunity.</li>
-<li><strong>Q06 · Company P-B · 5 estimated minutes.</strong> Reformat an already adequate optional description. This is a second action on P-B, not a sixth company. Defer it even though it is short: it changes neither the fit decision nor the buyer’s open question. Cheap work is not automatically the next useful work.</li>
+<li><strong>70 or more:</strong> work first.</li>
+<li><strong>40 to 69:</strong> next pass, after the weakest factor is checked.</li>
+<li><strong>Under 40:</strong> park the account and fix its weakest field before it is scored again.</li>
 </ul>
-<h3>Read the allocation, not a league table</h3>
-<p>Q01 and Q02 allocate 45 action minutes. Five action minutes remain unused, alongside the 10-minute reserve. Q03 cannot fit, Q04 is blocked and unestimated, Q05 exceeds the action budget, and Q06 has no identified decision consequence. There is no requirement to consume the spare five minutes merely to keep every cell busy.</p>
-<p>The selected set is not mathematically optimal or empirically validated. It is explainable under the stated instruction, estimated capacity and stopping rule. If the buyer instead needs the process comparison before exclusion clarification, record that different instruction and reselect; do not present a changed commercial preference as new company evidence. An unexplained disagreement about importance calls for clarification, not invented precision.</p>
-</div></div></section><section class="foundation-section" id="reopen-the-allocation-when-evidence-arrives"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / reopen the allocation when evidence arrives</span><h2>Reopen the allocation when evidence arrives</h2></div><div class="foundation-prose">
-<p>Suppose Q01 uses its 20-minute cap and the fictional internal reviewer resolves the exclusion question: no excluded-account match under the specified rule. Record that decision reference separately. P-A is <strong>still held</strong> because the mandatory production-location attribution remains unknown. The next proposed action, Q07, would investigate that relationship in an estimated 20 minutes. Q01 has not approved P-A or completed its screen.</p>
-<p>Suppose Q02 uses 25 minutes and confirms only a group-level process description. Withdraw the company-specific optional interpretation; retain the independently supported account fit and record the narrower observation. “Not attributable in this checked source” does not mean P-B does not perform that process. Any new check needs its own question and authorised source route.</p>
-<p>At that point the 45 allocated action minutes have been used, five remain, and the reserve is still separate. Q07 does not fit; neither does the deferred Q03. Record both for the next allocation decision, not a promised research date. Q04 remains blocked and Q05 remains optional. Leave the tie and capacity reasons visible; completed actions should not disappear from the history.</p>
-<p>A different finding can change the worklist more sharply. If Q01 instead confirms an existing-account exclusion, apply the brief’s stopping rule and stop additional fit-enrichment work on P-A for this brief. If a new source contradicts a mandatory fact on P-B, reopen its fit decision before using the account as accepted. New evidence changes the relevant claim first; it does not merely add points to a score.</p>
-</div></div></section><section class="foundation-section" id="use-the-blank-research-action-queue"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">06 / use the blank research action queue</span><h2>Use the blank research-action queue</h2></div><div class="foundation-prose">
-<p>The <a href="industrial-sales-resources#research-priority-download">header-only CSV download</a> contains <strong>zero data rows</strong>, no fictional cases, formulas or automatic approvals. Add one row per proposed action per allocation version. Reuse an account ID across its actions; action rows are not company counts. Keep completed versions so a later reorder does not overwrite the earlier reason. The prose exercise above is separate from the blank file.</p>
-<p>Import as UTF-8 comma-separated text, preserving identifiers as text. This is a manual planning aid, not a CRM import contract. Use internal role labels, not personal contact details. Keep confidential exclusions and restricted source content outside the file. Evidence-reference fields should point to permitted claim-level records in your controlled ledger; a generic company homepage is not a substitute for the particular assertion and scope.</p>
+<p>The fit bands use the points from the <a href="industrial-ideal-customer-profile">ICP weight table</a>, so the two pages work together. Fit carries the most weight on purpose: a strong timing signal on a weak-fit account should not jump the queue. Record "not checked" separately from a score of 0, as on the ICP page.</p>
+</div></div></section><section class="foundation-section" id="what-counts-as-a-timing-signal"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">02 / what counts as a timing signal</span><h2>What counts as a timing signal</h2></div><div class="foundation-prose">
+<p>A timing signal is a dated public record that ties a relevant change to a site. Examples:</p>
+<ul>
+<li>an energy-audit Action Plan item published in an annual report (see <a href="energy-audit-industrial-supplier-signals">energy-audit signals for industrial suppliers</a>)</li>
+<li>a planning application or grant of permission for the site</li>
+<li>a licence review or a new licence application on an environmental register (see <a href="irish-environmental-register-evidence">Irish environmental register evidence</a>)</li>
+<li>a public tender notice from the account (see <a href="etenders-industrial-supplier-opportunities">Irish eTenders for industrial suppliers</a>)</li>
+</ul>
+<p>Record the date, the site and the stage the source supports. A sustainability target, a press interview or an undated plan scores 1 at most. A score of 0 means no signal was found in the review you did. It does not mean no project exists. Timing is never evidence of a purchase. See <a href="opportunity-intelligence">Opportunity Intelligence</a> when the project itself is the question.</p>
+</div></div></section><section class="foundation-section" id="worked-example-five-fictional-accounts-scored"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">03 / worked example five fictional accounts scored</span><h2>Worked example: five fictional accounts scored</h2></div><div class="foundation-prose">
+<p><strong>Fictional example.</strong> A fictional maker of hygienic valves wants food-and-beverage manufacturers with production sites in the Republic of Ireland. It uses the ICP weights and the table above. All five companies, their scores and their sources are invented. None is a real account.</p>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Fictional company</th>
+<th scope="col">Fit decision</th>
+<th scope="col">Fit</th>
+<th scope="col">Evidence</th>
+<th scope="col">Timing</th>
+<th scope="col">Points</th>
+<th scope="col">Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Company P-A: dairy ingredients maker</td>
+<td>Accepted, ICP 100</td>
+<td>2 (50)</td>
+<td>2 (30)</td>
+<td>0 (0)</td>
+<td>80</td>
+<td>Work first</td>
+</tr>
+<tr>
+<td>Company P-B: brewery</td>
+<td>Accepted, ICP 85</td>
+<td>1 (25)</td>
+<td>2 (30)</td>
+<td>2 (20)</td>
+<td>75</td>
+<td>Work first</td>
+</tr>
+<tr>
+<td>Company P-C: ready-meals maker</td>
+<td>Accepted, ICP 90</td>
+<td>2 (50)</td>
+<td>1 (15)</td>
+<td>0 (0)</td>
+<td>65</td>
+<td>Next pass</td>
+</tr>
+<tr>
+<td>Company P-D: chilled-food distributor</td>
+<td>Held, ICP 55</td>
+<td>0 (0)</td>
+<td>0 (0)</td>
+<td>2 (20)</td>
+<td>20</td>
+<td>Park</td>
+</tr>
+<tr>
+<td>Company P-E: infant-formula plant</td>
+<td>Excluded</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Not scored</td>
+</tr>
+</tbody>
+</table></div>
+<p>How to read it:</p>
+<ul>
+<li><strong>P-A</strong> ranks first with no timing signal at all. Strong, current fit evidence is enough. A project is not required for account research.</li>
+<li><strong>P-B</strong> has a fictional planning application for a new brewhouse at the site, dated three months ago. That earns timing 2, but its weaker fit keeps it below P-A.</li>
+<li><strong>P-C</strong> fits well, but its site-activity source is 14 months old. The next action is to refresh that source, not to contact anyone.</li>
+<li><strong>P-D</strong> has a dated tender notice, but it is held: its site activity was never checked. Timing cannot rescue it. Check the activity first.</li>
+<li><strong>P-E</strong> would score highly, but the brief excludes the existing customer's group companies, so it is never scored.</li>
+</ul>
+<p>These companies and figures are fictional and only illustrate the method.</p>
+</div></div></section><section class="foundation-section" id="turn-the-score-into-research-actions"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">04 / turn the score into research actions</span><h2>Turn the score into research actions</h2></div><div class="foundation-prose">
+<p>The score says which accounts matter most. A short queue says what to check next with the time you have. In the fictional pass there are <strong>60 analyst minutes</strong>, with 10 reserved for review and recording, leaving 50 for actions. Each estimate includes writing the evidence note.</p>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Action</th>
+<th scope="col">Account (points)</th>
+<th scope="col">Next research action</th>
+<th scope="col">Estimate</th>
+<th scope="col">State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q01</td>
+<td>P-B (75)</td>
+<td>Confirm the planning application names this company's site, not a group company</td>
+<td>20 minutes</td>
+<td>Selected</td>
+</tr>
+<tr>
+<td>Q02</td>
+<td>P-C (65)</td>
+<td>Find a current source for the site activity, then rescore evidence</td>
+<td>15 minutes</td>
+<td>Selected</td>
+</tr>
+<tr>
+<td>Q03</td>
+<td>P-D (20)</td>
+<td>Check whether production happens at the site at all</td>
+<td>25 minutes</td>
+<td>Deferred: does not fit the 15 minutes left</td>
+</tr>
+<tr>
+<td>Q04</td>
+<td>P-A (80)</td>
+<td>None needed this pass: the account is ready for the account plan</td>
+<td>—</td>
+<td>No action</td>
+</tr>
+</tbody>
+</table></div>
+<p>Q01 and Q02 use 35 of the 50 action minutes. Q03 is deferred for capacity and kept for the next pass. There is no need to fill the spare 15 minutes. A high score does not always need research: P-A's best next step is to hand it on, not to keep checking it.</p>
+</div></div></section><section class="foundation-section" id="rescore-when-evidence-arrives"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">05 / rescore when evidence arrives</span><h2>Rescore when evidence arrives</h2></div><div class="foundation-prose">
+<p>Suppose Q02 finds a current, fictional EPA licence record that confirms P-C's production activity. Evidence moves to 2 and P-C rises to <strong>80</strong>: work first.</p>
+<p>Suppose Q01 finds the fictional planning application was made by P-B's parent company for a different site. It is a group-level signal, so timing drops to 1 and P-B falls to <strong>65</strong>: next pass. Record "not attributable to this site in the checked source". That does not mean P-B has no project.</p>
+<p>If a new source contradicts a fit field, reopen the fit decision on the ICP page before you rescore. New evidence changes the claim first, then the score. Keep each queue version, so a later reorder does not hide the earlier reason. If a changed fact reopens many accounts, use the <a href="industrial-prospect-list-maintenance">maintenance guide</a>.</p>
+</div></div></section><section class="foundation-section" id="what-the-score-is-for-and-what-it-is-not"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">06 / what the score is for and what it is not</span><h2>What the score is for, and what it is not</h2></div><div class="foundation-prose">
+<ul>
+<li><strong>It orders work.</strong> It does not approve an account, and it cannot supply a missing mandatory fact or reverse an exclusion.</li>
+<li><strong>It is explainable.</strong> Every point traces to a weight, a band and a dated source. Do not add decimal scores, revenue guesses or equipment-fit claims to break a tie. Break a genuine tie openly, for example by account ID, and revisit it next pass.</li>
+<li><strong>It is local.</strong> Agree the weights and bands with the person who owns the brief. If they change their priorities, record the new version and rescore. Do not present a changed preference as new company evidence.</li>
+<li><strong>It is not a readiness label.</strong> "Work first" is a research and planning decision. It does not mean the company is buying.</li>
+</ul>
+</div></div></section><section class="foundation-section" id="use-the-blank-research-action-queue"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">07 / use the blank research action queue</span><h2>Use the blank research-action queue</h2></div><div class="foundation-prose">
+<p>The <a href="industrial-sales-resources#research-priority-download">header-only CSV download</a> contains <strong>zero data rows</strong>: no fictional cases, formulas or automatic approvals. Add one row per proposed action per queue version. Reuse an account ID across its actions; action rows are not company counts. The file has no score columns.</p>
+<p>Record the three factor scores and the total in <code>allocation_reason</code>, or add your own columns. Import it as UTF-8 comma-separated text, keep identifiers as text, use internal role labels rather than personal contact details, and keep confidential exclusions and restricted source content out of the file.</p>
 <h3>Column guide</h3>
+<div aria-label="Data table; scroll horizontally to view all columns" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Group</th>
+<th scope="col">Columns</th>
+<th scope="col">What to record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Queue identity</td>
+<td><code>queue_version</code>, <code>action_id</code>, <code>account_id</code>, <code>brief_version</code></td>
+<td>The queue snapshot, a stable action ID, the existing account record and the fit rules in force</td>
+</tr>
+<tr>
+<td>Prior screen</td>
+<td><code>fit_decision</code>, <code>fit_decision_ref</code>, <code>mandatory_gap</code></td>
+<td>The recorded ICP decision and its evidence, and every open mandatory issue, or "none". A queue selection never changes these fields</td>
+</tr>
+<tr>
+<td>Claim and uncertainty</td>
+<td><code>claim_question</code>, <code>claim_evidence_refs</code>, <code>uncertainty_note</code></td>
+<td>The exact claim being checked, the evidence behind it, and whether information is missing, conflicting or out of scope</td>
+</tr>
+<tr>
+<td>Importance</td>
+<td><code>buyer_importance_reason</code>, <code>buyer_instruction_ref</code></td>
+<td>Which decision the action serves and the instruction behind it. If unknown, say so</td>
+</tr>
+<tr>
+<td>Action boundary</td>
+<td><code>next_research_action</code>, <code>action_authorisation_ref</code>, <code>dependency_or_blocker</code>, <code>stop_condition</code>, <code>owner_role</code></td>
+<td>What will be done, who allowed it, what must happen first, when to stop and which internal role owns it</td>
+</tr>
+<tr>
+<td>Capacity</td>
+<td><code>effort_minutes_estimate</code>, <code>estimate_basis</code>, <code>pass_action_capacity_minutes</code></td>
+<td>A scoped estimate, or empty with a reason. Unknown effort is not zero. The capacity is the same on every row of a queue version</td>
+</tr>
+<tr>
+<td>Allocation</td>
+<td><code>queue_state</code>, <code>allocation_reason</code>, <code>revisit_trigger</code></td>
+<td><code>selected</code>, <code>deferred</code>, <code>blocked</code> or <code>completed</code>; the scores and the reason; what would reopen the action</td>
+</tr>
+<tr>
+<td>After the check</td>
+<td><code>result_evidence_refs</code>, <code>outcome_and_remaining_gaps</code>, <code>reviewed_at</code></td>
+<td>The outcome evidence, what is still open, and the actual review date. Leave <code>reviewed_at</code> empty for a proposed action</td>
+</tr>
+</tbody>
+</table></div>
+<p>Before using a completed queue, check that selected actions are authorised and fit the capacity, and explain any ties and spare time. A tidy file cannot replace reading the evidence.</p>
+</div></div></section><section class="foundation-section" id="frequently-asked-questions"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">08 / frequently asked questions</span><h2>Frequently asked questions</h2></div><div class="foundation-prose">
+<h3>What should industrial account prioritisation be based on?</h3>
+<p>On fit first, then the quality of the evidence, then timing. In this method, fit carries 50 of the 100 points, evidence 30 and timing 20. Those weights are an illustrative choice. Agree your own before you score.</p>
+<h3>Should a held account be scored?</h3>
+<p>Yes, but it scores 0 for fit, so it can reach at most 50 points and never the work-first band. Its next action is to check its weakest field. Excluded and rejected accounts are never scored.</p>
+<h3>Does a high timing score mean the company is about to buy?</h3>
+<p>No. Timing records a dated public signal at the site. It says nothing about budget, specification or supplier choice.</p>
+<h3>How often should accounts be rescored?</h3>
+<p>Whenever evidence changes a factor, and at the start of each research pass. Keep the old version so the reason for any reorder stays visible.</p>
+</div></div></section><section class="foundation-section" id="related-guides"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">09 / related guides</span><h2>Related guides</h2></div><div class="foundation-prose">
 <ul>
-<li><strong>Worklist identity:</strong> <code>queue_version</code> identifies this allocation snapshot; <code>action_id</code> is stable for the action; <code>account_id</code> links to the existing account record; <code>brief_version</code> identifies the governing fit rules. Do not create another account ID for a second action.</li>
-<li><strong>Prior screen:</strong> <code>fit_decision</code> preserves the recorded account decision; <code>fit_decision_ref</code> points to its evidence-backed review. <code>mandatory_gap</code> names every still-open mandatory issue, or explicitly records none. A queue selection never changes these fields by itself.</li>
-<li><strong>Claim and uncertainty:</strong> <code>claim_question</code> states the exact assertion being checked; <code>claim_evidence_refs</code> links the observations behind it; <code>uncertainty_note</code> distinguishes missing, conflicting, unassessed or differently scoped information. Keep an unsupported commercial assumption as a question here.</li>
-<li><strong>Importance:</strong> <code>buyer_importance_reason</code> records which buyer decision the action serves; <code>buyer_instruction_ref</code> points to the actual instruction/version. If the preference is unknown, say so and seek clarification; do not replace it with a company-size guess.</li>
-<li><strong>Action boundary:</strong> <code>next_research_action</code> says what will be done; <code>action_authorisation_ref</code> identifies the permitted scope; <code>dependency_or_blocker</code> records what must happen first; <code>stop_condition</code> limits the search or effort; <code>owner_role</code> identifies the responsible internal role. An unapproved action remains blocked even if it sorts first.</li>
-<li><strong>Capacity:</strong> <code>effort_minutes_estimate</code> holds a nonnegative estimate only when scoped; leave it empty when unknown and explain in <code>estimate_basis</code>. <code>pass_action_capacity_minutes</code> is the single action allowance after reserve, repeated consistently within a queue version—not an amount to sum across rows. The separate reserve belongs in <code>allocation_reason</code> with the overall capacity assumption. Do not treat unknown effort as zero.</li>
-<li><strong>Allocation:</strong> <code>queue_state</code> uses <code>selected</code>, <code>deferred</code>, <code>blocked</code> or <code>completed</code> for the action, never for account acceptance. <code>allocation_reason</code> records selection, deferral and tie-break reasons; <code>revisit_trigger</code> states the evidence or authority change that would reopen allocation, without inventing a date.</li>
-<li><strong>After execution:</strong> <code>result_evidence_refs</code> links the actual permitted outcome evidence; <code>outcome_and_remaining_gaps</code> separates the affected claim from remaining account gates. <code>reviewed_at</code> is the actual review timestamp or date at its known precision; leave it empty for a merely proposed action. Source publication dates stay in the linked evidence ledger and must not be replaced by this review date.</li>
+<li><a href="industrial-ideal-customer-profile">Industrial ideal customer profile</a> sets the fit gate and weights this score starts from.</li>
+<li><a href="sample-account-research">Fictional account sample</a> shows the evidence inside a researched account record.</li>
+<li><a href="energy-audit-industrial-supplier-signals">Energy-audit signals for industrial suppliers</a> explains which efficiency records count as timing evidence.</li>
+<li><a href="industrial-distributor-research-ireland">Irish industrial distributor research</a> covers scoring channel candidates rather than end users.</li>
 </ul>
-<p>Before using a completed queue, check that selected actions are authorised, dependencies are satisfied and their known estimates fit the declared action allowance. Explain spare capacity and ties. Reconcile distinct account IDs separately from action IDs. Then inspect the actual evidence and remaining gates; a tidy file cannot perform that review for you.</p>
-</div></div></section><section class="foundation-section" id="bring-the-unresolved-decision-to-the-brief"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">07 / bring the unresolved decision to the brief</span><h2>Bring the unresolved decision to the brief</h2></div><div class="foundation-prose">
-<p>Use the <a href="sample-account-research">fictional account sample</a> to see the evidence inside an account record and the <a href="industrial-lead-research">industrial research service</a> to define the wider assignment. Account research can be useful without a project signal. Named-person research and outreach are separate scopes; this queue authorises neither.</p>
-<p>When you <a href="request-a-quote">request a written scope</a>, summarise the account criteria, the decision you need to make and the uncertainty you want resolved. Send a non-sensitive summary, not a completed queue, customer list or restricted source extract. Counts, fields, permitted sources, timing and acceptance terms must be agreed separately.</p>
-</div></div></section><section class="foundation-section" id="method-and-source-boundaries"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">08 / method and source boundaries</span><h2>Method and source boundaries</h2></div><div class="foundation-prose">
-<p>This is original Demand Range analyst teaching. The existing service description separates company-level account research from named-contact work and outreach. <a href="#source-1">[1]</a> The methodology separates observed facts, interpretation and unknowns, and explains that a score cannot replace the fit decision. <a href="#source-2">[2]</a> Those first-party pages supply scope context only. They do not empirically validate this ordering rule, its invented time estimates or its fictional outcomes.</p>
-<p>No third-party dataset, real company record or licensed extract is reproduced. The worklist and blank template are original educational material; no Creative Commons attribution is borrowed from unrelated articles. This is research-planning guidance, not technical equipment selection or legal advice.</p></div></div></section><section class="foundation-section" id="sources"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">09 / sources</span><h2>Sources</h2></div><div class="foundation-prose"><ol class="source-list"><li id="source-1" value="1"><a href="https://demandrange.com/industrial-lead-research" id="source-link-1" rel="noopener noreferrer">Demand Range: industrial account-research service and scope</a></li><li id="source-2" value="2"><a href="https://demandrange.com/methodology" id="source-link-2" rel="noopener noreferrer">Demand Range: evidence layers, account decisions and scope boundaries</a></li></ol></div></div></section><section class="guide-publisher" id="about-the-publisher" aria-label="About the publisher"><div class="wrap"><p>This guide is researched and published by Demand Range, an Irish industrial account research business serving Ireland, the UK and the EU. <a href="about">About Demand Range</a></p></div></section></main>
+</div></div></section><section class="foundation-section" id="how-demand-range-helps"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">10 / how demand range helps</span><h2>How Demand Range helps</h2></div><div class="foundation-prose">
+<p>Demand Range does evidence-backed industrial account research for Ireland, the UK and the EU. For prioritisation briefs, that means scoring your accepted accounts on fit, evidence and timing, with a dated source behind every point. Named contacts and outreach are separate scopes, not included by default.</p>
+<p class="actions"><a class="btn btn-primary" href="request-a-quote">Request a written scope</a><a class="btn btn-secondary" href="industrial-lead-research">See how account research works</a></p>
+<p>Prefer email? Write to <a href="mailto:partners@demandrange.com">partners@demandrange.com</a>. Compare the <a href="sample-account-research">fictional account-research sample</a> first. Send a short summary of your account criteria and the decision you need to make, not a customer list or restricted source extract.</p>
+</div></div></section><section class="foundation-section" id="method-and-source-boundaries"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">11 / method and source boundaries</span><h2>Method and source boundaries</h2></div><div class="foundation-prose">
+<p>This is original Demand Range analyst teaching. The service description separates company-level account research from named-contact work and outreach.<a href="#source-1">[1]</a> The methodology separates observed facts, interpretation and unknowns, and explains that a score cannot replace the fit decision.<a href="#source-2">[2]</a></p>
+<p>The fit bands reuse the illustrative ICP weight table.<a href="#source-3">[3]</a> These first-party pages give scope context only. They do not validate the weights, the bands, the time estimates or the fictional outcomes.</p>
+<p>No third-party dataset, real company record or licensed extract is reproduced. The worked example and blank template are original educational material. This is research-planning guidance, not technical equipment selection or legal advice.</p>
+<p><strong>Sources checked on 28 October 2026.</strong></p></div></div></section><section class="foundation-section" id="sources"><div class="wrap foundation-grid"><div class="foundation-heading"><span class="label">12 / sources</span><h2>Sources</h2></div><div class="foundation-prose"><ol class="source-list"><li id="source-1" value="1"><a href="https://demandrange.com/industrial-lead-research" id="source-link-1" rel="noopener noreferrer">Demand Range: industrial account-research service and scope</a></li><li id="source-2" value="2"><a href="https://demandrange.com/methodology" id="source-link-2" rel="noopener noreferrer">Demand Range: evidence layers, account decisions and scope boundaries</a></li><li id="source-3" value="3"><a href="https://demandrange.com/industrial-ideal-customer-profile" id="source-link-3" rel="noopener noreferrer">Demand Range: industrial ideal customer profile and illustrative weight table</a></li></ol></div></div></section><section class="guide-publisher" id="about-the-publisher" aria-label="About the publisher"><div class="wrap"><p>This guide is researched and published by Demand Range, an Irish industrial account research business serving Ireland, the UK and the EU. <a href="about">About Demand Range</a></p></div></section></main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
