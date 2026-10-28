@@ -1,6 +1,6 @@
 # Demand Range
 
-> Demand Range is an Irish industrial account research business serving Ireland, the UK and the EU. We build analyst-checked, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
+> Demand Range is an Irish industrial account research business serving Ireland, the UK and the EU. We build evidence-backed, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
 
 Tagline: Evidence-backed industrial account research for Ireland, the UK and the EU
 
@@ -18,7 +18,6 @@ Key facts:
 - [Industrial account research](https://demandrange.com/industrial-lead-research): company-level account research for Ireland, the UK and the EU, scoped by country, sector, site rules and exclusions
 - [Industrial lead generation for Ireland and the UK](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Irish and UK industrial markets using CRO, Companies House, regulator registers and public tenders
 - [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence): evidenced industrial project and development signals, separating observed change, supplier relevance and unknowns
-- [Campaign activation](https://demandrange.com/campaign-activation): optional outreach, only under its own written scope, data review and approval
 - [Markets and supplier fit](https://demandrange.com/markets): how account fit is defined by country, sector and customer route
 - [Methodology](https://demandrange.com/methodology): how fit is checked, signals are classified and sources and unknowns are recorded
 - [Request a quote](https://demandrange.com/request-a-quote)
@@ -63,7 +62,6 @@ Key facts:
 - [Irish food and beverage company research](https://demandrange.com/irish-food-beverage-company-research)
 - [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research)
 - [Irish eTenders for industrial suppliers](https://demandrange.com/etenders-industrial-supplier-opportunities)
-- [Irish PRTR data for account research](https://demandrange.com/irish-prtr-industrial-account-research)
 - [Irish environmental register evidence](https://demandrange.com/irish-environmental-register-evidence)
 - [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland)
 - [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland)

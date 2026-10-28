@@ -1,0 +1,8 @@
+criterion_id,icp_field,rule_to_write,weight,score_2_means,score_1_means,score_0_means,evidence_to_check,candidate_score,evidence_reference,checked_on
+G1,Exclusions,"Who must not be researched and how far the rule reaches, such as existing customers and their group companies",Gate,Not excluded: score the account,Not used,Excluded: stop and do not score,Your own controlled customer and exclusion records,,,
+F1,Activity code,The NACE or SIC classes that act as a first filter,20,Code matches the rule,Related code that needs a check,Code is outside the rule,Company filings and business registers,,,
+F2,Site activity,The process that must happen at the site,30,A named source confirms the activity at the site,Activity is likely but not confirmed,"No evidence, or evidence contradicts it","Licence, permit or approval naming the site and its activity",,,
+F3,Size band,The unit (company or site) and the size band,15,Inside the band,Within one band of it,"Outside the band, or the wrong unit",Company filings; official counts by size class for context only,,,
+F4,Territory,Where the activity must happen,15,The operating site is inside the territory,Only the head office is inside it,No site inside the territory,Address of the licensed or approved site,,,
+F5,Regulator evidence,Which register must list the site,20,The register lists the site,The register lists the company but not the site,Not listed,"The register entry, with its reference and date",,,
+T1,Total and decision,Points per field are weight times score divided by 2; the maximum is 100,100,75 or more: accept for research,50 to 74: hold and check the weakest field,"Under 50: reject; an unchecked field means hold, not reject",Every row above scored or marked not checked,,,
