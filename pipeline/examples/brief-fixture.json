@@ -1,0 +1,18 @@
+{
+  "brief_id": "DEMO-BRIEF-A",
+  "brief_version": "v1",
+  "supplier_range": "Fictional industrial pumps and seals (demo brief, not a real client)",
+  "counting_unit": "company",
+  "territory_locations": ["Ireland", "United Kingdom"],
+  "excluded_locations": ["Northern Ireland"],
+  "sic_codes": ["3561"],
+  "naics_codes": ["333914"],
+  "industries": ["industrial automation", "machinery"],
+  "keywords": ["process plant", "food processing"],
+  "excluded_keywords": ["distributor"],
+  "employee_ranges": ["50,200", "201,1000"],
+  "excluded_domains": ["excluded-fixture.example", "https://www.another-excluded.example/path"],
+  "requested_volume": 5,
+  "exclusion_reference_version": "DEMO-EXCL-v1",
+  "notes": "Wholly fictional demo brief. Worksheet rules Apollo cannot filter on (site activity, regulator evidence, group matching) stay with the analyst."
+}

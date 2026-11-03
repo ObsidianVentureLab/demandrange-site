@@ -1,0 +1,41 @@
+{
+  "fiction_notice": "WHOLLY FICTIONAL FIXTURE DATA; NO REAL COMPANIES, NO EVIDENCE OR ACCEPTANCE",
+  "pages": [
+    {
+      "partial_results_only": false,
+      "pagination": {"page": 1, "per_page": 3, "total_entries": 7, "total_pages": 3},
+      "organizations": [
+        {"id": "fx-org-0001", "name": "Fictional Pumps Alpha Ltd", "primary_domain": "alpha-fixture.example",
+         "website_url": "http://www.alpha-fixture.example", "linkedin_url": "http://www.linkedin.com/company/alpha-fixture-example",
+         "industry": "industrial automation", "keywords": ["process plant", "pumps"], "estimated_num_employees": 120,
+         "founded_year": 1991, "city": "Fictown", "state": "County Fiction", "country": "Ireland",
+         "short_description": "Fictional company used only to test the pipeline.", "primary_phone": {"number": "+000 0000 0000"}},
+        {"id": "fx-org-0002", "name": "Fictional Seals Beta plc", "primary_domain": "beta-fixture.example",
+         "website_url": "http://www.beta-fixture.example", "industry": "machinery", "keywords": [], "estimated_num_employees": 450,
+         "city": "Madeuptown", "state": null, "country": "United Kingdom"},
+        {"id": "fx-org-0003", "name": "Excluded Fixture Co", "primary_domain": "excluded-fixture.example",
+         "website_url": "http://www.excluded-fixture.example", "industry": "machinery", "estimated_num_employees": 80, "country": "Ireland"}
+      ]
+    },
+    {
+      "partial_results_only": false,
+      "pagination": {"page": 2, "per_page": 3, "total_entries": 7, "total_pages": 3},
+      "organizations": [
+        {"id": "fx-org-0001", "name": "Fictional Pumps Alpha Ltd (duplicate id)", "primary_domain": "alpha-fixture.example", "country": "Ireland"},
+        {"id": "fx-org-0004", "name": "Fictional Valves Gamma", "primary_domain": "gamma-fixture.example",
+         "website_url": "http://www.gamma-fixture.example", "industry": "industrial automation", "estimated_num_employees": 60, "country": "Ireland"},
+        {"id": "fx-org-0005", "name": "Beta Duplicate Domain", "primary_domain": "www.beta-fixture.example", "country": "United Kingdom"}
+      ]
+    },
+    {
+      "partial_results_only": false,
+      "pagination": {"page": 3, "per_page": 3, "total_entries": 7, "total_pages": 3},
+      "organizations": [
+        {"id": "fx-org-0006", "name": "Fictional Mixers Delta", "primary_domain": "delta-fixture.example",
+         "industry": "machinery", "estimated_num_employees": 300, "country": "United Kingdom"},
+        {"id": "fx-org-0007", "name": "Fictional Dryers Epsilon", "primary_domain": "epsilon-fixture.example",
+         "industry": "machinery", "estimated_num_employees": 900, "country": "Ireland"}
+      ]
+    }
+  ]
+}
