@@ -68,5 +68,14 @@ jobs:
           python -B -m pipeline export --input "$RUNNER_TEMP/vfx/emails-fixture-verified.csv" --out "$RUNNER_TEMP/deliveries" --client "Demo Client" --brief-ref DEMO-BRIEF-A-v1 --dictionary-version DEMO-DICT-v1 --export-version DEMO-EXPORT-v1 --export-id ci --include-decisions keep,review --dedupe-on work_email --xlsx > "$RUNNER_TEMP/export.json"
           python -c "import json,os,zipfile; d=json.load(open(os.environ['RUNNER_TEMP']+'/export.json')); assert d['rows_delivered']==3, d; z=zipfile.ZipFile(d['folder']+'/demo-client-ci.xlsx'); assert z.testzip() is None; print('export ok', d['files'])"
 
+      - name: CLI db (init, import the fictional Sheet export, record the CI delivery, search)
+        run: |
+          DB="$RUNNER_TEMP/clientdb.sqlite"
+          python -B -m pipeline db --db "$DB" init
+          python -B -m pipeline db --db "$DB" import-sheet pipeline/examples/sheet-export-fixture.csv > "$RUNNER_TEMP/imp.json"
+          python -B -m pipeline db --db "$DB" record-delivery "$RUNNER_TEMP/deliveries/demo-client/ci/MANIFEST.json" > "$RUNNER_TEMP/rec.json"
+          python -B -m pipeline db --db "$DB" search alpha > "$RUNNER_TEMP/search.json"
+          python -c "import json,os; t=os.environ['RUNNER_TEMP']; i=json.load(open(t+'/imp.json')); r=json.load(open(t+'/rec.json')); s=json.load(open(t+'/search.json')); assert i['rows_new']==3 and r['rows_delivered']==3 and len(s['clients'])==1; print('db ok')"
+
       - name: Secret scan (pinned gitleaks, full history of this ref)
         run: .github/ci/gitleaks.sh "$GITHUB_WORKSPACE"

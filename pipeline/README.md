@@ -1,4 +1,4 @@
-# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3) → per-client export (P4)
+# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3) → per-client export (P4) → client database (P5)
 
 Company-level candidate generation for Demand Range research briefs. Input is a JSON brief
 mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output is a CSV of
@@ -114,8 +114,23 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
 - Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
 - `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
 
+## P5: searchable client database (`db`)
+SQLite file (standard library) **kept outside the repository**: clients, quote requests imported from the
+Sheet's Raw Responses CSV export (idempotent, text exactly as exported), agreed briefs, and deliveries
+recorded from P4 manifests. Design and decision for Sean: `CLIENT-DB-DESIGN.md`.
+
+```
+python -m pipeline db --db /secure/demandrange.sqlite init
+python -m pipeline db --db … import-sheet raw-responses-export.csv
+python -m pipeline db --db … add-brief --brief-ref BRIEF-v1 --client-ref client-ltd --status agreed --file brief.json
+python -m pipeline db --db … record-delivery deliveries/client-ltd/20261103T120000Z/MANIFEST.json
+python -m pipeline db --db … mark-delivered --client-ref client-ltd --export-id 20261103T120000Z --via "email to named contact"
+python -m pipeline db --db … search "pumps" | client client-ltd | retention-due | summary
+```
+The database holds personal data (the requests): same access rule as the Sheet, never committed.
+
 ## Tests
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-97 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+108 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.

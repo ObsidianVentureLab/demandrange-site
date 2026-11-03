@@ -188,3 +188,34 @@ class Export(unittest.TestCase):
                                  '--brief-ref', 'bad ref', '--dictionary-version', 'D', '--export-version', 'E')
         self.assertEqual(code, cli.EXIT_USAGE)
         self.assertIn('brief_ref', err)
+
+
+SHEET_PATH = _EXAMPLES / 'sheet-export-fixture.csv'
+
+
+class Db(unittest.TestCase):
+    def test_init_import_search_summary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            code, out, err = run('db', '--db', db, 'init')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(json.loads(out)['schema_version'], 1)
+            code, out, err = run('db', '--db', db, 'import-sheet', str(SHEET_PATH))
+            self.assertEqual(code, 0, err)
+            self.assertEqual(json.loads(out)['rows_new'], 3)
+            code, out, err = run('db', '--db', db, 'search', 'alpha')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(len(json.loads(out)['clients']), 1)
+            code, out, err = run('db', '--db', db, 'client', 'fictional-pumps-alpha-ltd')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(len(json.loads(out)['requests']), 2)
+            code, out, err = run('db', '--db', db, 'retention-due', '--on', '2026-11-03')
+            self.assertEqual(json.loads(out)['due'][0]['submission_id'], 'FX-0003')
+            code, out, err = run('db', '--db', db, 'summary')
+            self.assertEqual(json.loads(out)['counts']['requests'], 3)
+
+    def test_uninitialised_db_is_a_clear_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('db', '--db', tmp + '/x.sqlite', 'summary')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('not initialised', err)
