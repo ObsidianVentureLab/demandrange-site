@@ -3,6 +3,8 @@
 const FORM = Object.freeze({
   formVersion: '2026-09-11-v1',
   privacyVersion: '2026-09-11-v1',
+  // fixes/15 rev 3 (QA-passed): accept the live site's privacy-notice version and the fixes/15 one; the row records whichever was submitted.
+  acceptedPrivacyVersions: Object.freeze(['2026-09-11-v1', '2026-10-28-v1']),
   consentVersion: '2026-09-11-v1',
   serviceModel: 'hybrid_10_90_target',
   minCompletionMs: 2500,
@@ -104,7 +106,7 @@ function parseAndValidate_(event, nowMs) {
   const privacyVersion = one('privacy_notice_version');
   const consentVersion = one('consent_text_version');
   const sourcePage = one('source_page');
-  if (formVersion !== FORM.formVersion || privacyVersion !== FORM.privacyVersion || consentVersion !== FORM.consentVersion) throw new Error('version_mismatch');
+  if (formVersion !== FORM.formVersion || FORM.acceptedPrivacyVersions.indexOf(privacyVersion) === -1 || consentVersion !== FORM.consentVersion) throw new Error('version_mismatch');
   if (sourcePage !== 'request-a-quote.html') throw new Error('source_page');
 
   const token = one('submission_token');
@@ -181,7 +183,7 @@ function persist_(request, properties) {
       submission_id: submissionId,
       submitted_at_utc: submittedAt.toISOString(),
       form_version: FORM.formVersion,
-      privacy_notice_version: FORM.privacyVersion,
+      privacy_notice_version: request.privacyVersion,
       consent_text_version: FORM.consentVersion,
       service_model: FORM.serviceModel,
       source_page: request.sourcePage,
