@@ -1,6 +1,6 @@
 # Demand Range
 
-> Demand Range is an Irish industrial account research business serving Ireland, the UK and the EU. We build evidence-backed, industry-matched target account lists for suppliers of industrial equipment, technology and services, covering sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
+> Demand Range is an Irish industrial account research business that builds evidence-backed target account lists for suppliers of industrial equipment, technology and services selling in Ireland, the UK and the EU. Research covers sectors such as water, pharma, food and beverage, and chemicals. Where public evidence exists, each account comes with project or development context.
 
 Tagline: Evidence-backed industrial account research for Ireland, the UK and the EU
 
@@ -9,18 +9,19 @@ Key facts:
 - Contact: partners@demandrange.com, or request a written scope at https://demandrange.com/request-a-quote
 - Markets served: Ireland, the UK and the EU. Each territory's sources and language needs are assessed per brief.
 - Customers: suppliers of industrial equipment, technology and services, such as pumps and flow control, water and wastewater, process equipment, MRO, OEM components and distribution.
-- Two research classes: industry-matched ("Look Alike") accounts that match an agreed brief, and opportunity-signal accounts with an identified, evidenced project or development. The target mix is about 90/10 but not guaranteed, and is agreed in writing.
+- Two research classes: industry-matched ("Look Alike") accounts that match an agreed brief, and opportunity-signal accounts with an identified, evidenced project or development. The target mix is 90% industry-matched and 10% opportunity-signal accounts. This is a target, not a guarantee; counts and class treatment are agreed in writing.
 - Deliverable: company-level account records with fit reasoning, sources, review dates and open questions. Named contacts, emails and direct dials are not included by default.
 - What it is not: not a self-service data platform, live intent feed or contact database. It does not guarantee meetings, pipeline or revenue.
 
 ## Services
 
+- [Home](https://demandrange.com/): the two research classes, the 90/10 target mix and what a company-level account record contains
 - [Industrial account research](https://demandrange.com/industrial-lead-research): company-level account research for Ireland, the UK and the EU, scoped by country, sector, site rules and exclusions
-- [Industrial lead generation for Ireland and the UK](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Irish and UK industrial markets using CRO, Companies House, regulator registers and public tenders
+- [Industrial lead generation for Ireland, the UK and the EU](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Ireland, the UK and the EU, with Irish and UK sources set out in detail: CRO, Companies House, regulator registers and public tenders
 - [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence): evidenced industrial project and development signals, separating observed change, supplier relevance and unknowns
 - [Markets and supplier fit](https://demandrange.com/markets): how account fit is defined by country, sector and customer route
 - [Methodology](https://demandrange.com/methodology): how fit is checked, signals are classified and sources and unknowns are recorded
-- [Request a quote](https://demandrange.com/request-a-quote)
+- [Request a quote](https://demandrange.com/request-a-quote): form to request a written scope; fields, coverage and deliverables are agreed before any work starts
 
 ## Examples
 
@@ -29,10 +30,10 @@ Key facts:
 
 ## Guides for industrial sales teams
 
-- [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of all guides and free CSV worksheets
+- [Industrial sales research guides and templates](https://demandrange.com/industrial-sales-resources): index of guides and free worksheets (CSV, plus one XLSX workbook), with no form or sign-up
 - [What is industrial account research? A definition for industrial suppliers](https://demandrange.com/what-is-industrial-account-research): A definition of industrial account research: what it is, how it differs from bought contact data and meeting-booking services, and what evidence a good account record carries.
 - [Manufacturing enterprises in the EU by country and NACE division (2024 data)](https://demandrange.com/eu-industrial-enterprises-by-country): EU manufacturing enterprises by country and NACE division for 2024, from Eurostat, with a downloadable CSV and notes on what the counts can and cannot tell you
-- [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): Companies House SIC codes as a filter, then site confirmation from UK regulator registers
+- [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): ONS counts about 128,000 UK manufacturing businesses (March 2026); Companies House SIC codes as a filter, then site confirmation from UK regulator registers
 - [How to use TED to find EU tenders for industrial suppliers](https://demandrange.com/ted-eu-tenders-industrial-suppliers): CPV search, notice types and the 2026–2027 EU thresholds
 - [CPV codes for pumps, valves and industrial equipment](https://demandrange.com/cpv-codes-industrial-equipment): official CPV wording for pumps, valves, instruments, water treatment and plant maintenance, with a free CSV starter list for tender alerts
 - [UK public tenders for industrial suppliers](https://demandrange.com/uk-public-tenders-industrial-suppliers): Find a Tender vs Contracts Finder under the Procurement Act 2023, and which notices matter
@@ -43,31 +44,33 @@ Key facts:
 - [EU approved food establishment lists: how equipment suppliers find food and beverage plants](https://demandrange.com/eu-food-beverage-plant-research): Where to find EU approved food establishments lists for each member state, Ireland and the UK, what each row shows, and how suppliers turn rows into accounts.
 - [SIC codes for manufacturing companies in the UK: the Section C list, SIC 2026 and how to search](https://demandrange.com/uk-sic-codes-manufacturing): The full UK SIC 2007 Section C list of manufacturing codes as accepted by Companies House, what SIC 2026 changes, and how to search manufacturers by code, with a CSV.
 - [ZoomInfo or Apollo for industrial prospect lists?](https://demandrange.com/industrial-prospect-list-vs-data-provider): when a data platform is enough and how to test any source
-- [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile)
-- [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research)
-- [Industrial account prioritisation](https://demandrange.com/industrial-account-prioritisation)
-- [B2B prospect list audit](https://demandrange.com/industrial-prospect-list-audit)
-- [Prospect list maintenance](https://demandrange.com/industrial-prospect-list-maintenance)
-- [Industrial MRO account research](https://demandrange.com/industrial-mro-account-research)
-- [EPC/EPCM equipment supplier research](https://demandrange.com/epc-epcm-equipment-supplier-research)
-- [European chemical manufacturer research](https://demandrange.com/european-chemical-manufacturer-research)
-- [Pump and flow-control prospect research](https://demandrange.com/pump-flow-control-prospecting)
-- [Energy-audit signals for industrial suppliers](https://demandrange.com/energy-audit-industrial-supplier-signals)
+- [Industrial ideal customer profile](https://demandrange.com/industrial-ideal-customer-profile): a six-field manufacturing ICP template with weights, a scored fictional example and the NACE, SIC and register evidence for each field
+- [Industrial lookalike account research](https://demandrange.com/industrial-lookalike-account-research): how to find companies like existing customers from NACE or SIC codes, size bands, regulator evidence and site type
+- [Industrial account prioritisation](https://demandrange.com/industrial-account-prioritisation): a weighted fit, evidence and timing score with a scored fictional example and a research queue; fit stays a gate
+- [B2B prospect list audit](https://demandrange.com/industrial-prospect-list-audit): a one-off audit of a supplied industrial list for duplicates, holds, rejects and true company counts, with a fictional example
+- [Prospect list maintenance](https://demandrange.com/industrial-prospect-list-maintenance): change triggers, a review cadence, retain, hold, correct or remove decisions and a blank review log
+- [Industrial MRO account research](https://demandrange.com/industrial-mro-account-research): finding MRO-heavy sites in Ireland with CSO and Eurostat counts, then checking who repairs, supplies and restocks the parts
+- [EPC/EPCM equipment supplier research](https://demandrange.com/epc-epcm-equipment-supplier-research): tracing a TED award to the contractor's package and to who specifies, approves and orders the equipment
+- [European chemical manufacturer research](https://demandrange.com/european-chemical-manufacturer-research): Eurostat counts 31,749 EU chemical manufacturing enterprises (NACE C20, 2024); separating production, formulation and distribution before adding a site
+- [Pump and flow-control prospect research](https://demandrange.com/pump-flow-control-prospecting): scoping pump and flow-control account research in Ireland, the UK and the EU by country and company role
+- [Energy-audit signals for industrial suppliers](https://demandrange.com/energy-audit-industrial-supplier-signals): EED Article 11 energy audits, published action plans and SEAI's LIEN as research signals, with a fictional example
 
 ## Ireland-specific research guides
 
-- [Irish manufacturing account research](https://demandrange.com/irish-manufacturing-account-research)
+- [Irish manufacturing account research](https://demandrange.com/irish-manufacturing-account-research): setting the brief, resolving company and site identity, then include, hold or reject; CSO counts 19,617 manufacturing enterprises in Ireland (2024)
 - [NACE codes for Irish manufacturing: using CSO data to size and build account lists](https://demandrange.com/irish-manufacturing-nace-codes): Which NACE divisions matter to industrial suppliers in Ireland, how many enterprises CSO and Eurostat count in each, and how to build account lists from them.
-- [Irish pharmaceutical manufacturing account research](https://demandrange.com/irish-pharmaceutical-manufacturing-account-research)
-- [Irish food and beverage company research](https://demandrange.com/irish-food-beverage-company-research)
-- [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research)
-- [Irish eTenders for industrial suppliers](https://demandrange.com/etenders-industrial-supplier-opportunities)
-- [Irish environmental register evidence](https://demandrange.com/irish-environmental-register-evidence)
-- [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland)
-- [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland)
+- [Irish pharmaceutical manufacturing account research](https://demandrange.com/irish-pharmaceutical-manufacturing-account-research): HPRA authorisations in EudraGMDP and EPA licences, then checking each site's activity against the brief
+- [Irish food and beverage company research](https://demandrange.com/irish-food-beverage-company-research): the EPA, DAFM, FSAI and Origin Green lists and what each one shows about a site
+- [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research): separating Irish water funding announcements from project and equipment evidence
+- [Irish eTenders for industrial suppliers](https://demandrange.com/etenders-industrial-supplier-opportunities): the €50,000 and €200,000 thresholds, CPV alerts and a method to triage each notice by scope
+- [Irish environmental register evidence](https://demandrange.com/irish-environmental-register-evidence): reading Irish EPA registers and PRTR returns: coverage, dossier records, site identity and discharge evidence
+- [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland): finding Irish industrial distributors via the CRO, trade associations and manufacturer pages, with fictional cases
+- [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland): CSO 2024 counts for machinery and electrical makers, and how to find which build operation buys a component
 
 ## Optional
 
-- [About Demand Range](https://demandrange.com/about)
-- [Contact](https://demandrange.com/contact)
-- [Terms](https://demandrange.com/terms), [Privacy](https://demandrange.com/privacy), [Cookies](https://demandrange.com/cookies)
+- [About Demand Range](https://demandrange.com/about): who Demand Range is, what the service covers and what is not included by default
+- [Contact](https://demandrange.com/contact): email partners@demandrange.com or request a written scope
+- [Terms](https://demandrange.com/terms): website terms, service boundaries and governing law
+- [Privacy](https://demandrange.com/privacy): what the website, quote-request form and business enquiries collect, why, how long it is kept and your rights
+- [Cookies](https://demandrange.com/cookies): browser storage, Cloudflare delivery and cookieless page-view analytics; no non-essential cookies or advertising tags
