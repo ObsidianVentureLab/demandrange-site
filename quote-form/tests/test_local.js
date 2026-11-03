@@ -31,6 +31,7 @@ function reject(label, mutate) {
 }
 
 const valid = accept(fresh());
+assert.deepEqual(Array.from(valid.regions), ['IE', 'UK']);
 assert.equal(valid.companyName, 'Example Process Systems Ltd');
 assert.deepEqual(Array.from(valid.industries), ['Process manufacturing', 'Utilities & energy']);
 assert.deepEqual(Array.from(valid.seniority), ['Manager', 'Director']);
@@ -42,6 +43,8 @@ reject('malformed email', p => { p.work_email = 'not-an-email'; });
 reject('unsafe URL', p => { p.company_website = 'javascript:alert(1)'; });
 reject('unknown industry', p => { p.industries = ['Unknown']; });
 reject('missing region', p => { p.regions = []; });
+reject('case-mangled region', p => { p.regions = ['ie']; });
+reject('legacy mixed with unknown region', p => { p.regions = ['EMEA', 'GLOBAL']; });
 reject('unknown seniority', p => { p.seniority = ['Owner']; });
 reject('phone permission without phone', p => { p.phone_number = ''; });
 reject('phone without permission', p => { p.phone_contact = ''; });
@@ -60,8 +63,13 @@ assert.equal(api.sheetSafe_('+353 1 555 0100').startsWith("'+"), true);
 assert.equal(api.sheetSafe_('<script>alert(1)</script>'), '<script>alert(1)</script>');
 
 assert.equal(schema.fields.industries.values.length, 10);
-assert.equal(schema.fields.regions.values.length, 5);
+assert.deepEqual(schema.fields.regions.values, ['IE', 'UK', 'EU']);
+assert.deepEqual(Array.from(api.FORM.regions), schema.fields.regions.values);
+assert.deepEqual(Array.from(api.FORM.legacyRegions), schema.fields.regions.legacy_values);
+assert.deepEqual(Array.from(api.FORM.acceptedRegions), schema.fields.regions.values.concat(schema.fields.regions.legacy_values));
 assert.equal(schema.fields.seniority.values.length, 5);
 assert.deepEqual(Array.from(api.FORM.columns), schema.raw_response_columns);
 assert.equal(api.FORM.serviceModel, 'hybrid_10_90_target');
-console.log('PASS: 21 backend/schema assertions; validation, enum allowlists, consent boundaries and formula neutralisation passed');
+const legacy = fresh(); legacy.regions = ['EMEA'];
+assert.deepEqual(Array.from(accept(legacy).regions), ['EMEA']);
+console.log('PASS: 27 backend/schema assertions; validation, enum allowlists, consent boundaries and formula neutralisation passed');

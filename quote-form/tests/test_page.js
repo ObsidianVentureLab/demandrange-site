@@ -89,7 +89,7 @@ function assert(condition, message) {
     await page.fill('#phone-number', '+353 1 555 0100');
     await page.fill('#product-service', 'Industrial pumps and flow-control systems');
     await page.locator('details.multi').nth(1).locator('summary').click();
-    await page.check('input[name="regions"][value="EMEA"]');
+    await page.check('input[name="regions"][value="IE"]');
     await page.locator('details.multi').nth(2).locator('summary').click();
     await page.check('input[name="seniority"][value="Director"]');
     await page.check('#email-ack');

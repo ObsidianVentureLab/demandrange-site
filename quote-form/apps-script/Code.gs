@@ -12,7 +12,11 @@ const FORM = Object.freeze({
     'Process manufacturing', 'Aerospace & defence', 'Machinery & equipment',
     'Construction', 'Waste management', 'Utilities & energy', 'Mining, oil & gas'
   ]),
-  regions: Object.freeze(['EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
+  // `regions` mirrors the live request-a-quote.html checkboxes (form_schema.json fields.regions.values).
+  // `legacyRegions` are the pre-October-2026 worldwide values, still accepted for compatibility but never rendered.
+  regions: Object.freeze(['IE', 'UK', 'EU']),
+  legacyRegions: Object.freeze(['EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
+  acceptedRegions: Object.freeze(['IE', 'UK', 'EU', 'EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
   seniority: Object.freeze(['Entry', 'Manager', 'Director', 'VP', 'C-Suite']),
   fields: Object.freeze([
     'form_version', 'privacy_notice_version', 'consent_text_version',
@@ -124,7 +128,7 @@ function parseAndValidate_(event, nowMs) {
   const assetRef = boundedRef_(one('asset_ref'));
   const campaignRef = boundedRef_(one('campaign_ref'));
   const industries = enumValues_(values('industries'), FORM.industries, 'industries');
-  const regions = enumValues_(values('regions'), FORM.regions, 'regions');
+  const regions = enumValues_(values('regions'), FORM.acceptedRegions, 'regions');
   const seniority = enumValues_(values('seniority'), FORM.seniority, 'seniority');
   if (!industries.length || !regions.length || !seniority.length) throw new Error('required_selection');
   const emailAcknowledgement = boolean_(one('email_acknowledgement'), 'email_acknowledgement');
@@ -273,10 +277,10 @@ function setupSpreadsheet() {
   const taxonomies = spreadsheet.getSheetByName('Taxonomies') || spreadsheet.insertSheet('Taxonomies');
   taxonomies.clearContents();
   taxonomies.getRange(1, 1, 1, 4).setValues([['Industries', 'Regions', 'Seniority', 'Statuses']]);
-  const max = Math.max(FORM.industries.length, FORM.regions.length, FORM.seniority.length, 8);
+  const max = Math.max(FORM.industries.length, FORM.acceptedRegions.length, FORM.seniority.length, 8);
   const rows = [];
   const statuses = ['new', 'triage_in_progress', 'needs_information', 'quote_preparation', 'quote_sent', 'not_a_fit', 'withdrawn', 'closed'];
-  for (let i = 0; i < max; i++) rows.push([FORM.industries[i] || '', FORM.regions[i] || '', FORM.seniority[i] || '', statuses[i] || '']);
+  for (let i = 0; i < max; i++) rows.push([FORM.industries[i] || '', FORM.acceptedRegions[i] || '', FORM.seniority[i] || '', statuses[i] || '']);
   taxonomies.getRange(2, 1, rows.length, 4).setValues(rows);
   protectOwnerOnly_(taxonomies, 'Controlled taxonomies');
   const config = spreadsheet.getSheetByName('Config') || spreadsheet.insertSheet('Config');
