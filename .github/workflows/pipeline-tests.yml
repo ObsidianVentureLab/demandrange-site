@@ -63,5 +63,10 @@ jobs:
           python -B -m pipeline verify --input pipeline/examples/emails-fixture.csv --out "$RUNNER_TEMP/vfx" --fixture pipeline/examples/zerobounce-results-fixture.json
           python -c "import csv,os,glob; r=list(csv.DictReader(open(glob.glob(os.environ['RUNNER_TEMP']+'/vfx/*.csv')[0]))); assert len(r)==9 and sum(x['verification_decision']=='keep' for x in r)==3; print('verify fixture replay ok')"
 
+      - name: CLI export: delivery folder from the fixture-verified list (nothing sent)
+        run: |
+          python -B -m pipeline export --input "$RUNNER_TEMP/vfx/emails-fixture-verified.csv" --out "$RUNNER_TEMP/deliveries" --client "Demo Client" --brief-ref DEMO-BRIEF-A-v1 --dictionary-version DEMO-DICT-v1 --export-version DEMO-EXPORT-v1 --export-id ci --include-decisions keep,review --dedupe-on work_email --xlsx > "$RUNNER_TEMP/export.json"
+          python -c "import json,os,zipfile; d=json.load(open(os.environ['RUNNER_TEMP']+'/export.json')); assert d['rows_delivered']==3, d; z=zipfile.ZipFile(d['folder']+'/demo-client-ci.xlsx'); assert z.testzip() is None; print('export ok', d['files'])"
+
       - name: Secret scan (pinned gitleaks, full history of this ref)
         run: .github/ci/gitleaks.sh "$GITHUB_WORKSPACE"

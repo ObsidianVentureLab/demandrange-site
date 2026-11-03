@@ -1,0 +1,150 @@
+import csv
+import datetime as dt
+import hashlib
+import json
+import re
+import tempfile
+import unittest
+import zipfile
+from pathlib import Path
+
+from pipeline import export, verify, zerobounce as zb
+from pipeline.tests.support import EXAMPLES
+
+EMAILS = EXAMPLES / 'emails-fixture.csv'
+RESULTS = EXAMPLES / 'zerobounce-results-fixture.json'
+NOW = dt.datetime(2026, 11, 3, 12, 0, tzinfo=dt.timezone.utc)
+VERSIONS = dict(brief_ref='DEMO-BRIEF-A-v1', dictionary_version='DEMO-DICT-v1', export_version='DEMO-EXPORT-v1')
+
+
+def verified_csv(tmp):
+    rows, columns, column = verify.read_rows(EMAILS)
+    client = zb.ZeroBounceClient(transport=zb.FixtureTransport.from_file(RESULTS), credit_budget=100)
+    result = verify.verify_rows(rows, columns, column, client, data_mode=verify.FIXTURE_MODE, now=NOW)
+    csv_path, _ = verify.write_outputs(result, EMAILS, tmp, data_mode=verify.FIXTURE_MODE, client=client, now=NOW)
+    return csv_path
+
+
+def plain_csv(tmp, text, name='list.csv'):
+    path = Path(tmp) / name
+    path.write_text(text, encoding='utf-8')
+    return path
+
+
+class Building(unittest.TestCase):
+    def test_keep_only_by_default_and_stamps_every_row(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([verified_csv(tmp)], client='Demo Client Ltd', export_id='E1', now=NOW, **VERSIONS)
+        self.assertEqual(result.client, 'demo-client-ltd')
+        self.assertEqual(result.client_name, 'Demo Client Ltd')
+        self.assertEqual(len(result.rows), 3)
+        self.assertEqual(result.rows_excluded_by_decision, 6)
+        self.assertNotIn('fiction_notice', result.columns, 'fixture notice dropped by default')
+        self.assertEqual(result.columns[-6:], list(export.STAMP_COLUMNS))
+        self.assertTrue(all(r['brief_ref'] == 'DEMO-BRIEF-A-v1' and r['export_id'] == 'E1' and r['exported_at'] == '2026-11-03T12:00:00Z' for r in result.rows))
+        self.assertEqual(result.inputs[0]['source_manifest'], 'emails-fixture-verified.manifest.json')
+
+    def test_include_review_and_dedupe(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([verified_csv(tmp)], client='x', decisions=('keep', 'review'), dedupe_on='work_email', **VERSIONS)
+        self.assertEqual(len(result.rows), 3)
+        self.assertEqual(result.duplicates_dropped, 1)
+        self.assertEqual(sorted(r['verification_decision'] for r in result.rows), ['keep', 'keep', 'review'])
+
+    def test_keep_fiction_notice_and_drop_columns(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([verified_csv(tmp)], client='x', keep_fiction_notice=True, drop_columns=('zb_domain_age_days',), **VERSIONS)
+        self.assertIn('fiction_notice', result.columns)
+        self.assertNotIn('zb_domain_age_days', result.columns)
+        self.assertEqual(result.columns_dropped, ('zb_domain_age_days',))
+
+    def test_text_is_preserved_and_formulas_neutralised(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = plain_csv(tmp, 'record_id,note,amount\n0007,"café, ""équipement""",=SUM(A1)\n0008,+353 1 555,-5\n0009,@handle,2001-02-03\n')
+            result = export.build([path], client='x', **VERSIONS)
+        values = [(r['record_id'], r['note'], r['amount']) for r in result.rows]
+        self.assertEqual(values, [('0007', 'café, "équipement"', "'=SUM(A1)"), ('0008', "'+353 1 555", "'-5"), ('0009', "'@handle", '2001-02-03')])
+
+    def test_errors(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            good = plain_csv(tmp, 'a,b\n1,2\n')
+            other = plain_csv(tmp, 'a,c\n1,2\n', 'other.csv')
+            with self.assertRaisesRegex(export.ExportError, 'header differs'):
+                export.build([good, other], client='x', **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, 'not found'):
+                export.build([Path(tmp) / 'nope.csv'], client='x', **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, 'client'):
+                export.build([good], client='   ', **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, 'brief_ref: required'):
+                export.build([good], client='x', brief_ref='', dictionary_version='D', export_version='E')
+            with self.assertRaisesRegex(export.ExportError, 'export_version'):
+                export.build([good], client='x', brief_ref='B', dictionary_version='D', export_version='has space')
+            with self.assertRaisesRegex(export.ExportError, 'no verification_decision'):
+                export.build([good], client='x', decisions=('keep', 'review'), **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, '--drop-columns'):
+                export.build([good], client='x', drop_columns=('zzz',), **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, '--dedupe-on'):
+                export.build([good], client='x', dedupe_on='zzz', **VERSIONS)
+            stamped = plain_csv(tmp, 'a,export_id\n1,2\n', 'stamped.csv')
+            with self.assertRaisesRegex(export.ExportError, 'already contains export columns'):
+                export.build([stamped], client='x', **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, 'no header'):
+                export.build([plain_csv(tmp, '', 'empty.csv')], client='x', **VERSIONS)
+            with self.assertRaisesRegex(export.ExportError, 'every column was dropped'):
+                export.build([good], client='x', drop_columns=('a', 'b'), **VERSIONS)
+            plain = plain_csv(tmp, 'a,b\n1,2\n', 'p.csv')
+            self.assertEqual(export.build([plain, good], client='x', **VERSIONS).rows_read, 2, 'several files with one schema')
+
+
+class Writing(unittest.TestCase):
+    def test_delivery_folder_csv_xlsx_readme_manifest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = plain_csv(tmp, 'record_id,company,note\n0007,Fictional Pumps Alpha Ltd,café\n0008,Beta,=1+1\n')
+            result = export.build([src], client='Demo Client', export_id='E1', now=NOW, **VERSIONS)
+            folder, manifest = export.write_delivery(result, Path(tmp) / 'deliveries', xlsx=True)
+            self.assertEqual(folder, Path(tmp) / 'deliveries' / 'demo-client' / 'E1')
+            names = sorted(p.name for p in folder.iterdir())
+            self.assertEqual(names, ['MANIFEST.json', 'README.txt', 'demo-client-E1.csv', 'demo-client-E1.xlsx'])
+            raw = (folder / 'demo-client-E1.csv').read_bytes()
+            self.assertTrue(raw.startswith(b'\xef\xbb\xbf'), 'BOM for spreadsheet Unicode handling')
+            with (folder / 'demo-client-E1.csv').open(encoding='utf-8-sig', newline='') as handle:
+                rows = list(csv.DictReader(handle))
+            self.assertEqual(rows[0]['record_id'], '0007')
+            self.assertEqual(rows[0]['note'], 'café')
+            self.assertEqual(rows[1]['note'], "'=1+1")
+            self.assertEqual(list(rows[0]), result.columns)
+            with zipfile.ZipFile(folder / 'demo-client-E1.xlsx') as archive:
+                self.assertIsNone(archive.testzip())
+                sheet = archive.read('xl/worksheets/sheet1.xml').decode('utf-8')
+                self.assertEqual(sheet.count('t="inlineStr"'), len(result.columns) * 3, 'header + 2 rows, every cell a text cell')
+                texts = re.findall(r'<t[^>]*>([^<]*)</t>', sheet)
+                self.assertIn('0007', texts)
+                self.assertIn('caf&#233;', texts + [t.encode('ascii', 'xmlcharrefreplace').decode() for t in texts])
+                self.assertIn('[Content_Types].xml', archive.namelist())
+            readme = (folder / 'README.txt').read_text(encoding='utf-8')
+            self.assertIn('Demo Client', readme)
+            self.assertIn('DEMO-BRIEF-A-v1', readme)
+            self.assertIn('not an automated mailing', readme)
+            self.assertEqual(manifest['rows_delivered'], 2)
+            self.assertEqual(manifest['client_ref'], 'demo-client')
+            for name, info in manifest['files'].items():
+                self.assertEqual(info['sha256'], hashlib.sha256((folder / name).read_bytes()).hexdigest())
+            self.assertEqual(json.loads((folder / 'MANIFEST.json').read_text(encoding='utf-8'))['delivery'], 'manual by Demand Range; no automated sending')
+            with self.assertRaisesRegex(export.ExportError, 'already exists'):
+                export.write_delivery(result, Path(tmp) / 'deliveries', xlsx=False)
+
+    def test_xlsx_is_reproducible(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a, b = Path(tmp) / 'a.xlsx', Path(tmp) / 'b.xlsx'
+            export.write_xlsx(a, ['x', 'y'], [{'x': '1', 'y': ' two  spaces '}])
+            export.write_xlsx(b, ['x', 'y'], [{'x': '1', 'y': ' two  spaces '}])
+            self.assertEqual(a.read_bytes(), b.read_bytes())
+            with zipfile.ZipFile(a) as archive:
+                self.assertIn('xml:space="preserve"', archive.read('xl/worksheets/sheet1.xml').decode('utf-8'))
+
+    def test_column_names(self):
+        self.assertEqual([export._col_name(i) for i in (0, 25, 26, 27, 701, 702)], ['A', 'Z', 'AA', 'AB', 'ZZ', 'AAA'])
+
+
+if __name__ == '__main__':
+    unittest.main()
