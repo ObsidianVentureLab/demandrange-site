@@ -2,19 +2,21 @@
 
     validate  --brief FILE                      check a brief and print the Apollo filters
     prospects --brief FILE --out DIR [--fixture FILE | --live --credit-budget N]
+    verify    --input CSV  --out DIR [--email-column NAME] [--fixture FILE | --live --credit-budget N]
+    credits   --live                            ZeroBounce credit balance (not charged)
 
-Default is a dry run: the plan (filters, max pages, max credits) is printed and nothing is
-sent. --fixture replays a canned response file offline. --live needs the API key in the
-APOLLO_API_KEY environment variable and an explicit --credit-budget; the budget defaults to
-0, so a live run without a budget stops before the first request.
+Default is a dry run: the plan (filters/addresses, max credits) is printed and nothing is sent.
+--fixture replays a canned response file offline. --live needs the provider key in the
+environment (APOLLO_API_KEY / ZEROBOUNCE_API_KEY) and an explicit --credit-budget; the budget
+defaults to 0, so a live run without a budget stops before the first request.
 """
 import argparse
 import json
 import sys
 
-from . import apollo, icp, prospects
+from . import apollo, icp, prospects, verify, zerobounce
 
-EXIT_OK, EXIT_USAGE, EXIT_APOLLO = 0, 2, 3
+EXIT_OK, EXIT_USAGE, EXIT_APOLLO = 0, 2, 3   # 3 = any provider error
 
 
 def build_parser():
@@ -35,6 +37,24 @@ def build_parser():
                       help=f'call Apollo for real (key from ${apollo.API_KEY_ENV}; requires --credit-budget)')
     run.add_argument('--credit-budget', type=int, default=0,
                      help='maximum Apollo credits (pages) this run may spend; default 0 = none')
+
+    ver = sub.add_parser('verify', help='verify the email column of a CSV with ZeroBounce')
+    ver.add_argument('--input', required=True, help='CSV with an email column')
+    ver.add_argument('--out', required=True, help='output directory for the verified CSV and manifest')
+    ver.add_argument('--email-column', help='column holding the address (default: first of email, work_email, email_address, contact_email)')
+    ver.add_argument('--batch-size', type=int, default=zerobounce.MAX_BATCH, help=f'addresses per request (1-{zerobounce.MAX_BATCH})')
+    ver.add_argument('--base-url', default=zerobounce.DEFAULT_BASE_URL,
+                     help='ZeroBounce API host; default is the EU endpoint, api-us.zerobounce.net processes in the United States')
+    vmode = ver.add_mutually_exclusive_group()
+    vmode.add_argument('--fixture', help='replay this canned results file instead of calling ZeroBounce')
+    vmode.add_argument('--live', action='store_true',
+                       help=f'call ZeroBounce for real (key from ${zerobounce.API_KEY_ENV}; requires --credit-budget)')
+    ver.add_argument('--credit-budget', type=int, default=0,
+                     help='maximum ZeroBounce credits (addresses) this run may charge; default 0 = none')
+
+    cred = sub.add_parser('credits', help='print the ZeroBounce credit balance (needs --live; not charged)')
+    cred.add_argument('--live', action='store_true', help=f'call ZeroBounce (key from ${zerobounce.API_KEY_ENV})')
+    cred.add_argument('--base-url', default=zerobounce.DEFAULT_BASE_URL)
     return parser
 
 
@@ -77,16 +97,60 @@ def cmd_prospects(args):
     return EXIT_OK
 
 
+def cmd_verify(args):
+    rows, columns, email_column = verify.read_rows(args.input, args.email_column)
+    the_plan = verify.plan(rows, email_column)
+    the_plan['email_column'] = email_column
+    if not args.live and not args.fixture:
+        _emit({'ok': True, 'dry_run': True, 'sent': False, 'plan': the_plan,
+               'hint': 'add --fixture FILE to replay canned results, or --live --credit-budget N to call ZeroBounce'})
+        return EXIT_OK
+    if args.live:
+        if args.credit_budget < 1:
+            _emit({'ok': False, 'error': '--live requires --credit-budget N (N >= 1); nothing was sent'}, sys.stderr)
+            return EXIT_USAGE
+        client = zerobounce.ZeroBounceClient(live=True, credit_budget=args.credit_budget, base_url=args.base_url)
+        data_mode = verify.LIVE_MODE
+        sys.stderr.write(f'live run against {client.base_url}: at most {args.credit_budget} credit(s) will be charged '
+                         f'({the_plan["sendable"]} addresses to send; unknown results are not charged)\n')
+    else:
+        transport = zerobounce.FixtureTransport.from_file(args.fixture)
+        budget = args.credit_budget if args.credit_budget > 0 else the_plan['sendable']
+        client = zerobounce.ZeroBounceClient(live=False, transport=transport, credit_budget=budget, base_url=args.base_url)
+        data_mode = verify.FIXTURE_MODE
+    result = verify.verify_rows(rows, columns, email_column, client, batch_size=args.batch_size, data_mode=data_mode)
+    csv_path, manifest_path = verify.write_outputs(result, args.input, args.out, data_mode=data_mode,
+                                                   client=client, credit_budget=args.credit_budget)
+    _emit({'ok': True, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
+           'addresses_sent': result.sent, 'credits_charged': client.credits_used,
+           'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,
+           'stopped_reason': result.stopped_reason, 'csv': str(csv_path), 'manifest': str(manifest_path)})
+    return EXIT_OK
+
+
+def cmd_credits(args):
+    if not args.live:
+        _emit({'ok': False, 'error': 'credits needs --live; nothing was sent'}, sys.stderr)
+        return EXIT_USAGE
+    client = zerobounce.ZeroBounceClient(live=True, base_url=args.base_url)
+    _emit({'ok': True, 'base_url': client.base_url, 'credits': client.get_credits()})
+    return EXIT_OK
+
+
+COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_verify, 'credits': cmd_credits}
+
+
 def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
-        if args.command == 'validate':
-            return cmd_validate(args)
-        return cmd_prospects(args)
+        return COMMANDS[args.command](args)
     except icp.ICPError as error:
         _emit({'ok': False, 'error': 'brief rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
-    except apollo.ApolloError as error:
+    except verify.VerifyError as error:
+        _emit({'ok': False, 'error': 'input rejected: ' + str(error)}, sys.stderr)
+        return EXIT_USAGE
+    except (apollo.ApolloError, zerobounce.ZeroBounceError) as error:
         _emit({'ok': False, 'error': type(error).__name__ + ': ' + str(error)}, sys.stderr)
         return EXIT_APOLLO

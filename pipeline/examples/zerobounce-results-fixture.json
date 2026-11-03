@@ -1,0 +1,12 @@
+{
+  "fiction_notice": "WHOLLY FICTIONAL FIXTURE DATA; NO REAL PEOPLE OR ADDRESSES",
+  "credits": 250,
+  "results": {
+    "ops.lead@alpha-fixture.example": {"status": "valid", "sub_status": "", "free_email": false, "mx_found": true, "domain_age_days": 9000, "processed_at": "2026-11-03 12:00:00.000"},
+    "maintenance@beta-fixture.example": {"status": "valid", "sub_status": "alias_address", "free_email": false, "mx_found": true, "domain_age_days": 4000, "processed_at": "2026-11-03 12:00:00.000"},
+    "info@gamma-fixture.example": {"status": "do_not_mail", "sub_status": "role_based", "free_email": false, "mx_found": true, "domain_age_days": 3000, "processed_at": "2026-11-03 12:00:00.000"},
+    "nobody@delta-fixture.example": {"status": "invalid", "sub_status": "mailbox_not_found", "free_email": false, "mx_found": true, "did_you_mean": null, "domain_age_days": 2000, "processed_at": "2026-11-03 12:00:00.000"},
+    "trap@zeta-fixture.example": {"status": "spamtrap", "sub_status": "", "free_email": false, "mx_found": true, "domain_age_days": 1000, "processed_at": "2026-11-03 12:00:00.000"},
+    "eng@delta-fixture.example": {"status": "catch-all", "sub_status": "", "free_email": false, "mx_found": true, "domain_age_days": 2000, "processed_at": "2026-11-03 12:00:00.000"}
+  }
+}

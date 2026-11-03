@@ -24,7 +24,8 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
-      APOLLO_API_KEY: ''   # explicit: no key in CI; --live cannot work here
+      APOLLO_API_KEY: ''        # explicit: no keys in CI; --live cannot work here
+      ZEROBOUNCE_API_KEY: ''
     steps:
       - name: Check out
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -39,7 +40,7 @@ jobs:
 
       - name: Standard library only (no third-party imports in pipeline/)
         run: |
-          python -c "import pipeline, pipeline.icp, pipeline.apollo, pipeline.prospects, pipeline.cli; print('imports ok')"
+          python -c "import pipeline, pipeline.icp, pipeline.apollo, pipeline.prospects, pipeline.zerobounce, pipeline.verify, pipeline.cli; print('imports ok')"
           if grep -rnE '^\s*(import|from)\s+(requests|httpx|aiohttp|pandas|openpyxl)\b' pipeline/; then echo 'third-party import found'; exit 1; fi
 
       - name: Unit tests (network blocked)
@@ -54,6 +55,13 @@ jobs:
         run: |
           python -B -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out "$RUNNER_TEMP/fx" --fixture pipeline/examples/apollo-organizations-fixture.json
           python -c "import csv,os,glob; r=list(csv.DictReader(open(glob.glob(os.environ['RUNNER_TEMP']+'/fx/*.csv')[0]))); assert len(r)==5 and all(x['data_mode']=='fixture' for x in r); print('fixture replay ok', len(r))"
+
+      - name: CLI verify: dry run writes nothing, fixture replay verifies the fictional list
+        run: |
+          python -B -m pipeline verify --input pipeline/examples/emails-fixture.csv --out "$RUNNER_TEMP/vdry" > "$RUNNER_TEMP/vdry.json"
+          python -c "import json,os; d=json.load(open(os.environ['RUNNER_TEMP']+'/vdry.json')); assert d['dry_run'] and d['plan']['sendable']==6; assert not os.path.exists(os.environ['RUNNER_TEMP']+'/vdry'); print('verify dry run ok')"
+          python -B -m pipeline verify --input pipeline/examples/emails-fixture.csv --out "$RUNNER_TEMP/vfx" --fixture pipeline/examples/zerobounce-results-fixture.json
+          python -c "import csv,os,glob; r=list(csv.DictReader(open(glob.glob(os.environ['RUNNER_TEMP']+'/vfx/*.csv')[0]))); assert len(r)==9 and sum(x['verification_decision']=='keep' for x in r)==3; print('verify fixture replay ok')"
 
       - name: Secret scan (pinned gitleaks, full history of this ref)
         run: .github/ci/gitleaks.sh "$GITHUB_WORKSPACE"

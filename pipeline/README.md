@@ -1,4 +1,4 @@
-# pipeline — ICP brief → Apollo company candidates (P2)
+# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3)
 
 Company-level candidate generation for Demand Range research briefs. Input is a JSON brief
 mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output is a CSV of
@@ -60,8 +60,42 @@ Endpoint `POST https://api.apollo.io/api/v1/mixed_companies/search`, header `x-a
 `organizations` + `pagination{page,per_page,total_entries,total_pages}` + `partial_results_only`.
 HTTP 403 means the plan/key lacks access to this endpoint; 429/5xx are retried with backoff.
 
+## P3: email verification with ZeroBounce (`verify`, `credits`)
+Input: any CSV with an email column (`--email-column`, or the first of `email`, `work_email`,
+`email_address`, `contact_email`). Output: the same rows plus `zb_status`, `zb_sub_status`,
+`zb_free_email`, `zb_did_you_mean`, `zb_mx_found`, `zb_domain_age_days`, `zb_processed_at`,
+`verification_decision`, `verified_at`, `verification_source`, and a manifest (input/output sha256,
+batches, credits charged, counts by status and decision, API errors, stop reason).
+
+```
+python -m pipeline verify --input LIST.csv --out out/                                   # dry run: counts + max credits
+python -m pipeline verify --input LIST.csv --out out/ --fixture pipeline/examples/zerobounce-results-fixture.json
+ZEROBOUNCE_API_KEY=... python -m pipeline credits --live                                # balance, not charged
+ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
+```
+
+- **Same safety defaults as P2:** offline unless `--live`/`--fixture`; key from `ZEROBOUNCE_API_KEY`
+  only, sent in the request body (never a URL) and redacted from errors; `--credit-budget` (default 0)
+  reserves one credit per address before each batch; a budget stop still writes every row, marking the
+  rest `not_verified` / `review`.
+- **Credits:** 1 per address; ZeroBounce never charges for `unknown` results, so the charged count can
+  be below the reserved count. `credits --live` shows the balance without spending.
+- **Decisions:** `keep` = valid; `drop` = invalid, spamtrap, abuse, do_not_mail, or a local syntax
+  failure (not sent); `review` = catch-all, unknown, not verified. The analyst confirms before P4 delivery.
+- **Data residency:** default host is `api-eu.zerobounce.net`; `api.zerobounce.net` and `api-us…`
+  process in the United States (`--base-url` to change). Addresses are personal data: keep inputs
+  and outputs outside the repository, and verify only lists with a lawful basis for the outreach.
+- **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
+- **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
+  `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
+  cost nothing; run them with `--live --credit-budget 1` to confirm the key and host.
+- Facts relied on (zerobounce.net/docs, checked 3 Nov 2026): `POST /v2/validatebatch` JSON
+  `{api_key, email_batch:[{email_address, ip_address}]}` → `{email_batch:[…], errors:[…]}`; statuses
+  valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail; `GET/POST /v2/getcredits` →
+  `{Credits}` (-1 = invalid key); batches above ~200 belong to the bulk file API; rate limits apply.
+
 ## Tests
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-Standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+87 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
