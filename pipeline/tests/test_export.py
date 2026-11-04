@@ -79,6 +79,19 @@ class Building(unittest.TestCase):
             self.assertNotIn("'=SUM", sheet)
             self.assertNotIn('<f>', sheet, 'no formula cells in the workbook')
 
+    def test_newlines_inside_quoted_cells_survive_build_and_delivery(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = plain_csv(tmp, 'record_id,note\r\n0007,"line one\nline two"\r\n0008,"tail\r\n"\r\n')
+            result = export.build([path], client='x', export_id='E1', **VERSIONS)
+            self.assertEqual([r['note'] for r in result.rows], ['line one\nline two', 'tail\r\n'])
+            folder, _ = export.write_delivery(result, Path(tmp) / 'out', xlsx=True)
+            with open(folder / 'x-E1.csv', encoding='utf-8-sig', newline='') as handle:
+                rows = list(csv.DictReader(handle))
+            self.assertEqual([r['note'] for r in rows], ['line one\nline two', 'tail\r\n'], 'delivered CSV round-trips the cell')
+            with zipfile.ZipFile(folder / 'x-E1.xlsx') as archive:
+                sheet = archive.read('xl/worksheets/sheet1.xml').decode('utf-8')
+            self.assertIn('<t>line one\nline two</t>', sheet)
+
     def test_empty_decisions_is_an_error_not_an_empty_delivery(self):
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaisesRegex(export.ExportError, 'include-decisions'):
@@ -151,6 +164,21 @@ class Writing(unittest.TestCase):
             self.assertEqual(json.loads((folder / 'MANIFEST.json').read_text(encoding='utf-8'))['delivery'], 'manual by Demand Range; no automated sending')
             with self.assertRaisesRegex(export.ExportError, 'already exists'):
                 export.write_delivery(result, Path(tmp) / 'deliveries', xlsx=False)
+
+    def test_file_in_the_way_of_the_delivery_folder_is_an_export_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = plain_csv(tmp, 'a,b\n1,2\n')
+            result = export.build([src], client='x', export_id='E1', **VERSIONS)
+            root = Path(tmp) / 'deliveries'
+            (root / 'x').mkdir(parents=True)
+            (root / 'x' / 'E1').write_text('not a folder', encoding='utf-8')
+            with self.assertRaisesRegex(export.ExportError, 'not a folder'):
+                export.write_delivery(result, root)
+            (root / 'x' / 'E1').unlink()
+            (root / 'x').rmdir()
+            (root / 'x').write_text('file where the client folder should be', encoding='utf-8')
+            with self.assertRaisesRegex(export.ExportError, 'file is in the way'):
+                export.write_delivery(result, root)
 
     def test_xlsx_is_reproducible(self):
         with tempfile.TemporaryDirectory() as tmp:

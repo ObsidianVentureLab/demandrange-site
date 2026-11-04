@@ -74,7 +74,7 @@ class Prospects(unittest.TestCase):
         env = {k: v for k, v in os.environ.items() if k != apollo.API_KEY_ENV}
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env, clear=True):
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--live', '--credit-budget', '1')
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertIn(apollo.API_KEY_ENV, err)
         self.assertIn('ApolloAuthError', err)
 
@@ -94,7 +94,7 @@ class Prospects(unittest.TestCase):
             bad = Path(tmp) / 'fixture.json'
             bad.write_text('{"nope": 1}', encoding='utf-8')
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--fixture', str(bad))
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertIn('pages', err)
 
 
@@ -134,7 +134,7 @@ class Verify(unittest.TestCase):
         env = {k: v for k, v in os.environ.items() if k != _zb.API_KEY_ENV}
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env, clear=True):
             code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live', '--credit-budget', '1')
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertIn(_zb.API_KEY_ENV, err)
 
     def test_live_with_key_hits_the_network_guard_before_writing(self):
@@ -160,7 +160,7 @@ class Credits(unittest.TestCase):
         env = {k: v for k, v in os.environ.items() if k != _zb.API_KEY_ENV}
         with mock.patch.dict(os.environ, env, clear=True):
             code, out, err = run('credits', '--live')
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertNotIn(FAKE_KEY, err)
 
 

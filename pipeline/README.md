@@ -24,7 +24,7 @@ python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out 
 python -m pipeline prospects --brief BRIEF.json --out out/ --fixture pipeline/examples/apollo-organizations-fixture.json
 APOLLO_API_KEY=... python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
 ```
-Exit codes: 0 ok, 2 brief/usage error, 3 Apollo error (auth, rate limit, budget, plan).
+Exit codes: 0 ok, 2 brief/usage/input error, 3 provider error (Apollo or ZeroBounce: auth, rate limit, budget, plan).
 
 ## Brief fields (JSON)
 Required: `brief_id`, `brief_version`, `supplier_range`, at least one positive filter.
@@ -137,4 +137,4 @@ The database holds personal data (the requests): same access rule as the Sheet, 
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-108 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+115 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
