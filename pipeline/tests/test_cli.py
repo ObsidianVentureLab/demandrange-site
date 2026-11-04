@@ -98,10 +98,6 @@ class Prospects(unittest.TestCase):
         self.assertIn('pages', err)
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 from pipeline import zerobounce as _zb  # noqa: E402
 from pipeline.tests.support import EXAMPLES as _EXAMPLES  # noqa: E402
 
@@ -166,3 +162,7 @@ class Credits(unittest.TestCase):
             code, out, err = run('credits', '--live')
         self.assertEqual(code, cli.EXIT_APOLLO)
         self.assertNotIn(FAKE_KEY, err)
+
+
+if __name__ == '__main__':
+    unittest.main()

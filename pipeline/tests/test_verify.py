@@ -81,6 +81,16 @@ class Verifying(unittest.TestCase):
         self.assertTrue(all(r['verification_decision'] == 'review' for r in unverified))
         self.assertEqual(len(result.rows), 9, 'every input row is written')
 
+    def test_budget_smaller_than_batch_shrinks_the_batch(self):
+        rows, columns, column = verify.read_rows(EMAILS)
+        client = replay_client(budget=1)
+        result = verify.verify_rows(rows, columns, column, client, batch_size=100, data_mode=verify.FIXTURE_MODE)
+        self.assertEqual((result.batches, result.sent), (1, 1), 'a --credit-budget 1 first check sends exactly one address')
+        self.assertLessEqual(client.credits_used, 1)
+        self.assertTrue(result.stopped_reason.startswith('credit budget reached'))
+        self.assertEqual(len(result.rows), 9, 'every input row is written')
+        self.assertEqual(client.requests_made, 1)
+
     def test_zero_budget_raises_before_sending(self):
         rows, columns, column = verify.read_rows(EMAILS)
         client = replay_client(budget=0)
