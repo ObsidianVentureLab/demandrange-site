@@ -22,7 +22,8 @@ or contacts anyone, and no person-level data is requested.
 python -m pipeline validate  --brief pipeline/examples/brief-fixture.json
 python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out out/          # dry run
 python -m pipeline prospects --brief BRIEF.json --out out/ --fixture pipeline/examples/apollo-organizations-fixture.json
-APOLLO_API_KEY=... python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
+read -rs APOLLO_API_KEY && export APOLLO_API_KEY   # typed at the prompt: not an argument, not in shell history
+python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
 ```
 Exit codes: 0 ok, 2 brief/usage error, 3 Apollo error (auth, rate limit, budget, plan).
 
@@ -59,6 +60,12 @@ Endpoint `POST https://api.apollo.io/api/v1/mixed_companies/search`, header `x-a
 1 credit per page, 100 results per page, 50,000-record display limit (500 pages), response
 `organizations` + `pagination{page,per_page,total_entries,total_pages}` + `partial_results_only`.
 HTTP 403 means the plan/key lacks access to this endpoint; 429/5xx are retried with backoff.
+
+**Retries and real spend.** A transport failure (connection reset, timeout, malformed body) is
+retried up to 3 times without charging the budget again, because the client cannot tell whether
+the request reached Apollo. If it did, Apollo charged it. Worst case, real spend per page is
+1 + retries credits, so a `--credit-budget 1` first run can cost up to 4 credits. The manifest
+records `apollo.transport_retries`; when it is non-zero, compare with Apollo's usage page.
 
 ## Tests
 ```

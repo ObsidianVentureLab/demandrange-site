@@ -55,6 +55,16 @@ class Prospects(unittest.TestCase):
             self.assertEqual((data['data_mode'], data['candidates'], data['credits_used']), ('fixture', 5, 3))
             self.assertEqual(sorted(os.listdir(tmp)), ['DEMO-BRIEF-A-v1-candidates.csv', 'DEMO-BRIEF-A-v1-candidates.manifest.json'])
 
+    def test_unwritable_out_path_is_a_usage_error_not_a_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            blocker = Path(tmp) / 'file.txt'
+            blocker.write_text('in the way', encoding='utf-8')
+            code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', str(blocker / 'out'), '--fixture', str(RESPONSES_PATH))
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertEqual(out, '')
+        self.assertFalse(json.loads(err)['ok'])
+        self.assertIn('file error', err)
+
     def test_fixture_with_explicit_budget_is_capped(self):
         with tempfile.TemporaryDirectory() as tmp:
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--fixture', str(RESPONSES_PATH), '--credit-budget', '1')

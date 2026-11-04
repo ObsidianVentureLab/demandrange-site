@@ -90,3 +90,6 @@ def main(argv=None):
     except apollo.ApolloError as error:
         _emit({'ok': False, 'error': type(error).__name__ + ': ' + str(error)}, sys.stderr)
         return EXIT_APOLLO
+    except OSError as error:   # unreadable input or unwritable --out path (provider I/O is wrapped above)
+        _emit({'ok': False, 'error': 'file error: ' + str(error)}, sys.stderr)
+        return EXIT_USAGE
