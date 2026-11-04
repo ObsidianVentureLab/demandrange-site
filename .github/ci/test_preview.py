@@ -15,6 +15,7 @@ import tempfile
 import threading
 import unittest
 from pathlib import Path
+from unittest import mock
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -86,6 +87,16 @@ class PreviewBuildTests(unittest.TestCase):
         stamp = json.loads((self.out / '_preview.json').read_text(encoding='utf-8'))
         self.assertTrue(stamp['preview'] and stamp['noindex'])
         self.assertEqual(stamp['files'], len([p for p in self.out.rglob('*') if p.is_file()]) - 2)
+
+    def test_stamp_names_the_pr_head_not_the_merge_commit(self):
+        head, merge = 'a' * 40, 'b' * 40
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.dict(os.environ, {'PREVIEW_SOURCE_SHA': head, 'GITHUB_SHA': merge, 'PR_NUMBER': '57'}):
+                stamp = build_preview.build(REPO, Path(tmp) / 'site')
+            self.assertEqual((stamp['source_commit'], stamp['pull_request']), (head, '57'))
+            with mock.patch.dict(os.environ, {'GITHUB_SHA': merge}, clear=False):
+                os.environ.pop('PREVIEW_SOURCE_SHA', None)
+                self.assertEqual(build_preview.build(REPO, Path(tmp) / 'site2')['source_commit'], merge, 'falls back to GITHUB_SHA outside a PR')
 
     def test_allow_index_keeps_live_robots(self):
         with tempfile.TemporaryDirectory() as tmp:
