@@ -112,7 +112,9 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
 - Rows with a `verification_decision` are filtered to `keep` by default; `--include-decisions` widens that.
 - `brief_ref`, `dictionary_version`, `export_version`, `export_id`, `exported_at` and `client_ref` are stamped on
   every row (the lesson of `foundation/handover-*.csv`: versions travel with the data, blank is not "none").
-- Cells starting with `=`, `+`, `-` or `@` get a leading apostrophe (formula injection guard, same rule as Code.gs).
+- CSV cells starting with `=`, `@`, or a `+`/`-` that is not a phone/signed number get a leading apostrophe
+  (formula injection guard, as in Code.gs); the XLSX needs none because every cell is an inline string.
+- `--include-decisions` must name at least one value; an empty list is a usage error, never an empty delivery.
 - Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
 - `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
 

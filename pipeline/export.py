@@ -3,7 +3,8 @@ MANIFEST.json and a plain-text README. Nothing is sent; Sean delivers the folder
 
 Rules learned from foundation/handover-*.csv: every value stays text (identifiers keep leading
 zeros, dates are not reinterpreted), Unicode survives, and the brief/dictionary/export versions
-travel with every row. Cells that a spreadsheet would execute as a formula are neutralised.
+travel with every row. In the CSV, cells that a spreadsheet would execute as a formula are
+neutralised; the XLSX needs no guard because every cell is written as an inline string.
 """
 from dataclasses import dataclass, field
 import csv
@@ -22,6 +23,9 @@ VERSION_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$')
 DECISION_COLUMN = 'verification_decision'
 STAMP_COLUMNS = ('client_ref', 'brief_ref', 'dictionary_version', 'export_version', 'export_id', 'exported_at')
 FORMULA_PREFIXES = ('=', '+', '-', '@', '\t', '\r')
+# A leading + or - followed only by digits and phone/number punctuation is a value (e.g. +353 1 555, -5),
+# not a formula; spreadsheets never execute it, and clients should not see a literal apostrophe.
+NUMERIC_SIGNED = re.compile(r'^[+-][\d\s().\-]*\d[\d\s().\-]*$')
 INTERNAL_DEFAULT_DROP = ('fiction_notice',)   # kept when --keep-fiction-notice; fixtures carry it on purpose
 
 
@@ -67,9 +71,12 @@ def check_version(label, value, required=True):
 
 
 def neutralise(value):
-    """Prefix a leading apostrophe so spreadsheets show the text instead of running it."""
+    """Prefix a leading apostrophe so a spreadsheet opening the CSV shows the text instead of running it.
+    Signed numbers and phone numbers (+353 1 555, -5) are left as they are."""
     text = '' if value is None else str(value)
-    return "'" + text if text.startswith(FORMULA_PREFIXES) else text
+    if text.startswith(FORMULA_PREFIXES) and not NUMERIC_SIGNED.match(text):
+        return "'" + text
+    return text
 
 
 def read_inputs(paths):
@@ -120,6 +127,8 @@ def build(paths, *, client, brief_ref, dictionary_version, export_version, expor
     if clash:
         raise ExportError('input: already contains export columns ' + ', '.join(clash) + '; export from the un-stamped file')
     decisions = tuple(d.strip().lower() for d in decisions if d.strip())
+    if not decisions:
+        raise ExportError('--include-decisions: at least one verification_decision value is required (e.g. keep or keep,review)')
     result = Export(client_slug, ' '.join(str(client).split()), brief_ref, dictionary_version, export_version, export_id,
                     exported_at, [], inputs=inputs, decisions_included=decisions, rows_read=len(rows))
     if DECISION_COLUMN in columns:
@@ -155,7 +164,7 @@ def build(paths, *, client, brief_ref, dictionary_version, export_version, expor
     stamp = {'client_ref': client_slug, 'brief_ref': brief_ref, 'dictionary_version': dictionary_version,
              'export_version': export_version, 'export_id': export_id, 'exported_at': exported_at}
     for row in rows:
-        out = {c: neutralise(row.get(c, '')) for c in out_columns}
+        out = {c: ('' if row.get(c) is None else str(row.get(c))) for c in out_columns}
         out.update(stamp)
         result.rows.append(out)
     return result
@@ -233,7 +242,8 @@ def _readme(result, csv_name, xlsx_name):
                      + f' ({result.rows_excluded_by_decision} rows with other decisions were left out)')
     lines += ['', 'Columns', *(f'  {c}' for c in result.columns), '',
               'Notes',
-              '  Values that begin with =, +, - or @ carry a leading apostrophe so a spreadsheet shows them as text.',
+              '  In the CSV, values that begin with =, @ or a non-numeric + or - carry a leading apostrophe so a',
+              '  spreadsheet shows them as text; phone numbers and signed numbers are untouched.',
               '  The brief, dictionary and export versions on every row identify exactly what was agreed and produced;',
               '  quote them in any query about this delivery.',
               '  This file is delivered manually by Demand Range; it is not an automated mailing and nothing in it has been sent.']
@@ -250,7 +260,7 @@ def write_delivery(result, out_dir, *, xlsx=False):
     with csv_path.open('w', encoding='utf-8-sig', newline='') as handle:
         writer = csv.DictWriter(handle, fieldnames=result.columns, lineterminator='\r\n', quoting=csv.QUOTE_ALL)
         writer.writeheader()
-        writer.writerows(result.rows)
+        writer.writerows({c: neutralise(v) for c, v in row.items()} for row in result.rows)
     files = {csv_path.name: csv_path}
     xlsx_path = None
     if xlsx:
