@@ -1,0 +1,10 @@
+fiction_notice,contact_ref,company_name,work_email,role
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0001,Fictional Pumps Alpha Ltd,ops.lead@alpha-fixture.example,Operations lead
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0002,Fictional Pumps Alpha Ltd,  Ops.Lead@Alpha-Fixture.example ,Operations lead (duplicate address)
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0003,Fictional Seals Beta plc,maintenance@beta-fixture.example,Maintenance manager
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0004,Fictional Valves Gamma,info@gamma-fixture.example,General mailbox
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0005,Fictional Mixers Delta,nobody@delta-fixture.example,Unknown
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0006,Fictional Dryers Epsilon,not an email,Plant manager
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0007,Fictional Dryers Epsilon,,Plant manager (no address)
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0008,Fictional Trap Zeta,trap@zeta-fixture.example,Unknown
+WHOLLY FICTIONAL; NO REAL PEOPLE,C-0009,Fictional Mixers Delta,eng@delta-fixture.example,Engineering

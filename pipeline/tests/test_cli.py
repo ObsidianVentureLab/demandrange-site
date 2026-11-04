@@ -101,7 +101,7 @@ class Prospects(unittest.TestCase):
         env = {k: v for k, v in os.environ.items() if k != apollo.API_KEY_ENV}
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env, clear=True):
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--live', '--credit-budget', '1')
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertIn(apollo.API_KEY_ENV, err)
         self.assertIn('ApolloAuthError', err)
 
@@ -121,8 +121,99 @@ class Prospects(unittest.TestCase):
             bad = Path(tmp) / 'fixture.json'
             bad.write_text('{"nope": 1}', encoding='utf-8')
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--fixture', str(bad))
-        self.assertEqual(code, cli.EXIT_APOLLO)
+        self.assertEqual(code, cli.EXIT_PROVIDER)
         self.assertIn('pages', err)
+
+
+from pipeline import zerobounce as _zb  # noqa: E402
+from pipeline.tests.support import EXAMPLES as _EXAMPLES  # noqa: E402
+
+EMAILS_PATH = _EXAMPLES / 'emails-fixture.csv'
+ZB_RESULTS_PATH = _EXAMPLES / 'zerobounce-results-fixture.json'
+
+
+class Verify(unittest.TestCase):
+    def test_default_is_dry_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp)
+            self.assertEqual(code, 0, err)
+            self.assertEqual(os.listdir(tmp), [])
+        data = json.loads(out)
+        self.assertTrue(data['dry_run'])
+        self.assertEqual(data['plan']['sendable'], 6)
+        self.assertEqual(data['plan']['email_column'], 'work_email')
+
+    def test_fixture_replay(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--fixture', str(ZB_RESULTS_PATH), '--batch-size', '4')
+            self.assertEqual(code, 0, err)
+            data = json.loads(out)
+            self.assertEqual((data['rows'], data['addresses_sent'], data['credits_charged']), (9, 6, 6))
+            self.assertEqual(sorted(os.listdir(tmp)), ['emails-fixture-verified.csv', 'emails-fixture-verified.manifest.json'])
+
+    def test_fixture_manifest_records_the_budget_actually_enforced(self):
+        for argv, expected in (((), 6), (('--credit-budget', '4'), 4)):
+            with self.subTest(argv=argv), tempfile.TemporaryDirectory() as tmp:
+                code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--fixture', str(ZB_RESULTS_PATH), *argv)
+                self.assertEqual(code, 0, err)
+                manifest = json.loads((Path(tmp) / 'emails-fixture-verified.manifest.json').read_text(encoding='utf-8'))
+                self.assertEqual(manifest['zerobounce']['credit_budget'], expected, 'fixture mode defaults the budget to the sendable count')
+                self.assertLessEqual(manifest['zerobounce']['credits_charged'], expected)
+
+    def test_provider_error_mid_run_writes_partial_outputs_and_exits_3(self):
+        from pipeline.tests.support import ScriptedTransport
+        ok = (200, {'email_batch': [], 'errors': []})   # first batch: all addresses come back unknown (uncharged)
+        scripted = ScriptedTransport(ok, _zb.ZeroBounceError('ZeroBounce HTTP 503 after 3 attempts'))
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(_zb.FixtureTransport, 'from_file', staticmethod(lambda path: scripted)):
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--fixture', str(Path(tmp) / 'ignored.json'), '--batch-size', '1')
+            self.assertEqual(code, cli.EXIT_PROVIDER, err)
+            self.assertEqual(sorted(os.listdir(tmp)), ['emails-fixture-verified.csv', 'emails-fixture-verified.manifest.json'], 'partial outputs written')
+            manifest = json.loads((Path(tmp) / 'emails-fixture-verified.manifest.json').read_text(encoding='utf-8'))
+        data = json.loads(out)
+        self.assertFalse(data['ok'])
+        self.assertIn('HTTP 503', data['error'])
+        self.assertEqual((data['addresses_sent'], data['not_verified']), (1, 5))
+        self.assertEqual(manifest['counts']['not_verified'], 5)
+        self.assertIn('HTTP 503', manifest['zerobounce']['provider_error'])
+
+    def test_live_without_budget_sends_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {_zb.API_KEY_ENV: FAKE_KEY}):
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live')
+            self.assertEqual(code, cli.EXIT_USAGE)
+            self.assertIn('--credit-budget', err)
+
+    def test_live_without_key_fails_cleanly(self):
+        env = {k: v for k, v in os.environ.items() if k != _zb.API_KEY_ENV}
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env, clear=True):
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live', '--credit-budget', '1')
+        self.assertEqual(code, cli.EXIT_PROVIDER)
+        self.assertIn(_zb.API_KEY_ENV, err)
+
+    def test_live_with_key_hits_the_network_guard_before_writing(self):
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {_zb.API_KEY_ENV: FAKE_KEY}):
+            with self.assertRaisesRegex(AssertionError, 'network call attempted'):
+                run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live', '--credit-budget', '6')
+            self.assertEqual(os.listdir(tmp), [])
+
+    def test_bad_input(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--email-column', 'nope')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('input rejected', err)
+
+
+class Credits(unittest.TestCase):
+    def test_requires_live(self):
+        code, out, err = run('credits')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('--live', err)
+
+    def test_live_without_key(self):
+        env = {k: v for k, v in os.environ.items() if k != _zb.API_KEY_ENV}
+        with mock.patch.dict(os.environ, env, clear=True):
+            code, out, err = run('credits', '--live')
+        self.assertEqual(code, cli.EXIT_PROVIDER)
+        self.assertNotIn(FAKE_KEY, err)
 
 
 if __name__ == '__main__':
