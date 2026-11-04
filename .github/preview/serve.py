@@ -48,7 +48,7 @@ def resolve(root, url_path):
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
-    server_version = 'DemandRangePreview/1'
+    server_version = 'SitePreview/1'   # neutral token: HTTP tokens cannot carry the space in the company name
 
     def do_GET(self):
         self._serve(head=False)

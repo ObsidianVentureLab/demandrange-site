@@ -64,7 +64,9 @@ def build(source, output, noindex=True):
     stamp = {
         'preview': True,
         'noindex': noindex,
-        'source_commit': os.environ.get('GITHUB_SHA') or git_sha(source),
+        # On pull_request runs GITHUB_SHA is the synthetic merge commit; the workflow passes the PR head
+        # as PREVIEW_SOURCE_SHA so the stamp names a commit that is actually on the branch.
+        'source_commit': os.environ.get('PREVIEW_SOURCE_SHA') or os.environ.get('GITHUB_SHA') or git_sha(source),
         'pull_request': os.environ.get('PR_NUMBER') or None,
         'built_at_utc': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'files': copied,
