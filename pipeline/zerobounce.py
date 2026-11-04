@@ -145,7 +145,7 @@ class ZeroBounceClient:
         self.credit_budget = int(credit_budget)
         self.credits_used = 0          # charged so far (settled after each batch)
         self.requests_made = 0
-        self.transport_retries = 0   # each one may have reached ZeroBounce and been charged; see README
+        self.retries = 0   # retried requests (transport failure or HTTP 429/5xx); each may have been charged, see README
         self.max_retries = int(max_retries)
         self._sleep = sleep
         self.base_url = base_url.rstrip('/')
@@ -187,7 +187,7 @@ class ZeroBounceClient:
             except (OSError, ValueError) as error:
                 if attempt > self.max_retries:
                     raise ZeroBounceError('transport failure: ' + self._redact(error)) from None
-                self.transport_retries += 1
+                self.retries += 1
                 self._sleep(2 ** attempt)
                 continue
             self.requests_made += 1
@@ -205,6 +205,7 @@ class ZeroBounceClient:
                     if status == 429:
                         raise ZeroBounceRateLimited('rate limited after %d attempts: %s' % (attempt, self._redact(_detail(payload))[:200]))
                     raise ZeroBounceError('ZeroBounce HTTP %d after %d attempts' % (status, attempt))
+                self.retries += 1
                 self._sleep(2 ** attempt)
                 continue
             raise ZeroBounceError('ZeroBounce HTTP %d: %s' % (status, self._redact(_detail(payload))[:300]))
