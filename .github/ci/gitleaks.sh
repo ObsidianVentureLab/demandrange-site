@@ -14,7 +14,7 @@ esac
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 url="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
-curl -sSfL --retry 3 --retry-delay 2 -o "$tmp/gitleaks.tar.gz" "$url"
+curl -sSfL --retry 4 --retry-delay 3 --retry-all-errors -o "$tmp/gitleaks.tar.gz" "$url"   # --retry-all-errors: plain --retry skips connection resets (curl exit 56)
 echo "${GITLEAKS_SHA256}  $tmp/gitleaks.tar.gz" | sha256sum -c - >/dev/null
 tar -xzf "$tmp/gitleaks.tar.gz" -C "$tmp" gitleaks
 echo "gitleaks $("$tmp/gitleaks" version) (pinned, checksum verified)"
