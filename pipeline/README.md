@@ -143,4 +143,5 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-115 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+Standard library only; no dependencies to audit. The test count is whatever the command prints (the PR body
+and CI log carry the current number). CI: `.github/workflows/pipeline-tests.yml`.
