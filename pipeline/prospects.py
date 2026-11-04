@@ -15,6 +15,7 @@ from pathlib import Path
 
 from . import __version__
 from .apollo import MAX_PAGES, MAX_PER_PAGE, ORG_SEARCH_PATH, BudgetExceeded
+from .csvsafe import GUARD_NOTE, neutralise
 from .icp import normalise_domain
 
 CSV_COLUMNS = (
@@ -160,7 +161,8 @@ def write_outputs(result, spec, out_dir, *, data_mode, client=None, per_page=MAX
         writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, lineterminator='\n')
         writer.writeheader()
         for record in result.records:
-            writer.writerow({column: record.get(column, '') for column in CSV_COLUMNS})
+            # Apollo-controlled text must not run as a formula when the analyst opens the CSV.
+            writer.writerow({column: neutralise(record.get(column, '')) for column in CSV_COLUMNS})
     generated_at = (now or _dt.datetime.now(_dt.timezone.utc)).strftime('%Y-%m-%dT%H:%M:%SZ')
     manifest = {
         'tool': 'demandrange-pipeline', 'tool_version': __version__, 'generated_at': generated_at,
@@ -171,12 +173,15 @@ def write_outputs(result, spec, out_dir, *, data_mode, client=None, per_page=MAX
                    'pages_fetched': result.pages_fetched, 'total_entries_reported': result.total_entries,
                    'total_pages_reported': result.total_pages, 'partial_results_only': result.partial_results_only,
                    'credits_used': getattr(client, 'credits_used', result.pages_fetched),
-                   'requests_made': getattr(client, 'requests_made', result.pages_fetched)},
+                   'requests_made': getattr(client, 'requests_made', result.pages_fetched),
+                   # Each retried transport failure may already have been charged by Apollo; compare with the
+                   # usage page after a live run.
+                   'transport_retries': getattr(client, 'transport_retries', 0)},
         'counts': {'candidates': len(result.records), 'duplicates_dropped': result.duplicates_dropped,
                    'excluded_locally': result.excluded_locally},
         'stopped_reason': result.stopped_reason,
         'output': {'csv': csv_path.name, 'columns': list(CSV_COLUMNS),
-                   'sha256': hashlib.sha256(csv_path.read_bytes()).hexdigest()},
+                   'sha256': hashlib.sha256(csv_path.read_bytes()).hexdigest(), 'formula_guard': GUARD_NOTE},
         'review_state': REVIEW_STATE,
         'note': 'Candidates for analyst research against the full ICP brief; not an accepted account list and not for delivery as-is.',
     }

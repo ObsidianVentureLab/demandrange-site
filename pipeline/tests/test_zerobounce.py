@@ -150,6 +150,7 @@ class LiveClientWithFakeTransport(unittest.TestCase):
         with self.assertRaises(zb.ZeroBounceError) as caught:
             client.validate_batch(ADDRS)
         self.assertNotIn(FAKE_KEY, str(caught.exception))
+        self.assertEqual(client.transport_retries, 2, 'counted so the manifest can flag possible double charging')
 
     def test_malformed_payloads(self):
         client, _ = self.client((200, {'email_batch': 'nope'}))

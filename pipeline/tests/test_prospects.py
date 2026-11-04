@@ -114,6 +114,29 @@ class Writing(unittest.TestCase):
             self.assertEqual(manifest['generated_at'], '2026-11-03T12:00:00Z')
             self.assertEqual(manifest['review_state'], 'candidate_not_reviewed')
 
+    def test_apollo_text_cannot_run_as_a_formula_in_the_candidate_csv(self):
+        pages = response_pages()
+        first = pages[0]['organizations'][0]
+        first['name'] = '=HYPERLINK("http://evil.example")'
+        first['short_description'] = '-SUM(A1:A9)'
+        first['keywords'] = ['@cmd', 'pumps']
+        first['primary_phone'] = {'number': '+353 1 555 0000'}
+        spec = icp.from_dict(brief())
+        client, _ = replay_client(pages=pages)
+        result = prospects.collect(spec, client, data_mode=prospects.FIXTURE_MODE, now=NOW)
+        with tempfile.TemporaryDirectory() as tmp:
+            csv_path, manifest_path = prospects.write_outputs(result, spec, tmp, data_mode=prospects.FIXTURE_MODE, client=client, now=NOW)
+            with csv_path.open(encoding='utf-8', newline='') as handle:
+                rows = list(csv.DictReader(handle))
+            poisoned = [r for r in rows if r['apollo_organization_id'] == first['id']][0]
+            self.assertEqual(poisoned['company_name'], "'=HYPERLINK(\"http://evil.example\")")
+            self.assertEqual(poisoned['short_description'], "'-SUM(A1:A9)")
+            self.assertTrue(poisoned['keywords'].startswith("'@cmd"), poisoned['keywords'])
+            self.assertEqual(poisoned['primary_domain'], 'alpha-fixture.example', 'ordinary values are untouched')
+            manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+            self.assertIn('apostrophe', manifest['output']['formula_guard'])
+            self.assertEqual(manifest['apollo']['transport_retries'], 0)
+
     def test_live_mode_manifest_has_no_fiction_notice_and_never_the_key(self):
         spec = icp.from_dict(brief())
         pages = response_pages()

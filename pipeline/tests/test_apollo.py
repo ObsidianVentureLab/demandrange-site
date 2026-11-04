@@ -137,6 +137,14 @@ class LiveClientWithFakeTransport(unittest.TestCase):
             client.search_organizations(PARAMS)
         self.assertNotIn(FAKE_KEY, str(caught.exception))
         self.assertIn('[REDACTED]', str(caught.exception))
+        self.assertEqual(client.transport_retries, 2, 'both retries counted so the manifest can flag possible double spend')
+        self.assertEqual(client.credits_used, 1, 'the budget is charged once per page, not per attempt')
+
+    def test_a_retry_that_succeeds_is_counted_once(self):
+        client, transport = self.client(OSError('reset'), page_payload(1, ['a']), retries=2)
+        client.search_organizations(PARAMS)
+        self.assertEqual((client.transport_retries, client.requests_made, client.credits_used), (1, 1, 1))
+        self.assertEqual(len(transport.calls), 2)
 
     def test_error_bodies_echoing_the_key_are_redacted(self):
         client, _ = self.client((400, {'error': 'bad key ' + FAKE_KEY}))
