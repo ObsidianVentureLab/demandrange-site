@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 import csv
 import datetime as _dt
 import hashlib
+import io
 import json
 import re
 import zipfile
@@ -91,7 +92,7 @@ def read_inputs(paths):
             text = raw.decode('utf-8-sig')
         except UnicodeDecodeError:
             raise ExportError(f'input: {path.name} is not UTF-8')
-        reader = csv.DictReader(text.splitlines())
+        reader = csv.DictReader(io.StringIO(text, newline=''))   # not splitlines(): keeps newlines inside quoted cells
         header = list(reader.fieldnames or [])
         if not header:
             raise ExportError(f'input: {path.name} has no header row')
@@ -252,9 +253,15 @@ def _readme(result, csv_name, xlsx_name):
 
 def write_delivery(result, out_dir, *, xlsx=False):
     out_dir = Path(out_dir) / result.client / result.export_id
-    if out_dir.exists() and any(out_dir.iterdir()):
-        raise ExportError(f'output folder already exists and is not empty: {out_dir} (use a new --export-id)')
-    out_dir.mkdir(parents=True, exist_ok=True)
+    if out_dir.exists():
+        if not out_dir.is_dir():
+            raise ExportError(f'output path already exists and is not a folder: {out_dir}')
+        if any(out_dir.iterdir()):
+            raise ExportError(f'output folder already exists and is not empty: {out_dir} (use a new --export-id)')
+    try:
+        out_dir.mkdir(parents=True, exist_ok=True)
+    except (NotADirectoryError, FileExistsError) as error:
+        raise ExportError(f'output path cannot be created (a file is in the way): {out_dir}') from error
     base = f'{result.client}-{result.export_id}'
     csv_path = out_dir / (base + '.csv')
     with csv_path.open('w', encoding='utf-8-sig', newline='') as handle:
