@@ -160,6 +160,22 @@ class Verify(unittest.TestCase):
                 self.assertEqual(manifest['zerobounce']['credit_budget'], expected, 'fixture mode defaults the budget to the sendable count')
                 self.assertLessEqual(manifest['zerobounce']['credits_charged'], expected)
 
+    def test_provider_error_mid_run_writes_partial_outputs_and_exits_3(self):
+        from pipeline.tests.support import ScriptedTransport
+        ok = (200, {'email_batch': [], 'errors': []})   # first batch: all addresses come back unknown (uncharged)
+        scripted = ScriptedTransport(ok, _zb.ZeroBounceError('ZeroBounce HTTP 503 after 3 attempts'))
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(_zb.FixtureTransport, 'from_file', staticmethod(lambda path: scripted)):
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--fixture', 'ignored.json', '--batch-size', '1')
+            self.assertEqual(code, cli.EXIT_PROVIDER, err)
+            self.assertEqual(sorted(os.listdir(tmp)), ['emails-fixture-verified.csv', 'emails-fixture-verified.manifest.json'], 'partial outputs written')
+            manifest = json.loads((Path(tmp) / 'emails-fixture-verified.manifest.json').read_text(encoding='utf-8'))
+        data = json.loads(out)
+        self.assertFalse(data['ok'])
+        self.assertIn('HTTP 503', data['error'])
+        self.assertEqual((data['addresses_sent'], data['not_verified']), (1, 5))
+        self.assertEqual(manifest['counts']['not_verified'], 5)
+        self.assertIn('HTTP 503', manifest['zerobounce']['provider_error'])
+
     def test_live_without_budget_sends_nothing(self):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {_zb.API_KEY_ENV: FAKE_KEY}):
             code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live')

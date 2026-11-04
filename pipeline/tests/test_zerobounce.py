@@ -157,7 +157,23 @@ class LiveClientWithFakeTransport(unittest.TestCase):
         with self.assertRaises(zb.ZeroBounceRateLimited):
             client.validate_batch(ADDRS)
 
-    def test_transport_errors_retried_and_redacted(self):
+    def test_hard_cap_stops_before_a_retry_the_budget_cannot_cover(self):
+        client, transport = self.client((500, {}), ok_payload([(ADDRS[0], 'valid')]), budget=1, retries=2)
+        with self.assertRaisesRegex(zb.BudgetExceeded, 'hard cap'):
+            client.validate_batch([ADDRS[0]])
+        self.assertEqual(len(transport.calls), 1, 'nothing was re-sent')
+        self.assertEqual((client.retries, client.credits_used, client.credits_at_risk, client.worst_case_spend), (0, 0, 0, 0))
+        self.assertEqual(self.sleeps, [])
+
+    def test_retry_within_the_cap_records_credits_at_risk(self):
+        client, transport = self.client((503, {}), ok_payload([(ADDRS[0], 'valid')]), budget=2, retries=2)
+        result = client.validate_batch([ADDRS[0]])
+        self.assertEqual(result.charged, 1)
+        self.assertEqual((client.retries, client.credits_used, client.credits_at_risk, client.worst_case_spend), (1, 1, 1, 2))
+        self.assertEqual(len(transport.calls), 2)
+        with self.assertRaisesRegex(zb.BudgetExceeded, 'at risk 1'):
+            client.validate_batch([ADDRS[1]])   # 2 (worst case) + 1 > budget 2: the at-risk credit counts
+
         client, _ = self.client(OSError('reset ' + FAKE_KEY), OSError('again ' + FAKE_KEY), OSError('third ' + FAKE_KEY), retries=2)
         with self.assertRaises(zb.ZeroBounceError) as caught:
             client.validate_batch(ADDRS)

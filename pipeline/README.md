@@ -98,10 +98,16 @@ python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
 - **Spreadsheet safety:** every `zb_*` value is provider text and goes through the same formula guard
   as the P2 candidates CSV (leading apostrophe on `=`, `@` and non-numeric `+`/`-`); your own input
   columns are written back unchanged. The manifest's `output.formula_guard` says so.
-- **Retries and real spend:** as with Apollo, a batch whose transport failed or that got an HTTP 429/5xx
-  reply is retried up to 3 times without reserving credits again; if ZeroBounce had already processed
-  it, that batch was charged. The manifest records `zerobounce.retries`; when non-zero, compare with
-  `credits --live`.
+- **Retries and the hard cap:** a batch whose transport failed or that got an HTTP 429/5xx reply is
+  retried up to 3 times, and each retry reserves the batch's credits **again**, because ZeroBounce may
+  have processed (and charged) the failed attempt. If the budget cannot cover the retry the run stops
+  before re-sending, so `charged + at risk` never exceeds `--credit-budget`. The manifest records
+  `zerobounce.retries`, `credits_at_risk` and `worst_case_spend`; when `credits_at_risk` is non-zero,
+  compare with `credits --live`. (Apollo in P2 still only counts retries; see its note above.)
+- **Provider failure mid-run:** if ZeroBounce fails after at least one batch succeeded (rate limit past
+  the retries, 5xx, malformed reply), the CSV and manifest are still written with the verified rows kept
+  and the rest marked `not_verified` / `provider_error`; the command then exits 3 with the paths and the
+  error in its JSON report, so credits already charged are never spent for nothing.
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and

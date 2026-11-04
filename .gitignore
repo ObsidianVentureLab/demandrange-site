@@ -3,5 +3,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Pipeline outputs (`--out out/` in pipeline/README.md) hold prospect and verification data: never commit them.
-out/
+# Pipeline outputs (`--out out/` in pipeline/README.md, run from the repo root or from pipeline/) hold prospect and verification data: never commit them.
+/out/
+/pipeline/out/

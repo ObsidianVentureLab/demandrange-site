@@ -14,7 +14,7 @@ from pathlib import Path
 
 from . import __version__
 from .csvsafe import GUARD_NOTE, neutralise
-from .zerobounce import DECISIONS, MAX_BATCH, BATCH_PATH, BudgetExceeded
+from .zerobounce import DECISIONS, MAX_BATCH, BATCH_PATH, BudgetExceeded, ZeroBounceError
 
 EMAIL_RE = re.compile(r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$")
 CANDIDATE_EMAIL_COLUMNS = ('email', 'work_email', 'email_address', 'contact_email')
@@ -41,6 +41,7 @@ class Verification:
     batches: int = 0
     api_errors: list = field(default_factory=list)
     stopped_reason: str = ''
+    provider_error: str = ''   # set when ZeroBounce failed after at least one batch; rows were still written
 
 
 def normalise_email(value):
@@ -85,7 +86,7 @@ def _remaining_budget(client, default):
     budget = getattr(client, 'credit_budget', None)
     if budget is None:
         return default
-    return max(0, int(budget) - int(getattr(client, 'credits_used', 0)))
+    return max(0, int(budget) - int(getattr(client, 'worst_case_spend', getattr(client, 'credits_used', 0))))
 
 
 def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, data_mode=LIVE_MODE, now=None):
@@ -119,15 +120,24 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
             if start == 0:
                 raise
             break
+        except ZeroBounceError as error:
+            # Credits already charged for earlier batches must not be lost: keep what was verified,
+            # mark the rest, and let the caller write the files before it reports the failure.
+            if start == 0:
+                raise
+            result.provider_error = type(error).__name__ + ': ' + str(error)
+            result.stopped_reason = f'provider error after {result.batches} batch(es): {result.provider_error}'
+            break
         result.batches += 1
         result.sent += len(batch)
         start += len(batch)
         result.api_errors.extend(dict(e) for e in response.errors)
         for item in response.results:
             outcome[item['address']] = dict(item, decision=DECISIONS.get(item['status'], 'review'))
+    unverified_reason = 'provider_error' if result.provider_error else 'credit_budget_reached'
     for address in sendable:
         if address not in outcome:
-            outcome[address] = {'status': 'not_verified', 'sub_status': 'credit_budget_reached', 'decision': 'review'}
+            outcome[address] = {'status': 'not_verified', 'sub_status': unverified_reason, 'decision': 'review'}
             result.not_verified += 1
     if not result.stopped_reason:
         result.stopped_reason = 'all addresses processed'
@@ -190,8 +200,13 @@ def write_outputs(result, input_path, out_dir, *, data_mode, client=None, credit
                   'rows': len(result.rows), 'email_column': result.email_column},
         'zerobounce': {'base_url': getattr(client, 'base_url', None), 'batches': result.batches, 'addresses_sent': result.sent,
                        'credit_budget': credit_budget, 'credits_charged': getattr(client, 'credits_used', None),
+                       # at_risk: addresses re-sent after a failed attempt (the first attempt may also have been
+                       # charged). worst_case_spend = charged + at_risk and never exceeds credit_budget (hard cap).
+                       'credits_at_risk': getattr(client, 'credits_at_risk', None),
+                       'worst_case_spend': getattr(client, 'worst_case_spend', None),
                        'requests_made': getattr(client, 'requests_made', None),
-                       'retries': getattr(client, 'retries', None), 'api_errors': result.api_errors},
+                       'retries': getattr(client, 'retries', None), 'api_errors': result.api_errors,
+                       'provider_error': result.provider_error or None},
         'counts': {'unique_addresses': result.unique_addresses, 'skipped_local_syntax': result.skipped_local_syntax,
                    'not_verified': result.not_verified, 'by_status': dict(sorted(statuses.items())),
                    'by_decision': dict(sorted(decisions.items()))},
