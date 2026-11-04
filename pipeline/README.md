@@ -6,6 +6,11 @@ mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output i
 or contacts anyone, and no person-level data is requested.
 
 ## Safety defaults
+- **Data stays outside the repository.** This repository is public and main is served at
+  demandrange.com, so every data path (`--brief`, `--input`, `--out`, and later `--db`) must lie outside
+  the checkout; the CLI exits 2 (`path refused`) otherwise, before reading or writing anything. Only the
+  fictional fixtures under `pipeline/examples/` may be read from inside it. `.gitignore` also ignores
+  `out/` and `deliveries/` as a backstop. Use a folder such as `~/dr-data/`.
 - **No network by default.** `python -m pipeline prospects` without `--live`/`--fixture` is a dry
   run: it prints the Apollo filters and the minimum pages/credits and sends nothing.
 - **Key from the environment only.** `--live` reads `APOLLO_API_KEY`; it is never written to
@@ -20,10 +25,10 @@ or contacts anyone, and no person-level data is requested.
 ## Usage
 ```
 python -m pipeline validate  --brief pipeline/examples/brief-fixture.json
-python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out out/          # dry run
-python -m pipeline prospects --brief BRIEF.json --out out/ --fixture pipeline/examples/apollo-organizations-fixture.json
+python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out ~/dr-data/out/   # dry run
+python -m pipeline prospects --brief ~/dr-data/BRIEF.json --out ~/dr-data/out/ --fixture pipeline/examples/apollo-organizations-fixture.json
 read -rs APOLLO_API_KEY && export APOLLO_API_KEY   # typed at the prompt: not an argument, not in shell history
-python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
+python -m pipeline prospects --brief ~/dr-data/BRIEF.json --out ~/dr-data/out/ --live --credit-budget 3
 ```
 Exit codes: 0 ok, 2 brief/usage error, 3 Apollo error (auth, rate limit, budget, plan).
 

@@ -12,7 +12,7 @@ import argparse
 import json
 import sys
 
-from . import apollo, icp, prospects
+from . import apollo, icp, pathguard, prospects
 
 EXIT_OK, EXIT_USAGE, EXIT_APOLLO = 0, 2, 3
 
@@ -88,13 +88,31 @@ def cmd_prospects(args):
     return EXIT_OK
 
 
+# Data paths every sub-command may take. Inputs may name the fictional fixtures under pipeline/examples/;
+# outputs never point inside the checkout (see pathguard). Later sub-commands add their names here.
+INPUT_PATH_ARGS = ('brief', 'fixture', 'input', 'file', 'csv', 'manifest')
+OUTPUT_PATH_ARGS = ('out', 'db')
+
+
+def guard_paths(args):
+    """Refuse data paths inside the repository before anything is read or written."""
+    for name in INPUT_PATH_ARGS + OUTPUT_PATH_ARGS:
+        value = getattr(args, name, None)
+        if isinstance(value, str) and value:
+            pathguard.refuse_inside_repo(value, '--' + name.replace('_', '-'), allow_examples=name in INPUT_PATH_ARGS)
+
+
 def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        guard_paths(args)
         if args.command == 'validate':
             return cmd_validate(args)
         return cmd_prospects(args)
+    except pathguard.InsideRepoError as error:
+        _emit({'ok': False, 'error': 'path refused: ' + str(error)}, sys.stderr)
+        return EXIT_USAGE
     except icp.ICPError as error:
         _emit({'ok': False, 'error': 'brief rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
