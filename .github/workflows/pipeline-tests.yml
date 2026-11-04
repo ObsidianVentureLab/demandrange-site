@@ -40,7 +40,7 @@ jobs:
 
       - name: Standard library only (no third-party imports in pipeline/)
         run: |
-          python -c "import pipeline, pipeline.icp, pipeline.apollo, pipeline.prospects, pipeline.zerobounce, pipeline.verify, pipeline.cli; print('imports ok')"
+          python -c "import pipeline, pipeline.icp, pipeline.apollo, pipeline.csvsafe, pipeline.prospects, pipeline.zerobounce, pipeline.verify, pipeline.cli; print('imports ok')"
           if grep -rnE '^\s*(import|from)\s+(requests|httpx|aiohttp|pandas|openpyxl)\b' pipeline/; then echo 'third-party import found'; exit 1; fi
 
       - name: Unit tests (network blocked)

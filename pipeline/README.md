@@ -22,7 +22,8 @@ or contacts anyone, and no person-level data is requested.
 python -m pipeline validate  --brief pipeline/examples/brief-fixture.json
 python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out out/          # dry run
 python -m pipeline prospects --brief BRIEF.json --out out/ --fixture pipeline/examples/apollo-organizations-fixture.json
-APOLLO_API_KEY=... python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
+read -rs APOLLO_API_KEY && export APOLLO_API_KEY   # typed at the prompt: not an argument, not in shell history
+python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
 ```
 Exit codes: 0 ok, 2 brief/usage/input error, 3 provider error (Apollo or ZeroBounce: auth, rate limit, budget, plan).
 
@@ -60,6 +61,12 @@ Endpoint `POST https://api.apollo.io/api/v1/mixed_companies/search`, header `x-a
 `organizations` + `pagination{page,per_page,total_entries,total_pages}` + `partial_results_only`.
 HTTP 403 means the plan/key lacks access to this endpoint; 429/5xx are retried with backoff.
 
+**Retries and real spend.** A transport failure (connection reset, timeout, malformed body) is
+retried up to 3 times without charging the budget again, because the client cannot tell whether
+the request reached Apollo. If it did, Apollo charged it. Worst case, real spend per page is
+1 + retries credits, so a `--credit-budget 1` first run can cost up to 4 credits. The manifest
+records `apollo.transport_retries`; when it is non-zero, compare with Apollo's usage page.
+
 ## P3: email verification with ZeroBounce (`verify`, `credits`)
 Input: any CSV with an email column (`--email-column`, or the first of `email`, `work_email`,
 `email_address`, `contact_email`). Output: the same rows plus `zb_status`, `zb_sub_status`,
@@ -70,8 +77,9 @@ batches, credits charged, counts by status and decision, API errors, stop reason
 ```
 python -m pipeline verify --input LIST.csv --out out/                                   # dry run: counts + max credits
 python -m pipeline verify --input LIST.csv --out out/ --fixture pipeline/examples/zerobounce-results-fixture.json
-ZEROBOUNCE_API_KEY=... python -m pipeline credits --live                                # balance, not charged
-ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
+read -rs ZEROBOUNCE_API_KEY && export ZEROBOUNCE_API_KEY   # typed at the prompt, not in shell history
+python -m pipeline credits --live                                                        # balance, not charged
+python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
 ```
 
 - **Same safety defaults as P2:** offline unless `--live`/`--fixture`; key from `ZEROBOUNCE_API_KEY`
@@ -85,6 +93,9 @@ ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --l
 - **Data residency:** default host is `api-eu.zerobounce.net`; `api.zerobounce.net` and `api-us…`
   process in the United States (`--base-url` to change). Addresses are personal data: keep inputs
   and outputs outside the repository, and verify only lists with a lawful basis for the outreach.
+- **Retries and real spend:** as with Apollo, a batch whose transport failed is retried up to 3 times
+  without reserving credits again; if the request did reach ZeroBounce, that batch was charged. The
+  manifest records `transport_retries`; when non-zero, compare with `credits --live`.
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
@@ -100,4 +111,4 @@ ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --l
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-91 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+98 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
