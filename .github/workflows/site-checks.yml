@@ -37,5 +37,8 @@ jobs:
       - name: Site checks (HTML, links, sitemap/llms, brand, stubs, served surface)
         run: python -B .github/ci/site_checks.py .
 
+      - name: site_checks unit tests (JSON-LD Dataset fields)
+        run: python -B .github/ci/test_site_checks.py
+
       - name: Strict qa_post (F15)
         run: python -B .github/ci/qa_post.py .
