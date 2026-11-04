@@ -117,6 +117,17 @@ class Building(unittest.TestCase):
             self.assertNotIn("'=SUM", sheet)
             self.assertNotIn('<f>', sheet, 'no formula cells in the workbook')
 
+    def test_header_names_get_the_formula_guard_too(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = plain_csv(tmp, 'record_id,=cmd,@who,-5\n0007,a,b,c\n')
+            result = export.build([path], client='x', export_id='E1', **VERSIONS)
+            folder, _ = export.write_delivery(result, Path(tmp) / 'out', xlsx=True)
+            with open(folder / 'x-E1.csv', encoding='utf-8-sig', newline='') as handle:
+                header = next(csv.reader(handle))
+            self.assertEqual(header[:4], ['record_id', "'=cmd", "'@who", '-5'])
+            with zipfile.ZipFile(folder / 'x-E1.xlsx') as archive:
+                self.assertIn('<t>=cmd</t>', archive.read('xl/worksheets/sheet1.xml').decode('utf-8'), 'XLSX header is an inline string, no apostrophe')
+
     def test_newlines_inside_quoted_cells_survive_build_and_delivery(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = plain_csv(tmp, 'record_id,note\r\n0007,"line one\nline two"\r\n0008,"tail\r\n"\r\n')

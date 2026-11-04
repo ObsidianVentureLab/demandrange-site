@@ -1,3 +1,4 @@
+import json
 import os
 import unittest
 from unittest import mock
@@ -45,6 +46,17 @@ class OfflineDefaults(unittest.TestCase):
         self.assertEqual(client.credits_used, 1)
         self.assertEqual(client.get_credits(), 7)
         self.assertNotIn('api_key', transport.calls[0]['body'])
+
+    def test_fixture_transport_never_records_the_key(self):
+        transport = zb.FixtureTransport({'a@x-fixture.example': {'status': 'valid'}}, credits=1)
+        with mock.patch.dict(os.environ, {zb.API_KEY_ENV: FAKE_KEY}):
+            client = zb.ZeroBounceClient(live=True, transport=transport, credit_budget=5)
+        client.validate_batch(['a@x-fixture.example'])
+        client.get_credits()
+        self.assertEqual(len(transport.calls), 2)
+        self.assertNotIn('api_key', transport.calls[0]['body'])
+        self.assertNotIn(FAKE_KEY, json.dumps(transport.calls))
+        self.assertEqual(transport.calls[0]['body']['email_batch'][0]['email_address'], 'a@x-fixture.example', 'the rest of the body is still recorded')
 
     def test_fixture_shape_checked(self):
         with self.assertRaises(zb.ZeroBounceError):

@@ -228,7 +228,7 @@ def write_xlsx(path, columns, rows, sheet_name='Delivery'):
 
 def _readme(result, csv_name, xlsx_name):
     lines = [
-        f'Demand Range — list delivery for {result.client_name}',
+        f'Demand Range: list delivery for {result.client_name}',
         f'Export {result.export_id} (export version {result.export_version}), prepared {result.exported_at}',
         f'Brief reference: {result.brief_ref}',
         f'Field dictionary version: {result.dictionary_version}',
@@ -268,7 +268,8 @@ def write_delivery(result, out_dir, *, xlsx=False):
     csv_path = out_dir / (base + '.csv')
     with csv_path.open('w', encoding='utf-8-sig', newline='') as handle:
         writer = csv.DictWriter(handle, fieldnames=result.columns, lineterminator='\r\n', quoting=csv.QUOTE_ALL)
-        writer.writeheader()
+        # Header names come from the input files, so they get the same guard as the values.
+        writer.writerow({c: neutralise(c) for c in result.columns})
         writer.writerows({c: neutralise(v) for c, v in row.items()} for row in result.rows)
     files = {csv_path.name: csv_path}
     xlsx_path = None
