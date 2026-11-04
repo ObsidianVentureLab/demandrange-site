@@ -13,6 +13,7 @@ import re
 from pathlib import Path
 
 from . import __version__
+from .csvsafe import GUARD_NOTE, neutralise
 from .zerobounce import DECISIONS, MAX_BATCH, BATCH_PATH, BudgetExceeded
 
 EMAIL_RE = re.compile(r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$")
@@ -91,11 +92,8 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
     verified_at = (now or _dt.datetime.now(_dt.timezone.utc)).strftime('%Y-%m-%dT%H:%M:%SZ')
     batch_size = max(1, min(int(batch_size), MAX_BATCH))
     result = Verification(columns=list(columns) + list(ADDED_COLUMNS), email_column=email_column)
-    addresses = []
-    for row in rows:
-        address = normalise_email(row.get(email_column))
-        if address and address not in addresses:
-            addresses.append(address)
+    # dict.fromkeys keeps first-seen order and dedupes in O(n); a list + `not in` was O(n^2).
+    addresses = list(dict.fromkeys(a for a in (normalise_email(row.get(email_column)) for row in rows) if a))
     result.unique_addresses = len(addresses)
     outcome = {}
     sendable = []
@@ -138,8 +136,11 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
         address = normalise_email(row.get(email_column))
         info = outcome.get(address, {'status': 'skipped_local_syntax', 'sub_status': 'empty', 'decision': 'drop'})
         out = dict(row)
+        # Every zb_* value comes from the provider; as in the P2 candidates CSV, text that a spreadsheet
+        # would run as a formula (=, @, non-numeric +/-) gets a leading apostrophe. The analyst's own
+        # input columns are written back unchanged.
         out.update({
-            'zb_status': info.get('status', ''), 'zb_sub_status': info.get('sub_status', ''),
+            'zb_status': _text(info.get('status')), 'zb_sub_status': _text(info.get('sub_status')),
             'zb_free_email': _flag(info.get('free_email')), 'zb_did_you_mean': _text(info.get('did_you_mean')),
             'zb_mx_found': _flag(info.get('mx_found')), 'zb_domain_age_days': _text(info.get('domain_age_days')),
             'zb_processed_at': _text(info.get('processed_at')), 'verification_decision': info.get('decision', 'review'),
@@ -158,7 +159,8 @@ def _flag(value):
 
 
 def _text(value):
-    return '' if value is None else ' '.join(str(value).split())
+    """Provider text: whitespace-collapsed and passed through the spreadsheet formula guard."""
+    return neutralise('' if value is None else ' '.join(str(value).split()))
 
 
 def _safe(name):
@@ -194,7 +196,8 @@ def write_outputs(result, input_path, out_dir, *, data_mode, client=None, credit
                    'not_verified': result.not_verified, 'by_status': dict(sorted(statuses.items())),
                    'by_decision': dict(sorted(decisions.items()))},
         'stopped_reason': result.stopped_reason,
-        'output': {'csv': csv_path.name, 'columns': list(result.columns), 'sha256': hashlib.sha256(csv_path.read_bytes()).hexdigest()},
+        'output': {'csv': csv_path.name, 'columns': list(result.columns), 'sha256': hashlib.sha256(csv_path.read_bytes()).hexdigest(),
+                   'formula_guard': 'zb_* columns: ' + GUARD_NOTE},
         'note': 'Decisions: keep=valid; drop=invalid/spamtrap/abuse/do_not_mail or local syntax failure; review=catch-all/unknown/not verified. The analyst confirms before any delivery.',
     }
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
