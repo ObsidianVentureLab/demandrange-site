@@ -152,4 +152,4 @@ The database holds personal data (the requests): same access rule as the Sheet, 
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-115 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+129 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.

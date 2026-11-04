@@ -8,6 +8,7 @@ lives outside the repository and is never committed. See CLIENT-DB-DESIGN.md for
 import csv
 import datetime as _dt
 import hashlib
+import io
 import json
 import sqlite3
 from pathlib import Path
@@ -190,7 +191,7 @@ class ClientDB:
             text = raw.decode('utf-8-sig')
         except UnicodeDecodeError:
             raise ClientDBError(f'import: {path.name} is not UTF-8')
-        reader = csv.DictReader(text.splitlines())
+        reader = csv.DictReader(io.StringIO(text, newline=''))   # not splitlines(): keeps newlines inside quoted cells
         header = list(reader.fieldnames or [])
         missing = [c for c in SHEET_COLUMNS if c not in header]
         if missing:
@@ -229,7 +230,10 @@ class ClientDB:
     def add_brief(self, brief_ref, client_ref, *, brief_version='', supplier_range='', status='draft', brief_path=None, now=None):
         if not self.connection.execute('SELECT 1 FROM clients WHERE client_ref = ?', (client_ref,)).fetchone():
             raise ClientDBError(f'client {client_ref!r} not found; add it first')
-        sha = hashlib.sha256(Path(brief_path).read_bytes()).hexdigest() if brief_path else ''
+        try:
+            sha = hashlib.sha256(Path(brief_path).read_bytes()).hexdigest() if brief_path else ''
+        except (FileNotFoundError, IsADirectoryError):
+            raise ClientDBError(f'brief: file not found: {brief_path}')
         with self.connection:
             self.connection.execute('INSERT OR REPLACE INTO briefs(brief_ref, client_ref, brief_version, supplier_range, status, brief_sha256, created_at) VALUES (?,?,?,?,?,?,?)',
                                     (brief_ref, client_ref, brief_version, supplier_range, status, sha, _now(now)))
@@ -285,13 +289,15 @@ class ClientDB:
         term = ' '.join(str(term or '').split())
         if len(term) < 2:
             raise ClientDBError('search: give at least two characters')
-        like = f'%{term}%'
-        clients = self.connection.execute('SELECT client_ref, name, website_domain, status FROM clients WHERE name LIKE ? OR client_ref LIKE ? OR website_domain LIKE ? ORDER BY name LIMIT ?',
+        # % and _ are LIKE wildcards; escape them (with !) so a search for 100% or a_b is literal.
+        escaped = term.replace('!', '!!').replace('%', '!%').replace('_', '!_')
+        like = f'%{escaped}%'
+        clients = self.connection.execute('SELECT client_ref, name, website_domain, status FROM clients WHERE name LIKE ? ESCAPE \'!\' OR client_ref LIKE ? ESCAPE \'!\' OR website_domain LIKE ? ESCAPE \'!\' ORDER BY name LIMIT ?',
                                           (like, like, like, limit)).fetchall()
         requests = self.connection.execute('SELECT submission_id, submitted_at_utc, client_ref, company_name, product_or_service, intake_status, outcome FROM requests '
-                                           'WHERE company_name LIKE ? OR product_or_service LIKE ? OR additional_context LIKE ? OR work_email LIKE ? OR full_name LIKE ? OR industries LIKE ? OR target_regions LIKE ? OR submission_id LIKE ? '
+                                           'WHERE company_name LIKE ? ESCAPE \'!\' OR product_or_service LIKE ? ESCAPE \'!\' OR additional_context LIKE ? ESCAPE \'!\' OR work_email LIKE ? ESCAPE \'!\' OR full_name LIKE ? ESCAPE \'!\' OR industries LIKE ? ESCAPE \'!\' OR target_regions LIKE ? ESCAPE \'!\' OR submission_id LIKE ? ESCAPE \'!\' '
                                            'ORDER BY submitted_at_utc DESC LIMIT ?', (like,) * 8 + (limit,)).fetchall()
-        deliveries = self.connection.execute('SELECT client_ref, export_id, brief_ref, exported_at, rows_delivered, delivered_at FROM deliveries WHERE client_ref LIKE ? OR brief_ref LIKE ? OR export_id LIKE ? ORDER BY exported_at DESC LIMIT ?',
+        deliveries = self.connection.execute('SELECT client_ref, export_id, brief_ref, exported_at, rows_delivered, delivered_at FROM deliveries WHERE client_ref LIKE ? ESCAPE \'!\' OR brief_ref LIKE ? ESCAPE \'!\' OR export_id LIKE ? ESCAPE \'!\' ORDER BY exported_at DESC LIMIT ?',
                                              (like, like, like, limit)).fetchall()
         return {'term': term, 'clients': [dict(r) for r in clients], 'requests': [dict(r) for r in requests], 'deliveries': [dict(r) for r in deliveries]}
 

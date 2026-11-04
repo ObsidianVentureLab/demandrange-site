@@ -69,6 +69,21 @@ class SheetImport(unittest.TestCase):
         self.assertEqual((result['rows_new'], result['rows_updated']), (0, 1))
         self.assertEqual(db.connection.execute("SELECT intake_status FROM requests WHERE submission_id = 'FX-0001'").fetchone()[0], 'quote_sent')
 
+    def test_newlines_inside_quoted_cells_survive_the_import(self):
+        db = fresh_db()
+        text = SHEET.read_text(encoding='utf-8')
+        header, first = text.split('\n')[0], text.split('\n')[1]
+        edited = first.replace('WHOLLY FICTIONAL: demo request for the client database fixture.',
+                               '"WHOLLY FICTIONAL: line one\nline two, with a comma"')
+        self.assertNotEqual(edited, first)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'export.csv'
+            path.write_text(header + '\n' + edited + '\n', encoding='utf-8')
+            result = db.import_sheet_export(path, now=NOW)
+        self.assertEqual(result['rows_read'], 1)
+        row = db.connection.execute("SELECT additional_context FROM requests WHERE submission_id = 'FX-0001'").fetchone()
+        self.assertEqual(row[0], 'WHOLLY FICTIONAL: line one\nline two, with a comma', 'text exactly as exported')
+
     def test_import_errors(self):
         db = fresh_db()
         with tempfile.TemporaryDirectory() as tmp:
@@ -146,6 +161,26 @@ class SearchAndRetention(unittest.TestCase):
         due = db.retention_due(on=dt.date(2026, 11, 3))
         self.assertEqual([d['submission_id'] for d in due], ['FX-0003'])
         self.assertEqual(db.retention_due(on=dt.date(2025, 1, 1)), [])
+
+    def test_search_wildcards_are_literal(self):
+        db = fresh_db()
+        db.upsert_client('Hundred Percent Ltd', now=NOW)
+        db.upsert_client('a_b Ltd', now=NOW)
+        db.upsert_client('axb Ltd', now=NOW)
+        self.assertEqual([c['name'] for c in db.search('a_b')['clients']], ['a_b Ltd'], '_ must not match any character')
+        self.assertEqual(db.search('100%')['clients'], [], '% must not match everything')
+        self.assertEqual(db.search('%%')['clients'], [])
+        self.assertEqual([c['name'] for c in db.search('Hundred')['clients']], ['Hundred Percent Ltd'])
+
+    def test_add_brief_with_a_missing_file_is_a_clear_error(self):
+        db = fresh_db()
+        db.upsert_client('Fictional Client', now=NOW)
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(clientdb.ClientDBError, 'file not found'):
+                db.add_brief('B-1', 'fictional-client', brief_path=Path(tmp) / 'missing.json', now=NOW)
+            with self.assertRaisesRegex(clientdb.ClientDBError, 'file not found'):
+                db.add_brief('B-1', 'fictional-client', brief_path=tmp, now=NOW)
+        self.assertEqual(db.summary()['counts']['briefs'], 0)
 
     def test_client_not_found(self):
         with self.assertRaises(clientdb.ClientDBError):
