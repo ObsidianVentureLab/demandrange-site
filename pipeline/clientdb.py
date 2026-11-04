@@ -243,6 +243,7 @@ class ClientDB:
                     new += 1
                 else:
                     changed = {c: values[c] for c in SHEET_COLUMNS if c != 'submission_id' and existing[c] != values[c]}
+                    client_ref = client_ref or existing['client_ref']   # a blanked company_name never unlinks the client
                     if changed:
                         sets = ', '.join(f'{c} = ?' for c in changed) + ', client_ref = ?, imported_at = ?, import_sha256 = ?'
                         self.connection.execute(f'UPDATE requests SET {sets} WHERE submission_id = ?',
@@ -284,6 +285,12 @@ class ClientDB:
         if missing or manifest.get('tool') != 'demandrange-pipeline':
             raise ClientDBError('delivery: not a pipeline export manifest (missing ' + ', '.join(missing) + ')')
         sha = hashlib.sha256(raw).hexdigest()
+        try:
+            return self._record_delivery(manifest, manifest_path, sha, delivered_at=delivered_at, delivered_via=delivered_via, now=now)
+        except (KeyError, TypeError, ValueError, AttributeError) as error:   # right keys, malformed contents
+            raise ClientDBError(f'delivery: {manifest_path.name} has malformed contents ({type(error).__name__}: {error})') from None
+
+    def _record_delivery(self, manifest, manifest_path, sha, *, delivered_at, delivered_via, now):
         client_ref = manifest['client_ref']
         existing = self.connection.execute('SELECT manifest_sha256 FROM deliveries WHERE client_ref = ? AND export_id = ?', (client_ref, manifest['export_id'])).fetchone()
         if existing and existing['manifest_sha256'] != sha:

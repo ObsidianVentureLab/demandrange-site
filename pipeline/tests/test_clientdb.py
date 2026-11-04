@@ -85,6 +85,17 @@ class SheetImport(unittest.TestCase):
         self.assertEqual((result['rows_new'], result['rows_updated']), (0, 1))
         self.assertEqual(db.connection.execute("SELECT intake_status FROM requests WHERE submission_id = 'FX-0001'").fetchone()[0], 'quote_sent')
 
+    def test_blanked_company_name_keeps_the_client_link(self):
+        db = fresh_db()
+        db.import_sheet_export(SHEET, now=NOW)
+        with tempfile.TemporaryDirectory() as tmp:
+            edited = Path(tmp) / 'export3.csv'
+            edited.write_text(SHEET.read_text(encoding='utf-8').replace('Fictional Seals Beta plc', ''), encoding='utf-8')
+            result = db.import_sheet_export(edited, now=NOW)
+        self.assertEqual(result['rows_updated'], 1)
+        row = db.connection.execute("SELECT client_ref, company_name FROM requests WHERE submission_id = 'FX-0002'").fetchone()
+        self.assertEqual((row['client_ref'], row['company_name']), ('fictional-seals-beta-plc', ''))
+
     def test_newlines_inside_quoted_cells_survive_the_import(self):
         db = fresh_db()
         text = SHEET.read_text(encoding='utf-8')
@@ -129,6 +140,22 @@ class SheetImport(unittest.TestCase):
 
 
 class BriefsAndDeliveries(unittest.TestCase):
+    def test_malformed_manifest_contents_are_a_clear_error(self):
+        db = fresh_db()
+        good = {'tool': 'demandrange-pipeline', 'client_ref': 'x', 'brief_ref': 'B', 'dictionary_version': 'd1', 'export_version': 'e1',
+                'export_id': 'E1', 'exported_at': '2026-11-03T12:00:00Z', 'rows_delivered': 1, 'columns': ['a'],
+                'files': {'x-E1.csv': {'sha256': '0' * 64}}, 'inputs': [{'file': 'in.csv', 'sha256': '0' * 64, 'rows': 1}]}
+        bad_cases = {'rows_delivered': 'many', 'inputs': [{'file': 'in.csv'}], 'files': {'x-E1.csv': 'not-an-object'}, 'inputs ': None}
+        with tempfile.TemporaryDirectory() as tmp:
+            for key, value in bad_cases.items():
+                manifest = dict(good)
+                manifest[key.strip()] = value
+                path = Path(tmp) / 'MANIFEST.json'
+                path.write_text(json.dumps(manifest), encoding='utf-8')
+                with self.subTest(key=key), self.assertRaisesRegex(clientdb.ClientDBError, 'malformed contents'):
+                    db.record_delivery(path, now=NOW)
+        self.assertEqual(db.summary()['counts'], dict(db.summary()['counts'], clients=0, deliveries=0), 'nothing written')
+
     def test_record_delivery_from_a_real_manifest_and_mark_delivered(self):
         db = fresh_db()
         with tempfile.TemporaryDirectory() as tmp:
