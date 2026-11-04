@@ -943,7 +943,7 @@
   "proposed_effective_quote_template_sha256": "59fa6e4b95c07cf496f1c7abb51003397953837a44637e91a77be9236c087775",
   "protected_sources": {
     "quote-form/client.js": "89c19aa520fb7173d0cde9455b36aa448eb5ec055a0622821b29ed4ef21846e0",
-    "quote-form/form_schema.json": "3a562e0893713a5d52f92ca2baee1f05835b7ecb7a17d83b5440f93767863a27",
+    "quote-form/form_schema.json": "f25b7f499aba3ebc83672100f24352aac7c50726effa27227494e32653bd47af",
     "quote-form/quote-form.css": "db4ed5b857b04eb3336d35734b9f4663272290ffc3b48a4df30f1b4fa4018abf",
     "quote-form/request-a-quote.template.html": "d1abb05edf2868866edc6a036fb7be131162b33e96d75a1879e1707ac9d19f3f"
   },

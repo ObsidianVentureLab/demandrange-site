@@ -65,6 +65,10 @@ jobs:
         working-directory: quote-form
         run: python -B -m unittest tests.test_endpoint
 
+      - name: Protected-source pins match the tree (production-manifest.json)
+        working-directory: quote-form
+        run: python -B -m unittest tests.test_pins
+
       - name: Fixture-mode site build with synthetic endpoint (runs qa_static incl. region taxonomy check)
         run: python -B build_site.py --output "$RUNNER_TEMP/site-fixture" --mode fixture --quote-endpoint https://script.google.com/macros/s/AKfycbxSyntheticQuoteQa000000000000000000000000/exec > "$RUNNER_TEMP/build.json"
 
