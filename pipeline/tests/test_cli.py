@@ -257,6 +257,22 @@ class Db(unittest.TestCase):
             self.assertIn('directory does not exist', err)
             self.assertFalse(os.path.exists(tmp + '/missing-dir'))
 
+    def test_retention_due_bad_date_is_a_usage_error_not_a_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            run('db', '--db', db, 'init')
+            code, out, err = run('db', '--db', db, 'retention-due', '--on', '3 Nov 2026')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertEqual(out, '')
+        self.assertIn('YYYY-MM-DD', json.loads(err)['error'])
+
+    def test_db_file_that_is_not_a_database_is_a_clear_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'notes.sqlite').write_text('just a text file\n', encoding='utf-8')
+            code, out, err = run('db', '--db', tmp + '/notes.sqlite', 'summary')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('not a SQLite database', json.loads(err)['error'])
+
     def test_retention_due_defaults_to_the_utc_date(self):
         import datetime as dt
         with tempfile.TemporaryDirectory() as tmp:

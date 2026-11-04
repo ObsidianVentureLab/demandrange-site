@@ -234,7 +234,10 @@ def cmd_db(args):
         elif args.db_command == 'client':
             _emit({'ok': True, **db.client(args.client_ref)})
         elif args.db_command == 'retention-due':
-            on = _dt.date.fromisoformat(args.on) if args.on else None
+            try:
+                on = _dt.date.fromisoformat(args.on) if args.on else None
+            except ValueError:
+                raise clientdb.ClientDBError(f'retention-due: --on must be a date in YYYY-MM-DD form, got {args.on!r}')
             on = on or clientdb.utc_today()   # label and filter use the same (UTC) date
             _emit({'ok': True, 'on': on.isoformat(), 'due': db.retention_due(on)})
         else:

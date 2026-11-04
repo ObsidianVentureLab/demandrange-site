@@ -129,8 +129,12 @@ class ClientDB:
                 raise ClientDBError(f'database not initialised: {self.path} does not exist; run: db --db {self.path} init')
         self.connection = sqlite3.connect(str(self.path))
         self.connection.row_factory = sqlite3.Row
-        self.connection.execute('PRAGMA foreign_keys = ON')
-        self.connection.execute('PRAGMA journal_mode = WAL') if str(self.path) != ':memory:' else None
+        try:
+            self.connection.execute('PRAGMA foreign_keys = ON')
+            self.connection.execute('PRAGMA journal_mode = WAL') if str(self.path) != ':memory:' else None
+        except sqlite3.DatabaseError as error:   # an existing file that is not a SQLite database
+            self.connection.close()
+            raise ClientDBError(f'{self.path} is not a SQLite database ({error})') from None
 
     def close(self):
         self.connection.close()
