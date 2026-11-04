@@ -47,8 +47,11 @@ DATASET_DESC_LEN = (50, 5000)
 
 
 def _types(node):
+    """The node's @type values as a set of strings. Non-string values (a JSON object, a number,
+    or such items inside a list) are ignored rather than crashing the whole check."""
     t = node.get('@type')
-    return set(t) if isinstance(t, list) else {t}
+    items = t if isinstance(t, list) else [t]
+    return {i for i in items if isinstance(i, str)}
 
 
 def _filled(v):

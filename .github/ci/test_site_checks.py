@@ -50,6 +50,15 @@ class DatasetRule(unittest.TestCase):
         self.assertTrue(site_checks.dataset_problems(page(dict(GOOD, license=''))))
         self.assertTrue(site_checks.dataset_problems(page(dict(GOOD, creator={}))))
 
+    def test_non_string_type_does_not_crash(self):
+        for bad in ({'@id': 'x'}, [{'@id': 'x'}, 'Dataset'], 7, None):
+            with self.subTest(type=bad):
+                problems = site_checks.dataset_problems(page({'@type': bad, 'name': 'x'}))
+                # a dict/number @type is not a Dataset; 'Dataset' alongside it in a list still is
+                expect_dataset = isinstance(bad, list)
+                self.assertEqual(bool(problems), expect_dataset, problems)
+        self.assertEqual(site_checks._types({'@type': [{'a': 1}, 'Dataset', 3]}), {'Dataset'})
+
     def test_invalid_json_fails(self):
         html = '<script type="application/ld+json">{"@type": "Dataset",</script>'
         self.assertTrue(site_checks.dataset_problems(html))
