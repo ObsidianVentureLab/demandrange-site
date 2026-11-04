@@ -2,10 +2,22 @@
 
 Company-level candidate generation for Demand Range research briefs. Input is a JSON brief
 mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output is a CSV of
-*candidates for analyst research* plus a manifest. Nothing here decides fit, verifies emails
-or contacts anyone, and no person-level data is requested.
+*candidates for analyst research* plus a manifest. Nothing here decides fit or contacts anyone.
+
+**Data:** P2 (`prospects`) requests company-level data only, never people or emails. P3 (`verify`)
+processes work email addresses, which are personal data. Those addresses are not produced here: they
+come from the list the operator passes to `--input` (a client-supplied or analyst-researched contact
+list for one brief). The tool stores nothing outside the `--out` folder the operator names, and both
+`--input` and `--out` must sit outside this repository (the CLI refuses paths inside it). Keep the
+input and output only until the list is delivered, then delete both. The retention period and the
+lawful-basis wording are Sean's decision, recorded as open; until then, delete at delivery.
 
 ## Safety defaults
+- **Data stays outside the repository.** This repository is public and main is served at
+  demandrange.com, so every data path (`--brief`, `--input`, `--out`, and later `--db`) must lie outside
+  the checkout; the CLI exits 2 (`path refused`) otherwise, before reading or writing anything. Only the
+  fictional fixtures under `pipeline/examples/` may be read from inside it. `.gitignore` also ignores
+  `out/` and `deliveries/` as a backstop. Use a folder such as `~/dr-data/`.
 - **No network by default.** `python -m pipeline prospects` without `--live`/`--fixture` is a dry
   run: it prints the Apollo filters and the minimum pages/credits and sends nothing.
 - **Key from the environment only.** `--live` reads `APOLLO_API_KEY`; it is never written to
@@ -20,10 +32,10 @@ or contacts anyone, and no person-level data is requested.
 ## Usage
 ```
 python -m pipeline validate  --brief pipeline/examples/brief-fixture.json
-python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out out/          # dry run
-python -m pipeline prospects --brief BRIEF.json --out out/ --fixture pipeline/examples/apollo-organizations-fixture.json
+python -m pipeline prospects --brief pipeline/examples/brief-fixture.json --out ~/dr-data/out/   # dry run
+python -m pipeline prospects --brief ~/dr-data/BRIEF.json --out ~/dr-data/out/ --fixture pipeline/examples/apollo-organizations-fixture.json
 read -rs APOLLO_API_KEY && export APOLLO_API_KEY   # typed at the prompt: not an argument, not in shell history
-python -m pipeline prospects --brief BRIEF.json --out out/ --live --credit-budget 3
+python -m pipeline prospects --brief ~/dr-data/BRIEF.json --out ~/dr-data/out/ --live --credit-budget 3
 ```
 Exit codes: 0 ok, 2 brief/usage/input error, 3 provider error (Apollo or ZeroBounce: auth, rate limit, budget, plan).
 
@@ -76,32 +88,40 @@ Input: any CSV with an email column (`--email-column`, or the first of `email`, 
 batches, credits charged, counts by status and decision, API errors, stop reason).
 
 ```
-python -m pipeline verify --input LIST.csv --out out/                                   # dry run: counts + max credits
-python -m pipeline verify --input LIST.csv --out out/ --fixture pipeline/examples/zerobounce-results-fixture.json
+python -m pipeline verify --input ~/dr-data/LIST.csv --out ~/dr-data/out/                                   # dry run: counts + max credits
+python -m pipeline verify --input ~/dr-data/LIST.csv --out ~/dr-data/out/ --fixture pipeline/examples/zerobounce-results-fixture.json
 read -rs ZEROBOUNCE_API_KEY && export ZEROBOUNCE_API_KEY   # typed at the prompt, not in shell history
 python -m pipeline credits --live                                                        # balance, not charged
-python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
+python -m pipeline verify --input ~/dr-data/LIST.csv --out ~/dr-data/out/ --live --credit-budget 50
 ```
 
 - **Same safety defaults as P2:** offline unless `--live`/`--fixture`; key from `ZEROBOUNCE_API_KEY`
   only, sent in the request body (never a URL) and redacted from errors; `--credit-budget` (default 0)
-  reserves one credit per address before each batch; a budget stop still writes every row, marking the
-  rest `not_verified` / `review`.
-- **Credits:** 1 per address; ZeroBounce never charges for `unknown` results, so the charged count can
-  be below the reserved count. `credits --live` shows the balance without spending.
+  is a hard cap on addresses sent: one credit per address is reserved before each batch and is
+  **never refunded**, whatever comes back (an empty, partial or unrecognised response still counts).
+  So `--credit-budget 100` sends at most 100 addresses. A budget stop still writes every row, marking
+  the rest `not_verified` / `review`.
+- **Credits:** 1 per address; ZeroBounce does not charge for `unknown` results, so the provider-side
+  estimate (`credits_charged`) can be below `credits_reserved`, which is what the cap counts. `credits --live` shows the balance without spending.
 - **Decisions:** `keep` = valid; `drop` = invalid, spamtrap, abuse, do_not_mail, or a local syntax
   failure (not sent); `review` = catch-all, unknown, not verified. The analyst confirms before P4 delivery.
 - **Data residency:** default host is `api-eu.zerobounce.net`; `api.zerobounce.net` and `api-us…`
-  process in the United States (`--base-url` to change). Addresses are personal data: keep inputs
-  and outputs outside the repository (`out/` is git-ignored as a safety net), and verify only lists
-  with a lawful basis for the outreach.
+  process in the United States (`--base-url` to change). Addresses are personal data: inputs and
+  outputs must stay outside the repository (the CLI refuses paths inside it; `out/` is git-ignored as a
+  backstop), and verify only lists with a lawful basis for the outreach.
 - **Spreadsheet safety:** every `zb_*` value is provider text and goes through the same formula guard
   as the P2 candidates CSV (leading apostrophe on `=`, `@` and non-numeric `+`/`-`); your own input
   columns are written back unchanged. The manifest's `output.formula_guard` says so.
-- **Retries and real spend:** as with Apollo, a batch whose transport failed or that got an HTTP 429/5xx
-  reply is retried up to 3 times without reserving credits again; if ZeroBounce had already processed
-  it, that batch was charged. The manifest records `zerobounce.retries`; when non-zero, compare with
-  `credits --live`.
+- **Retries and the hard cap:** a batch whose transport failed or that got an HTTP 429/5xx reply is
+  retried up to 3 times, and each retry reserves the batch's credits **again**, because ZeroBounce may
+  have processed (and charged) the failed attempt. If the budget cannot cover the retry the run stops
+  before re-sending, so `reserved + at risk` never exceeds `--credit-budget`. The manifest records
+  `zerobounce.retries`, `credits_reserved`, `credits_at_risk` and `worst_case_spend`; when `credits_at_risk` is non-zero,
+  compare with `credits --live`. (Apollo in P2 still only counts retries; see its note above.)
+- **Provider failure mid-run:** if ZeroBounce fails after at least one batch succeeded (rate limit past
+  the retries, 5xx, malformed reply), the CSV and manifest are still written with the verified rows kept
+  and the rest marked `not_verified` / `provider_error`; the command then exits 3 with the paths and the
+  error in its JSON report, so credits already charged are never spent for nothing.
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
@@ -121,7 +141,7 @@ leading zeros and nothing is reinterpreted), a client-facing `README.txt` and `M
 Nothing is sent: Sean delivers the folder by hand.
 
 ```
-python -m pipeline export --input out/list-verified.csv --out deliveries/ --client "Client Ltd" \
+python -m pipeline export --input ~/dr-data/out/list-verified.csv --out ~/dr-data/deliveries/ --client "Client Ltd" \
   --brief-ref BRIEF-2026-11-v1 --dictionary-version DICT-v1 --export-version EXPORT-v1 \
   [--include-decisions keep,review] [--drop-columns zb_sub_status,zb_domain_age_days] [--dedupe-on work_email] [--xlsx]
 ```
@@ -131,6 +151,8 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
   every row (the lesson of `foundation/handover-*.csv`: versions travel with the data, blank is not "none").
 - CSV cells starting with `=`, `@`, or a `+`/`-` that is not a phone/signed number get a leading apostrophe
   (formula injection guard, as in Code.gs); the XLSX needs none because every cell is an inline string.
+  Code points XML forbids (C0 controls other than tab/LF/CR, lone surrogates, U+FFFE, U+FFFF) are
+  dropped from XLSX cells only, so the workbook always opens; the CSV keeps every value as received.
 - `--include-decisions` must name at least one value; an empty list is a usage error, never an empty delivery.
 - Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
 - `--dedupe-on COLUMN` keeps one row per value (trimmed, case-insensitive): the row with the best
@@ -145,14 +167,20 @@ Sheet's Raw Responses CSV export (idempotent, text exactly as exported), agreed 
 recorded from P4 manifests. Design and decision for Sean: `CLIENT-DB-DESIGN.md`.
 
 ```
-python -m pipeline db --db /secure/demandrange.sqlite init
-python -m pipeline db --db … import-sheet raw-responses-export.csv
-python -m pipeline db --db … add-brief --brief-ref BRIEF-v1 --client-ref client-ltd --status agreed --file brief.json
-python -m pipeline db --db … record-delivery deliveries/client-ltd/20261103T120000Z/MANIFEST.json
+python -m pipeline db --db ~/dr-data/demandrange.sqlite init
+python -m pipeline db --db … import-sheet ~/dr-data/raw-responses-export.csv
+python -m pipeline db --db … add-brief --brief-ref BRIEF-v1 --client-ref client-ltd --status agreed --file ~/dr-data/brief.json
+python -m pipeline db --db … record-delivery ~/dr-data/deliveries/client-ltd/20261103T120000Z/MANIFEST.json
 python -m pipeline db --db … mark-delivered --client-ref client-ltd --export-id 20261103T120000Z --via "email to named contact"
 python -m pipeline db --db … search "pumps" | client client-ltd | retention-due | summary
 ```
 The database holds personal data (the requests): same access rule as the Sheet, never committed.
+- `--db` (and every input file) inside the repository checkout is refused (exit 2) before anything is
+  created. The database and its `-wal`/`-shm` sidecars are created owner-only (0600), and a file found
+  with a wider mode is tightened to 0600 when opened.
+- Imported values are stored exactly as exported, spaces included; only derived values (the client name
+  and ref, the website domain, the search term) are normalised. `retention_review_at` must be an ISO date
+  or date-time (`2029-01-15`, `2029-01-15T10:00:00Z`); anything else (`15/01/2029`) rejects the whole file.
 - `init` creates the file but never its directory: a mistyped `--db` path is an error, not a new empty database.
   Every other sub-command needs an existing, initialised file.
 - `add-brief` on an existing brief ref updates its version/status/hash (same client) and keeps `created_at`;

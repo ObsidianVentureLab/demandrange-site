@@ -51,8 +51,10 @@ No automatic matching on people's names.
 - The requests table is personal data (names, work emails, phone numbers). Keep the `.sqlite` file in a
   restricted location with the same access rule as the Sheet; back it up with the same care; never put it
   in Git, a shared drive without access control, or a ticket. The repository `.gitignore` refuses
-  `*.sqlite`, `*.sqlite3`, `*.db` and their `-wal`/`-shm` sidecars as a backstop; the rule is still to keep
-  the file outside the checkout entirely.
+  `*.sqlite`, `*.sqlite3`, `*.db` and their `-wal`/`-shm` sidecars as a backstop, and the CLI refuses a
+  `--db` path inside the checkout. The database and its sidecars are 0600 (owner read/write only).
+- `retention_review_at` must be an ISO date or date-time; a file with any other format is rejected whole
+  (as text, `15/01/2029` would sort before `2026-…` and be listed as due).
 - `retention-due` lists requests whose `retention_review_at` has passed, so the Sheet's retention rule
   (`RETENTION_MONTHS`) can be applied in both places. Deletion itself is a manual, logged decision.
 - Imports store exactly what the Sheet exported; no enrichment of people. Company-level enrichment
@@ -60,7 +62,7 @@ No automatic matching on people's names.
 - Search output is for the operator's terminal; it is not exposed over a network.
 
 ## Operating procedure (manual, no automation yet)
-1. `python -m pipeline db --db /secure/path/demandrange.sqlite init`
+1. `python -m pipeline db --db ~/dr-data/demandrange.sqlite init` (any path outside the checkout)
 2. In the Sheet: File → Download → CSV of the Raw Responses tab → `db import-sheet export.csv`
    (repeatable; changed triage fields are updated by `submission_id`).
 3. `db add-brief --brief-ref … --client-ref … --status agreed --file brief.json` when a brief is agreed.

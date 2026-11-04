@@ -1,5 +1,8 @@
+import csv
 import datetime as dt
+import io
 import json
+import os
 import sqlite3
 import tempfile
 import unittest
@@ -13,10 +16,19 @@ NOW = dt.datetime(2026, 11, 3, 12, 0, tzinfo=dt.timezone.utc)
 VERSIONS = dict(brief_ref='DEMO-BRIEF-A-v1', dictionary_version='DEMO-DICT-v1', export_version='DEMO-EXPORT-v1')
 
 
+_OPEN = []   # in-memory databases stay referenced and are closed once, so no ResourceWarning lands mid-test
+
+
 def fresh_db():
     db = clientdb.ClientDB(':memory:')
+    _OPEN.append(db)
     db.init(now=NOW)
     return db
+
+
+def tearDownModule():
+    while _OPEN:
+        _OPEN.pop().close()
 
 
 class Schema(unittest.TestCase):
@@ -35,6 +47,20 @@ class Schema(unittest.TestCase):
             with clientdb.ClientDB(Path(tmp) / 'empty.sqlite', create=True) as db:
                 with self.assertRaisesRegex(clientdb.ClientDBError, 'not initialised'):
                     db.schema_version()
+
+    @unittest.skipIf(os.name != 'posix', 'POSIX file modes')
+    def test_database_and_wal_sidecars_are_owner_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'clients.sqlite'
+            with clientdb.ClientDB(path, create=True) as db:
+                db.init(now=NOW)
+                db.upsert_client('Fictional Mode Ltd', now=NOW)
+                modes = {p.name: p.stat().st_mode & 0o777 for p in Path(tmp).iterdir()}
+            self.assertIn('clients.sqlite-wal', modes)
+            self.assertEqual(set(modes.values()), {0o600}, modes)
+            os.chmod(path, 0o644)   # a file widened (or created) elsewhere is tightened on the next open
+            with clientdb.ClientDB(path):
+                self.assertEqual(path.stat().st_mode & 0o777, 0o600)
 
     def test_a_missing_database_directory_is_never_created(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -110,6 +136,38 @@ class SheetImport(unittest.TestCase):
         self.assertEqual(result['rows_read'], 1)
         row = db.connection.execute("SELECT additional_context FROM requests WHERE submission_id = 'FX-0001'").fetchone()
         self.assertEqual(row[0], 'WHOLLY FICTIONAL: line one\nline two, with a comma', 'text exactly as exported')
+
+    def _import_one_row(self, db, **overrides):
+        rows = list(csv.DictReader(io.StringIO(SHEET.read_text(encoding='utf-8'), newline='')))
+        row = dict(rows[0], **overrides)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'export.csv'
+            with path.open('w', encoding='utf-8', newline='') as handle:
+                writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+                writer.writeheader()
+                writer.writerow(row)
+            return db.import_sheet_export(path, now=NOW)
+
+    def test_values_are_stored_exactly_as_exported(self):
+        """QA B62-2: only derived values (client name/ref, domain, search term) are normalised."""
+        db = fresh_db()
+        self._import_one_row(db, company_name='  Fictional   Spaced  ', phone_number='+353  1 555', industries=' A;  B ')
+        row = db.connection.execute("SELECT company_name, phone_number, industries, client_ref FROM requests WHERE submission_id = 'FX-0001'").fetchone()
+        self.assertEqual(tuple(row)[:3], ('  Fictional   Spaced  ', '+353  1 555', ' A;  B '))
+        client = db.connection.execute('SELECT name FROM clients WHERE client_ref = ?', (row['client_ref'],)).fetchone()
+        self.assertEqual(client['name'], 'Fictional Spaced', 'the derived client name is normalised')
+
+    def test_retention_review_at_must_be_an_iso_date(self):
+        """QA B62-4: '15/01/2029' was stored and then compared as text by retention-due."""
+        for bad in ('15/01/2029', '2029-13-01', '2029-02-30', '2029-1-5', 'soon', ' 2029-01-15'):
+            db = fresh_db()
+            with self.subTest(bad=bad), self.assertRaisesRegex(clientdb.ClientDBError, 'not an ISO date'):
+                self._import_one_row(db, retention_review_at=bad)
+            self.assertEqual(db.summary()['counts']['requests'], 0)
+        for good in ('2029-01-15', '2029-01-15T10:00:00.000Z', '2029-01-15T10:00:00+01:00', ''):
+            db = fresh_db()
+            with self.subTest(good=good):
+                self.assertEqual(self._import_one_row(db, retention_review_at=good)['rows_new'], 1)
 
     def test_import_errors(self):
         db = fresh_db()

@@ -3,8 +3,11 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Pipeline outputs (`--out out/` in pipeline/README.md) hold prospect and verification data: never commit them.
-out/
+# Pipeline outputs (`--out out/` in pipeline/README.md, run from the repo root or from pipeline/) hold prospect and verification data: never commit them.
+/out/
+/pipeline/out/
+# Per-client deliveries (P4) and any other real-data folders: the CLIs refuse paths inside the checkout, this is the backstop.
+deliveries/
 
 # Client database files hold personal data and live outside the repository (see pipeline/CLIENT-DB-DESIGN.md).
 # WAL mode leaves two sidecar files next to the database.

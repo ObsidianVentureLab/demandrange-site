@@ -11,6 +11,8 @@ import datetime as _dt
 import hashlib
 import io
 import json
+import os
+import re
 import sqlite3
 from pathlib import Path
 
@@ -29,6 +31,20 @@ SHEET_COLUMNS = (
 )
 INTAKE_STATUSES = ('new', 'triage_in_progress', 'needs_information', 'quote_preparation', 'quote_sent', 'not_a_fit', 'withdrawn', 'closed')
 SEARCH_LIMIT = 50
+# retention_review_at must be an ISO date or date-time (as Code.gs writes it); '15/01/2029' would compare
+# wrongly as text in retention-due, so it is rejected on import instead of being stored.
+ISO_DATE = re.compile(r'\d{4}-\d{2}-\d{2}(?:[T ]\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?')
+DB_MODE = 0o600   # the database and its -wal/-shm sidecars hold personal data: owner read/write only
+
+
+def _iso_date_ok(text):
+    if not ISO_DATE.fullmatch(text):
+        return False
+    try:
+        _dt.date.fromisoformat(text[:10])
+    except ValueError:
+        return False
+    return True
 
 SCHEMA = f"""
 CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -127,14 +143,28 @@ class ClientDB:
                 raise ClientDBError(f'database directory does not exist: {self.path.parent} (create it first, outside the checkout)')
             if not create and not self.path.exists():
                 raise ClientDBError(f'database not initialised: {self.path} does not exist; run: db --db {self.path} init')
-        self.connection = sqlite3.connect(str(self.path))
-        self.connection.row_factory = sqlite3.Row
+        on_disk = str(self.path) != ':memory:'
+        previous = os.umask(0o077)   # anything SQLite creates while opening (file, -wal, -shm) is 0600
         try:
-            self.connection.execute('PRAGMA foreign_keys = ON')
-            self.connection.execute('PRAGMA journal_mode = WAL') if str(self.path) != ':memory:' else None
-        except sqlite3.DatabaseError as error:   # an existing file that is not a SQLite database
-            self.connection.close()
-            raise ClientDBError(f'{self.path} is not a SQLite database ({error})') from None
+            self.connection = sqlite3.connect(str(self.path))
+            self.connection.row_factory = sqlite3.Row
+            try:
+                self.connection.execute('PRAGMA foreign_keys = ON')
+                self.connection.execute('PRAGMA journal_mode = WAL') if on_disk else None
+            except sqlite3.DatabaseError as error:   # an existing file that is not a SQLite database
+                self.connection.close()
+                raise ClientDBError(f'{self.path} is not a SQLite database ({error})') from None
+        finally:
+            os.umask(previous)
+        if on_disk:
+            self._restrict_files()
+
+    def _restrict_files(self):
+        """0600 on the database and its WAL sidecars, including a file created earlier with a wider mode.
+        SQLite gives sidecars created later the database file's own permissions."""
+        for path in (self.path, Path(str(self.path) + '-wal'), Path(str(self.path) + '-shm')):
+            if path.exists() and (path.stat().st_mode & 0o777) != DB_MODE:
+                os.chmod(path, DB_MODE)
 
     def close(self):
         self.connection.close()
@@ -227,13 +257,18 @@ class ClientDB:
         with self._transaction():   # one transaction for the whole file: a bad row N leaves rows 1..N-1 unwritten too
             for row in reader:
                 read += 1
-                values = {c: ' '.join(str(row.get(c) or '').split()) if c != 'additional_context' else str(row.get(c) or '').strip() for c in SHEET_COLUMNS}
-                if not values['submission_id']:
+                # Stored exactly as exported (no whitespace collapsing or trimming). Only derived values are
+                # normalised: the client name/ref and domain (upsert_client) and the search term.
+                values = {c: str(row.get(c) or '') for c in SHEET_COLUMNS}
+                if not values['submission_id'].strip():
                     raise ClientDBError(f'import: row {read} has no submission_id')
                 if values['intake_status'] and values['intake_status'] not in INTAKE_STATUSES:
                     raise ClientDBError(f'import: row {read} has unknown intake_status {values["intake_status"]!r}')
+                if values['retention_review_at'] and not _iso_date_ok(values['retention_review_at']):
+                    raise ClientDBError(f'import: row {read} retention_review_at {values["retention_review_at"]!r} is not an ISO date '
+                                        '(YYYY-MM-DD or an ISO date-time); nothing from this file was imported')
                 client_ref = None
-                if values['company_name']:
+                if values['company_name'].strip():
                     client_ref = self.upsert_client(values['company_name'], website_domain=_domain(values['company_website'], values['work_email']), now=now)
                 existing = self.connection.execute('SELECT * FROM requests WHERE submission_id = ?', (values['submission_id'],)).fetchone()
                 if existing is None:

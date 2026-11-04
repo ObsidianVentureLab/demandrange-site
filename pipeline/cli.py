@@ -16,7 +16,7 @@ import argparse
 import json
 import sys
 
-from . import apollo, clientdb, export, icp, prospects, verify, zerobounce
+from . import apollo, clientdb, export, icp, pathguard, prospects, verify, zerobounce
 
 EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroBounce) error
 
@@ -48,7 +48,8 @@ def build_parser():
     mode.add_argument('--live', action='store_true',
                       help=f'call Apollo for real (key from ${apollo.API_KEY_ENV}; requires --credit-budget)')
     run.add_argument('--credit-budget', type=int, default=0,
-                     help='maximum Apollo credits (pages) this run may spend; default 0 = none')
+                     help='maximum Apollo credits (pages) this run may spend; default 0 = none. With --fixture, '
+                          f'0 means no page cap (replay costs nothing; at most {apollo.MAX_PAGES} pages)')
 
     ver = sub.add_parser('verify', help='verify the email column of a CSV with ZeroBounce')
     ver.add_argument('--input', required=True, help='CSV with an email column')
@@ -165,8 +166,8 @@ def cmd_verify(args):
             return EXIT_USAGE
         client = zerobounce.ZeroBounceClient(live=True, credit_budget=args.credit_budget, base_url=args.base_url)
         data_mode = verify.LIVE_MODE
-        sys.stderr.write(f'live run against {client.base_url}: at most {args.credit_budget} credit(s) will be charged '
-                         f'({the_plan["sendable"]} addresses to send; unknown results are not charged)\n')
+        sys.stderr.write(f'live run against {client.base_url}: at most {args.credit_budget} credit(s) can be charged, '
+                         f'retries included (hard cap; {the_plan["sendable"]} addresses to send; unknown results are not charged)\n')
     else:
         transport = zerobounce.FixtureTransport.from_file(args.fixture)
         budget = args.credit_budget if args.credit_budget > 0 else the_plan['sendable']
@@ -177,10 +178,18 @@ def cmd_verify(args):
     # when --credit-budget is 0), so the manifest never records 0 for a run that verified addresses.
     csv_path, manifest_path = verify.write_outputs(result, args.input, args.out, data_mode=data_mode,
                                                    client=client, credit_budget=client.credit_budget)
-    _emit({'ok': True, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
-           'addresses_sent': result.sent, 'credits_charged': client.credits_used,
-           'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,
-           'stopped_reason': result.stopped_reason, 'csv': str(csv_path), 'manifest': str(manifest_path)})
+    report = {'ok': not result.provider_error, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
+              'addresses_sent': result.sent, 'credits_charged': client.credits_used, 'credits_reserved': client.credits_reserved,
+              'credits_at_risk': client.credits_at_risk,
+              'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,
+              'stopped_reason': result.stopped_reason, 'csv': str(csv_path), 'manifest': str(manifest_path)}
+    if result.provider_error:
+        # The files above hold every row (verified ones kept, the rest marked provider_error); exit 3 so a
+        # script notices, with the paths in the report rather than lost in a traceback.
+        report['error'] = result.provider_error
+        _emit(report)
+        return EXIT_PROVIDER
+    _emit(report)
     return EXIT_OK
 
 
@@ -246,11 +255,30 @@ COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_
             'export': cmd_export, 'db': cmd_db}
 
 
+# Data paths every sub-command may take. Inputs may name the fictional fixtures under pipeline/examples/;
+# outputs never point inside the checkout (see pathguard). Later sub-commands add their names here.
+INPUT_PATH_ARGS = ('brief', 'fixture', 'input', 'file', 'csv', 'manifest')
+OUTPUT_PATH_ARGS = ('out', 'db')
+
+
+def guard_paths(args):
+    """Refuse data paths inside the repository before anything is read or written."""
+    for name in INPUT_PATH_ARGS + OUTPUT_PATH_ARGS:
+        value = getattr(args, name, None)
+        for item in (value if isinstance(value, (list, tuple)) else [value]):   # export --input takes several
+            if isinstance(item, str) and item:
+                pathguard.refuse_inside_repo(item, '--' + name.replace('_', '-'), allow_examples=name in INPUT_PATH_ARGS)
+
+
 def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
+        guard_paths(args)
         return COMMANDS[args.command](args)
+    except pathguard.InsideRepoError as error:
+        _emit({'ok': False, 'error': 'path refused: ' + str(error)}, sys.stderr)
+        return EXIT_USAGE
     except icp.ICPError as error:
         _emit({'ok': False, 'error': 'brief rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
