@@ -20,6 +20,18 @@ from . import apollo, export, icp, prospects, verify, zerobounce
 EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroBounce) error
 
 
+def _per_page(text):
+    """argparse type for --per-page: the value is checked once here, so the plan, every request and the
+    manifest all carry the same number (rejected rather than silently clamped)."""
+    try:
+        value = int(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f'{text!r} is not an integer')
+    if not 1 <= value <= apollo.MAX_PER_PAGE:
+        raise argparse.ArgumentTypeError(f'must be between 1 and {apollo.MAX_PER_PAGE}, got {value}')
+    return value
+
+
 def build_parser():
     parser = argparse.ArgumentParser(prog='python -m pipeline', description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -31,7 +43,8 @@ def build_parser():
     run = sub.add_parser('prospects', help='build a candidate company list from a brief')
     run.add_argument('--brief', required=True, help='ICP brief JSON file')
     run.add_argument('--out', required=True, help='output directory for the CSV and manifest')
-    run.add_argument('--per-page', type=int, default=apollo.MAX_PER_PAGE, help='results per page (1-100)')
+    run.add_argument('--per-page', type=_per_page, default=apollo.MAX_PER_PAGE,
+                     help=f'results per page (1-{apollo.MAX_PER_PAGE}); out-of-range values are rejected')
     mode = run.add_mutually_exclusive_group()
     mode.add_argument('--fixture', help='replay this canned response file instead of calling Apollo')
     mode.add_argument('--live', action='store_true',
@@ -135,8 +148,10 @@ def cmd_verify(args):
         client = zerobounce.ZeroBounceClient(live=False, transport=transport, credit_budget=budget, base_url=args.base_url)
         data_mode = verify.FIXTURE_MODE
     result = verify.verify_rows(rows, columns, email_column, client, batch_size=args.batch_size, data_mode=data_mode)
+    # client.credit_budget is the budget actually enforced (fixture mode defaults it to the sendable count
+    # when --credit-budget is 0), so the manifest never records 0 for a run that verified addresses.
     csv_path, manifest_path = verify.write_outputs(result, args.input, args.out, data_mode=data_mode,
-                                                   client=client, credit_budget=args.credit_budget)
+                                                   client=client, credit_budget=client.credit_budget)
     _emit({'ok': True, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
            'addresses_sent': result.sent, 'credits_charged': client.credits_used,
            'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,

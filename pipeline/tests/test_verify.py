@@ -98,6 +98,33 @@ class Verifying(unittest.TestCase):
             verify.verify_rows(rows, columns, column, client)
         self.assertEqual(client.requests_made, 0)
 
+    def test_provider_text_cannot_run_as_a_spreadsheet_formula(self):
+        # ZeroBounce-controlled values get the P2 formula guard; the analyst's own input column does not.
+        canned = {'a@formula.example': {'status': 'valid', 'sub_status': '@cmd', 'did_you_mean': '=HYPERLINK("x")',
+                                        'processed_at': '-not a date', 'domain_age_days': -5}}
+        client = zb.ZeroBounceClient(transport=zb.FixtureTransport(canned), credit_budget=10)
+        rows = [{'email': 'a@formula.example', 'note': '=SUM(1)'}]
+        result = verify.verify_rows(rows, ['email', 'note'], 'email', client, data_mode=verify.FIXTURE_MODE, now=NOW)
+        out = result.rows[0]
+        self.assertEqual(out['zb_sub_status'], "'@cmd")
+        self.assertEqual(out['zb_did_you_mean'], "'=HYPERLINK(\"x\")")
+        self.assertEqual(out['zb_processed_at'], "'-not a date")
+        self.assertEqual(out['zb_domain_age_days'], '-5', 'signed numbers stay numbers')
+        self.assertEqual(out['zb_status'], 'valid')
+        self.assertEqual(out['note'], '=SUM(1)', 'input columns are written back unchanged')
+        for column in verify.ADDED_COLUMNS:
+            self.assertNotRegex(out[column], r'^[=@+]', column)
+
+    def test_dedupe_keeps_first_seen_order_and_sends_each_address_once(self):
+        rows = [{'email': e} for e in ('Zed@x.example', 'amy@x.example', ' zed@X.example ', 'bob@x.example', 'AMY@x.example', '')]
+        transport = zb.FixtureTransport({})
+        client = zb.ZeroBounceClient(transport=transport, credit_budget=10)
+        result = verify.verify_rows(rows, ['email'], 'email', client, data_mode=verify.FIXTURE_MODE, now=NOW)
+        sent = [item['email_address'] for item in transport.calls[0]['body']['email_batch']]
+        self.assertEqual(sent, ['zed@x.example', 'amy@x.example', 'bob@x.example'])
+        self.assertEqual((result.unique_addresses, result.sent, len(result.rows)), (3, 3, 6))
+        self.assertEqual(result.rows[5]['zb_sub_status'], 'empty')
+
     def test_live_source_label(self):
         rows, columns, column = verify.read_rows(EMAILS)
         result = verify.verify_rows(rows, columns, column, replay_client(), data_mode=verify.LIVE_MODE)
@@ -123,6 +150,8 @@ class Writing(unittest.TestCase):
             self.assertEqual(manifest['zerobounce']['credits_charged'], 6)
             self.assertEqual(manifest['zerobounce']['base_url'], 'https://api-eu.zerobounce.net')
             self.assertEqual(manifest['fiction_notice'], verify.FICTION_NOTICE)
+            self.assertIn('apostrophe', manifest['output']['formula_guard'])
+            self.assertEqual(manifest['zerobounce']['credit_budget'], 100)
             self.assertNotIn('api_key', manifest_path.read_text(encoding='utf-8'))
 
 

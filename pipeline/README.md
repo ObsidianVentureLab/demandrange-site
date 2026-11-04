@@ -93,7 +93,11 @@ python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
   failure (not sent); `review` = catch-all, unknown, not verified. The analyst confirms before P4 delivery.
 - **Data residency:** default host is `api-eu.zerobounce.net`; `api.zerobounce.net` and `api-us…`
   process in the United States (`--base-url` to change). Addresses are personal data: keep inputs
-  and outputs outside the repository, and verify only lists with a lawful basis for the outreach.
+  and outputs outside the repository (`out/` is git-ignored as a safety net), and verify only lists
+  with a lawful basis for the outreach.
+- **Spreadsheet safety:** every `zb_*` value is provider text and goes through the same formula guard
+  as the P2 candidates CSV (leading apostrophe on `=`, `@` and non-numeric `+`/`-`); your own input
+  columns are written back unchanged. The manifest's `output.formula_guard` says so.
 - **Retries and real spend:** as with Apollo, a batch whose transport failed or that got an HTTP 429/5xx
   reply is retried up to 3 times without reserving credits again; if ZeroBounce had already processed
   it, that batch was charged. The manifest records `zerobounce.retries`; when non-zero, compare with
