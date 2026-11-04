@@ -63,8 +63,9 @@ jobs:
             echo
             echo "### Changed pages"
             if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
-              # tab-separated status<TAB>path; the path may contain spaces, so read whole lines
-              git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- '*.html' | while IFS=$'\t' read -r st f _; do
+              # tab-separated status<TAB>path[<TAB>new path for R/C rows]; paths may contain spaces, so read whole lines
+              git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- '*.html' | while IFS=$'\t' read -r st f new; do
+                [ -n "$new" ] && f="$new"   # renamed/copied page: show the route it is now served at
                 route="${f%.html}"; [ "$route" = "index" ] && route=""
                 printf -- '- %s `/%s`\n' "$st" "$route"
               done

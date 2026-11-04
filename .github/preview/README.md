@@ -87,7 +87,7 @@ is unacceptable.
 |---|---|
 | `build_preview.py` | Produce the preview tree (stdlib, read-only on the source) |
 | `serve.py` | Local server with Pages-style clean URLs |
-| `../ci/test_preview.py` | 15 tests: exclusions, byte-identical copies, noindex, overwrite guard, `site_checks` on the preview, URL mapping, 404, traversal, HEAD |
+| `../ci/test_preview.py` | 16 tests: exclusions, byte-identical copies, noindex, overwrite guard, `site_checks` on the preview, URL mapping, 404, traversal, HEAD |
 | `../workflows/pr-preview.yml` | The PR workflow |
 
 Everything under `.github/` is outside the deployed site (`site_checks.py` served-surface guard).
