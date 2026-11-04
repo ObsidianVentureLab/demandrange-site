@@ -189,7 +189,7 @@ def write_outputs(result, input_path, out_dir, *, data_mode, client=None, credit
         'zerobounce': {'base_url': getattr(client, 'base_url', None), 'batches': result.batches, 'addresses_sent': result.sent,
                        'credit_budget': credit_budget, 'credits_charged': getattr(client, 'credits_used', None),
                        'requests_made': getattr(client, 'requests_made', None),
-                       'transport_retries': getattr(client, 'transport_retries', None), 'api_errors': result.api_errors},
+                       'retries': getattr(client, 'retries', None), 'api_errors': result.api_errors},
         'counts': {'unique_addresses': result.unique_addresses, 'skipped_local_syntax': result.skipped_local_syntax,
                    'not_verified': result.not_verified, 'by_status': dict(sorted(statuses.items())),
                    'by_decision': dict(sorted(decisions.items()))},
