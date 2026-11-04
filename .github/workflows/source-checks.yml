@@ -5,6 +5,9 @@ name: source-checks
 
 on:
   pull_request:
+    # Authoring branches only: this workflow must never run against (or gate) PRs into `main`,
+    # which GitHub Pages serves as-is and which has its own site-checks.yml.
+    branches: ['ws/**', 'source/**']
   push:
     branches: ['ws/**', 'source/**']
   workflow_dispatch:
