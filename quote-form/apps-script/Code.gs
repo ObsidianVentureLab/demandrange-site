@@ -3,6 +3,8 @@
 const FORM = Object.freeze({
   formVersion: '2026-09-11-v1',
   privacyVersion: '2026-09-11-v1',
+  // fixes/15 rev 3 (QA-passed): accept the live site's privacy-notice version and the fixes/15 one; the row records whichever was submitted.
+  acceptedPrivacyVersions: Object.freeze(['2026-09-11-v1', '2026-10-28-v1']),
   consentVersion: '2026-09-11-v1',
   serviceModel: 'hybrid_10_90_target',
   minCompletionMs: 2500,
@@ -12,7 +14,11 @@ const FORM = Object.freeze({
     'Process manufacturing', 'Aerospace & defence', 'Machinery & equipment',
     'Construction', 'Waste management', 'Utilities & energy', 'Mining, oil & gas'
   ]),
-  regions: Object.freeze(['EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
+  // `regions` mirrors the live request-a-quote.html checkboxes (form_schema.json fields.regions.values).
+  // `legacyRegions` are the pre-October-2026 worldwide values, still accepted for compatibility but never rendered.
+  regions: Object.freeze(['IE', 'UK', 'EU']),
+  legacyRegions: Object.freeze(['EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
+  acceptedRegions: Object.freeze(['IE', 'UK', 'EU', 'EMEA', 'NAM', 'LATAM', 'APAC', 'ANZ']),
   seniority: Object.freeze(['Entry', 'Manager', 'Director', 'VP', 'C-Suite']),
   fields: Object.freeze([
     'form_version', 'privacy_notice_version', 'consent_text_version',
@@ -100,7 +106,7 @@ function parseAndValidate_(event, nowMs) {
   const privacyVersion = one('privacy_notice_version');
   const consentVersion = one('consent_text_version');
   const sourcePage = one('source_page');
-  if (formVersion !== FORM.formVersion || privacyVersion !== FORM.privacyVersion || consentVersion !== FORM.consentVersion) throw new Error('version_mismatch');
+  if (formVersion !== FORM.formVersion || FORM.acceptedPrivacyVersions.indexOf(privacyVersion) === -1 || consentVersion !== FORM.consentVersion) throw new Error('version_mismatch');
   if (sourcePage !== 'request-a-quote.html') throw new Error('source_page');
 
   const token = one('submission_token');
@@ -124,7 +130,7 @@ function parseAndValidate_(event, nowMs) {
   const assetRef = boundedRef_(one('asset_ref'));
   const campaignRef = boundedRef_(one('campaign_ref'));
   const industries = enumValues_(values('industries'), FORM.industries, 'industries');
-  const regions = enumValues_(values('regions'), FORM.regions, 'regions');
+  const regions = enumValues_(values('regions'), FORM.acceptedRegions, 'regions');
   const seniority = enumValues_(values('seniority'), FORM.seniority, 'seniority');
   if (!industries.length || !regions.length || !seniority.length) throw new Error('required_selection');
   const emailAcknowledgement = boolean_(one('email_acknowledgement'), 'email_acknowledgement');
@@ -177,7 +183,7 @@ function persist_(request, properties) {
       submission_id: submissionId,
       submitted_at_utc: submittedAt.toISOString(),
       form_version: FORM.formVersion,
-      privacy_notice_version: FORM.privacyVersion,
+      privacy_notice_version: request.privacyVersion,
       consent_text_version: FORM.consentVersion,
       service_model: FORM.serviceModel,
       source_page: request.sourcePage,
@@ -273,10 +279,10 @@ function setupSpreadsheet() {
   const taxonomies = spreadsheet.getSheetByName('Taxonomies') || spreadsheet.insertSheet('Taxonomies');
   taxonomies.clearContents();
   taxonomies.getRange(1, 1, 1, 4).setValues([['Industries', 'Regions', 'Seniority', 'Statuses']]);
-  const max = Math.max(FORM.industries.length, FORM.regions.length, FORM.seniority.length, 8);
+  const max = Math.max(FORM.industries.length, FORM.acceptedRegions.length, FORM.seniority.length, 8);
   const rows = [];
   const statuses = ['new', 'triage_in_progress', 'needs_information', 'quote_preparation', 'quote_sent', 'not_a_fit', 'withdrawn', 'closed'];
-  for (let i = 0; i < max; i++) rows.push([FORM.industries[i] || '', FORM.regions[i] || '', FORM.seniority[i] || '', statuses[i] || '']);
+  for (let i = 0; i < max; i++) rows.push([FORM.industries[i] || '', FORM.acceptedRegions[i] || '', FORM.seniority[i] || '', statuses[i] || '']);
   taxonomies.getRange(2, 1, rows.length, 4).setValues(rows);
   protectOwnerOnly_(taxonomies, 'Controlled taxonomies');
   const config = spreadsheet.getSheetByName('Config') || spreadsheet.insertSheet('Config');

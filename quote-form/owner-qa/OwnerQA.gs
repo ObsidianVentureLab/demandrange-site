@@ -56,7 +56,7 @@ function runOwnerStorageTest() {
     phone_number: '',
     product_or_service: 'Fictional pump enquiry for setup testing only',
     industries: ['Utilities & energy'],
-    regions: ['EMEA'],
+    regions: ['IE'],
     specific_countries: '',
     seniority: ['Manager'],
     additional_context: 'Fictional setup test. Do not contact or quote. No notification attempted.',
@@ -89,7 +89,7 @@ function runOwnerStorageTest() {
     row.submission_token_hash === sha256_(payload.submission_token), 'Stored identity mismatch');
   ownerQARequire_(row.full_name === payload.full_name && row.work_email === payload.work_email &&
     row.company_name === payload.company_name, 'Stored fictional fields mismatch');
-  ownerQARequire_(row.industries === 'Utilities & energy' && row.target_regions === 'EMEA' &&
+  ownerQARequire_(row.industries === 'Utilities & energy' && row.target_regions === 'IE' &&
     row.job_seniority === 'Manager' && row.service_model === FORM.serviceModel,
     'Stored scope fields mismatch');
   ownerQARequire_(row.phone_number === '', 'Unexpected phone value in test row');

@@ -10,6 +10,32 @@ The earlier setup may have created Raw Responses and its headers before stopping
 
 Run `node tests/test_manifest.js` and `node tests/test_local.js` from the quote-form directory before handoff. These local tests do not verify Google authorization or live storage/notifications. Reference: https://developers.google.com/apps-script/reference/base/session#geteffectiveuser
 
+## Regions fix — redeploy required (prepared November 2026, not deployed)
+
+The page published on 28 October 2026 (release r6c) sends region values `IE`, `UK` and `EU`, but
+the Code.gs that shipped with the form only accepted `EMEA`, `NAM`, `LATAM`, `APAC` and `ANZ`.
+If the deployed script still carries that list, every real submission since 28 October has been
+rejected with `quote_request_rejected:regions` and nothing was written to the Sheet. This repository
+now accepts both lists (see `../README.md`, "Regions taxonomy"). Nothing here changes the live
+deployment; an owner must do that:
+
+1. Open the Apps Script project and check **Executions** for `quote_request_rejected:regions`
+   entries since 28 October 2026. Each is a lost enquiry; note the timestamps so the senders can
+   be contacted through another route if their details are recoverable.
+2. Replace the project's `Code.gs` with this directory's `Code.gs`. `appsscript.json` is unchanged.
+3. Run `setupSpreadsheet()` once if the **Taxonomies** tab should list the new accepted regions
+   (it rewrites Taxonomies/Config only; intake rows are untouched). Optional.
+4. Deploy → **Manage deployments** → edit the existing deployment → **New version**. Keep the same
+   deployment so the `/exec` URL embedded in the live page does not change. Do not create a new
+   deployment; that would produce a new URL and require a site release.
+5. With `MODE=test` and `PAUSED=true`, run the owner QA (`../owner-qa/`) — its fixture now sends
+   `IE` — and confirm one Synthetic QA row with `target_regions` = `IE`.
+6. Set `PAUSED=false`, then submit the live form once with fictional data selecting Ireland and
+   confirm one new row (MODE `production` writes to **Raw Responses**).
+
+Local checks before handoff: `node tests/test_regions.js` and `node tests/test_local.js` from the
+`quote-form` directory.
+
 ## Required owner actions
 
 1. Sign in to the intended Demand Range Google Workspace account.
