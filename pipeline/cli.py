@@ -68,7 +68,7 @@ def build_parser():
     exp.add_argument('--include-decisions', default='keep',
                      help='comma list of verification_decision values to deliver (default keep; e.g. keep,review)')
     exp.add_argument('--drop-columns', default='', help='comma list of columns to leave out (e.g. zb_sub_status,zb_domain_age_days)')
-    exp.add_argument('--dedupe-on', help='drop later rows whose value in this column repeats (case-insensitive)')
+    exp.add_argument('--dedupe-on', help='one row per value of this column (case-insensitive); the row with the best verification_decision is kept')
     exp.add_argument('--keep-fiction-notice', action='store_true', help='keep a fiction_notice column (fixtures only)')
     exp.add_argument('--xlsx', action='store_true', help='also write an .xlsx workbook (all cells text)')
     return parser

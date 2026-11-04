@@ -127,10 +127,14 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
   (formula injection guard, as in Code.gs); the XLSX needs none because every cell is an inline string.
 - `--include-decisions` must name at least one value; an empty list is a usage error, never an empty delivery.
 - Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
+- `--dedupe-on COLUMN` keeps one row per value (trimmed, case-insensitive): the row with the best
+  `verification_decision` (keep, then review, then anything else), first seen on ties.
+- MANIFEST.json `selection.decisions_included` is recorded whenever the input carried
+  `verification_decision`, even if that column is then dropped from the delivery.
 - `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
 
 ## Tests
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-104 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+115 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
