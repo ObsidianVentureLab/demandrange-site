@@ -20,8 +20,15 @@
     "regions": {
       "type": "multi",
       "required": true,
-      "max_selections": 5,
-      "values": ["EMEA", "NAM", "LATAM", "APAC", "ANZ"]
+      "max_selections": 3,
+      "values": ["IE", "UK", "EU"],
+      "labels": {
+        "IE": "Ireland",
+        "UK": "United Kingdom (including Northern Ireland)",
+        "EU": "EU member states (name the countries below)"
+      },
+      "legacy_values": ["EMEA", "NAM", "LATAM", "APAC", "ANZ"],
+      "legacy_note": "Accepted by the handler for compatibility with earlier submissions and fixtures; never rendered on the form."
     },
     "seniority": {
       "type": "multi",
@@ -36,7 +43,7 @@
   },
   "hidden_fields": {
     "form_version": {"required": true, "must_equal": "2026-09-11-v1"},
-    "privacy_notice_version": {"required": true, "must_equal": "2026-09-11-v1"},
+    "privacy_notice_version": {"required": true, "must_equal": "2026-09-11-v1", "backend_accepts": ["2026-09-11-v1", "2026-10-28-v1"]},
     "consent_text_version": {"required": true, "must_equal": "2026-09-11-v1"},
     "source_page": {"required": true, "must_equal": "request-a-quote.html"},
     "submission_token": {"required": true, "pattern": "^[A-Za-z0-9_-]{16,80}$"},

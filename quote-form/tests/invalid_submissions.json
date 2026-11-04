@@ -4,6 +4,8 @@
   {"name": "malformed website", "patch": {"company_website": "javascript:alert(1)"}},
   {"name": "unknown industry", "patch": {"industries": ["Unknown industry"]}},
   {"name": "unknown region", "patch": {"regions": ["GLOBAL"]}},
+  {"name": "case-mangled region", "patch": {"regions": ["ie"]}},
+  {"name": "region label instead of value", "patch": {"regions": ["Ireland"]}},
   {"name": "unknown seniority", "patch": {"seniority": ["Owner"]}},
   {"name": "phone opt-in without phone", "patch": {"phone_contact": "on", "phone_number": ""}},
   {"name": "phone supplied without phone permission", "patch": {"phone_contact": "", "phone_number": "+353 1 555 0100"}},

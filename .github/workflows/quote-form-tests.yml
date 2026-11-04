@@ -1,0 +1,76 @@
+# Quote-form contract checks for the authoring-source tree (source/* and ws/* branches).
+# Runs the local-only tests under quote-form/tests plus a fixture-mode site build with a
+# synthetic endpoint. Nothing here deploys, calls Google or touches the published site.
+name: quote-form-tests
+
+on:
+  pull_request:
+    paths:
+      - 'quote-form/**'
+      - 'build_site.py'
+      - 'qa_static.py'
+      - 'production_contract.py'
+      - 'production-manifest.json'
+      - 'foundation_stage.py'
+      - '.github/workflows/quote-form-tests.yml'
+      - '.github/ci/requirements.txt'
+  push:
+    branches: ['ws/**', 'source/**']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quote-form-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quote-form:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned dependencies (hash-checked)
+        run: python -m pip install --disable-pip-version-check --no-deps --require-hashes -r .github/ci/requirements.txt
+
+      - name: Node version (runner default; tests use the standard library only)
+        run: node --version
+
+      - name: Regions contract (live page, template, schema and Code.gs agree)
+        working-directory: quote-form
+        run: node tests/test_regions.js
+
+      - name: Backend validation and schema
+        working-directory: quote-form
+        run: node tests/test_local.js
+
+      - name: Apps Script manifest scopes
+        working-directory: quote-form
+        run: node tests/test_manifest.js
+
+      - name: Owner QA against mocked Google services
+        working-directory: quote-form
+        run: node tests/test_owner_qa.js
+
+      - name: Endpoint URL shape
+        working-directory: quote-form
+        run: python -B -m unittest tests.test_endpoint
+
+      - name: Protected-source pins match the tree (production-manifest.json)
+        working-directory: quote-form
+        run: python -B -m unittest tests.test_pins
+
+      - name: Fixture-mode site build with synthetic endpoint (runs qa_static incl. region taxonomy check)
+        run: python -B build_site.py --output "$RUNNER_TEMP/site-fixture" --mode fixture --quote-endpoint https://script.google.com/macros/s/AKfycbxSyntheticQuoteQa000000000000000000000000/exec > "$RUNNER_TEMP/build.json"
+
+      - name: Summarise build QA
+        run: python -c "import json,os; d=json.load(open(os.environ['RUNNER_TEMP']+'/build.json')); print(d['original_static_qa'])"

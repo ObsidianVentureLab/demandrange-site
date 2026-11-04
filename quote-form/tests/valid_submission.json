@@ -15,7 +15,7 @@
   "phone_number": "+353 1 555 0100",
   "product_or_service": "Industrial pumps and flow-control systems",
   "industries": ["Process manufacturing", "Utilities & energy"],
-  "regions": ["EMEA"],
+  "regions": ["IE", "UK"],
   "seniority": ["Manager", "Director"],
   "specific_countries": "Ireland and the United Kingdom",
   "additional_context": "Synthetic QA request only; no real person or company.",
