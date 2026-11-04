@@ -117,7 +117,15 @@ class SheetImport(unittest.TestCase):
                 db.import_sheet_export(bad)
             with self.assertRaisesRegex(clientdb.ClientDBError, 'not found'):
                 db.import_sheet_export(Path(tmp) / 'nope.csv')
-        self.assertEqual(db.summary()['counts']['requests'], 0, 'a failed import writes nothing')
+            # a failure on a later row must not leave the earlier rows (or their clients) committed
+            lines = SHEET.read_text(encoding='utf-8').splitlines()
+            lines[3] = lines[3].replace(',needs_information,', ',bogus,')
+            bad.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+            with self.assertRaisesRegex(clientdb.ClientDBError, 'row 3 has unknown intake_status'):
+                db.import_sheet_export(bad)
+            self.assertFalse(db.connection.in_transaction)
+        counts = db.summary()['counts']
+        self.assertEqual((counts['requests'], counts['clients'], counts['imports']), (0, 0, 0), 'a failed import writes nothing, whichever row fails')
 
 
 class BriefsAndDeliveries(unittest.TestCase):

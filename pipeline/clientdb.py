@@ -5,6 +5,7 @@ and lists delivered (recorded from P4 MANIFEST.json files). Everything is stored
 received; nothing is sent anywhere. The database file holds personal data (the quote requests), so it
 lives outside the repository and is never committed. See CLIENT-DB-DESIGN.md for the rationale.
 """
+import contextlib
 import csv
 import datetime as _dt
 import hashlib
@@ -159,6 +160,17 @@ class ClientDB:
         return int(row['value'])
 
     # -- clients -------------------------------------------------------------------------------
+    @contextlib.contextmanager
+    def _transaction(self):
+        """Commit on success and roll back on error. Inside an open transaction (an import, a delivery
+        record) this is a no-op so the outer block decides: a failure anywhere leaves nothing behind."""
+        if self.connection.in_transaction:
+            yield
+            return
+        with self.connection:
+            self.connection.execute('BEGIN')
+            yield
+
     def upsert_client(self, name, *, client_ref=None, website_domain='', status=None, notes=None, now=None):
         name = ' '.join(str(name or '').split())
         if not name:
@@ -166,7 +178,7 @@ class ClientDB:
         ref = client_ref or slugify(name)
         stamp = _now(now)
         existing = self.connection.execute('SELECT * FROM clients WHERE client_ref = ?', (ref,)).fetchone()
-        with self.connection:
+        with self._transaction():
             if existing is None:
                 self.connection.execute('INSERT INTO clients(client_ref, name, website_domain, status, notes, created_at, updated_at) VALUES (?,?,?,?,?,?,?)',
                                         (ref, name, website_domain or '', status or 'prospect', notes or '', stamp, stamp))
@@ -208,7 +220,7 @@ class ClientDB:
             raise ClientDBError('import: not a Raw Responses export; missing columns ' + ', '.join(missing))
         stamp = _now(now)
         new = updated = read = 0
-        with self.connection:
+        with self._transaction():   # one transaction for the whole file: a bad row N leaves rows 1..N-1 unwritten too
             for row in reader:
                 read += 1
                 values = {c: ' '.join(str(row.get(c) or '').split()) if c != 'additional_context' else str(row.get(c) or '').strip() for c in SHEET_COLUMNS}
@@ -267,8 +279,8 @@ class ClientDB:
         missing = [k for k in required if k not in manifest]
         if missing or manifest.get('tool') != 'demandrange-pipeline':
             raise ClientDBError('delivery: not a pipeline export manifest (missing ' + ', '.join(missing) + ')')
-        client_ref = self.upsert_client(manifest.get('client_name') or manifest['client_ref'], client_ref=manifest['client_ref'], now=now)
         sha = hashlib.sha256(raw).hexdigest()
+        client_ref = manifest['client_ref']
         existing = self.connection.execute('SELECT manifest_sha256 FROM deliveries WHERE client_ref = ? AND export_id = ?', (client_ref, manifest['export_id'])).fetchone()
         if existing and existing['manifest_sha256'] != sha:
             raise ClientDBError(f'delivery: export {manifest["export_id"]} for {client_ref} is already recorded with a different manifest; use a new export id')
@@ -278,7 +290,8 @@ class ClientDB:
                                            (client_ref, manifest['export_id'])).fetchone()
         keep_at = delivered_at or (previous['delivered_at'] if previous else '') or ''
         keep_via = delivered_via or (previous['delivered_via'] if previous else '') or ''
-        with self.connection:
+        with self._transaction():   # client upsert and delivery rows land together or not at all
+            self.upsert_client(manifest.get('client_name') or client_ref, client_ref=client_ref, now=now)
             self.connection.execute('INSERT OR REPLACE INTO deliveries(client_ref, export_id, brief_ref, dictionary_version, export_version, exported_at, rows_delivered, columns_json, manifest_sha256, folder, delivered_at, delivered_via, recorded_at) '
                                     'VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
                                     (client_ref, manifest['export_id'], manifest['brief_ref'], manifest['dictionary_version'], manifest['export_version'],

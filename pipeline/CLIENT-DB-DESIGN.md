@@ -39,7 +39,7 @@ list Z on date D".
 | `requests` | `submission_id` | all 31 Sheet columns as TEXT exactly as exported + `client_ref`, `imported_at`, `import_sha256` |
 | `imports` | `import_sha256` | one row per Sheet export file processed (rows read/new/updated) |
 | `briefs` | `brief_ref` | client, version, supplier_range, status draft/agreed/superseded, sha256 of the brief JSON |
-| `deliveries` | (`client_ref`, `export_id`) | from P4 MANIFEST.json: brief/dictionary/export versions, exported_at, rows, columns, manifest sha256, folder; `delivered_at`/`delivered_via` set by hand when Sean has sent it |
+| `deliveries` | (`client_ref`, `export_id`) | from P4 MANIFEST.json: brief/dictionary/export versions, exported_at, rows, columns, manifest sha256, folder (the absolute local path at record time, so it names a workstation; blank or rewrite it before the database is shared or migrated); `delivered_at`/`delivered_via` set by hand when Sean has sent it |
 | `delivery_files` | (…, kind, file_name) | input and output files of each delivery with sha256 |
 
 Client linkage on import: `clients.client_ref = slugify(company_name)`, `website_domain` from
