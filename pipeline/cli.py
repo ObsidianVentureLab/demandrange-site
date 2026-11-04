@@ -20,15 +20,12 @@ EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroB
 
 
 def _per_page(text):
-    """argparse type for --per-page: the value is checked once here, so the plan, every request and the
-    manifest all carry the same number (rejected rather than silently clamped)."""
+    """argparse type for --per-page: one check (prospects.check_per_page) shared with the library, so the
+    plan, every request and the manifest all carry the same number (rejected rather than silently clamped)."""
     try:
-        value = int(text)
-    except ValueError:
-        raise argparse.ArgumentTypeError(f'{text!r} is not an integer')
-    if not 1 <= value <= apollo.MAX_PER_PAGE:
-        raise argparse.ArgumentTypeError(f'must be between 1 and {apollo.MAX_PER_PAGE}, got {value}')
-    return value
+        return prospects.check_per_page(text)
+    except apollo.ApolloError as error:
+        raise argparse.ArgumentTypeError(str(error))
 
 
 def build_parser():

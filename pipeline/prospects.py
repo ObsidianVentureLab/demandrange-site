@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 
 from . import __version__
-from .apollo import MAX_PAGES, MAX_PER_PAGE, ORG_SEARCH_PATH, BudgetExceeded
+from .apollo import MAX_PAGES, MAX_PER_PAGE, ORG_SEARCH_PATH, ApolloError, BudgetExceeded
 from .csvsafe import GUARD_NOTE, neutralise
 from .icp import normalise_domain
 
@@ -44,13 +44,25 @@ class Collection:
     stopped_reason: str = ''
 
 
+def check_per_page(per_page):
+    """Apollo accepts 1..MAX_PER_PAGE results per page. Out-of-range values are an error here, in the
+    CLI and in ApolloClient alike (nothing clamps silently, so plan, requests and manifest agree)."""
+    try:
+        value = int(per_page)
+    except (TypeError, ValueError):
+        raise ApolloError(f'per_page must be an integer 1..{MAX_PER_PAGE}, got {per_page!r}')
+    if not 1 <= value <= MAX_PER_PAGE:
+        raise ApolloError(f'per_page must be 1..{MAX_PER_PAGE}, got {value}')
+    return value
+
+
 def plan(spec, per_page=MAX_PER_PAGE):
     """Pages/credits the request needs if every page is full and unique; no request is made.
 
     Duplicates and locally excluded domains can push the real count above min_pages, so the
     client's credit budget, not this estimate, is the hard stop.
     """
-    per_page = max(1, min(int(per_page), MAX_PER_PAGE))
+    per_page = check_per_page(per_page)
     pages = min(math.ceil(spec.requested_volume / per_page), MAX_PAGES)
     return {'requested_volume': spec.requested_volume, 'per_page': per_page,
             'min_pages': pages, 'min_credits': pages, 'hard_page_limit': MAX_PAGES,
@@ -98,7 +110,7 @@ def collect(spec, client, *, per_page=MAX_PER_PAGE, data_mode=LIVE_MODE, now=Non
     excluded = set(spec.excluded_domains)
     seen_ids, seen_domains = set(), set()
     result = Collection()
-    per_page = max(1, min(int(per_page), MAX_PER_PAGE))
+    per_page = check_per_page(per_page)
     page = 1
     while True:
         try:
@@ -115,6 +127,10 @@ def collect(spec, client, *, per_page=MAX_PER_PAGE, data_mode=LIVE_MODE, now=Non
         for org in response.organizations:
             record = normalise_organization(org, spec, data_mode=data_mode, retrieved_at=retrieved_at)
             key_id, key_domain = record['apollo_organization_id'], record['primary_domain']
+            # Exclusion first, so a repeated excluded domain counts as excluded, not as a duplicate.
+            if key_domain and key_domain in excluded:
+                result.excluded_locally += 1
+                continue
             if (key_id and key_id in seen_ids) or (key_domain and key_domain in seen_domains):
                 result.duplicates_dropped += 1
                 continue
@@ -122,9 +138,6 @@ def collect(spec, client, *, per_page=MAX_PER_PAGE, data_mode=LIVE_MODE, now=Non
                 seen_ids.add(key_id)
             if key_domain:
                 seen_domains.add(key_domain)
-            if key_domain and key_domain in excluded:
-                result.excluded_locally += 1
-                continue
             result.records.append(record)
             if len(result.records) >= spec.requested_volume:
                 result.stopped_reason = 'requested_volume reached'
