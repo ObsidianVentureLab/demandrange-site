@@ -9,6 +9,15 @@ on:
       - 'pipeline/**'
       - '.github/workflows/pipeline-tests.yml'
       - '.github/ci/gitleaks.sh'
+      # the committed-data guard must also run when only data files change
+      - '.github/ci/data_guard.py'
+      - '.github/ci/test_data_guard.py'
+      - '.gitignore'
+      - 'out/**'
+      - '**/deliveries/**'
+      - '**/*.sqlite*'
+      - '**/*.db'
+      - '**/*.db-*'
   push:
     branches: ['ws/**', 'source/**']
 
@@ -67,6 +76,11 @@ jobs:
         run: |
           python -B -m pipeline export --input "$RUNNER_TEMP/vfx/emails-fixture-verified.csv" --out "$RUNNER_TEMP/deliveries" --client "Demo Client" --brief-ref DEMO-BRIEF-A-v1 --dictionary-version DEMO-DICT-v1 --export-version DEMO-EXPORT-v1 --export-id ci --include-decisions keep,review --dedupe-on work_email --xlsx > "$RUNNER_TEMP/export.json"
           python -c "import json,os,zipfile; d=json.load(open(os.environ['RUNNER_TEMP']+'/export.json')); assert d['rows_delivered']==3, d; z=zipfile.ZipFile(d['folder']+'/demo-client-ci.xlsx'); assert z.testzip() is None; print('export ok', d['files'])"
+
+      - name: Committed-data guard (no outputs, databases or real emails tracked; the repo is public)
+        run: |
+          python -B .github/ci/test_data_guard.py
+          python -B .github/ci/data_guard.py .
 
       - name: Secret scan (pinned gitleaks, full history of this ref)
         run: .github/ci/gitleaks.sh "$GITHUB_WORKSPACE"
