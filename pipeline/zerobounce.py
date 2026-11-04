@@ -115,7 +115,9 @@ class FixtureTransport:
         return cls(data['results'], data.get('credits', 0))
 
     def __call__(self, method, url, headers, body):
-        self.calls.append({'method': method, 'url': url, 'body': json.loads(json.dumps(body)) if body is not None else None})
+        # Recorded for tests; the key is dropped so a fixture injected into a live client never holds it in memory.
+        recorded = {k: v for k, v in body.items() if k != 'api_key'} if isinstance(body, dict) else body
+        self.calls.append({'method': method, 'url': url, 'body': json.loads(json.dumps(recorded)) if recorded is not None else None})
         if url.endswith(CREDITS_PATH):
             return 200, {'Credits': str(self.credits)}
         batch = []
