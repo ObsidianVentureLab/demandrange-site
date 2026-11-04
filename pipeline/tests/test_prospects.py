@@ -135,7 +135,7 @@ class Writing(unittest.TestCase):
             self.assertEqual(poisoned['primary_domain'], 'alpha-fixture.example', 'ordinary values are untouched')
             manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
             self.assertIn('apostrophe', manifest['output']['formula_guard'])
-            self.assertEqual(manifest['apollo']['transport_retries'], 0)
+            self.assertEqual(manifest['apollo']['retries'], 0)
 
     def test_live_mode_manifest_has_no_fiction_notice_and_never_the_key(self):
         spec = icp.from_dict(brief())

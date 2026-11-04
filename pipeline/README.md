@@ -61,11 +61,12 @@ Endpoint `POST https://api.apollo.io/api/v1/mixed_companies/search`, header `x-a
 `organizations` + `pagination{page,per_page,total_entries,total_pages}` + `partial_results_only`.
 HTTP 403 means the plan/key lacks access to this endpoint; 429/5xx are retried with backoff.
 
-**Retries and real spend.** A transport failure (connection reset, timeout, malformed body) is
-retried up to 3 times without charging the budget again, because the client cannot tell whether
-the request reached Apollo. If it did, Apollo charged it. Worst case, real spend per page is
-1 + retries credits, so a `--credit-budget 1` first run can cost up to 4 credits. The manifest
-records `apollo.transport_retries`; when it is non-zero, compare with Apollo's usage page.
+**Retries and real spend.** A transport failure (connection reset, timeout, malformed body) or an
+HTTP 429/5xx reply is retried up to 3 times without charging the budget again, because the client
+cannot tell whether Apollo processed the request before the failure. If it did, Apollo charged it.
+Worst case, real spend per page is 1 + retries credits, so a `--credit-budget 1` first run can cost
+up to 4 credits. The manifest records `apollo.retries`; when it is non-zero, compare with Apollo's
+usage page.
 
 ## Tests
 ```

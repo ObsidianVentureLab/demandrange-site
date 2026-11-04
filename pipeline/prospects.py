@@ -174,9 +174,9 @@ def write_outputs(result, spec, out_dir, *, data_mode, client=None, per_page=MAX
                    'total_pages_reported': result.total_pages, 'partial_results_only': result.partial_results_only,
                    'credits_used': getattr(client, 'credits_used', result.pages_fetched),
                    'requests_made': getattr(client, 'requests_made', result.pages_fetched),
-                   # Each retried transport failure may already have been charged by Apollo; compare with the
-                   # usage page after a live run.
-                   'transport_retries': getattr(client, 'transport_retries', 0)},
+                   # Each retried request (transport failure or HTTP 429/5xx) may already have been charged by
+                   # Apollo; compare with the usage page after a live run.
+                   'retries': getattr(client, 'retries', 0)},
         'counts': {'candidates': len(result.records), 'duplicates_dropped': result.duplicates_dropped,
                    'excluded_locally': result.excluded_locally},
         'stopped_reason': result.stopped_reason,
