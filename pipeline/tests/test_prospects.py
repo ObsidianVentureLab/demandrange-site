@@ -35,6 +35,17 @@ class Collecting(unittest.TestCase):
         self.assertTrue(all(r['review_state'] == 'candidate_not_reviewed' for r in result.records))
         self.assertTrue(all(r['retrieved_at'] == '2026-11-03T12:00:00Z' for r in result.records))
 
+    def test_repeated_excluded_domain_counts_as_excluded_not_duplicate(self):
+        spec = icp.from_dict(brief())
+        pages = response_pages()
+        first = pages[0]['organizations']
+        excluded = next(o for o in first if o['primary_domain'] == 'excluded-fixture.example')
+        first.insert(first.index(excluded) + 1, dict(excluded, id='fx-org-0003-again'))
+        client, _ = replay_client(pages=pages)
+        result = prospects.collect(spec, client, data_mode=prospects.FIXTURE_MODE, now=NOW)
+        self.assertEqual((result.excluded_locally, result.duplicates_dropped), (2, 2))
+        self.assertNotIn('excluded-fixture.example', [r['primary_domain'] for r in result.records])
+
     def test_stops_at_requested_volume_without_fetching_more_pages(self):
         spec = icp.from_dict(brief(requested_volume=2))
         client, transport = replay_client()
@@ -87,7 +98,12 @@ class Collecting(unittest.TestCase):
         spec = icp.from_dict(brief(requested_volume=250))
         p = prospects.plan(spec)
         self.assertEqual((p['min_pages'], p['min_credits'], p['per_page']), (3, 3, 100))
-        self.assertEqual(prospects.plan(spec, per_page=1000)['per_page'], 100)
+        for bad in (0, 101, 1000, -1, 'ten', None):
+            with self.subTest(per_page=bad), self.assertRaisesRegex(apollo.ApolloError, 'per_page'):
+                prospects.plan(spec, per_page=bad)
+        self.assertEqual(prospects.plan(spec, per_page=2)['per_page'], 2)
+        with self.assertRaisesRegex(apollo.ApolloError, 'per_page'):
+            prospects.collect(spec, replay_client()[0], per_page=1000)
         self.assertEqual(prospects.plan(icp.from_dict(brief(requested_volume=50_000)))['min_pages'], 500)
 
 
