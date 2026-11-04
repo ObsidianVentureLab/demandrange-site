@@ -41,8 +41,8 @@ def build(source, output, noindex=True):
     source, output = Path(source).resolve(), Path(output).resolve()
     if not (source / 'index.html').is_file():
         raise SystemExit(f'build_preview: no index.html under {source}')
-    if output == source or source in output.parents:
-        raise SystemExit('build_preview: output must not be inside the source tree')
+    if output == source or source in output.parents or output in source.parents:
+        raise SystemExit('build_preview: output must not be inside, equal to, or an ancestor of the source tree')
     if output.exists():
         if not (output / '_preview.json').is_file():
             raise SystemExit(f'build_preview: refusing to overwrite {output}: not a previous preview build')

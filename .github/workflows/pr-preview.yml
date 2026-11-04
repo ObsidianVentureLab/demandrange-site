@@ -63,7 +63,11 @@ jobs:
             echo
             echo "### Changed pages"
             if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
-              git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- '*.html' | awk '{ st=$1; f=$NF; sub(/\.html$/, "", f); if (f=="index") f=""; printf "- %s `/%s`\n", st, f }'
+              # tab-separated status<TAB>path; the path may contain spaces, so read whole lines
+              git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- '*.html' | while IFS=$'\t' read -r st f _; do
+                route="${f%.html}"; [ "$route" = "index" ] && route=""
+                printf -- '- %s `/%s`\n' "$st" "$route"
+              done
               echo
               echo "Other changed files:"
               git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- . ':(exclude)*.html' | sed 's/^/- `/; s/$/`/'

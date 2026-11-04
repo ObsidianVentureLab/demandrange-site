@@ -26,6 +26,18 @@ import serve  # noqa: E402
 import site_checks  # noqa: E402
 
 
+def tracked_files(repo):
+    """Committed (plus staged) files relative to the repo root; working-tree walk if git is unavailable."""
+    try:
+        out = subprocess.run(['git', '-C', str(repo), 'ls-files', '-z'], capture_output=True, check=True).stdout
+        names = {n.decode('utf-8') for n in out.split(b'\0') if n}
+        if names:
+            return {n for n in names if (repo / n).is_file()}
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return {p.relative_to(repo).as_posix() for p in repo.rglob('*') if p.is_file() and p.relative_to(repo).parts[0] != '.git'}
+
+
 class PreviewBuildTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -46,13 +58,25 @@ class PreviewBuildTests(unittest.TestCase):
         self.assertTrue((self.out / '.well-known').is_dir(), 'served dot-dir kept')
 
     def test_copies_every_served_file(self):
-        expected = {p.relative_to(REPO).as_posix() for p in REPO.rglob('*') if p.is_file()
-                    and p.relative_to(REPO).parts[0] not in ('.git', '.github', 'CNAME')}
-        actual = {p.relative_to(self.out).as_posix() for p in self.out.rglob('*') if p.is_file()}
+        # Compare against the committed tree (git ls-files), so stray untracked files in a local
+        # checkout do not change what this test asserts; fall back to the working tree without git.
+        expected = {rel for rel in tracked_files(REPO) if rel.split('/', 1)[0] not in ('.git', '.github', 'CNAME')}
+        untracked_copied = {p.relative_to(self.out).as_posix() for p in self.out.rglob('*') if p.is_file()} - expected - {'_headers', '_preview.json'}
+        actual = {p.relative_to(self.out).as_posix() for p in self.out.rglob('*') if p.is_file()} - untracked_copied
         self.assertEqual(actual - expected, {'_headers', '_preview.json'})
         self.assertEqual(expected - actual, set())
         for rel in sorted(expected - {'robots.txt'}):
             self.assertEqual((REPO / rel).read_bytes(), (self.out / rel).read_bytes(), rel + ' changed')
+
+    def test_output_may_not_be_an_ancestor_of_the_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / 'a' / 'b'
+            src.mkdir(parents=True)
+            (src / 'index.html').write_text('<!doctype html><title>x</title>', encoding='utf-8')
+            with self.assertRaises(SystemExit):
+                build_preview.build(src, Path(tmp) / 'a')
+            with self.assertRaises(SystemExit):
+                build_preview.build(src, src / 'out')
 
     def test_noindex_by_default(self):
         robots = (self.out / 'robots.txt').read_text(encoding='utf-8')
