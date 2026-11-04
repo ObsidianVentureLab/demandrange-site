@@ -1,0 +1,86 @@
+# PR preview: build a noindex copy of the site tree for the pull request and publish it as a
+# workflow artifact, with the changed pages listed in the job summary. Nothing is deployed and
+# no hosting account is involved; reviewers download the artifact and run the bundled
+# serve.py (GitHub-Pages-style clean URLs) locally. See .github/preview/README.md.
+name: pr-preview
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out (full history for the changed-pages diff)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Preview tooling tests (build, noindex, site_checks on the preview, clean-URL server)
+        run: python -B .github/ci/test_preview.py
+
+      - name: Build preview tree
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python -B .github/preview/build_preview.py --source . --output "$RUNNER_TEMP/preview/_site" > "$RUNNER_TEMP/stamp.json"
+          cp .github/preview/serve.py .github/preview/README.md "$RUNNER_TEMP/preview/"
+          cat "$RUNNER_TEMP/stamp.json"
+
+      - name: Changed pages and how to view them
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "## Site preview for PR #${PR_NUMBER:-manual}"
+            echo
+            echo "Artifact: **site-preview-pr-${PR_NUMBER:-manual}** (this run: $RUN_URL). Download, unzip, then:"
+            echo
+            echo '```'
+            echo 'python3 serve.py _site        # http://127.0.0.1:8000/ with GitHub Pages clean URLs'
+            echo '```'
+            echo
+            echo "Preview robots.txt disallows all crawling; CNAME is excluded. Not the live site."
+            echo
+            echo "### Changed pages"
+            if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+              # tab-separated status<TAB>path[<TAB>new path for R/C rows]; paths may contain spaces, so read whole lines
+              git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- '*.html' | while IFS=$'\t' read -r st f new; do
+                [ -n "$new" ] && f="$new"   # renamed/copied page: show the route it is now served at
+                route="${f%.html}"; [ "$route" = "index" ] && route=""
+                printf -- '- %s `/%s`\n' "$st" "$route"
+              done
+              echo
+              echo "Other changed files:"
+              git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- . ':(exclude)*.html' | sed 's/^/- `/; s/$/`/'
+            else
+              echo "- (no base commit available for a diff)"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-preview-pr-${{ github.event.pull_request.number || 'manual' }}
+          path: ${{ runner.temp }}/preview
+          retention-days: 14
+          if-no-files-found: error
