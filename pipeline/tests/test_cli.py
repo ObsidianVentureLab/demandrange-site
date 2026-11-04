@@ -73,6 +73,23 @@ class Prospects(unittest.TestCase):
             self.assertEqual(data['credits_used'], 1)
             self.assertTrue(data['stopped_reason'].startswith('credit budget reached'))
 
+    def test_per_page_out_of_range_is_rejected_before_anything_runs(self):
+        for bad in ('0', '101', '1000', '-5', 'ten'):
+            with self.subTest(per_page=bad), tempfile.TemporaryDirectory() as tmp:
+                err = io.StringIO()
+                with contextlib.redirect_stderr(err), self.assertRaises(SystemExit) as stop:
+                    cli.main(['prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--fixture', str(RESPONSES_PATH), '--per-page', bad])
+                self.assertEqual(stop.exception.code, cli.EXIT_USAGE)
+                self.assertIn('--per-page', err.getvalue())
+                self.assertEqual(os.listdir(tmp), [], 'nothing written')
+
+    def test_per_page_in_range_reaches_plan_requests_and_manifest_unchanged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--fixture', str(RESPONSES_PATH), '--per-page', '2')
+            self.assertEqual(code, 0, err)
+            manifest = json.loads((Path(tmp) / 'DEMO-BRIEF-A-v1-candidates.manifest.json').read_text(encoding='utf-8'))
+            self.assertEqual(manifest['apollo']['per_page'], 2)
+
     def test_live_without_budget_sends_nothing(self):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {apollo.API_KEY_ENV: FAKE_KEY}):
             code, out, err = run('prospects', '--brief', str(BRIEF_PATH), '--out', tmp, '--live')
