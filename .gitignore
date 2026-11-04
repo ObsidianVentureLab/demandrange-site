@@ -1,0 +1,4 @@
+# Python bytecode and tool caches (pipeline/ tests run with python -B in CI, but not everyone does locally)
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -98,10 +98,6 @@ class Prospects(unittest.TestCase):
         self.assertIn('pages', err)
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 from pipeline import zerobounce as _zb  # noqa: E402
 from pipeline.tests.support import EXAMPLES as _EXAMPLES  # noqa: E402
 
@@ -219,3 +215,7 @@ class Db(unittest.TestCase):
             code, out, err = run('db', '--db', tmp + '/x.sqlite', 'summary')
         self.assertEqual(code, cli.EXIT_USAGE)
         self.assertIn('not initialised', err)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -58,12 +58,31 @@ class Building(unittest.TestCase):
         self.assertNotIn('zb_domain_age_days', result.columns)
         self.assertEqual(result.columns_dropped, ('zb_domain_age_days',))
 
-    def test_text_is_preserved_and_formulas_neutralised(self):
+    def test_text_is_preserved_and_formulas_neutralised_in_csv_only(self):
         with tempfile.TemporaryDirectory() as tmp:
-            path = plain_csv(tmp, 'record_id,note,amount\n0007,"café, ""équipement""",=SUM(A1)\n0008,+353 1 555,-5\n0009,@handle,2001-02-03\n')
-            result = export.build([path], client='x', **VERSIONS)
-        values = [(r['record_id'], r['note'], r['amount']) for r in result.rows]
-        self.assertEqual(values, [('0007', 'café, "équipement"', "'=SUM(A1)"), ('0008', "'+353 1 555", "'-5"), ('0009', "'@handle", '2001-02-03')])
+            path = plain_csv(tmp, 'record_id,note,amount\n0007,"café, ""équipement""",=SUM(A1)\n0008,+353 1 555,-5\n'
+                                  '0009,@handle,2001-02-03\n0010,-SUM(A1),+1 (555) 010-0100\n0011,\t=cmd,-1.5\n')
+            result = export.build([path], client='x', export_id='E1', **VERSIONS)
+            values = [(r['record_id'], r['note'], r['amount']) for r in result.rows]
+            self.assertEqual(values, [('0007', 'café, "équipement"', '=SUM(A1)'), ('0008', '+353 1 555', '-5'),
+                                      ('0009', '@handle', '2001-02-03'), ('0010', '-SUM(A1)', '+1 (555) 010-0100'),
+                                      ('0011', '\t=cmd', '-1.5')], 'built rows keep the original text')
+            folder, _ = export.write_delivery(result, Path(tmp) / 'out', xlsx=True)
+            with open(folder / 'x-E1.csv', encoding='utf-8-sig', newline='') as handle:
+                rows = {r['record_id']: r for r in csv.DictReader(handle)}
+            self.assertEqual((rows['0007']['amount'], rows['0008']['note'], rows['0008']['amount']), ("'=SUM(A1)", '+353 1 555', '-5'))
+            self.assertEqual((rows['0009']['note'], rows['0010']['note'], rows['0010']['amount']), ("'@handle", "'-SUM(A1)", '+1 (555) 010-0100'))
+            self.assertEqual((rows['0011']['note'], rows['0011']['amount']), ("'\t=cmd", '-1.5'))
+            with zipfile.ZipFile(folder / 'x-E1.xlsx') as archive:
+                sheet = archive.read('xl/worksheets/sheet1.xml').decode('utf-8')
+            self.assertIn('<t>=SUM(A1)</t>', sheet, 'XLSX inline strings carry no apostrophe')
+            self.assertNotIn("'=SUM", sheet)
+            self.assertNotIn('<f>', sheet, 'no formula cells in the workbook')
+
+    def test_empty_decisions_is_an_error_not_an_empty_delivery(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(export.ExportError, 'include-decisions'):
+                export.build([verified_csv(tmp)], client='x', decisions=('', ' '), **VERSIONS)
 
     def test_errors(self):
         with tempfile.TemporaryDirectory() as tmp:

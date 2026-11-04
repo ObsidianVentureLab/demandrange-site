@@ -88,7 +88,9 @@ ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --l
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
-  cost nothing; run them with `--live --credit-budget 1` to confirm the key and host.
+  cost nothing; run them with `--live --credit-budget 1` to confirm the key and host (batches shrink to
+  the remaining budget, so one address is sent). `--base-url` only accepts the three documented
+  ZeroBounce hosts (`api`, `api-us`, `api-eu` .zerobounce.net); the key is never sent anywhere else.
 - Facts relied on (zerobounce.net/docs, checked 3 Nov 2026): `POST /v2/validatebatch` JSON
   `{api_key, email_batch:[{email_address, ip_address}]}` → `{email_batch:[…], errors:[…]}`; statuses
   valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail; `GET/POST /v2/getcredits` →
@@ -110,7 +112,9 @@ python -m pipeline export --input out/list-verified.csv --out deliveries/ --clie
 - Rows with a `verification_decision` are filtered to `keep` by default; `--include-decisions` widens that.
 - `brief_ref`, `dictionary_version`, `export_version`, `export_id`, `exported_at` and `client_ref` are stamped on
   every row (the lesson of `foundation/handover-*.csv`: versions travel with the data, blank is not "none").
-- Cells starting with `=`, `+`, `-` or `@` get a leading apostrophe (formula injection guard, same rule as Code.gs).
+- CSV cells starting with `=`, `@`, or a `+`/`-` that is not a phone/signed number get a leading apostrophe
+  (formula injection guard, as in Code.gs); the XLSX needs none because every cell is an inline string.
+- `--include-decisions` must name at least one value; an empty list is a usage error, never an empty delivery.
 - Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
 - `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
 
