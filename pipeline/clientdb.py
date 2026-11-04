@@ -100,7 +100,7 @@ class ClientDBError(ValueError):
 
 
 def _now(now=None):
-    return (now or _dt.datetime.now(_dt.timezone.utc)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    return (now or _dt.datetime.now(_dt.timezone.utc)).astimezone(_dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
 def _domain(website, email):
@@ -111,11 +111,21 @@ def _domain(website, email):
     return domain
 
 
+def utc_today(now=None):
+    """The UTC calendar date; stored timestamps are UTC, so date filters and labels use it too."""
+    return (now or _dt.datetime.now(_dt.timezone.utc)).astimezone(_dt.timezone.utc).date()
+
+
 class ClientDB:
-    def __init__(self, path):
+    def __init__(self, path, *, create=False):
+        """Open an existing database file. ``create=True`` (``db init``) may create the file, never its
+        directory: a mistyped --db path must not quietly become a new directory and an empty database."""
         self.path = Path(path)
         if str(self.path) != ':memory:':
-            self.path.parent.mkdir(parents=True, exist_ok=True)
+            if not self.path.parent.is_dir():
+                raise ClientDBError(f'database directory does not exist: {self.path.parent} (create it first, outside the checkout)')
+            if not create and not self.path.exists():
+                raise ClientDBError(f'database not initialised: {self.path} does not exist; run: db --db {self.path} init')
         self.connection = sqlite3.connect(str(self.path))
         self.connection.row_factory = sqlite3.Row
         self.connection.execute('PRAGMA foreign_keys = ON')
@@ -234,9 +244,13 @@ class ClientDB:
             sha = hashlib.sha256(Path(brief_path).read_bytes()).hexdigest() if brief_path else ''
         except (FileNotFoundError, IsADirectoryError):
             raise ClientDBError(f'brief: file not found: {brief_path}')
+        existing = self.connection.execute('SELECT client_ref, created_at FROM briefs WHERE brief_ref = ?', (brief_ref,)).fetchone()
+        if existing and existing['client_ref'] != client_ref:
+            raise ClientDBError(f'brief: {brief_ref} already belongs to client {existing["client_ref"]!r}; use a new brief ref for {client_ref!r}')
+        # Re-adding the same brief updates its version/status/hash but keeps the original created_at.
         with self.connection:
             self.connection.execute('INSERT OR REPLACE INTO briefs(brief_ref, client_ref, brief_version, supplier_range, status, brief_sha256, created_at) VALUES (?,?,?,?,?,?,?)',
-                                    (brief_ref, client_ref, brief_version, supplier_range, status, sha, _now(now)))
+                                    (brief_ref, client_ref, brief_version, supplier_range, status, sha, existing['created_at'] if existing else _now(now)))
         return brief_ref
 
     def record_delivery(self, manifest_path, *, delivered_at='', delivered_via='', now=None):
@@ -303,7 +317,7 @@ class ClientDB:
 
     def retention_due(self, on=None):
         # Stored timestamps are UTC, so compare against the UTC date, not the local one.
-        today = (on or _dt.datetime.now(_dt.timezone.utc).date()).isoformat()
+        today = (on or utc_today()).isoformat()
         rows = self.connection.execute('SELECT submission_id, client_ref, submitted_at_utc, intake_status, retention_review_at FROM requests '
                                        "WHERE retention_review_at != '' AND substr(retention_review_at, 1, 10) <= ? ORDER BY retention_review_at", (today,)).fetchall()
         return [dict(r) for r in rows]

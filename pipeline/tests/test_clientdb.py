@@ -23,15 +23,31 @@ class Schema(unittest.TestCase):
     def test_init_is_idempotent_and_versioned(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'c.sqlite'
-            with clientdb.ClientDB(path) as db:
+            with clientdb.ClientDB(path, create=True) as db:
                 self.assertEqual(db.init(now=NOW), 1)
                 self.assertEqual(db.init(), 1)
                 self.assertEqual(db.summary()['counts'], {'clients': 0, 'requests': 0, 'briefs': 0, 'deliveries': 0, 'imports': 0})
             with clientdb.ClientDB(path) as db:
                 self.assertEqual(db.schema_version(), 1)
-            with clientdb.ClientDB(Path(tmp) / 'empty.sqlite') as db:
+            with self.assertRaisesRegex(clientdb.ClientDBError, 'not initialised'):
+                clientdb.ClientDB(Path(tmp) / 'empty.sqlite')
+            self.assertFalse((Path(tmp) / 'empty.sqlite').exists(), 'opening without init must not create a file')
+            with clientdb.ClientDB(Path(tmp) / 'empty.sqlite', create=True) as db:
                 with self.assertRaisesRegex(clientdb.ClientDBError, 'not initialised'):
                     db.schema_version()
+
+    def test_a_missing_database_directory_is_never_created(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'typo' / 'c.sqlite'
+            for create in (True, False):
+                with self.assertRaisesRegex(clientdb.ClientDBError, 'directory does not exist'):
+                    clientdb.ClientDB(path, create=create)
+            self.assertFalse(path.parent.exists())
+
+    def test_utc_today_follows_the_utc_clock(self):
+        late = dt.datetime(2026, 11, 3, 23, 30, tzinfo=dt.timezone(dt.timedelta(hours=-5)))   # 04:30Z on 4 Nov
+        self.assertEqual(clientdb.utc_today(late), dt.date(2026, 11, 4))
+        self.assertEqual(clientdb.utc_today(), dt.datetime.now(dt.timezone.utc).date())
 
     def test_requests_table_mirrors_the_sheet_columns(self):
         db = fresh_db()
@@ -181,6 +197,20 @@ class SearchAndRetention(unittest.TestCase):
             with self.assertRaisesRegex(clientdb.ClientDBError, 'file not found'):
                 db.add_brief('B-1', 'fictional-client', brief_path=tmp, now=NOW)
         self.assertEqual(db.summary()['counts']['briefs'], 0)
+
+    def test_add_brief_keeps_its_client_and_created_at(self):
+        db = fresh_db()
+        db.upsert_client('Fictional Client', now=NOW)
+        db.upsert_client('Other Client', now=NOW)
+        db.add_brief('B-1', 'fictional-client', brief_version='v1', status='draft', now=NOW)
+        later = NOW + dt.timedelta(days=2)
+        db.add_brief('B-1', 'fictional-client', brief_version='v2', status='agreed', now=later)
+        row = db.connection.execute('SELECT client_ref, brief_version, status, created_at FROM briefs WHERE brief_ref = ?', ('B-1',)).fetchone()
+        self.assertEqual(dict(row), {'client_ref': 'fictional-client', 'brief_version': 'v2', 'status': 'agreed', 'created_at': '2026-11-03T12:00:00Z'})
+        with self.assertRaisesRegex(clientdb.ClientDBError, "already belongs to client 'fictional-client'"):
+            db.add_brief('B-1', 'other-client', status='agreed', now=later)
+        self.assertEqual([b['brief_ref'] for b in db.client('fictional-client')['briefs']], ['B-1'])
+        self.assertEqual(db.client('other-client')['briefs'], [])
 
     def test_client_not_found(self):
         with self.assertRaises(clientdb.ClientDBError):

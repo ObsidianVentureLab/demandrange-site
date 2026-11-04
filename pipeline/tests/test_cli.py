@@ -223,8 +223,24 @@ class Db(unittest.TestCase):
     def test_uninitialised_db_is_a_clear_error(self):
         with tempfile.TemporaryDirectory() as tmp:
             code, out, err = run('db', '--db', tmp + '/x.sqlite', 'summary')
-        self.assertEqual(code, cli.EXIT_USAGE)
-        self.assertIn('not initialised', err)
+            self.assertEqual(code, cli.EXIT_USAGE)
+            self.assertIn('not initialised', err)
+            self.assertFalse(os.path.exists(tmp + '/x.sqlite'), 'a typo in --db must not leave an empty database behind')
+            code, out, err = run('db', '--db', tmp + '/missing-dir/x.sqlite', 'init')
+            self.assertEqual(code, cli.EXIT_USAGE)
+            self.assertIn('directory does not exist', err)
+            self.assertFalse(os.path.exists(tmp + '/missing-dir'))
+
+    def test_retention_due_defaults_to_the_utc_date(self):
+        import datetime as dt
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            run('db', '--db', db, 'init')
+            before = dt.datetime.now(dt.timezone.utc).date()
+            code, out, err = run('db', '--db', db, 'retention-due')
+            after = dt.datetime.now(dt.timezone.utc).date()
+        self.assertEqual(code, 0, err)
+        self.assertIn(json.loads(out)['on'], {before.isoformat(), after.isoformat()})
 
 
 if __name__ == '__main__':

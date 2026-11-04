@@ -149,9 +149,14 @@ python -m pipeline db --db … mark-delivered --client-ref client-ltd --export-i
 python -m pipeline db --db … search "pumps" | client client-ltd | retention-due | summary
 ```
 The database holds personal data (the requests): same access rule as the Sheet, never committed.
+- `init` creates the file but never its directory: a mistyped `--db` path is an error, not a new empty database.
+  Every other sub-command needs an existing, initialised file.
+- `add-brief` on an existing brief ref updates its version/status/hash (same client) and keeps `created_at`;
+  moving a brief ref to another client is refused, use a new ref.
+- `retention-due` compares and labels dates in UTC, matching the stored timestamps (`--on` overrides).
 
 ## Tests
 ```
 python -B -m unittest discover -s pipeline/tests -t .
 ```
-129 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
+133 tests, standard library only; no dependencies to audit. CI: `.github/workflows/pipeline-tests.yml`.
