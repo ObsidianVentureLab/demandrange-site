@@ -108,6 +108,11 @@ class BriefsAndDeliveries(unittest.TestCase):
             db.mark_delivered('fictional-pumps-alpha-ltd', 'E1', delivered_via='email to named contact', now=NOW)
             view = db.client('fictional-pumps-alpha-ltd')
             self.assertEqual(view['deliveries'][0]['delivered_at'], '2026-11-03T12:00:00Z')
+            # re-recording the same manifest keeps the manual send record (both fields)
+            db.record_delivery(folder / 'MANIFEST.json', now=NOW)
+            view = db.client('fictional-pumps-alpha-ltd')
+            self.assertEqual((view['deliveries'][0]['delivered_at'], view['deliveries'][0]['delivered_via']),
+                             ('2026-11-03T12:00:00Z', 'email to named contact'))
             self.assertEqual(view['briefs'][0]['status'], 'agreed')
             # a different manifest reusing the export id is refused
             (folder / 'MANIFEST.json').write_text(json.dumps(dict(manifest, rows_delivered=99)), encoding='utf-8')

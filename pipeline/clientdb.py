@@ -9,7 +9,6 @@ import csv
 import datetime as _dt
 import hashlib
 import json
-import re
 import sqlite3
 from pathlib import Path
 
@@ -172,7 +171,7 @@ class ClientDB:
             raise ClientDBError(f'client {client_ref!r} not found')
         requests = self.connection.execute('SELECT submission_id, submitted_at_utc, intake_status, outcome, product_or_service FROM requests WHERE client_ref = ? ORDER BY submitted_at_utc', (client_ref,)).fetchall()
         briefs = self.connection.execute('SELECT brief_ref, brief_version, status, supplier_range FROM briefs WHERE client_ref = ? ORDER BY created_at', (client_ref,)).fetchall()
-        deliveries = self.connection.execute('SELECT export_id, brief_ref, exported_at, rows_delivered, delivered_at FROM deliveries WHERE client_ref = ? ORDER BY exported_at', (client_ref,)).fetchall()
+        deliveries = self.connection.execute('SELECT export_id, brief_ref, exported_at, rows_delivered, delivered_at, delivered_via FROM deliveries WHERE client_ref = ? ORDER BY exported_at', (client_ref,)).fetchall()
         return {'client': dict(row), 'requests': [dict(r) for r in requests], 'briefs': [dict(b) for b in briefs], 'deliveries': [dict(d) for d in deliveries]}
 
     # -- Sheet import --------------------------------------------------------------------------
@@ -255,13 +254,18 @@ class ClientDB:
         existing = self.connection.execute('SELECT manifest_sha256 FROM deliveries WHERE client_ref = ? AND export_id = ?', (client_ref, manifest['export_id'])).fetchone()
         if existing and existing['manifest_sha256'] != sha:
             raise ClientDBError(f'delivery: export {manifest["export_id"]} for {client_ref} is already recorded with a different manifest; use a new export id')
+        # Re-recording the same manifest must not erase a manual send record: keep the stored
+        # delivered_at / delivered_via unless new values are given.
+        previous = self.connection.execute('SELECT delivered_at, delivered_via FROM deliveries WHERE client_ref = ? AND export_id = ?',
+                                           (client_ref, manifest['export_id'])).fetchone()
+        keep_at = delivered_at or (previous['delivered_at'] if previous else '') or ''
+        keep_via = delivered_via or (previous['delivered_via'] if previous else '') or ''
         with self.connection:
             self.connection.execute('INSERT OR REPLACE INTO deliveries(client_ref, export_id, brief_ref, dictionary_version, export_version, exported_at, rows_delivered, columns_json, manifest_sha256, folder, delivered_at, delivered_via, recorded_at) '
                                     'VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
                                     (client_ref, manifest['export_id'], manifest['brief_ref'], manifest['dictionary_version'], manifest['export_version'],
                                      manifest['exported_at'], int(manifest['rows_delivered']), json.dumps(manifest['columns']), sha, str(manifest_path.parent),
-                                     delivered_at or (existing and self.connection.execute('SELECT delivered_at FROM deliveries WHERE client_ref=? AND export_id=?', (client_ref, manifest['export_id'])).fetchone()['delivered_at']) or '',
-                                     delivered_via or '', _now(now)))
+                                     keep_at, keep_via, _now(now)))
             self.connection.execute('DELETE FROM delivery_files WHERE client_ref = ? AND export_id = ?', (client_ref, manifest['export_id']))
             for item in manifest['inputs']:
                 self.connection.execute('INSERT INTO delivery_files VALUES (?,?,?,?,?,?)', (client_ref, manifest['export_id'], 'input', item['file'], item['sha256'], item.get('rows')))
@@ -292,7 +296,8 @@ class ClientDB:
         return {'term': term, 'clients': [dict(r) for r in clients], 'requests': [dict(r) for r in requests], 'deliveries': [dict(r) for r in deliveries]}
 
     def retention_due(self, on=None):
-        today = (on or _dt.date.today()).isoformat()
+        # Stored timestamps are UTC, so compare against the UTC date, not the local one.
+        today = (on or _dt.datetime.now(_dt.timezone.utc).date()).isoformat()
         rows = self.connection.execute('SELECT submission_id, client_ref, submitted_at_utc, intake_status, retention_review_at FROM requests '
                                        "WHERE retention_review_at != '' AND substr(retention_review_at, 1, 10) <= ? ORDER BY retention_review_at", (today,)).fetchall()
         return [dict(r) for r in rows]

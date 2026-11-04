@@ -2,3 +2,15 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Client database files hold personal data and live outside the repository (see pipeline/CLIENT-DB-DESIGN.md).
+# WAL mode leaves two sidecar files next to the database.
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.db-wal
+*.db-shm

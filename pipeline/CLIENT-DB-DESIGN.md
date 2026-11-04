@@ -50,7 +50,9 @@ No automatic matching on people's names.
 ## Data protection notes
 - The requests table is personal data (names, work emails, phone numbers). Keep the `.sqlite` file in a
   restricted location with the same access rule as the Sheet; back it up with the same care; never put it
-  in Git, a shared drive without access control, or a ticket.
+  in Git, a shared drive without access control, or a ticket. The repository `.gitignore` refuses
+  `*.sqlite`, `*.sqlite3`, `*.db` and their `-wal`/`-shm` sidecars as a backstop; the rule is still to keep
+  the file outside the checkout entirely.
 - `retention-due` lists requests whose `retention_review_at` has passed, so the Sheet's retention rule
   (`RETENTION_MONTHS`) can be applied in both places. Deletion itself is a manual, logged decision.
 - Imports store exactly what the Sheet exported; no enrichment of people. Company-level enrichment
