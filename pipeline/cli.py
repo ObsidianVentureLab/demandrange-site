@@ -16,7 +16,7 @@ import sys
 
 from . import apollo, icp, prospects, verify, zerobounce
 
-EXIT_OK, EXIT_USAGE, EXIT_APOLLO = 0, 2, 3   # 3 = any provider error
+EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroBounce) error
 
 
 def build_parser():
@@ -153,4 +153,4 @@ def main(argv=None):
         return EXIT_USAGE
     except (apollo.ApolloError, zerobounce.ZeroBounceError) as error:
         _emit({'ok': False, 'error': type(error).__name__ + ': ' + str(error)}, sys.stderr)
-        return EXIT_APOLLO
+        return EXIT_PROVIDER
