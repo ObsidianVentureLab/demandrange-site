@@ -1,0 +1,10 @@
+field,value
+dataset_file,eu-industrial-enterprises-by-country-nace-2024.csv
+dataset_title,Manufacturing enterprises in the EU by country and NACE division (2024 data)
+dataset_page,"demandrange.com/eu-industrial-enterprises-by-country (sources, suggested citation, flag definitions)"
+publisher,Demand Range
+licence,"Licence: CC BY 4.0 (creativecommons.org/licenses/by/4.0/). Anyone can reuse this dataset with credit to Demand Range (demandrange.com). Source data: Eurostat, Structural business statistics (sbs_ovw_act, sbs_sc_ovw), reused under the Eurostat copyright notice, which applies the European Commission's reuse policy (Commission Decision 2011/833/EU). The reshaped CSV remains available under CC BY 4.0 without additional Demand Range reuse restrictions."
+source_credit,"Source: Eurostat, sbs_ovw_act (doi:10.2908/SBS_OVW_ACT) and sbs_sc_ovw (doi:10.2908/SBS_SC_OVW), 2024 reference year, extracted 27 October 2026 and re-checked against the Eurostat API on 3 November 2026."
+eurostat_reuse_terms,"Eurostat, Copyright notice and free re-use of data (ec.europa.eu/eurostat/help/copyright-notice, checked 4 November 2026): ""Reuse of statistical data, metadata, publications, and other dissemination tools published on this website for commercial or non-commercial purposes is authorised provided the source is acknowledged."" Eurostat asks reusers to cite datasets as ""Source: [digital object identifier (DOI) number of the Eurostat dataset], [access date]"" and, when data are modified, to state this clearly and include a disclaimer on Eurostat's non-responsibility."
+changes_made,"Reshaped by Demand Range: two Eurostat tables combined into one file with one row per country and NACE activity and a eurostat_flags column; values unchanged, including one negative figure (Finland C22, −6.77) kept as published. Confidential cells (Eurostat flag C) are left blank; estimates carry flag e."
+eurostat_disclaimer,Eurostat is not responsible for this reshaped dataset or for Demand Range's calculations.
