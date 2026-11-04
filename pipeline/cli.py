@@ -135,7 +135,8 @@ def cmd_verify(args):
     csv_path, manifest_path = verify.write_outputs(result, args.input, args.out, data_mode=data_mode,
                                                    client=client, credit_budget=client.credit_budget)
     report = {'ok': not result.provider_error, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
-              'addresses_sent': result.sent, 'credits_charged': client.credits_used, 'credits_at_risk': client.credits_at_risk,
+              'addresses_sent': result.sent, 'credits_charged': client.credits_used, 'credits_reserved': client.credits_reserved,
+              'credits_at_risk': client.credits_at_risk,
               'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,
               'stopped_reason': result.stopped_reason, 'csv': str(csv_path), 'manifest': str(manifest_path)}
     if result.provider_error:

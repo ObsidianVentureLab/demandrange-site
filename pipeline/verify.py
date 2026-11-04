@@ -112,7 +112,7 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
         batch = sendable[start:start + size]
         try:
             if not batch:
-                raise BudgetExceeded(f'credit budget of {client.credit_budget} reached (used {client.credits_used}); '
+                raise BudgetExceeded(f'credit budget of {client.credit_budget} reached (reserved {getattr(client, 'worst_case_spend', client.credits_used)}); '
                                      f'{len(sendable) - start} address(es) left unverified')
             response = client.validate_batch(batch)
         except BudgetExceeded as error:
@@ -200,8 +200,10 @@ def write_outputs(result, input_path, out_dir, *, data_mode, client=None, credit
                   'rows': len(result.rows), 'email_column': result.email_column},
         'zerobounce': {'base_url': getattr(client, 'base_url', None), 'batches': result.batches, 'addresses_sent': result.sent,
                        'credit_budget': credit_budget, 'credits_charged': getattr(client, 'credits_used', None),
-                       # at_risk: addresses re-sent after a failed attempt (the first attempt may also have been
-                       # charged). worst_case_spend = charged + at_risk and never exceeds credit_budget (hard cap).
+                       # credits_charged is ZeroBounce's estimate (non-"unknown" results). credits_reserved is one per
+                       # address sent, never refunded. at_risk: addresses re-sent after a failed attempt.
+                       # worst_case_spend = reserved + at_risk and never exceeds credit_budget (hard cap).
+                       'credits_reserved': getattr(client, 'credits_reserved', None),
                        'credits_at_risk': getattr(client, 'credits_at_risk', None),
                        'worst_case_spend': getattr(client, 'worst_case_spend', None),
                        'requests_made': getattr(client, 'requests_made', None),

@@ -162,7 +162,9 @@ class LiveClientWithFakeTransport(unittest.TestCase):
         with self.assertRaisesRegex(zb.BudgetExceeded, 'hard cap'):
             client.validate_batch([ADDRS[0]])
         self.assertEqual(len(transport.calls), 1, 'nothing was re-sent')
-        self.assertEqual((client.retries, client.credits_used, client.credits_at_risk, client.worst_case_spend), (0, 0, 0, 0))
+        # The first attempt was sent, so its credit stays reserved (it may have been charged); no refund.
+        self.assertEqual((client.retries, client.credits_used, client.credits_reserved, client.credits_at_risk,
+                          client.worst_case_spend), (0, 0, 1, 0, 1))
         self.assertEqual(self.sleeps, [])
 
     def test_retry_within_the_cap_records_credits_at_risk(self):

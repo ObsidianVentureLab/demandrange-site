@@ -2,8 +2,9 @@
 
 - Endpoint: POST {base_url}/v2/validatebatch, JSON body {"api_key": ..., "email_batch": [{"email_address": ...}]}.
   The key travels in the request body, never in a URL, and is never logged or placed in error text.
-- Credits: 1 per validated address; "unknown" results are never charged (ZeroBounce docs). The budget
-  reserves one credit per address before a batch is sent and settles to the charged count afterwards.
+- Credits: 1 per validated address; "unknown" results are not charged (ZeroBounce docs). The budget is a hard
+  cap: one credit per address is reserved before a batch is sent and is never refunded, whatever comes back
+  (a missing, empty or unrecognised result still counts). credits_used is only the provider-side estimate.
 - Default base URL is the EU endpoint (api-eu.zerobounce.net); the default api.zerobounce.net servers
   are in the United States. Override with base_url for other residency choices.
 - Default is live=False: without an injected transport every call raises LiveDisabled; with an
@@ -145,11 +146,14 @@ class ZeroBounceClient:
         self.live = bool(live)
         self.api_key_env = api_key_env
         self.credit_budget = int(credit_budget)
-        self.credits_used = 0          # charged so far (settled after each batch)
+        self.credits_used = 0          # estimate: results ZeroBounce reports as charged (status not "unknown")
+        # Hard cap: one credit per address sent, reserved before the request and never refunded, so a
+        # missing/empty/unrecognised response cannot let the run send more than credit_budget addresses.
+        self.credits_reserved = 0
         self.requests_made = 0
         self.retries = 0   # retried requests (transport failure or HTTP 429/5xx)
         # Addresses re-sent after a failed attempt. ZeroBounce may have processed (and charged) the first
-        # attempt, so these count against the budget as well: credits_used + credits_at_risk <= credit_budget.
+        # attempt, so these count against the budget as well: credits_reserved + credits_at_risk <= credit_budget.
         self.credits_at_risk = 0
         self.max_retries = int(max_retries)
         self._sleep = sleep
@@ -180,15 +184,15 @@ class ZeroBounceClient:
 
     @property
     def worst_case_spend(self):
-        """Credits charged plus credits a retried attempt may also have charged; never above credit_budget."""
-        return self.credits_used + self.credits_at_risk
+        """Credits reserved for every address sent plus re-sent attempts; never above credit_budget."""
+        return self.credits_reserved + self.credits_at_risk
 
     def _reserve_retry(self, reserve, why):
-        """Before re-sending a batch: the first attempt may already have cost `reserve` credits, and the
-        retry may cost `reserve` again. Stop here if the hard cap cannot cover both."""
-        if reserve and self.credits_used + self.credits_at_risk + 2 * reserve > self.credit_budget:
+        """Before re-sending a batch: the first attempt is already reserved and may have been charged, and the
+        retry may cost `reserve` again. Stop here if the hard cap cannot cover the retry as well."""
+        if reserve and self.worst_case_spend + reserve > self.credit_budget:
             raise BudgetExceeded(f'credit budget of {self.credit_budget} is a hard cap: re-sending this batch of {reserve} '
-                                 f'after {why} could charge up to {reserve} more credit(s) (used {self.credits_used}, '
+                                 f'after {why} could charge up to {reserve} more credit(s) (reserved {self.credits_reserved}, '
                                  f'at risk {self.credits_at_risk}); stopped before the retry')
         self.credits_at_risk += reserve
         self.retries += 1
@@ -251,11 +255,13 @@ class ZeroBounceClient:
             raise ZeroBounceError(f'batch too large: {len(addresses)} > {MAX_BATCH}')
         if self.worst_case_spend + len(addresses) > self.credit_budget:
             raise BudgetExceeded(f'credit budget of {self.credit_budget} could be exceeded '
-                                 f'(used {self.credits_used}, at risk {self.credits_at_risk}, this batch may charge up to '
+                                 f'(reserved {self.credits_reserved}, at risk {self.credits_at_risk}, this batch may charge up to '
                                  f'{len(addresses)}); raise --credit-budget deliberately')
         body = {'email_batch': [{'email_address': a, 'ip_address': None} for a in addresses]}
         if self._key:
             body['api_key'] = self._key
+        # Reserved before sending and never refunded: whatever the response holds, these were sent.
+        self.credits_reserved += len(addresses)
         payload = self._send(BATCH_PATH, body, reserve=len(addresses))
         if not isinstance(payload, dict) or not isinstance(payload.get('email_batch'), list):
             raise ZeroBounceError('unexpected validatebatch response (no email_batch list)')

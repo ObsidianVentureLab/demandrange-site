@@ -127,6 +127,34 @@ class Verifying(unittest.TestCase):
         self.assertEqual((result.unique_addresses, result.sent, len(result.rows)), (3, 3, 6))
         self.assertEqual(result.rows[5]['zb_sub_status'], 'empty')
 
+    def _hard_cap_probe(self, reply_for):
+        """QA PR-FIXES-r2 probe: 300 addresses, budget 100, ZeroBounce answers without usable results."""
+        rows = [{'email': 'p%03d@x.example' % i} for i in range(300)]
+        sent = []
+
+        def transport(method, url, headers, body):
+            batch = [item['email_address'] for item in body['email_batch']]
+            sent.extend(batch)
+            return 200, reply_for(batch)
+        with mock.patch.dict(os.environ, {zb.API_KEY_ENV: FAKE_KEY}):
+            client = zb.ZeroBounceClient(live=True, transport=transport, credit_budget=100)
+        result = verify.verify_rows(rows, ['email'], 'email', client, batch_size=100, now=NOW)
+        return client, result, sent
+
+    def test_hard_cap_holds_when_the_response_is_empty(self):
+        client, result, sent = self._hard_cap_probe(lambda batch: {'email_batch': [], 'errors': []})
+        self.assertLessEqual(len(sent), 100, 'budget 100 is a hard cap on addresses sent')
+        self.assertEqual((len(sent), result.sent, client.credits_reserved, client.worst_case_spend), (100, 100, 100, 100))
+        self.assertEqual(client.credits_used, 0, 'the provider-side estimate is still reported separately')
+        self.assertTrue(result.stopped_reason.startswith('credit budget reached'))
+        self.assertEqual(result.not_verified, 200)
+
+    def test_hard_cap_holds_when_statuses_are_unrecognised(self):
+        reply = lambda batch: {'email_batch': [{'address': a, 'status': 'role_based'} for a in batch], 'errors': []}
+        client, result, sent = self._hard_cap_probe(reply)
+        self.assertEqual((len(sent), client.credits_reserved, client.worst_case_spend), (100, 100, 100))
+        self.assertTrue(result.stopped_reason.startswith('credit budget reached'))
+
     def test_provider_error_after_the_first_batch_keeps_verified_rows_and_marks_the_rest(self):
         rows = [{'email': e} for e in ('a@x.example', 'b@x.example', 'c@x.example')]
         ok = (200, {'email_batch': [{'address': 'a@x.example', 'status': 'valid', 'sub_status': ''}], 'errors': []})
@@ -146,7 +174,9 @@ class Verifying(unittest.TestCase):
             _, manifest_path = verify.write_outputs(result, src, tmp, data_mode=verify.LIVE_MODE, client=client, credit_budget=10, now=NOW)
             manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
         self.assertTrue(manifest['zerobounce']['provider_error'].startswith('ZeroBounceRateLimited'))
-        self.assertEqual((manifest['zerobounce']['credits_charged'], manifest['zerobounce']['credits_at_risk'], manifest['zerobounce']['worst_case_spend']), (1, 0, 1))
+        # Two batches were sent: one answered, one failed. Both stay reserved (never refunded).
+        self.assertEqual((manifest['zerobounce']['credits_charged'], manifest['zerobounce']['credits_reserved'],
+                          manifest['zerobounce']['credits_at_risk'], manifest['zerobounce']['worst_case_spend']), (1, 2, 0, 2))
         self.assertEqual(manifest['counts']['by_status'], {'not_verified': 2, 'valid': 1})
 
     def test_provider_error_on_the_first_batch_still_raises(self):
