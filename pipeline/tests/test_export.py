@@ -51,6 +51,44 @@ class Building(unittest.TestCase):
         self.assertEqual(result.duplicates_dropped, 1)
         self.assertEqual(sorted(r['verification_decision'] for r in result.rows), ['keep', 'keep', 'review'])
 
+    def test_dedupe_prefers_the_best_decision_over_the_first_row_seen(self):
+        text = ('work_email,full_name,verification_decision\r\n'
+                'A@x.example,Review First,review\r\n'
+                'a@x.example ,Keep Later,keep\r\n'
+                'b@x.example,Drop Row,drop\r\n'
+                'b@x.example,Review Row,review\r\n'
+                ',No Key One,keep\r\n'
+                ',No Key Two,keep\r\n')
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([plain_csv(tmp, text)], client='x', decisions=('keep', 'review', 'drop'), dedupe_on='work_email', **VERSIONS)
+        names = [r['full_name'] for r in result.rows]
+        self.assertEqual(names, ['Keep Later', 'Review Row', 'No Key One', 'No Key Two'], 'best decision wins; blank keys are never merged')
+        self.assertEqual(result.duplicates_dropped, 2)
+
+    def test_dedupe_ties_keep_the_first_row(self):
+        text = 'work_email,full_name,verification_decision\r\na@x.example,First,keep\r\na@x.example,Second,keep\r\n'
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([plain_csv(tmp, text)], client='x', dedupe_on='work_email', **VERSIONS)
+        self.assertEqual([r['full_name'] for r in result.rows], ['First'])
+
+    def test_selection_is_recorded_even_when_the_decision_column_is_dropped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([verified_csv(tmp)], client='x', drop_columns=('verification_decision',), **VERSIONS)
+            self.assertNotIn('verification_decision', result.columns)
+            out_dir, manifest = export.write_delivery(result, Path(tmp) / 'deliveries')
+            readme = (out_dir / 'README.txt').read_text(encoding='utf-8')
+        self.assertEqual(manifest['selection']['decisions_included'], ['keep'])
+        self.assertGreater(manifest['selection']['rows_excluded_by_decision'], 0)
+        self.assertIn('Verification decisions included: keep', readme)
+
+    def test_no_selection_record_when_the_input_has_no_decision_column(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = export.build([plain_csv(tmp, 'work_email,full_name\r\na@x.example,A\r\n')], client='x', **VERSIONS)
+            out_dir, manifest = export.write_delivery(result, Path(tmp) / 'deliveries')
+            readme = (out_dir / 'README.txt').read_text(encoding='utf-8')
+        self.assertIsNone(manifest['selection']['decisions_included'])
+        self.assertNotIn('Verification decisions included', readme)
+
     def test_keep_fiction_notice_and_drop_columns(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = export.build([verified_csv(tmp)], client='x', keep_fiction_notice=True, drop_columns=('zb_domain_age_days',), **VERSIONS)

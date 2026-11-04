@@ -18,15 +18,13 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from . import __version__
+from .csvsafe import neutralise  # shared with the P2 candidate CSV
 
 SLUG = re.compile(r'[^a-z0-9-]+')
 VERSION_RE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$')
 DECISION_COLUMN = 'verification_decision'
+DECISION_RANK = {'keep': 0, 'review': 1, 'drop': 2}   # dedupe preference; anything else ranks after
 STAMP_COLUMNS = ('client_ref', 'brief_ref', 'dictionary_version', 'export_version', 'export_id', 'exported_at')
-FORMULA_PREFIXES = ('=', '+', '-', '@', '\t', '\r')
-# A leading + or - followed only by digits and phone/number punctuation is a value (e.g. +353 1 555, -5),
-# not a formula; spreadsheets never execute it, and clients should not see a literal apostrophe.
-NUMERIC_SIGNED = re.compile(r'^[+-][\d\s().\-]*\d[\d\s().\-]*$')
 INTERNAL_DEFAULT_DROP = ('fiction_notice',)   # kept when --keep-fiction-notice; fixtures carry it on purpose
 
 
@@ -49,6 +47,7 @@ class Export:
     decisions_included: tuple = ()
     rows_read: int = 0
     rows_excluded_by_decision: int = 0
+    decision_filtered: bool = False   # the input had verification_decision, so --include-decisions applied
     duplicates_dropped: int = 0
     columns_dropped: tuple = ()
 
@@ -71,13 +70,8 @@ def check_version(label, value, required=True):
     return value
 
 
-def neutralise(value):
-    """Prefix a leading apostrophe so a spreadsheet opening the CSV shows the text instead of running it.
-    Signed numbers and phone numbers (+353 1 555, -5) are left as they are."""
-    text = '' if value is None else str(value)
-    if text.startswith(FORMULA_PREFIXES) and not NUMERIC_SIGNED.match(text):
-        return "'" + text
-    return text
+def _decision_rank(row):
+    return DECISION_RANK.get((row.get(DECISION_COLUMN) or '').strip().lower(), len(DECISION_RANK))
 
 
 def read_inputs(paths):
@@ -135,6 +129,7 @@ def build(paths, *, client, brief_ref, dictionary_version, export_version, expor
     if DECISION_COLUMN in columns:
         kept = [r for r in rows if (r.get(DECISION_COLUMN) or '').strip().lower() in decisions]
         result.rows_excluded_by_decision = len(rows) - len(kept)
+        result.decision_filtered = True
         rows = kept
     elif decisions != ('keep',):
         raise ExportError(f'--include-decisions given but the input has no {DECISION_COLUMN} column')
@@ -151,14 +146,21 @@ def build(paths, *, client, brief_ref, dictionary_version, export_version, expor
     if dedupe_on:
         if dedupe_on not in out_columns:
             raise ExportError(f'--dedupe-on: column {dedupe_on!r} not in the output columns')
-        seen, unique = set(), []
+        # Keep one row per key: the one with the best verification decision (keep < review < other),
+        # first seen on ties, so a `review` row cannot displace a later `keep` row for the same address.
+        best, unique = {}, []
         for row in rows:
             key = ' '.join(str(row.get(dedupe_on) or '').split()).lower()
-            if key and key in seen:
-                result.duplicates_dropped += 1
+            if not key:
+                unique.append(row)
                 continue
-            if key:
-                seen.add(key)
+            if key in best:
+                result.duplicates_dropped += 1
+                index = best[key]
+                if _decision_rank(row) < _decision_rank(unique[index]):
+                    unique[index] = row
+                continue
+            best[key] = len(unique)
             unique.append(row)
         rows = unique
     result.columns = out_columns + list(STAMP_COLUMNS)
@@ -238,7 +240,7 @@ def _readme(result, csv_name, xlsx_name):
         lines.append(f'  {xlsx_name} — the same rows as a workbook; all cells are text, so identifiers keep leading zeros.')
     lines += ['  MANIFEST.json — row counts, column list and SHA-256 checksums for the files above.', '',
               f'Rows delivered: {len(result.rows)}']
-    if result.decisions_included and DECISION_COLUMN in result.columns:
+    if result.decision_filtered:
         lines.append('Verification decisions included: ' + ', '.join(result.decisions_included)
                      + f' ({result.rows_excluded_by_decision} rows with other decisions were left out)')
     lines += ['', 'Columns', *(f'  {c}' for c in result.columns), '',
@@ -282,7 +284,7 @@ def write_delivery(result, out_dir, *, xlsx=False):
         'client_ref': result.client, 'client_name': result.client_name, 'brief_ref': result.brief_ref, 'dictionary_version': result.dictionary_version,
         'export_version': result.export_version, 'export_id': result.export_id, 'exported_at': result.exported_at,
         'inputs': result.inputs,
-        'selection': {'decisions_included': list(result.decisions_included) if DECISION_COLUMN in result.columns else None,
+        'selection': {'decisions_included': list(result.decisions_included) if result.decision_filtered else None,
                       'rows_read': result.rows_read, 'rows_excluded_by_decision': result.rows_excluded_by_decision,
                       'duplicates_dropped': result.duplicates_dropped, 'columns_dropped': list(result.columns_dropped)},
         'rows_delivered': len(result.rows), 'columns': result.columns,
