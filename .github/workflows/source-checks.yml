@@ -41,7 +41,16 @@ jobs:
       - name: Install pinned dependencies (hash-checked)
         run: |
           python -m pip install --disable-pip-version-check --no-deps --require-hashes -r .github/ci/requirements.txt
-          python -m pip install --disable-pip-version-check --no-deps --require-hashes -r .github/ci/requirements-html.txt
+          python -m pip install --disable-pip-version-check --no-deps --require-hashes -r .github/ci/requirements-build.txt
+          python -m pip install --disable-pip-version-check --no-deps --require-hashes --no-build-isolation -r .github/ci/requirements-html.txt
+          python - <<'PY'
+          import hashlib, os, sys, vnujar
+          jar = os.path.join(os.path.dirname(vnujar.__file__), 'vnu.jar')
+          got = hashlib.sha256(open(jar, 'rb').read()).hexdigest()
+          want = '8369c533e79495a78b2ec5b5378c07213dc2cb87b21159ab4850d0ed97a09f79'  # VNU_JAR_SHA256, html5validator 0.4.2
+          print('vnu.jar sha256', got)
+          sys.exit(0 if got == want else 'vnu.jar sha256 mismatch: expected ' + want)
+          PY
 
       - name: Unit tests — CI tooling
         run: |

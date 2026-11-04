@@ -15,7 +15,10 @@
   tree as `main`.
 - `source/sameas-wellfound` corresponds to `main` PR #34 (27 Oct). **Everything after it on
   `main` — PRs #35 to #55, release rounds 3 to r20 (28 Oct–3 Nov) — was produced by a generator
-  state that is not in this repository.** `.github/workflows/site-checks.yml` on `main` says so:
+  state that is kept off-repo, not in any branch of this repository.** That state exists: the
+  release machine holds the r20 source tree (`r20-src`, DR Builder's release directory). It rebuilds
+  `main` at r20 byte for byte, and every later release (r21 to r23) is r20-src plus QA-cleared patch
+  scripts applied in a recorded order. `.github/workflows/site-checks.yml` on `main` describes this:
   "the generator and its qa_static/build checks run off-repo before each release".
 
 ## How far the source tree is behind `main` (measured)
@@ -53,20 +56,21 @@ redirects. These are rules `main` adopted after the source tree stopped.
 
 ## Decision for Sean
 
-The source tree cannot become authoritative again by merging branches; the missing 20 rounds of
-generator state live outside the repo. Options:
+The source tree cannot become authoritative again by merging branches: the missing 20 rounds of
+generator state are not in the repo, although they do exist off-repo (r20-src, above). Options:
 
-1. **Recover the off-repo generator state used for r20 and push it as a `source/*` branch** (or
-   hand the directory to the workstream). Then: re-run `source-checks`, expect the drift report
-   to go to zero (or explain each remaining line), flip the report-only step to blocking, and from
-   then on build every release from the repo. *Recommended*: it is the only path where
+1. **Push the existing off-repo r20 source tree (`r20-src`, plus the QA-cleared release patches
+   applied since) as a `source/r20` branch.** Nothing needs recovering or reconstructing.
+   Then: re-run `source-checks`, expect the drift report to go to zero (or explain each
+   remaining line), flip the report-only step to blocking, and from then on build every
+   release from the repo. *Recommended*: it is the only path where
    `main` is reproducible and `quote-form/` (handler + schema + template) stays next to the pages.
 2. **Declare `main` authoritative and retire `source/*`** except `quote-form/` (the Apps Script
    handler has no other home). The generator would be re-created later from `main`'s output if ever
    needed. Cheapest now; loses qa_static's 8 000+ content/legal assertions for future edits.
 3. **Rebuild the gap inside the repo** by porting the r3–r20 changes into `foundation/` copy
    sources until the drift report is empty. Roughly 51 pages of copy diffs plus 8 new pages;
-   estimated several days of careful work and still guesswork about the off-repo pipeline.
+   estimated several days of careful work, and needless while r20-src exists.
 
 Until a choice is made, the workstream keeps `quote-form/` changes on `source/*`-based `ws/`
 branches (as in PR #56) and leaves `main` untouched.

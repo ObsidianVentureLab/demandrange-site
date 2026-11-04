@@ -1,5 +1,7 @@
 # HTML validation for the source-checks workflow: W3C Nu validator via html5validator (bundles vnu.jar;
-# needs a Java runtime, present on ubuntu-24.04 runners). Hash-pinned; the package ships only an sdist.
+# needs a Java runtime, present on ubuntu-24.04 runners). Hash-pinned; the package ships only an sdist, built
+# with --no-build-isolation against the hash-pinned requirements-build.txt. The sdist hash also pins the bundled
+# vnujar/vnu.jar; the workflow re-checks that jar's sha256 (VNU_JAR_SHA256) after install.
 html5validator==0.4.2 \
     --hash=sha256:aff87b596df86bebdd6a6e503ec0f4c281d33cdea7d38ae05ce25941e021174b
 PyYAML==6.0.3 \
