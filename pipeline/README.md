@@ -88,7 +88,9 @@ ZEROBOUNCE_API_KEY=... python -m pipeline verify --input LIST.csv --out out/ --l
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
-  cost nothing; run them with `--live --credit-budget 1` to confirm the key and host.
+  cost nothing; run them with `--live --credit-budget 1` to confirm the key and host (batches shrink to
+  the remaining budget, so one address is sent). `--base-url` only accepts the three documented
+  ZeroBounce hosts (`api`, `api-us`, `api-eu` .zerobounce.net); the key is never sent anywhere else.
 - Facts relied on (zerobounce.net/docs, checked 3 Nov 2026): `POST /v2/validatebatch` JSON
   `{api_key, email_batch:[{email_address, ip_address}]}` → `{email_batch:[…], errors:[…]}`; statuses
   valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail; `GET/POST /v2/getcredits` →

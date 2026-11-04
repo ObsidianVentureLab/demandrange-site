@@ -80,6 +80,13 @@ def plan(rows, email_column):
             'batches': -(-len(sendable) // MAX_BATCH)}
 
 
+def _remaining_budget(client, default):
+    budget = getattr(client, 'credit_budget', None)
+    if budget is None:
+        return default
+    return max(0, int(budget) - int(getattr(client, 'credits_used', 0)))
+
+
 def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, data_mode=LIVE_MODE, now=None):
     verified_at = (now or _dt.datetime.now(_dt.timezone.utc)).strftime('%Y-%m-%dT%H:%M:%SZ')
     batch_size = max(1, min(int(batch_size), MAX_BATCH))
@@ -98,9 +105,16 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
         else:
             outcome[address] = {'status': 'skipped_local_syntax', 'sub_status': 'failed_local_syntax_check', 'decision': 'drop'}
             result.skipped_local_syntax += 1
-    for start in range(0, len(sendable), batch_size):
-        batch = sendable[start:start + batch_size]
+    start = 0
+    while start < len(sendable):
+        # Never ask for more than the budget can still cover: a first live check with
+        # --credit-budget 1 sends one address instead of failing on a full-size batch.
+        size = min(batch_size, _remaining_budget(client, batch_size))
+        batch = sendable[start:start + size]
         try:
+            if not batch:
+                raise BudgetExceeded(f'credit budget of {client.credit_budget} reached (used {client.credits_used}); '
+                                     f'{len(sendable) - start} address(es) left unverified')
             response = client.validate_batch(batch)
         except BudgetExceeded as error:
             result.stopped_reason = 'credit budget reached: ' + str(error)
@@ -109,6 +123,7 @@ def verify_rows(rows, columns, email_column, client, *, batch_size=MAX_BATCH, da
             break
         result.batches += 1
         result.sent += len(batch)
+        start += len(batch)
         result.api_errors.extend(dict(e) for e in response.errors)
         for item in response.results:
             outcome[item['address']] = dict(item, decision=DECISIONS.get(item['status'], 'review'))

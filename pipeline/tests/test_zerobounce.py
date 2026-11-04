@@ -174,6 +174,18 @@ class LiveClientWithFakeTransport(unittest.TestCase):
         with self.assertRaises(zb.ZeroBounceError):
             client.get_credits()
 
+    def test_unknown_hosts_are_refused_before_any_request(self):
+        for bad in ('https://api.zerobounce.net.example', 'https://zerobounce.net', 'https://api-eu.zerobounce.net:8443',
+                    'https://api-eu.zerobounce.net/v2', 'https://api-eu.zerobounce.net?x=1'):
+            with self.assertRaisesRegex(zb.ZeroBounceError, 'host one of'):
+                self.client((200, {'Credits': '1'}), base_url=bad)
+        self.assertEqual(self.sleeps, [])
+
+    def test_all_documented_hosts_are_accepted(self):
+        for good in zb.ALLOWED_HOSTS:
+            client, transport = self.client((200, {'Credits': '1'}), base_url='https://' + good)
+            self.assertEqual(client.base_url, 'https://' + good)
+
     def test_us_base_url_is_honoured(self):
         client, transport = self.client((200, {'Credits': '1'}), base_url=zb.US_BASE_URL + '/')
         client.get_credits()

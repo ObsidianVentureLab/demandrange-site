@@ -104,10 +104,18 @@ class LiveClientWithFakeTransport(unittest.TestCase):
         client, transport = self.client((401, {'error': 'nope'}))
         with self.assertRaisesRegex(apollo.ApolloAuthError, '401'):
             client.search_organizations(PARAMS)
+        self.assertEqual(client.credits_used, 0, 'a rejected key serves no page: reserved credit is released')
         client, transport = self.client((403, {'error_details': {'message': 'plan'}}))
         with self.assertRaisesRegex(apollo.ApolloError, '403.*plan'):
             client.search_organizations(PARAMS)
+        self.assertEqual(client.credits_used, 0, 'a plan rejection serves no page: reserved credit is released')
         self.assertEqual(self.sleeps, [])
+
+    def test_other_http_errors_keep_the_charge(self):
+        client, transport = self.client((404, {'error': 'gone'}))
+        with self.assertRaisesRegex(apollo.ApolloError, '404'):
+            client.search_organizations(PARAMS)
+        self.assertEqual(client.credits_used, 1, 'unexpected statuses stay conservatively counted')
 
     def test_429_and_5xx_retry_with_backoff_then_succeed(self):
         client, transport = self.client((429, {'error': 'slow down'}), (503, 'bad gateway'), page_payload(1, ['a']))

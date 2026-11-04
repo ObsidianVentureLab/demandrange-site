@@ -98,10 +98,6 @@ class Prospects(unittest.TestCase):
         self.assertIn('pages', err)
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 from pipeline import zerobounce as _zb  # noqa: E402
 from pipeline.tests.support import EXAMPLES as _EXAMPLES  # noqa: E402
 
@@ -188,3 +184,7 @@ class Export(unittest.TestCase):
                                  '--brief-ref', 'bad ref', '--dictionary-version', 'D', '--export-version', 'E')
         self.assertEqual(code, cli.EXIT_USAGE)
         self.assertIn('brief_ref', err)
+
+
+if __name__ == '__main__':
+    unittest.main()

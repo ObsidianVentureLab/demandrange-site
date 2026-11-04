@@ -8,8 +8,13 @@
   are in the United States. Override with base_url for other residency choices.
 - Default is live=False: without an injected transport every call raises LiveDisabled; with an
   injected transport (fixture replay) no key is needed and nothing leaves the process.
-- GET credits: POST {base_url}/v2/getcredits with a form-encoded body (accepted since Sept 2026),
-  so the key stays out of the URL. Not charged. Credits == -1 means the key is invalid.
+- Credits: POST {base_url}/v2/getcredits with a form-encoded body, so the key stays out of the URL.
+  ZeroBounce's v2-credit-balance doc states the endpoint accepts POST with the GET parameters as
+  application/x-www-form-urlencoded from 3 September 2026 (re-checked 4 Nov 2026). Not charged.
+  Credits == -1 means the key is invalid.
+- Batch items send "ip_address": null, the form shown in ZeroBounce's own example request.
+- base_url must be one of the three documented ZeroBounce hosts (ALLOWED_HOSTS); a typo can never
+  send the key elsewhere.
 """
 from dataclasses import dataclass
 import json
@@ -23,6 +28,7 @@ API_KEY_ENV = 'ZEROBOUNCE_API_KEY'
 EU_BASE_URL = 'https://api-eu.zerobounce.net'
 US_BASE_URL = 'https://api-us.zerobounce.net'
 DEFAULT_BASE_URL = EU_BASE_URL
+ALLOWED_HOSTS = ('api.zerobounce.net', 'api-us.zerobounce.net', 'api-eu.zerobounce.net')
 BATCH_PATH = '/v2/validatebatch'
 CREDITS_PATH = '/v2/getcredits'
 MAX_BATCH = 100
@@ -144,6 +150,10 @@ class ZeroBounceClient:
         self.base_url = base_url.rstrip('/')
         if not self.base_url.startswith('https://'):
             raise ZeroBounceError('base_url must use https')
+        host = urllib.parse.urlsplit(self.base_url)
+        if host.hostname not in ALLOWED_HOSTS or host.path or host.query or host.fragment or host.port:
+            raise ZeroBounceError('base_url must be exactly https://<host> with host one of ' + ', '.join(ALLOWED_HOSTS)
+                                  + ' (the API key is only ever sent to ZeroBounce)')
         if not self.live:
             self._key = None
             self.transport = transport or refusing_transport
