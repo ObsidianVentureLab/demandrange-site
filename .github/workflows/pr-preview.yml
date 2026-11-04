@@ -86,3 +86,5 @@ jobs:
           path: ${{ runner.temp }}/preview
           retention-days: 14
           if-no-files-found: error
+          # upload-artifact v4.4+ skips dot-files by default; the site serves .nojekyll and .well-known/*
+          include-hidden-files: true

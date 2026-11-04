@@ -37,12 +37,22 @@ def git_sha(source):
         return None
 
 
+def _symlink_names(directory, names):
+    """copytree ignore callback: every entry that is a symlink (file or directory)."""
+    return {n for n in names if os.path.islink(os.path.join(directory, n))}
+
+
 def build(source, output, noindex=True):
     source, output = Path(source).resolve(), Path(output).resolve()
     if not (source / 'index.html').is_file():
         raise SystemExit(f'build_preview: no index.html under {source}')
-    if output == source or source in output.parents or output in source.parents:
-        raise SystemExit('build_preview: output must not be inside, equal to, or an ancestor of the source tree')
+    # A top-level directory inside the source (e.g. `--output _site` for a hosted preview build) is
+    # allowed and left out of the copy; anything deeper, equal to, or above the source is refused.
+    excluded = set(EXCLUDED_TOP)
+    if output.parent == source:
+        excluded.add(output.name)
+    elif output == source or source in output.parents or output in source.parents:
+        raise SystemExit('build_preview: output must be outside the source tree or a top-level directory in it')
     if output.exists():
         if not (output / '_preview.json').is_file():
             raise SystemExit(f'build_preview: refusing to overwrite {output}: not a previous preview build')
@@ -50,10 +60,12 @@ def build(source, output, noindex=True):
     output.mkdir(parents=True)
     copied = 0
     for entry in sorted(source.iterdir()):
-        if entry.name in EXCLUDED_TOP or entry.is_symlink():
+        if entry.name in excluded or entry.is_symlink():
             continue
         if entry.is_dir():
-            shutil.copytree(entry, output / entry.name, symlinks=False)
+            # Symlinks at any depth are skipped, never followed: a link to a file outside the tree must
+            # not turn into a regular file in the preview.
+            shutil.copytree(entry, output / entry.name, symlinks=False, ignore=_symlink_names)
             copied += sum(1 for p in (output / entry.name).rglob('*') if p.is_file())
         else:
             shutil.copy2(entry, output / entry.name)

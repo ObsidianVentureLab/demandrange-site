@@ -76,8 +76,9 @@ class PreviewBuildTests(unittest.TestCase):
             (src / 'index.html').write_text('<!doctype html><title>x</title>', encoding='utf-8')
             with self.assertRaises(SystemExit):
                 build_preview.build(src, Path(tmp) / 'a')
+            # a top-level directory inside the source is the one allowed in-tree output (see the next tests)
             with self.assertRaises(SystemExit):
-                build_preview.build(src, src / 'out')
+                build_preview.build(src, src / 'deeper' / 'out')
 
     def test_noindex_by_default(self):
         robots = (self.out / 'robots.txt').read_text(encoding='utf-8')
@@ -120,9 +121,43 @@ class PreviewBuildTests(unittest.TestCase):
             build_preview.build(REPO, Path(tmp) / 'p')
             self.assertFalse((Path(tmp) / 'p' / 'stale.html').exists())
 
-    def test_refuses_output_inside_source(self):
+    def test_refuses_output_nested_inside_source(self):
         with self.assertRaises(SystemExit):
-            build_preview.build(REPO, REPO / '_site_should_not_exist')
+            build_preview.build(REPO, REPO / 'sub' / '_site_should_not_exist')
+        self.assertFalse((REPO / 'sub').exists())
+        with self.assertRaises(SystemExit):
+            build_preview.build(REPO, REPO)
+
+    def test_top_level_output_inside_source_is_allowed_and_left_out_of_the_copy(self):
+        # The hosted-preview build command is `--source . --output _site`, run inside the checkout.
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / 'src'
+            src.mkdir()
+            (src / 'index.html').write_text('<html></html>', encoding='utf-8')
+            (src / 'about.html').write_text('<html></html>', encoding='utf-8')
+            stamp = build_preview.build(src, src / '_site')
+            self.assertEqual(sorted(p.name for p in (src / '_site').iterdir()), ['_headers', '_preview.json', 'about.html', 'index.html', 'robots.txt'])
+            self.assertEqual(stamp['files'], 2)
+            again = build_preview.build(src, src / '_site')   # rebuild: _site never copies itself
+            self.assertEqual(again['files'], 2)
+            self.assertFalse((src / '_site' / '_site').exists())
+
+    def test_nested_symlinks_are_skipped_not_followed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src, outside = Path(tmp) / 'src', Path(tmp) / 'outside.txt'
+            (src / 'd').mkdir(parents=True)
+            outside.write_text('secret host data', encoding='utf-8')
+            (src / 'index.html').write_text('<html></html>', encoding='utf-8')
+            (src / 'd' / 'real.txt').write_text('ok', encoding='utf-8')
+            (src / 'd' / 'leak.txt').symlink_to(outside)
+            (src / 'd' / 'leakdir').symlink_to(Path(tmp))
+            (src / 'top-leak.txt').symlink_to(outside)
+            stamp = build_preview.build(src, Path(tmp) / 'out')
+            out = Path(tmp) / 'out'
+            self.assertTrue((out / 'd' / 'real.txt').is_file())
+            for leaked in ('d/leak.txt', 'd/leakdir', 'top-leak.txt'):
+                self.assertFalse((out / leaked).exists(), leaked)
+            self.assertEqual(stamp['files'], 2)
         self.assertFalse((REPO / '_site_should_not_exist').exists())
 
     def test_cli_runs(self):

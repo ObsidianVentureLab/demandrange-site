@@ -24,7 +24,9 @@ To review: download the artifact from the run, unzip, then
 python3 serve.py _site
 ```
 
-and open http://127.0.0.1:8000/. `serve.py` reproduces GitHub Pages' clean URLs (`/about` →
+and open http://127.0.0.1:8000/. The artifact includes the dot-files the site serves (`.nojekyll`,
+`.well-known/security.txt`, `.well-known/mta-sts.txt`); symlinks anywhere in the tree are never
+followed. `serve.py` reproduces GitHub Pages' clean URLs (`/about` →
 `about.html`, `/` → `index.html`, unknown → `404.html`), refuses dot-paths and traversal, and
 sends `X-Robots-Tag: noindex` on every response. Python 3 standard library only. It listens on
 127.0.0.1 only; `--bind` exists for the rare case of reviewing from another device on the same
@@ -59,7 +61,8 @@ status on each PR. Steps (Cloudflare dashboard, ~10 minutes):
    project (free for up to 50 users), if previews should not be public.
 
 Nothing in the repo changes for this; the build script already writes `_headers` and
-excludes `CNAME`. The live site stays on GitHub Pages.
+excludes `CNAME`, and it accepts a top-level output directory inside the checkout (`_site`
+above) by leaving that directory out of the copy. The live site stays on GitHub Pages.
 
 ### Option B: Netlify (Deploy Previews)
 
