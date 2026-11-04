@@ -132,8 +132,10 @@ def cmd_verify(args):
         client = zerobounce.ZeroBounceClient(live=False, transport=transport, credit_budget=budget, base_url=args.base_url)
         data_mode = verify.FIXTURE_MODE
     result = verify.verify_rows(rows, columns, email_column, client, batch_size=args.batch_size, data_mode=data_mode)
+    # client.credit_budget is the budget actually enforced (fixture mode defaults it to the sendable count
+    # when --credit-budget is 0), so the manifest never records 0 for a run that verified addresses.
     csv_path, manifest_path = verify.write_outputs(result, args.input, args.out, data_mode=data_mode,
-                                                   client=client, credit_budget=args.credit_budget)
+                                                   client=client, credit_budget=client.credit_budget)
     _emit({'ok': True, 'dry_run': False, 'data_mode': data_mode, 'rows': len(result.rows),
            'addresses_sent': result.sent, 'credits_charged': client.credits_used,
            'skipped_local_syntax': result.skipped_local_syntax, 'not_verified': result.not_verified,

@@ -151,6 +151,15 @@ class Verify(unittest.TestCase):
             self.assertEqual((data['rows'], data['addresses_sent'], data['credits_charged']), (9, 6, 6))
             self.assertEqual(sorted(os.listdir(tmp)), ['emails-fixture-verified.csv', 'emails-fixture-verified.manifest.json'])
 
+    def test_fixture_manifest_records_the_budget_actually_enforced(self):
+        for argv, expected in (((), 6), (('--credit-budget', '4'), 4)):
+            with self.subTest(argv=argv), tempfile.TemporaryDirectory() as tmp:
+                code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--fixture', str(ZB_RESULTS_PATH), *argv)
+                self.assertEqual(code, 0, err)
+                manifest = json.loads((Path(tmp) / 'emails-fixture-verified.manifest.json').read_text(encoding='utf-8'))
+                self.assertEqual(manifest['zerobounce']['credit_budget'], expected, 'fixture mode defaults the budget to the sendable count')
+                self.assertLessEqual(manifest['zerobounce']['credits_charged'], expected)
+
     def test_live_without_budget_sends_nothing(self):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {_zb.API_KEY_ENV: FAKE_KEY}):
             code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp, '--live')
