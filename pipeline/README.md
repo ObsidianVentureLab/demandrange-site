@@ -94,9 +94,10 @@ python -m pipeline verify --input LIST.csv --out out/ --live --credit-budget 50
 - **Data residency:** default host is `api-eu.zerobounce.net`; `api.zerobounce.net` and `api-us…`
   process in the United States (`--base-url` to change). Addresses are personal data: keep inputs
   and outputs outside the repository, and verify only lists with a lawful basis for the outreach.
-- **Retries and real spend:** as with Apollo, a batch whose transport failed is retried up to 3 times
-  without reserving credits again; if the request did reach ZeroBounce, that batch was charged. The
-  manifest records `transport_retries`; when non-zero, compare with `credits --live`.
+- **Retries and real spend:** as with Apollo, a batch whose transport failed or that got an HTTP 429/5xx
+  reply is retried up to 3 times without reserving credits again; if ZeroBounce had already processed
+  it, that batch was charged. The manifest records `zerobounce.retries`; when non-zero, compare with
+  `credits --live`.
 - **Dedup:** each normalised address (trimmed, lower-cased) is verified once and mapped back to every row.
 - **First live check without spending:** ZeroBounce's sandbox addresses (e.g. `valid@example.com`,
   `invalid@example.com`, `catch_all@example.com`, see docs "Sandbox Mode") return fixed results and
