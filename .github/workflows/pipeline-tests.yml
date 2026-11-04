@@ -9,6 +9,15 @@ on:
       - 'pipeline/**'
       - '.github/workflows/pipeline-tests.yml'
       - '.github/ci/gitleaks.sh'
+      # the committed-data guard must also run when only data files change
+      - '.github/ci/data_guard.py'
+      - '.github/ci/test_data_guard.py'
+      - '.gitignore'
+      - 'out/**'
+      - '**/deliveries/**'
+      - '**/*.sqlite*'
+      - '**/*.db'
+      - '**/*.db-*'
   push:
     branches: ['ws/**', 'source/**']
 
@@ -76,6 +85,11 @@ jobs:
           python -B -m pipeline db --db "$DB" record-delivery "$RUNNER_TEMP/deliveries/demo-client/ci/MANIFEST.json" > "$RUNNER_TEMP/rec.json"
           python -B -m pipeline db --db "$DB" search alpha > "$RUNNER_TEMP/search.json"
           python -c "import json,os; t=os.environ['RUNNER_TEMP']; i=json.load(open(t+'/imp.json')); r=json.load(open(t+'/rec.json')); s=json.load(open(t+'/search.json')); assert i['rows_new']==3 and r['rows_delivered']==3 and len(s['clients'])==1; print('db ok')"
+
+      - name: Committed-data guard (no outputs, databases or real emails tracked; the repo is public)
+        run: |
+          python -B .github/ci/test_data_guard.py
+          python -B .github/ci/data_guard.py .
 
       - name: Secret scan (pinned gitleaks, full history of this ref)
         run: .github/ci/gitleaks.sh "$GITHUB_WORKSPACE"
