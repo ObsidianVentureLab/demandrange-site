@@ -1,4 +1,4 @@
-# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3)
+# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3) → per-client export (P4)
 
 Company-level candidate generation for Demand Range research briefs. Input is a JSON brief
 mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output is a CSV of
@@ -132,6 +132,34 @@ python -m pipeline verify --input ~/dr-data/LIST.csv --out ~/dr-data/out/ --live
   `{api_key, email_batch:[{email_address, ip_address}]}` → `{email_batch:[…], errors:[…]}`; statuses
   valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail; `GET/POST /v2/getcredits` →
   `{Credits}` (-1 = invalid key); batches above ~200 belong to the bulk file API; rate limits apply.
+
+## P4: per-client export for manual delivery (`export`)
+Builds `<out>/<client-slug>/<export-id>/` with a CSV (UTF-8 with BOM, every value quoted text), an
+optional `.xlsx` (standard-library SpreadsheetML, every cell an inline string so identifiers keep
+leading zeros and nothing is reinterpreted), a client-facing `README.txt` and `MANIFEST.json`
+(inputs with sha256 and linked source manifests, selection applied, columns, per-file sha256).
+Nothing is sent: Sean delivers the folder by hand.
+
+```
+python -m pipeline export --input ~/dr-data/out/list-verified.csv --out ~/dr-data/deliveries/ --client "Client Ltd" \
+  --brief-ref BRIEF-2026-11-v1 --dictionary-version DICT-v1 --export-version EXPORT-v1 \
+  [--include-decisions keep,review] [--drop-columns zb_sub_status,zb_domain_age_days] [--dedupe-on work_email] [--xlsx]
+```
+
+- Rows with a `verification_decision` are filtered to `keep` by default; `--include-decisions` widens that.
+- `brief_ref`, `dictionary_version`, `export_version`, `export_id`, `exported_at` and `client_ref` are stamped on
+  every row (the lesson of `foundation/handover-*.csv`: versions travel with the data, blank is not "none").
+- CSV cells starting with `=`, `@`, or a `+`/`-` that is not a phone/signed number get a leading apostrophe
+  (formula injection guard, as in Code.gs); the XLSX needs none because every cell is an inline string.
+  Code points XML forbids (C0 controls other than tab/LF/CR, lone surrogates, U+FFFE, U+FFFF) are
+  dropped from XLSX cells only, so the workbook always opens; the CSV keeps every value as received.
+- `--include-decisions` must name at least one value; an empty list is a usage error, never an empty delivery.
+- Several input CSVs may be combined when they share one header; a non-empty target folder is refused.
+- `--dedupe-on COLUMN` keeps one row per value (trimmed, case-insensitive): the row with the best
+  `verification_decision` (keep, then review, then anything else), first seen on ties.
+- MANIFEST.json `selection.decisions_included` is recorded whenever the input carried
+  `verification_decision`, even if that column is then dropped from the delivery.
+- `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
 
 ## Tests
 ```

@@ -216,5 +216,27 @@ class Credits(unittest.TestCase):
         self.assertNotIn(FAKE_KEY, err)
 
 
+class Export(unittest.TestCase):
+    def test_end_to_end_from_verified_fixture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('verify', '--input', str(EMAILS_PATH), '--out', tmp + '/v', '--fixture', str(ZB_RESULTS_PATH))
+            self.assertEqual(code, 0, err)
+            code, out, err = run('export', '--input', tmp + '/v/emails-fixture-verified.csv', '--out', tmp + '/d', '--client', 'Demo Client',
+                                 '--brief-ref', 'DEMO-BRIEF-A-v1', '--dictionary-version', 'DEMO-DICT-v1', '--export-version', 'DEMO-EXPORT-v1',
+                                 '--export-id', 'E1', '--include-decisions', 'keep,review', '--dedupe-on', 'work_email', '--xlsx')
+            self.assertEqual(code, 0, err)
+            data = json.loads(out)
+            self.assertEqual((data['rows_delivered'], data['rows_read'], data['duplicates_dropped']), (3, 9, 1))
+            self.assertEqual(data['files'], ['README.txt', 'demo-client-E1.csv', 'demo-client-E1.xlsx'])
+            self.assertTrue(Path(data['folder'], 'MANIFEST.json').exists())
+
+    def test_bad_versions_are_usage_errors(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('export', '--input', str(EMAILS_PATH), '--out', tmp, '--client', 'x',
+                                 '--brief-ref', 'bad ref', '--dictionary-version', 'D', '--export-version', 'E')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('brief_ref', err)
+
+
 if __name__ == '__main__':
     unittest.main()

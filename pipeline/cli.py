@@ -4,6 +4,7 @@
     prospects --brief FILE --out DIR [--fixture FILE | --live --credit-budget N]
     verify    --input CSV  --out DIR [--email-column NAME] [--fixture FILE | --live --credit-budget N]
     credits   --live                            ZeroBounce credit balance (not charged)
+    export    --input CSV [CSV...] --client NAME --brief-ref R --dictionary-version D --export-version E --out DIR [--xlsx]
 
 Default is a dry run: the plan (filters/addresses, max credits) is printed and nothing is sent.
 --fixture replays a canned response file offline. --live needs the provider key in the
@@ -14,7 +15,7 @@ import argparse
 import json
 import sys
 
-from . import apollo, icp, pathguard, prospects, verify, zerobounce
+from . import apollo, export, icp, pathguard, prospects, verify, zerobounce
 
 EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroBounce) error
 
@@ -66,6 +67,21 @@ def build_parser():
     cred = sub.add_parser('credits', help='print the ZeroBounce credit balance (needs --live; not charged)')
     cred.add_argument('--live', action='store_true', help=f'call ZeroBounce (key from ${zerobounce.API_KEY_ENV})')
     cred.add_argument('--base-url', default=zerobounce.DEFAULT_BASE_URL)
+
+    exp = sub.add_parser('export', help='build a per-client delivery folder (CSV, optional XLSX, README, MANIFEST); nothing is sent')
+    exp.add_argument('--input', required=True, nargs='+', help='one or more CSVs with the same header (e.g. a verified list)')
+    exp.add_argument('--out', required=True, help='deliveries root; the folder <out>/<client>/<export-id>/ is created')
+    exp.add_argument('--client', required=True, help='client name; slugified for folder and file names')
+    exp.add_argument('--brief-ref', required=True, help='agreed brief reference, e.g. DEMO-BRIEF-A-v1')
+    exp.add_argument('--dictionary-version', required=True, help='field dictionary version, e.g. DEMO-DICT-v1')
+    exp.add_argument('--export-version', required=True, help='output format version, e.g. DEMO-EXPORT-v1')
+    exp.add_argument('--export-id', help='delivery identifier (default: UTC timestamp)')
+    exp.add_argument('--include-decisions', default='keep',
+                     help='comma list of verification_decision values to deliver (default keep; e.g. keep,review)')
+    exp.add_argument('--drop-columns', default='', help='comma list of columns to leave out (e.g. zb_sub_status,zb_domain_age_days)')
+    exp.add_argument('--dedupe-on', help='one row per value of this column (case-insensitive); the row with the best verification_decision is kept')
+    exp.add_argument('--keep-fiction-notice', action='store_true', help='keep a fiction_notice column (fixtures only)')
+    exp.add_argument('--xlsx', action='store_true', help='also write an .xlsx workbook (all cells text)')
     return parser
 
 
@@ -158,7 +174,22 @@ def cmd_credits(args):
     return EXIT_OK
 
 
-COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_verify, 'credits': cmd_credits}
+def cmd_export(args):
+    result = export.build(
+        args.input, client=args.client, brief_ref=args.brief_ref, dictionary_version=args.dictionary_version,
+        export_version=args.export_version, export_id=args.export_id,
+        decisions=tuple(args.include_decisions.split(',')),
+        drop_columns=tuple(c.strip() for c in args.drop_columns.split(',') if c.strip()),
+        keep_fiction_notice=args.keep_fiction_notice, dedupe_on=args.dedupe_on)
+    folder, manifest = export.write_delivery(result, args.out, xlsx=args.xlsx)
+    _emit({'ok': True, 'folder': str(folder), 'rows_delivered': manifest['rows_delivered'],
+           'rows_read': result.rows_read, 'rows_excluded_by_decision': result.rows_excluded_by_decision,
+           'duplicates_dropped': result.duplicates_dropped, 'files': sorted(manifest['files']),
+           'delivery': manifest['delivery']})
+    return EXIT_OK
+
+
+COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_verify, 'credits': cmd_credits, 'export': cmd_export}
 
 
 # Data paths every sub-command may take. Inputs may name the fictional fixtures under pipeline/examples/;
@@ -171,8 +202,9 @@ def guard_paths(args):
     """Refuse data paths inside the repository before anything is read or written."""
     for name in INPUT_PATH_ARGS + OUTPUT_PATH_ARGS:
         value = getattr(args, name, None)
-        if isinstance(value, str) and value:
-            pathguard.refuse_inside_repo(value, '--' + name.replace('_', '-'), allow_examples=name in INPUT_PATH_ARGS)
+        for item in (value if isinstance(value, (list, tuple)) else [value]):   # export --input takes several
+            if isinstance(item, str) and item:
+                pathguard.refuse_inside_repo(item, '--' + name.replace('_', '-'), allow_examples=name in INPUT_PATH_ARGS)
 
 
 def main(argv=None):
@@ -187,7 +219,7 @@ def main(argv=None):
     except icp.ICPError as error:
         _emit({'ok': False, 'error': 'brief rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
-    except verify.VerifyError as error:
+    except (verify.VerifyError, export.ExportError) as error:
         _emit({'ok': False, 'error': 'input rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
     except (apollo.ApolloError, zerobounce.ZeroBounceError) as error:

@@ -90,6 +90,17 @@ class CliRefusesTheRealCheckout(unittest.TestCase):
         self.assertEqual(code, cli.EXIT_USAGE)
         self.assertIn('--brief', json.loads(err)['error'])
 
+    def test_every_export_input_is_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            outside = Path(tmp) / 'a.csv'
+            outside.write_text('email\n', encoding='utf-8')
+            code, _, err = run('export', '--input', str(outside), str(REPO / 'pipeline' / 'README.md'),
+                               '--out', str(Path(tmp) / 'd'), '--client', 'Demo', '--brief-ref', 'B-v1',
+                               '--dictionary-version', 'D-v1', '--export-version', 'E-v1')
+            self.assertFalse((Path(tmp) / 'd').exists())
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('--input', json.loads(err)['error'])
+
     def test_fixture_brief_with_out_outside_is_accepted(self):
         with tempfile.TemporaryDirectory() as tmp:
             code, out, _ = run('prospects', '--brief', str(BRIEF), '--out', tmp)
