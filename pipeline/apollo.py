@@ -145,6 +145,10 @@ class ApolloClient:
                                  f'(used {self.credits_used}, next request needs {credits}); raise --credit-budget deliberately')
         self.credits_used += credits
 
+    def _refund(self, credits=1):
+        # Apollo serves no page on an auth/plan rejection, so the reserved credit was not spent.
+        self.credits_used = max(0, self.credits_used - credits)
+
     # -- API ---------------------------------------------------------------------------------------
     def search_organizations(self, params, page=1, per_page=MAX_PER_PAGE):
         if self.transport is refusing_transport:
@@ -174,8 +178,10 @@ class ApolloClient:
             if status == 200 and isinstance(payload, dict):
                 return self._parse(payload, page, per_page)
             if status == 401:
+                self._refund(1)
                 raise ApolloAuthError(f'Apollo rejected the key in {self.api_key_env} (HTTP 401)')
             if status == 403:
+                self._refund(1)
                 raise ApolloError('Apollo returned HTTP 403: endpoint needs a paid plan or master API key: ' + self._redact(_detail(payload)))
             if status == 429 or 500 <= status < 600:
                 if attempt > self.max_retries:
