@@ -238,6 +238,21 @@ class Writing(unittest.TestCase):
             with zipfile.ZipFile(a) as archive:
                 self.assertIn('xml:space="preserve"', archive.read('xl/worksheets/sheet1.xml').decode('utf-8'))
 
+    def test_xlsx_drops_xml_invalid_code_points_and_parses(self):
+        """QA B61-3: U+FFFF (and friends) made sheet1.xml malformed, so Excel refused the workbook."""
+        from xml.etree import ElementTree
+        bad = 'a\uffffb\ufffec\ud800d\x01e\x0bf'
+        kept = 'tab\there\nline\u2028sep \U0001F600 \ufffd'
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'x.xlsx'
+            export.write_xlsx(path, ['h\uffff', 'k'], [{'h\uffff': bad, 'k': kept}], sheet_name='S\ufffe')
+            with zipfile.ZipFile(path) as archive:
+                sheet = ElementTree.fromstring(archive.read('xl/worksheets/sheet1.xml'))
+                ElementTree.fromstring(archive.read('xl/workbook.xml'))
+        ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+        texts = [t.text for t in sheet.iterfind('.//m:t', ns)]
+        self.assertEqual(texts, ['h', 'k', 'abcdef', kept])
+
     def test_column_names(self):
         self.assertEqual([export._col_name(i) for i in (0, 25, 26, 27, 701, 702)], ['A', 'Z', 'AA', 'AB', 'ZZ', 'AAA'])
 

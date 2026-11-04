@@ -183,12 +183,21 @@ def _col_name(index):
     return name
 
 
+# Code points XML 1.0 forbids (C0 controls except tab/LF/CR, lone surrogates, U+FFFE/U+FFFF). One of them in
+# sheet1.xml makes the workbook malformed and Excel refuses the file, so they are dropped from XLSX cells.
+# The CSV keeps the value exactly as received.
+XML_INVALID = re.compile('[\x00-\x08\x0b\x0c\x0e-\x1f\ud800-\udfff\ufffe\uffff]')
+
+
+def xml_text(value):
+    return XML_INVALID.sub('', str(value))
+
+
 def write_xlsx(path, columns, rows, sheet_name='Delivery'):
     """Minimal .xlsx (SpreadsheetML) with every cell as an inline string: no type inference,
     no leading-zero loss, no dates reinterpreted. Standard library only."""
     def cell(ref, value):
-        text = escape(str(value), {'"': '&quot;'})
-        text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
+        text = escape(xml_text(value), {'"': '&quot;'})
         space = ' xml:space="preserve"' if text != text.strip() or '  ' in text else ''
         return f'<c r="{ref}" t="inlineStr"><is><t{space}>{text}</t></is></c>'
     lines = ['<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',
@@ -201,7 +210,7 @@ def write_xlsx(path, columns, rows, sheet_name='Delivery'):
     workbook = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
                 '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
                 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
-                f'<sheets><sheet name="{escape(sheet_name)}" sheetId="1" r:id="rId1"/></sheets></workbook>')
+                f'<sheets><sheet name="{escape(xml_text(sheet_name))}" sheetId="1" r:id="rId1"/></sheets></workbook>')
     wb_rels = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
                '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
