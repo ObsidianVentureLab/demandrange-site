@@ -44,7 +44,8 @@ def build_parser():
     mode.add_argument('--live', action='store_true',
                       help=f'call Apollo for real (key from ${apollo.API_KEY_ENV}; requires --credit-budget)')
     run.add_argument('--credit-budget', type=int, default=0,
-                     help='maximum Apollo credits (pages) this run may spend; default 0 = none')
+                     help='maximum Apollo credits (pages) this run may spend; default 0 = none. With --fixture, '
+                          f'0 means no page cap (replay costs nothing; at most {apollo.MAX_PAGES} pages)')
     return parser
 
 
