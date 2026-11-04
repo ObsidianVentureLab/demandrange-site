@@ -91,4 +91,53 @@ rejected(['IE', 'GLOBAL'], 'valid plus unknown');
 rejected(['EMEA', 'nam'], 'legacy plus case-mangled legacy');
 rejected(['X'.repeat(101)], 'oversize value');
 
-console.log('PASS: ' + assertions + ' region-contract assertions; live form, template, schema and Code.gs agree; IE/UK/EU and legacy values accepted; bad values rejected');
+// --- 5. Drift guard: every checkbox taxonomy and hidden version the page sends must be accepted -----
+// Covers industries and seniority (not just regions) and the form/privacy/consent version fields, for
+// both the live snapshot and the template as build_site.py renders it. A mismatch fails CI.
+// Browsers decode attribute entities before submitting, so compare the decoded value.
+const ENTITIES = {'&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&apos;': "'"};
+function decodeAttr(value) { return value.replace(/&(amp|lt|gt|quot|#39|apos);/g, m => ENTITIES[m]); }
+function checkboxValues(html, name) {
+  const pattern = new RegExp('<input[^>]*\\bname="' + name + '"[^>]*>', 'g');
+  return (html.match(pattern) || []).map(tag => decodeAttr((tag.match(/\bvalue="([^"]*)"/) || [])[1]));
+}
+function hiddenValue(html, name) {
+  const tag = (html.match(new RegExp('<input[^>]*\\bname="' + name + '"[^>]*>')) || [])[0];
+  check(tag && /\btype="hidden"/.test(tag), name + ' hidden input missing');
+  return (tag.match(/\bvalue="([^"]*)"/) || [])[1];
+}
+const buildSource = read('..', 'build_site.py');
+function buildConstant(name) {
+  const match = buildSource.match(new RegExp('^' + name + " = '([^']+)'$", 'm'));
+  check(match, 'build_site.py does not define ' + name);
+  return match[1];
+}
+const templateRendered = read('request-a-quote.template.html')
+  .replace(/\{\{FORM_VERSION\}\}/g, buildConstant('FORM_VERSION'))
+  .replace(/\{\{PRIVACY_VERSION\}\}/g, buildConstant('PRIVACY_VERSION'))
+  .replace(/\{\{CONSENT_VERSION\}\}/g, buildConstant('CONSENT_VERSION'));
+[['live page', read('live', 'request-a-quote.html')], ['template (rendered)', templateRendered]].forEach(([label, html]) => {
+  const taxonomies = [['industries', api.FORM.industries, schema.fields.industries.values],
+                      ['regions', api.FORM.acceptedRegions, schema.fields.regions.values.concat(schema.fields.regions.legacy_values)],
+                      ['seniority', api.FORM.seniority, schema.fields.seniority.values]];
+  taxonomies.forEach(([name, handlerValues, schemaValues]) => {
+    const sent = checkboxValues(html, name);
+    check(sent.length > 0, label + ': no ' + name + ' checkboxes found');
+    sent.forEach(v => { check(Array.from(handlerValues).includes(v), label + ': ' + name + ' value ' + JSON.stringify(v) + ' is not accepted by Code.gs'); });
+    sent.forEach(v => { check(schemaValues.includes(v), label + ': ' + name + ' value ' + JSON.stringify(v) + ' is not in form_schema.json'); });
+  });
+  check(hiddenValue(html, 'form_version') === api.FORM.formVersion, label + ': form_version differs from Code.gs');
+  check(hiddenValue(html, 'form_version') === schema.hidden_fields.form_version.must_equal, label + ': form_version differs from schema');
+  const privacy = hiddenValue(html, 'privacy_notice_version');
+  check(Array.from(api.FORM.acceptedPrivacyVersions).includes(privacy), label + ': privacy_notice_version ' + privacy + ' is not accepted by Code.gs');
+  check(schema.hidden_fields.privacy_notice_version.backend_accepts.includes(privacy), label + ': privacy_notice_version ' + privacy + ' is not in schema backend_accepts');
+  check(hiddenValue(html, 'consent_text_version') === api.FORM.consentVersion, label + ': consent_text_version differs from Code.gs');
+  check(hiddenValue(html, 'consent_text_version') === schema.hidden_fields.consent_text_version.must_equal, label + ': consent_text_version differs from schema');
+  check(hiddenValue(html, 'source_page') === 'request-a-quote.html', label + ': source_page changed');
+});
+assert.deepStrictEqual(Array.from(api.FORM.acceptedPrivacyVersions), schema.hidden_fields.privacy_notice_version.backend_accepts, 'privacy allow-list differs between Code.gs and schema'); assertions += 1;
+check(api.FORM.acceptedPrivacyVersions.includes(api.FORM.privacyVersion), 'current privacy version must be in its own allow-list');
+check(api.FORM.acceptedPrivacyVersions.includes('2026-10-28-v1'), 'fixes/15 privacy version must stay accepted');
+check(api.FORM.privacyVersion === schema.hidden_fields.privacy_notice_version.must_equal, 'current privacy version differs between Code.gs and schema');
+
+console.log('PASS: ' + assertions + ' region-contract and drift-guard assertions; live form, template, schema and Code.gs agree on regions, industries, seniority and form/privacy/consent versions; IE/UK/EU and legacy values accepted; bad values rejected');

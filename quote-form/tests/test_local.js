@@ -72,4 +72,12 @@ assert.deepEqual(Array.from(api.FORM.columns), schema.raw_response_columns);
 assert.equal(api.FORM.serviceModel, 'hybrid_10_90_target');
 const legacy = fresh(); legacy.regions = ['EMEA'];
 assert.deepEqual(Array.from(accept(legacy).regions), ['EMEA']);
-console.log('PASS: 27 backend/schema assertions; validation, enum allowlists, consent boundaries and formula neutralisation passed');
+// fixes/15 rev 3: privacy-version allow-list. Both versions pass and are returned as submitted; anything else is version_mismatch.
+assert.deepEqual(Array.from(api.FORM.acceptedPrivacyVersions), schema.hidden_fields.privacy_notice_version.backend_accepts);
+assert.equal(fixture.privacy_notice_version, api.FORM.privacyVersion);
+assert.equal(schema.hidden_fields.privacy_notice_version.must_equal, api.FORM.privacyVersion);
+['2026-09-11-v1', '2026-10-28-v1'].forEach(v => { const p = fresh(); p.privacy_notice_version = v; assert.equal(accept(p).privacyVersion, v, 'privacy version ' + v); });
+['2026-09-11-v2', '2026-10-28', '2026-10-28-V1', ' 2026-10-28-v1', 'old', ''].forEach(v => { const p = fresh(); p.privacy_notice_version = v; assert.throws(() => accept(p), /version_mismatch/, 'privacy version ' + JSON.stringify(v)); });
+{ const p = fresh(); delete p.privacy_notice_version; assert.throws(() => accept(p), /version_mismatch/, 'missing privacy version'); }
+assert(code.includes('privacy_notice_version: request.privacyVersion,'), 'row must record the submitted privacy version');
+console.log('PASS: 40 backend/schema assertions; validation, enum allowlists, privacy-version allow-list (2026-09-11-v1 + 2026-10-28-v1), consent boundaries and formula neutralisation passed');
