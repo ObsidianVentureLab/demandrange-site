@@ -1,4 +1,4 @@
-# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3) → per-client export (P4)
+# pipeline — ICP brief → Apollo company candidates (P2) → ZeroBounce verification (P3) → per-client export (P4) → client database (P5)
 
 Company-level candidate generation for Demand Range research briefs. Input is a JSON brief
 mirroring `foundation/industrial-ideal-customer-profile-worksheet.csv`; output is a CSV of
@@ -160,6 +160,32 @@ python -m pipeline export --input ~/dr-data/out/list-verified.csv --out ~/dr-dat
 - MANIFEST.json `selection.decisions_included` is recorded whenever the input carried
   `verification_decision`, even if that column is then dropped from the delivery.
 - `fiction_notice` columns are dropped unless `--keep-fiction-notice` (fixtures only).
+
+## P5: searchable client database (`db`)
+SQLite file (standard library) **kept outside the repository**: clients, quote requests imported from the
+Sheet's Raw Responses CSV export (idempotent, text exactly as exported), agreed briefs, and deliveries
+recorded from P4 manifests. Design and decision for Sean: `CLIENT-DB-DESIGN.md`.
+
+```
+python -m pipeline db --db ~/dr-data/demandrange.sqlite init
+python -m pipeline db --db … import-sheet ~/dr-data/raw-responses-export.csv
+python -m pipeline db --db … add-brief --brief-ref BRIEF-v1 --client-ref client-ltd --status agreed --file ~/dr-data/brief.json
+python -m pipeline db --db … record-delivery ~/dr-data/deliveries/client-ltd/20261103T120000Z/MANIFEST.json
+python -m pipeline db --db … mark-delivered --client-ref client-ltd --export-id 20261103T120000Z --via "email to named contact"
+python -m pipeline db --db … search "pumps" | client client-ltd | retention-due | summary
+```
+The database holds personal data (the requests): same access rule as the Sheet, never committed.
+- `--db` (and every input file) inside the repository checkout is refused (exit 2) before anything is
+  created. The database and its `-wal`/`-shm` sidecars are created owner-only (0600), and a file found
+  with a wider mode is tightened to 0600 when opened.
+- Imported values are stored exactly as exported, spaces included; only derived values (the client name
+  and ref, the website domain, the search term) are normalised. `retention_review_at` must be an ISO date
+  or date-time (`2029-01-15`, `2029-01-15T10:00:00Z`); anything else (`15/01/2029`) rejects the whole file.
+- `init` creates the file but never its directory: a mistyped `--db` path is an error, not a new empty database.
+  Every other sub-command needs an existing, initialised file.
+- `add-brief` on an existing brief ref updates its version/status/hash (same client) and keeps `created_at`;
+  moving a brief ref to another client is refused, use a new ref.
+- `retention-due` compares and labels dates in UTC, matching the stored timestamps (`--on` overrides).
 
 ## Tests
 ```

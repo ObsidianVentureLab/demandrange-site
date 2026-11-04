@@ -101,6 +101,14 @@ class CliRefusesTheRealCheckout(unittest.TestCase):
         self.assertEqual(code, cli.EXIT_USAGE)
         self.assertIn('--input', json.loads(err)['error'])
 
+    def test_db_inside_the_checkout_is_refused_and_not_created(self):
+        target = REPO / 'clients-pathguard-test.sqlite'
+        self.assertFalse(target.exists())
+        code, _, err = run('db', '--db', str(target), 'init')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('--db', json.loads(err)['error'])
+        self.assertFalse(target.exists())
+
     def test_fixture_brief_with_out_outside_is_accepted(self):
         with tempfile.TemporaryDirectory() as tmp:
             code, out, _ = run('prospects', '--brief', str(BRIEF), '--out', tmp)

@@ -5,6 +5,7 @@
     verify    --input CSV  --out DIR [--email-column NAME] [--fixture FILE | --live --credit-budget N]
     credits   --live                            ZeroBounce credit balance (not charged)
     export    --input CSV [CSV...] --client NAME --brief-ref R --dictionary-version D --export-version E --out DIR [--xlsx]
+    db        --db FILE init | import-sheet CSV | record-delivery MANIFEST | mark-delivered | search TERM | client REF | retention-due | summary
 
 Default is a dry run: the plan (filters/addresses, max credits) is printed and nothing is sent.
 --fixture replays a canned response file offline. --live needs the provider key in the
@@ -15,7 +16,7 @@ import argparse
 import json
 import sys
 
-from . import apollo, export, icp, pathguard, prospects, verify, zerobounce
+from . import apollo, clientdb, export, icp, pathguard, prospects, verify, zerobounce
 
 EXIT_OK, EXIT_USAGE, EXIT_PROVIDER = 0, 2, 3   # 3 = any provider (Apollo, ZeroBounce) error
 
@@ -82,6 +83,33 @@ def build_parser():
     exp.add_argument('--dedupe-on', help='one row per value of this column (case-insensitive); the row with the best verification_decision is kept')
     exp.add_argument('--keep-fiction-notice', action='store_true', help='keep a fiction_notice column (fixtures only)')
     exp.add_argument('--xlsx', action='store_true', help='also write an .xlsx workbook (all cells text)')
+
+    db = sub.add_parser('db', help='searchable client database (SQLite file outside the repo; holds personal data)')
+    db.add_argument('--db', required=True, help='SQLite file path (create with: db --db FILE init)')
+    dbsub = db.add_subparsers(dest='db_command', required=True)
+    dbsub.add_parser('init', help='create or upgrade the schema')
+    imp = dbsub.add_parser('import-sheet', help='import the Sheet\'s Raw Responses CSV export (idempotent)')
+    imp.add_argument('csv')
+    rec = dbsub.add_parser('record-delivery', help='record a P4 export folder from its MANIFEST.json')
+    rec.add_argument('manifest')
+    mark = dbsub.add_parser('mark-delivered', help='note that Sean sent a recorded export (manual step)')
+    mark.add_argument('--client-ref', required=True)
+    mark.add_argument('--export-id', required=True)
+    mark.add_argument('--via', required=True, help='how it was sent, e.g. "email to named contact, 3 Nov"')
+    brief = dbsub.add_parser('add-brief', help='register an agreed brief for a client')
+    brief.add_argument('--brief-ref', required=True)
+    brief.add_argument('--client-ref', required=True)
+    brief.add_argument('--brief-version', default='')
+    brief.add_argument('--supplier-range', default='')
+    brief.add_argument('--status', default='draft', choices=['draft', 'agreed', 'superseded'])
+    brief.add_argument('--file', help='brief JSON to fingerprint (sha256 recorded)')
+    srch = dbsub.add_parser('search', help='search clients, requests and deliveries')
+    srch.add_argument('term')
+    cl = dbsub.add_parser('client', help='show one client with requests, briefs and deliveries')
+    cl.add_argument('client_ref')
+    ret = dbsub.add_parser('retention-due', help='requests whose retention_review_at is today or earlier')
+    ret.add_argument('--on', help='YYYY-MM-DD (default today)')
+    dbsub.add_parser('summary', help='row counts and requests by status')
     return parser
 
 
@@ -189,7 +217,42 @@ def cmd_export(args):
     return EXIT_OK
 
 
-COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_verify, 'credits': cmd_credits, 'export': cmd_export}
+def cmd_db(args):
+    import datetime as _dt
+    with clientdb.ClientDB(args.db, create=args.db_command == 'init') as db:
+        if args.db_command == 'init':
+            _emit({'ok': True, 'db': args.db, 'schema_version': db.init()})
+            return EXIT_OK
+        db.schema_version()  # fails clearly when not initialised
+        if args.db_command == 'import-sheet':
+            _emit({'ok': True, **db.import_sheet_export(args.csv)})
+        elif args.db_command == 'record-delivery':
+            _emit({'ok': True, **db.record_delivery(args.manifest)})
+        elif args.db_command == 'mark-delivered':
+            db.mark_delivered(args.client_ref, args.export_id, delivered_via=args.via)
+            _emit({'ok': True, 'client_ref': args.client_ref, 'export_id': args.export_id, 'delivered_via': args.via})
+        elif args.db_command == 'add-brief':
+            db.add_brief(args.brief_ref, args.client_ref, brief_version=args.brief_version, supplier_range=args.supplier_range,
+                         status=args.status, brief_path=args.file)
+            _emit({'ok': True, 'brief_ref': args.brief_ref, 'client_ref': args.client_ref})
+        elif args.db_command == 'search':
+            _emit({'ok': True, **db.search(args.term)})
+        elif args.db_command == 'client':
+            _emit({'ok': True, **db.client(args.client_ref)})
+        elif args.db_command == 'retention-due':
+            try:
+                on = _dt.date.fromisoformat(args.on) if args.on else None
+            except ValueError:
+                raise clientdb.ClientDBError(f'retention-due: --on must be a date in YYYY-MM-DD form, got {args.on!r}')
+            on = on or clientdb.utc_today()   # label and filter use the same (UTC) date
+            _emit({'ok': True, 'on': on.isoformat(), 'due': db.retention_due(on)})
+        else:
+            _emit({'ok': True, **db.summary()})
+    return EXIT_OK
+
+
+COMMANDS = {'validate': cmd_validate, 'prospects': cmd_prospects, 'verify': cmd_verify, 'credits': cmd_credits,
+            'export': cmd_export, 'db': cmd_db}
 
 
 # Data paths every sub-command may take. Inputs may name the fictional fixtures under pipeline/examples/;
@@ -219,7 +282,7 @@ def main(argv=None):
     except icp.ICPError as error:
         _emit({'ok': False, 'error': 'brief rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
-    except (verify.VerifyError, export.ExportError) as error:
+    except (verify.VerifyError, export.ExportError, clientdb.ClientDBError) as error:
         _emit({'ok': False, 'error': 'input rejected: ' + str(error)}, sys.stderr)
         return EXIT_USAGE
     except (apollo.ApolloError, zerobounce.ZeroBounceError) as error:

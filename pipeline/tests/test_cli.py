@@ -238,5 +238,68 @@ class Export(unittest.TestCase):
         self.assertIn('brief_ref', err)
 
 
+SHEET_PATH = _EXAMPLES / 'sheet-export-fixture.csv'
+
+
+class Db(unittest.TestCase):
+    def test_init_import_search_summary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            code, out, err = run('db', '--db', db, 'init')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(json.loads(out)['schema_version'], 1)
+            code, out, err = run('db', '--db', db, 'import-sheet', str(SHEET_PATH))
+            self.assertEqual(code, 0, err)
+            self.assertEqual(json.loads(out)['rows_new'], 3)
+            code, out, err = run('db', '--db', db, 'search', 'alpha')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(len(json.loads(out)['clients']), 1)
+            code, out, err = run('db', '--db', db, 'client', 'fictional-pumps-alpha-ltd')
+            self.assertEqual(code, 0, err)
+            self.assertEqual(len(json.loads(out)['requests']), 2)
+            code, out, err = run('db', '--db', db, 'retention-due', '--on', '2026-11-03')
+            self.assertEqual(json.loads(out)['due'][0]['submission_id'], 'FX-0003')
+            code, out, err = run('db', '--db', db, 'summary')
+            self.assertEqual(json.loads(out)['counts']['requests'], 3)
+
+    def test_uninitialised_db_is_a_clear_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out, err = run('db', '--db', tmp + '/x.sqlite', 'summary')
+            self.assertEqual(code, cli.EXIT_USAGE)
+            self.assertIn('not initialised', err)
+            self.assertFalse(os.path.exists(tmp + '/x.sqlite'), 'a typo in --db must not leave an empty database behind')
+            code, out, err = run('db', '--db', tmp + '/missing-dir/x.sqlite', 'init')
+            self.assertEqual(code, cli.EXIT_USAGE)
+            self.assertIn('directory does not exist', err)
+            self.assertFalse(os.path.exists(tmp + '/missing-dir'))
+
+    def test_retention_due_bad_date_is_a_usage_error_not_a_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            run('db', '--db', db, 'init')
+            code, out, err = run('db', '--db', db, 'retention-due', '--on', '3 Nov 2026')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertEqual(out, '')
+        self.assertIn('YYYY-MM-DD', json.loads(err)['error'])
+
+    def test_db_file_that_is_not_a_database_is_a_clear_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'notes.sqlite').write_text('just a text file\n', encoding='utf-8')
+            code, out, err = run('db', '--db', tmp + '/notes.sqlite', 'summary')
+        self.assertEqual(code, cli.EXIT_USAGE)
+        self.assertIn('not a SQLite database', json.loads(err)['error'])
+
+    def test_retention_due_defaults_to_the_utc_date(self):
+        import datetime as dt
+        with tempfile.TemporaryDirectory() as tmp:
+            db = tmp + '/c.sqlite'
+            run('db', '--db', db, 'init')
+            before = dt.datetime.now(dt.timezone.utc).date()
+            code, out, err = run('db', '--db', db, 'retention-due')
+            after = dt.datetime.now(dt.timezone.utc).date()
+        self.assertEqual(code, 0, err)
+        self.assertIn(json.loads(out)['on'], {before.isoformat(), after.isoformat()})
+
+
 if __name__ == '__main__':
     unittest.main()
