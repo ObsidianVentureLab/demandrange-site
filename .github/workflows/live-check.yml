@@ -45,7 +45,9 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: tests
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    # Worst case is 9 URLs x 3 attempts x (20 s timeout + 5 s sleep), about 11 min, so a
+    # slow or flapping site must not kill the job before it reports which pages failed.
+    timeout-minutes: 15
     steps:
       - name: Check out main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
