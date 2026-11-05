@@ -81,3 +81,6 @@ assert.equal(schema.hidden_fields.privacy_notice_version.must_equal, api.FORM.pr
 { const p = fresh(); delete p.privacy_notice_version; assert.throws(() => accept(p), /version_mismatch/, 'missing privacy version'); }
 assert(code.includes('privacy_notice_version: request.privacyVersion,'), 'row must record the submitted privacy version');
 console.log('PASS: 40 backend/schema assertions; validation, enum allowlists, privacy-version allow-list (2026-09-11-v1 + 2026-10-28-v1), consent boundaries and formula neutralisation passed');
+
+// Keep doPost notification regressions in the existing backend/CI entry point.
+require('./test_do_post');

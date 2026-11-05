@@ -170,7 +170,7 @@ function persist_(request, properties) {
       const existing = sheet.getRange(2, tokenColumn, sheet.getLastRow() - 1, 1).createTextFinder(tokenHash).matchEntireCell(true).findNext();
       if (existing) {
         const idColumn = FORM.columns.indexOf('submission_id') + 1;
-        return {duplicate: true, submissionId: String(sheet.getRange(existing.getRow(), idColumn).getValue()), sheet: sheet, row: existing.getRow()};
+        return {duplicate: true, submissionId: String(sheet.getRange(existing.getRow(), idColumn).getValue()), sheet: sheet, row: existing.getRow(), mode: mode};
       }
     }
 
@@ -205,17 +205,21 @@ function persist_(request, properties) {
       additional_context: sheetSafe_(request.context),
       intake_status: 'new', assigned_owner: '', first_response_at_utc: '', outcome: '',
       retention_review_at: retention.toISOString(),
-      notification_state: 'pending', notification_attempts: 0, notification_last_error: ''
+      notification_state: mode === 'production' ? 'pending' : 'suppressed_test_mode', notification_attempts: 0, notification_last_error: ''
     };
     sheet.appendRow(FORM.columns.map(function (column) { return rowObject[column]; }));
     SpreadsheetApp.flush();
-    return {duplicate: false, submissionId: submissionId, sheet: sheet, row: sheet.getLastRow()};
+    return {duplicate: false, submissionId: submissionId, sheet: sheet, row: sheet.getLastRow(), mode: mode};
   } finally {
     lock.releaseLock();
   }
 }
 
 function notify_(receipt, request, properties) {
+  // Bind notification eligibility to the saved row's mode, even if MODE changes after storage.
+  if (receipt.mode !== 'production' || properties.getProperty('MODE') !== 'production') {
+    return {state: 'suppressed_test_mode', attempts: 0, error: ''};
+  }
   const url = properties.getProperty('NOTIFICATION_WEBHOOK_URL') || '';
   const secret = properties.getProperty('NOTIFICATION_WEBHOOK_SECRET') || '';
   if (!url || !secret) return {state: 'pending_configuration', attempts: 0, error: 'Miranda notification webhook is not configured'};
