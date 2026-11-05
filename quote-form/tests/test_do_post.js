@@ -144,9 +144,35 @@ function testWrite(env) {
   assert.equal(env.row('Synthetic QA').target_regions, 'IE|UK');
 }
 
-for (const mode of ['test', null, '', 'staging', 'PRODUCTION', ' production ']) {
-  test('non-production mode suppresses configured webhook: ' + JSON.stringify(mode), () => {
-    testWrite(environment({properties: {MODE: mode}}));
+test('explicit test mode suppresses configured webhook', () => {
+  testWrite(environment());
+});
+// Invalid modes previously fell back to test storage; only explicit modes may now store.
+const invalidModes = [undefined, null, '', ' ', '\t\r\n', 'staging', 'TEST', 'Test', 'PRODUCTION', 'Production', ' test ', ' production '];
+for (const mode of invalidModes) {
+  test('invalid MODE blocks before storage or notifications: ' + String(JSON.stringify(mode)), () => {
+    const env = environment({properties: {MODE: mode}});
+    if (mode === undefined) delete env.properties.MODE;
+    const html = env.post();
+    assert.match(html, /<h1>We could not save that request<\/h1>/);
+    assert.match(html, /Nothing was accepted/);
+    assert.deepEqual(env.logs, ['quote_request_storage_failed:invalid_mode']);
+    assert.equal(env.opens(), 0);
+    assert.deepEqual(env.writes, []);
+    assert.equal(env.sheets['Synthetic QA'].getLastRow(), 1);
+    assert.equal(env.sheets['Raw Responses'].getLastRow(), 1);
+    noOutbound(env);
+    assert(!env.reads.some(key => key.startsWith('NOTIFICATION_WEBHOOK_')));
+  });
+  test('paused gate still takes precedence over invalid MODE: ' + String(JSON.stringify(mode)), () => {
+    const env = environment({properties: {MODE: mode, PAUSED: 'true'}});
+    if (mode === undefined) delete env.properties.MODE;
+    assert.match(env.post(), /<h1>Requests temporarily paused<\/h1>/);
+    assert.deepEqual(env.reads, ['PAUSED']);
+    assert.deepEqual(env.logs, []);
+    assert.equal(env.opens(), 0);
+    assert.deepEqual(env.writes, []);
+    noOutbound(env);
   });
 }
 for (const config of [
@@ -165,12 +191,15 @@ test('suppression is already saved if notification state update fails', () => {
 test('test receipt stays suppressed if MODE changes to production after append', () => {
   testWrite(environment({modeAfterAppend: 'production'}));
 });
-test('production receipt is suppressed if MODE changes to test before notification', () => {
-  const env = environment({properties: {MODE: 'production'}, modeAfterAppend: 'test'});
-  assert.match(env.post(), /<h1>Request received<\/h1>/);
-  notification(env.row('Raw Responses'), 'suppressed_test_mode', 0);
-  noOutbound(env);
-});
+for (const mode of ['test', ...invalidModes.filter(value => value !== undefined)]) {
+  test('production receipt is suppressed if MODE changes before notification: ' + JSON.stringify(mode), () => {
+    const env = environment({properties: {MODE: 'production'}, modeAfterAppend: mode});
+    assert.match(env.post(), /<h1>Request received<\/h1>/);
+    notification(env.row('Raw Responses'), 'suppressed_test_mode', 0);
+    noOutbound(env);
+    assert(!env.reads.some(key => key.startsWith('NOTIFICATION_WEBHOOK_')));
+  });
+}
 
 for (const mode of ['test', 'production']) {
   for (const paused of ['true', 'TRUE', null, '', 'unexpected']) {
@@ -268,4 +297,4 @@ for (const [name, responses, state, error, sleeps] of [
   });
 }
 
-console.log('PASS: ' + passed + ' offline mocked doPost scenarios; test suppression, pause, deduplication and production notifications');
+console.log('PASS: ' + passed + ' offline mocked doPost scenarios; strict mode validation, test suppression, pause, deduplication and production notifications');
