@@ -55,3 +55,9 @@ jobs:
 
       - name: CI wiring tests (secret scan stays pinned and blocking)
         run: python -B .github/ci/test_ci_wiring.py
+
+      - name: Served-data guard tests
+        run: python -B .github/ci/test_served_data_guard.py
+
+      - name: Served-data guard (no real email addresses in anything Pages serves)
+        run: python -B .github/ci/served_data_guard.py .
