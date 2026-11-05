@@ -152,9 +152,10 @@ function parseAndValidate_(event, nowMs) {
 }
 
 function persist_(request, properties) {
+  const mode = properties.getProperty('MODE');
+  if (mode !== 'test' && mode !== 'production') throw new Error('invalid_mode');
   const spreadsheetId = properties.getProperty('SPREADSHEET_ID');
   if (!spreadsheetId) throw new Error('spreadsheet_not_configured');
-  const mode = properties.getProperty('MODE') === 'production' ? 'production' : 'test';
   const sheetName = mode === 'production' ? 'Raw Responses' : 'Synthetic QA';
   const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
   const sheet = spreadsheet.getSheetByName(sheetName);
