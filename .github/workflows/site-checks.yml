@@ -38,6 +38,12 @@ jobs:
       - name: Install pinned dependencies (hash-checked)
         run: python -m pip install --disable-pip-version-check --no-deps --require-hashes -r .github/ci/requirements.txt
 
+      - name: Served-bundle guard tests
+        run: python -B .github/ci/test_served_guard.py
+
+      - name: Served-bundle guard (no pipeline/, quote-form/, *.gs, *.sqlite, keys, internal docs)
+        run: python -B .github/ci/served_guard.py .
+
       - name: Site checks (HTML, links, sitemap/llms, brand, stubs, served surface)
         run: python -B .github/ci/site_checks.py .
 
