@@ -18,8 +18,13 @@ Stdlib only, read-only. Exit 1 on any failure. Checks:
   6. Served-surface guard: outside .github/ no tooling files (.py/.yml/.yaml/.md/.sh/.ipynb)
      and no dot-directories other than .well-known (GitHub Pages serves dot-dirs; only .git
      and .github are excluded from the deployed site).
+  7. Structured data: every <script type="application/ld+json"> block parses as JSON, and every
+     node typed schema.org Dataset, at any depth (including nested isBasedOn items), has a
+     description of 50-5000 characters, a license and a creator (Google Dataset rich-result
+     required/recommended fields; GSC flags nested Datasets that lack them).
 F15 ([data-f15] = 0, no F15-REVIEW-LINE) is checked separately by qa_post.py (strict, bs4).
 """
+import json
 import re
 import sys
 import zipfile
@@ -37,6 +42,53 @@ TEXT_EXT = {'.html', '.txt', '.csv', '.json', '.xml', '.css', '.svg', '.js', ''}
 TOOLING_EXT = {'.py', '.yml', '.yaml', '.md', '.sh', '.ipynb'}
 BRAND_BAD = re.compile(r'Demand(?:[._\-/\u00b7]|)Range|DEMAND(?:[._\-/\u00b7]|)RANGE')
 SKIP_SCHEMES = ('mailto:', 'tel:', 'javascript:', 'data:')
+LDJSON = re.compile(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.S | re.I)
+DATASET_DESC_LEN = (50, 5000)
+
+
+def _types(node):
+    """The node's @type values as a set of strings. Non-string values (a JSON object, a number,
+    or such items inside a list) are ignored rather than crashing the whole check."""
+    t = node.get('@type')
+    items = t if isinstance(t, list) else [t]
+    return {i for i in items if isinstance(i, str)}
+
+
+def _filled(v):
+    return bool(v.strip()) if isinstance(v, str) else bool(v)
+
+
+def dataset_problems(html):
+    """Problems with the JSON-LD in one page: unparseable blocks, and Dataset nodes at any depth
+    missing description (50-5000 chars), license or creator. Returns a list of strings."""
+    problems = []
+
+    def walk(node, path):
+        if isinstance(node, list):
+            for i, item in enumerate(node):
+                walk(item, f'{path}[{i}]')
+        elif isinstance(node, dict):
+            if 'Dataset' in _types(node):
+                label = f'Dataset {node.get("@id") or node.get("name") or path!r}'
+                desc = node.get('description')
+                lo, hi = DATASET_DESC_LEN
+                if not isinstance(desc, str) or not lo <= len(desc.strip()) <= hi:
+                    n = len(desc.strip()) if isinstance(desc, str) else 'missing'
+                    problems.append(f'{label} at {path}: description must be {lo}-{hi} chars (got {n})')
+                for field in ('license', 'creator'):
+                    if not _filled(node.get(field)):
+                        problems.append(f'{label} at {path}: missing {field}')
+            for k, v in node.items():
+                walk(v, f'{path}.{k}')
+
+    for i, block in enumerate(LDJSON.findall(html)):
+        try:
+            data = json.loads(block)
+        except ValueError as e:
+            problems.append(f'ld+json block {i}: invalid JSON ({e})')
+            continue
+        walk(data, f'ld[{i}]')
+    return problems
 
 
 class Page(HTMLParser):
@@ -204,6 +256,11 @@ def main(argv):
     rb = files.get('robots.txt')
     if not rb or f'Sitemap: {SITE}/sitemap.xml' not in rb.read_text(encoding='utf-8'):
         fails.append('robots.txt: missing or no Sitemap line')
+
+    # 7. structured data: Dataset nodes (any depth) carry description/license/creator
+    for rel, (_, text) in pages.items():
+        for problem in dataset_problems(text):
+            fails.append(f'{rel}: {problem}')
 
     # 4. brand over text files and xlsx members
     scanned = 0
