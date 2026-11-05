@@ -1,7 +1,8 @@
 # PR preview: build a noindex copy of the site tree for the pull request and publish it as a
 # workflow artifact, with the changed pages listed in the job summary. Nothing is deployed and
-# no hosting account is involved; reviewers download the artifact and run the bundled
-# serve.py (GitHub-Pages-style clean URLs) locally. See .github/preview/README.md.
+# no hosting account is involved; reviewers download the artifact and serve it with serve.py
+# from their own checkout of main (never code shipped inside the artifact, which a PR controls).
+# See .github/preview/README.md.
 name: pr-preview
 
 on:
@@ -42,7 +43,7 @@ jobs:
           PREVIEW_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           python -B .github/preview/build_preview.py --source . --output "$RUNNER_TEMP/preview/_site" > "$RUNNER_TEMP/stamp.json"
-          cp .github/preview/serve.py .github/preview/README.md "$RUNNER_TEMP/preview/"
+          cp .github/preview/README.md "$RUNNER_TEMP/preview/"
           cat "$RUNNER_TEMP/stamp.json"
 
       - name: Changed pages and how to view them
@@ -55,11 +56,13 @@ jobs:
           {
             echo "## Site preview for PR #${PR_NUMBER:-manual}"
             echo
-            echo "Artifact: **site-preview-pr-${PR_NUMBER:-manual}** (this run: $RUN_URL). Download, unzip, then:"
+            echo "Artifact: **site-preview-pr-${PR_NUMBER:-manual}** (this run: $RUN_URL). Download and unzip, then from your own up-to-date checkout of \`main\`:"
             echo
             echo '```'
-            echo 'python3 serve.py _site        # http://127.0.0.1:8000/ with GitHub Pages clean URLs'
+            echo 'python3 .github/preview/serve.py <unzipped>/_site   # http://127.0.0.1:8000/ with GitHub Pages clean URLs'
             echo '```'
+            echo
+            echo "The artifact contains site files only. Do not run any script from it."
             echo
             echo "Preview robots.txt disallows all crawling; CNAME is excluded. Not the live site."
             echo

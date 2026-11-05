@@ -18,10 +18,11 @@ The `pr-preview` workflow (`.github/workflows/pr-preview.yml`) runs on every PR 
 3. Lists the changed pages in the job summary (Checks tab → `pr-preview` → Summary).
 4. Uploads `site-preview-pr-<n>` as a workflow artifact (kept 14 days).
 
-To review: download the artifact from the run, unzip, then
+To review: download the artifact from the run and unzip it, then serve it with `serve.py` from
+your own up-to-date checkout of `main`:
 
 ```
-python3 serve.py _site
+python3 .github/preview/serve.py <unzipped>/_site
 ```
 
 and open http://127.0.0.1:8000/. The artifact includes the dot-files the site serves (`.nojekyll`,
@@ -31,6 +32,9 @@ followed. `serve.py` reproduces GitHub Pages' clean URLs (`/about` →
 sends `X-Robots-Tag: noindex` on every response. Python 3 standard library only. It listens on
 127.0.0.1 only; `--bind` exists for the rare case of reviewing from another device on the same
 network, and should stay at the default otherwise (the tree is a pre-release copy of the site).
+
+The artifact holds site files only. It is built from the pull request, so never run a script
+from it: a PR could change any file it contains.
 
 The workflow needs only `contents: read`; it does not comment on the PR, deploy anything or
 use secrets.
