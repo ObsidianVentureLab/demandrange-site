@@ -15,6 +15,6 @@ The static site (ADR 0001) has no server of its own, but `/request-a-quote` has 
 
 ## Consequences
 - No server, no database and no extra cost; access control is Google Workspace's.
-- The deployed script is not in Git. The repository holds the reviewed source, and its sha256 is recorded in the redeploy package so the deployed copy can be checked by hand. A fix is only live once Sean has redeployed it, so release notes must say when a fix is waiting on a redeploy.
+- The deployed script is not in Git. The repository holds the reviewed source, but **no sha256 of the deployed copy is recorded yet**: the only hash cited (commit `df5c3db`) is an 8-character prefix of an off-repo copy that matches none of the five `Code.gs` versions in this repository. Until the sha256 of the deployed version is pinned beside the source and checked after every redeploy, nobody can tell which handler is live. A fix is only live once Sean has redeployed it, so release notes must say when a fix is waiting on a redeploy.
 - Form and handler can drift (this happened with the region list), which is why the drift-guard test exists and why form changes and handler changes travel in the same PR.
 - Enquiry notification is still open: Sheet change notifications (no code) or the signed webhook to a receiver. That is Sean's decision.
