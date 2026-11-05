@@ -38,6 +38,8 @@ jobs:
       - name: Build preview tree
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          # the PR head, not the synthetic merge commit github.sha points at on pull_request events
+          PREVIEW_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           python -B .github/preview/build_preview.py --source . --output "$RUNNER_TEMP/preview/_site" > "$RUNNER_TEMP/stamp.json"
           cp .github/preview/serve.py .github/preview/README.md "$RUNNER_TEMP/preview/"
@@ -46,7 +48,7 @@ jobs:
       - name: Changed pages and how to view them
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-          HEAD_SHA: ${{ github.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
@@ -84,3 +86,5 @@ jobs:
           path: ${{ runner.temp }}/preview
           retention-days: 14
           if-no-files-found: error
+          # upload-artifact v4.4+ skips dot-files by default; the site serves .nojekyll and .well-known/*
+          include-hidden-files: true
