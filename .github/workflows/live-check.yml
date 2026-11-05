@@ -1,0 +1,62 @@
+# Daily live-site check (launch checklist M3): home, request-a-quote and legal pages return 200,
+# the live sitemap.xml equals main's, and the TLS certificate has >= 14 days left.
+# Read-only GETs to demandrange.com only; no secrets; free on a public repo.
+# A failure shows as a failed scheduled run (GitHub emails the repo's notification settings);
+# nothing is posted anywhere else. Scheduled runs only start once this file is on main.
+name: live-check
+
+on:
+  schedule:
+    - cron: '17 6 * * *'  # 06:17 UTC daily (06:17/07:17 Irish time)
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/ci/live_check.py
+      - .github/ci/test_live_check.py
+      - .github/workflows/live-check.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Unit tests (localhost + fakes only)
+        run: python -B .github/ci/test_live_check.py
+
+  live:
+    if: github.event_name != 'pull_request'
+    needs: tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Live check against demandrange.com
+        run: python -B .github/ci/live_check.py --base https://demandrange.com --repo . --min-cert-days 14
