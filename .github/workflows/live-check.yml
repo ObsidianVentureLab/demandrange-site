@@ -45,7 +45,8 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: tests
     runs-on: ubuntu-24.04
-    # Worst case is 9 URLs x 3 attempts x (20 s timeout + 5 s sleep), about 11 min, so a
+    # Worst case is 9 fetches (8 pages, plus the sitemap again for the main comparison) x 3 attempts
+    # x (20 s timeout + 5 s sleep), about 11 min, so a
     # slow or flapping site must not kill the job before it reports which pages failed.
     timeout-minutes: 15
     steps:

@@ -4,7 +4,7 @@ Status: Accepted (records the existing setup)
 Date: 2026-11-04
 
 ## Context
-demandrange.com is a content site: industrial account-research guides, open-data pages and CSV downloads, a quote form and legal pages. It needs to be fast, cheap, auditable and hard to break. The team ships in numbered releases (r1 to r22 so far) that DR QA & Fact-Check signs off before anything goes live.
+demandrange.com is a content site: industrial account-research guides, open-data pages and CSV downloads, a quote form and legal pages. It needs to be fast, cheap, auditable and hard to break. The team ships in numbered releases (r1 onwards; see `.github/docs/CHANGELOG.md` for the latest), and an independent QA & Fact-Check review signs each one off before anything goes live.
 
 ## Decision
 - This repository holds **built output only**. GitHub Pages serves `main` as-is (`.nojekyll`, custom domain via `CNAME`); `.git` and `.github` are not published.
