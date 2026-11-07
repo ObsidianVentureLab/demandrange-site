@@ -12,7 +12,7 @@ Started on 2026-11-04. Entries before r20 are summarised from the merged pull-re
   - discloses the Google-hosted form confirmation page.
 
   Merge only after the quote backend that accepts version `2026-11-06-v1` is deployed and the retention job is enabled.
-- **Licence attribution and NACE edition** (this PR):
+- **Licence attribution and NACE edition** (#81):
   - the four pages that reuse Crown copyright material under the Open Government Licence now link to it;
   - data.gov.ie licence links point at its licence page (`/pages/opendatalicence`) on three pages;
   - the UK SIC CSV ships with a source and licence note (`uk-sic-2007-manufacturing-codes-README.csv`);
