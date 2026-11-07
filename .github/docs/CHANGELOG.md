@@ -12,6 +12,13 @@ Started on 2026-11-04. Entries before r20 are summarised from the merged pull-re
   - discloses the Google-hosted form confirmation page.
 
   Merge only after the quote backend that accepts version `2026-11-06-v1` is deployed and the retention job is enabled.
+- **Licence attribution and NACE edition** (#81):
+  - the four pages that reuse Crown copyright material under the Open Government Licence now link to it;
+  - data.gov.ie licence links point at its licence page (`/pages/opendatalicence`) on three pages;
+  - the UK SIC CSV ships with a source and licence note (`uk-sic-2007-manufacturing-codes-README.csv`);
+  - the EU dataset page, its README, llms.txt and the main 2024 statements on five other pages name the classification, NACE Rev. 2, so they are not read as Rev. 2.1 (every page already named it in its sources);
+  - the SIC CSV is released under CC BY 4.0, like the EU dataset;
+  - a site-checks rule (8) that keeps these in place. The off-repo generator must carry the same text (pages and llms.txt), or a regenerated page fails CI.
 - **Quote-form handler fix** (#56, on a source branch): the handler and schema accept the live form's regions `IE`/`UK`/`EU`. Live only once Sean redeploys the Apps Script (ADR 0002).
 
 ## 2026-11-05: merge run (11 PRs, each pinned to its commit; main green and Pages deployed after each)

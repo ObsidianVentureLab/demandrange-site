@@ -1,0 +1,12 @@
+field,value
+dataset_file,uk-sic-2007-manufacturing-codes.csv
+dataset_title,"UK SIC 2007 manufacturing codes (Section C, condensed list) with SIC 2026 mapping and active company counts"
+dataset_page,"demandrange.com/uk-sic-codes-manufacturing (sources, method and caveats)"
+publisher,Demand Range
+licence,"CC BY 4.0 (creativecommons.org/licenses/by/4.0/): anyone can reuse this file with credit to Demand Range (demandrange.com). The Companies House and ONS source material remains under the Open Government Licence v3.0."
+attribution,Contains public sector information licensed under the Open Government Licence v3.0 (nationalarchives.gov.uk/doc/open-government-licence/version/3/). Companies House and ONS material is Crown copyright.
+source_credit,"Codes and descriptions: Companies House, condensed SIC 2007 list (resources.companieshouse.gov.uk/sic/). SIC 2026 codes and headings: ONS, SIC 2007 to SIC 2026 correspondence table of 3 August 2026. Company counts: Demand Range analysis of the Companies House Free Company Data Product snapshot dated 1 November 2026 (download.companieshouse.gov.uk/en_output.html)."
+count_method,"active_companies_listing_code = companies with status Active (excluding Active - Proposal to Strike off) that list the code in any of SICCode1 to SICCode4. A company listing codes in two rows is counted in both, so the column does not sum to the 212,867 companies with at least one Section C code."
+columns,"sic_2007_code (Companies House five-digit code); companies_house_description; ons_sic_2007_code (ONS form, e.g. 10.11, or 10.51/1 for subclasses); sic_2026_codes (separated by '; ' where a code splits); sic_2026_headings (in the same order as sic_2026_codes, separated by '; ', but some headings themselves contain semicolons, so match headings to codes by position with care); change_type (same code, split, or moved or merged); active_companies_listing_code."
+changes_made,"Combined by Demand Range: the Companies House condensed list joined to the ONS correspondence table, plus Demand Range company counts. No company names or records are included."
+disclaimer,Companies House and the ONS do not endorse this file or Demand Range. Check the official lists before relying on a code.
