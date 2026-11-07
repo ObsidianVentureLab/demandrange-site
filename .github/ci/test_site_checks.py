@@ -72,5 +72,37 @@ class DatasetRule(unittest.TestCase):
         self.assertIn('"@type":"Dataset"', text)  # the rule is actually exercised on a real Dataset page
 
 
+class AttributionRule(unittest.TestCase):
+    OGL = '<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>'
+
+    def test_ogl_mention_needs_a_link(self):
+        self.assertEqual(site_checks.attribution_problems('<p>' + self.OGL + '</p>'), [])
+        problems = site_checks.attribution_problems('<p>used under the Open Government Licence v3.0.</p>')
+        self.assertEqual(len(problems), 1)
+        self.assertIn('does not link', problems[0])
+
+    def test_data_gov_ie_statement_needs_both_licence_links(self):
+        good = ('<p>Contains Irish Public Sector Data licensed under a CC BY 4.0 licence.</p>'
+                '<a href="https://data.gov.ie/pages/opendatalicence">x</a>'
+                '<a href="https://creativecommons.org/licenses/by/4.0/">y</a>')
+        self.assertEqual(site_checks.attribution_problems(good), [])
+        self.assertEqual(len(site_checks.attribution_problems('<p>Contains Irish Public Sector Data</p>')), 2)
+
+    def test_retired_data_gov_ie_licence_url_fails(self):
+        problems = site_checks.attribution_problems('<a href="https://data.gov.ie/license">Open Data Licence</a>')
+        self.assertTrue(any('data.gov.ie/license' in p for p in problems))
+
+    def test_spacing_spelling_and_locale_variants_are_caught(self):
+        self.assertTrue(site_checks.attribution_problems('<p>under the Open\nGovernment License v3.0</p>'))
+        self.assertTrue(site_checks.attribution_problems('<a href="https://data.gov.ie/en_GB/license">x</a>'))
+
+    def test_readme_note_without_its_csv_is_an_orphan(self):
+        files = {'a.csv': 1, 'a-README.csv': 1, 'b-README.csv': 1}
+        self.assertEqual(site_checks.readme_orphans(files), ['b-README.csv'])
+
+    def test_pages_without_licence_text_pass(self):
+        self.assertEqual(site_checks.attribution_problems('<p>Nothing reused here.</p>'), [])
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

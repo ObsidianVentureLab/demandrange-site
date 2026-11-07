@@ -1,6 +1,6 @@
 field,value
 dataset_file,eu-industrial-enterprises-by-country-nace-2024.csv
-dataset_title,Manufacturing enterprises in the EU by country and NACE division (2024 data)
+dataset_title,Manufacturing enterprises in the EU by country and NACE Rev. 2 division (2024 data)
 dataset_page,"demandrange.com/eu-industrial-enterprises-by-country (sources, suggested citation, flag definitions)"
 publisher,Demand Range
 licence,"Licence: CC BY 4.0 (creativecommons.org/licenses/by/4.0/). Anyone can reuse this dataset with credit to Demand Range (demandrange.com). Source data: Eurostat, Structural business statistics (sbs_ovw_act, sbs_sc_ovw), reused under the Eurostat copyright notice, which applies the European Commission's reuse policy (Commission Decision 2011/833/EU). The reshaped CSV remains available under CC BY 4.0 without additional Demand Range reuse restrictions."

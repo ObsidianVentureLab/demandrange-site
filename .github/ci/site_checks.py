@@ -22,6 +22,11 @@ Stdlib only, read-only. Exit 1 on any failure. Checks:
      node typed schema.org Dataset, at any depth (including nested isBasedOn items), has a
      description of 50-5000 characters, a license and a creator (Google Dataset rich-result
      required/recommended fields; GSC flags nested Datasets that lack them).
+  8. Licence attribution: a page that says it reuses material under the Open Government Licence
+     links to the licence (OGL v3.0 asks for a link where possible); a page carrying the data.gov.ie
+     "Contains Irish Public Sector Data" statement links to data.gov.ie's licence page
+     (/pages/opendatalicence) and the CC BY 4.0 licence; and every served CSV that a README.csv
+     note accompanies (<name>-README.csv) still exists, so the credit travels with the download.
 F15 ([data-f15] = 0, no F15-REVIEW-LINE) is checked separately by qa_post.py (strict, bs4).
 """
 import json
@@ -56,6 +61,34 @@ def _types(node):
 
 def _filled(v):
     return bool(v.strip()) if isinstance(v, str) else bool(v)
+
+
+OGL_URL = 'nationalarchives.gov.uk/doc/open-government-licence/version/3'
+DGI_STATEMENT = 'Contains Irish Public Sector Data'
+DGI_LICENCE = 'data.gov.ie/pages/opendatalicence'
+CC_BY_URL = 'creativecommons.org/licenses/by/4.0'
+DGI_RETIRED = re.compile(r'href=["\']https?://data\.gov\.ie/(?:[a-z]{2}(?:_[A-Z]{2})?/)?licen[cs]e/?["\']', re.I)
+OGL_MENTION = re.compile(r'Open\s+Government\s+Licen[cs]e')
+
+
+def readme_orphans(files):
+    """Served <name>-README.csv notes whose <name>.csv is not served."""
+    return sorted(r for r in files if r.endswith('-README.csv') and r[:-len('-README.csv')] + '.csv' not in files)
+
+
+def attribution_problems(html):
+    """Licence-attribution problems in one page's HTML. Returns a list of strings."""
+    problems = []
+    if OGL_MENTION.search(html) and OGL_URL not in html:
+        problems.append('mentions the Open Government Licence but does not link to it (' + OGL_URL + '/)')
+    if DGI_STATEMENT in html:
+        if DGI_LICENCE not in html:
+            problems.append('carries the data.gov.ie statement but does not link ' + DGI_LICENCE)
+        if CC_BY_URL not in html:
+            problems.append('carries the data.gov.ie statement but does not link the CC BY 4.0 licence')
+    if DGI_RETIRED.search(html):
+        problems.append('links data.gov.ie/license; the licence page is ' + DGI_LICENCE)
+    return problems
 
 
 def dataset_problems(html):
@@ -261,6 +294,13 @@ def main(argv):
     for rel, (_, text) in pages.items():
         for problem in dataset_problems(text):
             fails.append(f'{rel}: {problem}')
+
+    # 8. licence attribution
+    for rel, (_, text) in pages.items():
+        for problem in attribution_problems(text):
+            fails.append(f'{rel}: {problem}')
+    for rel in readme_orphans(files):
+        fails.append(f'{rel}: README note for a CSV that is not served')
 
     # 4. brand over text files and xlsx members
     scanned = 0
