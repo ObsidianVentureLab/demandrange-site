@@ -17,7 +17,7 @@ Key facts:
 
 - [Home](https://demandrange.com/): the two research classes, the 90/10 target mix and what a company-level account record contains
 - [Industrial account research](https://demandrange.com/industrial-lead-research): company-level account research for Ireland, the UK and the EU, scoped by country, sector, site rules and exclusions
-- [Industrial lead generation for Ireland, the UK and the EU](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Ireland, the UK and the EU, with Irish and UK sources set out in detail: CRO, Companies House, regulator registers and public tenders
+- [Industrial lead generation for Ireland and the UK](https://demandrange.com/industrial-lead-generation-ireland-uk): account research for Ireland, the UK and the EU, with Irish and UK sources set out in detail: CRO, Companies House, regulator registers and public tenders
 - [Opportunity Intelligence](https://demandrange.com/opportunity-intelligence): evidenced industrial project and development signals, separating observed change, supplier relevance and unknowns
 - [Markets and supplier fit](https://demandrange.com/markets): how account fit is defined by country, sector and customer route
 - [Methodology](https://demandrange.com/methodology): how fit is checked, signals are classified and sources and unknowns are recorded
