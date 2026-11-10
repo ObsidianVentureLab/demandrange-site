@@ -53,6 +53,7 @@ Key facts:
 - [Industrial account prioritisation](https://demandrange.com/industrial-account-prioritisation): a weighted fit, evidence and timing score with a scored fictional example and a research queue; fit stays a gate
 - [B2B prospect list audit](https://demandrange.com/industrial-prospect-list-audit): a one-off audit of a supplied industrial list for duplicates, holds, rejects and true company counts, with a fictional example
 - [Prospect list maintenance](https://demandrange.com/industrial-prospect-list-maintenance): change triggers, a review cadence, retain, hold, correct or remove decisions and a blank review log
+- [B2B contact data decay evidence](https://demandrange.com/b2b-contact-data-decay-evidence): the 22.5% and 70.3% a year B2B data-decay figures are vendor claims, not official rates; use Eurostat job-to-job data as a labour-market proxy
 - [Industrial MRO account research](https://demandrange.com/industrial-mro-account-research): finding MRO-heavy sites in Ireland with CSO and Eurostat counts, then checking who repairs, supplies and restocks the parts
 - [EPC/EPCM equipment supplier research](https://demandrange.com/epc-epcm-equipment-supplier-research): tracing a TED award to the contractor's package and to who specifies, approves and orders the equipment
 - [European chemical manufacturer research](https://demandrange.com/european-chemical-manufacturer-research): Eurostat counts 31,749 EU chemical manufacturing enterprises (NACE C20, 2024); separating production, formulation and distribution before adding a site
