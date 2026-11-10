@@ -81,6 +81,7 @@ Key facts:
 - [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research): separating Irish water funding announcements from project and equipment evidence
 - [Irish eTenders for industrial suppliers](https://demandrange.com/etenders-industrial-supplier-opportunities): the €50,000 and €200,000 thresholds, CPV alerts and a method to triage each notice by scope
 - [Irish environmental register evidence](https://demandrange.com/irish-environmental-register-evidence): reading Irish EPA registers and PRTR returns: coverage, dossier records, site identity and discharge evidence
+- [Data centre construction supplier research](https://demandrange.com/data-centre-construction-supplier-research): Research Irish data-centre construction with CSO electricity figures, planning records and CRU and EirGrid connection rules. A rumour is not a project
 - [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland): finding Irish industrial distributors via the CRO, trade associations and manufacturer pages, with fictional cases
 - [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland): CSO 2024 counts for machinery and electrical makers, and how to find which build operation buys a component
 
