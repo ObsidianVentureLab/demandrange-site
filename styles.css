@@ -604,6 +604,8 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .eurostat-table td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .eurostat-table td:last-child{text-align:left;white-space:normal;min-width:12em}
 .eurostat-table th[scope="row"]{min-width:16em;white-space:normal}
+.eurostat-table tbody th[scope="row"]{font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.5;white-space:normal}
+.eurostat-table thead th.col-num{text-align:right}
 
 /* content byline: author and last-reviewed date (F15) */
 .content-byline{margin:14px 0 0;font-size:14px;color:var(--ink-2)}
