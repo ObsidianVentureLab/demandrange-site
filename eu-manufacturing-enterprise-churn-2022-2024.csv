@@ -1,0 +1,98 @@
+# Eurostat bd_size: manufacturing (NACE Rev. 2 Section C) enterprise birth, death and official business churn rates
+# Filters: freq=A, age=TOTAL, sizeclas=TOTAL, nace_r2=C. Geos: EU27_2020 and the 27 EU Member States.
+# Official churn is ENT_BRTHR_DTHR_PC (Business churn - birth and death rate - percentage). Do not replace it with the sum of the published rounded birth and death rates.
+# Flag codes (Eurostat OBS_FLAG): p=provisional; e=estimated; ep=estimated, provisional; b=break in time series; bp=break in time series, provisional. An empty flag means none was attached.
+# Dataset last update of data: 2026-10-23T23:00:00+0200 (23 October 2026, 23:00 CEST; 22:00 Irish time, Europe/Dublin, then UTC+1). Catalogue also records last table structure change 1 October 2026; data start 2009; data end 2024.
+# Accessed: 10 November 2026 (Europe/Dublin, UTC+0), official Eurostat dissemination API.
+# API: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bd_size
+# Data Browser: https://ec.europa.eu/eurostat/databrowser/view/bd_size/default/table?lang=en
+# DOI: https://doi.org/10.2908/BD_SIZE
+# Source JSON SHA-256 (2022-2023 extract): 81058e69eb6a0fa398c105f15c1290703dee2d56bc965401be3928a5160845ae
+# Source JSON SHA-256 (2024 extract): 3ba44b09c5cbe8dffd3df66f4b4dfac26922743d6691bb4310d21844976d3cd6
+# Coverage: every core geography has birth, death and official churn rates for 2022, 2023 and 2024. The latest year with complete country coverage is 2024; every 2024 death rate and official churn figure is flagged p, ep or bp.
+# The United Kingdom is not in this dataset. Do not invent a UK total. Do not paste CSO cells into these Eurostat columns.
+geo,geo_label,year,active_enterprises_ENT_NR,active_flag,births_ENT_BRTH_NR,births_flag,deaths_ENT_DTH_NR,deaths_flag,birth_rate_ENT_BRTHR_PC,birth_rate_flag,death_rate_ENT_DTHR_PC,death_rate_flag,churn_official_ENT_BRTHR_DTHR_PC,churn_official_flag,net_growth_GRW_ENT_PC,net_growth_flag
+EU27_2020,European Union - 27 countries (from 2020),2022,2166191,,166078,,143370,,7.67,,6.62,,14.29,,0.79,
+AT,Austria,2022,31422,,1613,,1251,,5.13,,3.98,,9.11,,1.85,
+BE,Belgium,2022,41474,,2677,,1561,,6.45,,3.76,,10.22,,9.65,
+BG,Bulgaria,2022,29641,,1895,,1836,,6.39,,6.19,,12.59,,0.01,
+HR,Croatia,2022,24040,,2101,,1452,,8.74,,6.04,,14.78,,3.84,
+CY,Cyprus,2022,5013,,169,,142,,3.37,,2.83,,6.2,,-0.5,
+CZ,Czechia,2022,184573,,15992,,12462,,8.66,,6.75,,15.42,,1.63,
+DK,Denmark,2022,15724,,972,,1267,,6.18,,8.06,,14.24,,1.08,
+EE,Estonia,2022,10110,,1100,,704,,10.88,,6.96,,17.84,,3.67,b
+FI,Finland,2022,28434,,1851,,1641,,6.51,,5.77,,12.28,,0.68,b
+FR,France,2022,264056,b,33574,b,22797,,12.71,b,8.63,b,21.35,b,5.62,b
+DE,Germany,2022,204735,,8170,,10430,,3.99,,5.09,,9.08,,-0.79,
+EL,Greece,2022,57414,,3842,,1378,,6.69,,2.4,,9.09,,1.43,b
+HU,Hungary,2022,59552,,4203,,6521,,7.06,,10.95,,18.01,,0.28,
+IE,Ireland,2022,18973,,2108,,1489,,11.11,,7.85,,18.96,,4.26,
+IT,Italy,2022,358488,,15358,,15191,,4.28,,4.24,,8.52,,-0.21,b
+LV,Latvia,2022,11046,,1241,,803,,11.23,,7.27,,18.5,,1.2,
+LT,Lithuania,2022,24476,,3655,,2782,,14.93,,11.37,,26.3,,4.98,
+LU,Luxembourg,2022,809,,62,,38,,7.66,,4.7,,12.36,,4.39,
+MT,Malta,2022,2816,,340,,247,,12.07,,8.77,,20.85,,-0.11,b
+NL,Netherlands,2022,83511,,6248,,4475,,7.48,,5.36,,12.84,,6.16,
+PL,Poland,2022,240990,,23532,,24944,,9.76,,10.35,,20.12,,-1.36,
+PT,Portugal,2022,68481,,5452,,4849,,7.96,,7.08,,15.04,,1.76,b
+RO,Romania,2022,76099,,6504,,4547,,8.55,,5.98,,14.52,,0.19,
+SK,Slovakia,2022,87474,,9684,,6172,,11.07,,7.06,,18.13,,5.89,
+SI,Slovenia,2022,20925,,1416,,1075,,6.77,,5.14,,11.9,,2.58,
+ES,Spain,2022,171103,,9198,,11025,,5.38,,6.44,,11.82,,-1.58,b
+SE,Sweden,2022,44812,b,3121,b,2291,,6.96,b,5.11,b,12.08,b,-21.11,b
+EU27_2020,European Union - 27 countries (from 2020),2023,2177915,,166669,,147727,,7.65,,6.78,,14.44,,0.54,
+AT,Austria,2023,32369,,1844,,1454,,5.7,,4.49,,10.19,,3.01,
+BE,Belgium,2023,42355,,2529,,1767,,5.97,,4.17,,10.14,,2.12,
+BG,Bulgaria,2023,29512,,1978,,1622,p,6.7,,5.5,p,12.2,p,-0.44,
+HR,Croatia,2023,24727,,2153,,1351,,8.71,,5.46,,14.17,,2.86,
+CY,Cyprus,2023,5027,,237,,139,,4.71,,2.77,,7.48,,0.28,
+CZ,Czechia,2023,189479,,18432,,14855,p,9.73,,7.84,p,17.57,p,2.66,
+DK,Denmark,2023,15563,,965,,1223,,6.2,,7.86,,14.06,,-1.02,
+EE,Estonia,2023,10257,,920,,941,,8.97,,9.17,,18.14,,1.45,
+FI,Finland,2023,28539,,1818,,1817,,6.37,,6.37,,12.74,,0.37,
+FR,France,2023,274895,,35062,,25687,,12.75,,9.34,,22.1,,4.1,b
+DE,Germany,2023,201453,,7957,,10911,b,3.95,,5.42,b,9.37,b,-1.6,
+EL,Greece,2023,57326,,3399,,1482,,5.93,,2.59,,8.51,,-0.15,
+HU,Hungary,2023,56369,,3580,,4287,p,6.35,,7.61,p,13.96,p,-5.34,
+IE,Ireland,2023,19416,,1957,,1853,p,10.08,,9.54,p,19.62,p,2.33,
+IT,Italy,2023,352446,,14925,,16227,p,4.23,,4.6,p,8.84,p,-1.69,
+LV,Latvia,2023,10994,,1043,,705,,9.49,,6.41,,15.9,,-0.47,
+LT,Lithuania,2023,25127,,3464,,2507,p,13.79,,9.98,p,23.76,p,2.66,
+LU,Luxembourg,2023,859,b,67,b,44,,7.8,b,5.12,b,12.92,b,6.18,b
+MT,Malta,2023,3020,,414,,291,,13.71,,9.64,,23.34,,7.24,
+NL,Netherlands,2023,85945,,6272,,3819,,7.3,,4.44,,11.74,,2.91,
+PL,Poland,2023,241254,,22468,,23653,,9.31,,9.8,,19.12,,0.11,
+PT,Portugal,2023,69138,,5492,,5365,p,7.94,,7.76,p,15.7,p,0.96,
+RO,Romania,2023,78194,,7667,,4348,,9.81,,5.56,,15.37,,2.75,
+SK,Slovakia,2023,89803,,8592,,8055,p,9.57,,8.97,p,18.54,p,2.66,
+SI,Slovenia,2023,21264,,1341,,1143,,6.31,,5.38,,11.68,,1.62,
+ES,Spain,2023,167401,,9187,,9899,,5.49,,5.91,,11.4,,-2.16,
+SE,Sweden,2023,45183,,2906,,2282,,6.43,,5.05,,11.48,,0.83,b
+EU27_2020,European Union - 27 countries (from 2020),2024,2186005,,164860,,168542,p,7.54,,7.71,p,15.25,p,0.37,
+AT,Austria,2024,34351,,1827,,1547,p,5.32,,4.5,p,9.82,p,6.12,
+BE,Belgium,2024,37583,,2410,,1864,p,6.41,,4.96,p,11.37,p,-11.27,
+BG,Bulgaria,2024,29510,,1900,,2718,p,6.44,,9.21,p,15.65,p,-0.01,
+HR,Croatia,2024,25228,,2077,,1455,p,8.23,,5.77,p,14.0,p,2.03,
+CY,Cyprus,2024,5033,,193,,189,p,3.83,,3.76,p,7.59,p,0.12,
+CZ,Czechia,2024,193224,,18129,,12446,ep,9.38,,6.44,ep,15.82,ep,1.98,
+DK,Denmark,2024,15256,,1037,,1375,p,6.8,,9.01,p,15.81,p,-1.97,
+EE,Estonia,2024,10185,,822,,1691,p,8.07,,16.6,p,24.67,p,-0.7,
+FI,Finland,2024,29230,,2542,,2421,p,8.7,,8.28,p,16.98,p,2.42,
+FR,France,2024,284502,,36390,,27825,p,12.79,,9.78,p,22.57,p,3.49,
+DE,Germany,2024,198362,b,7527,b,14084,bp,3.79,b,7.1,bp,10.89,bp,-1.53,b
+EL,Greece,2024,57239,,3142,,1841,p,5.49,,3.22,p,8.71,p,-0.15,
+HU,Hungary,2024,55898,,3428,,5120,p,6.13,,9.16,p,15.29,p,-0.84,
+IE,Ireland,2024,19617,,1850,,2814,p,9.43,,14.34,p,23.78,p,1.04,
+IT,Italy,2024,347845,,15144,,15887,ep,4.35,,4.57,ep,8.92,ep,-1.31,
+LV,Latvia,2024,11549,,1304,,741,ep,11.29,,6.42,ep,17.71,ep,5.05,
+LT,Lithuania,2024,25491,,3374,,3119,ep,13.24,,12.24,ep,25.47,ep,1.45,
+LU,Luxembourg,2024,854,,41,,55,ep,4.8,,6.44,ep,11.24,ep,-0.58,b
+MT,Malta,2024,3121,,338,,139,p,10.83,,4.45,p,15.28,p,3.34,
+NL,Netherlands,2024,92488,,5662,,5186,p,6.12,,5.61,p,11.73,p,7.61,
+PL,Poland,2024,241804,,21884,,30593,ep,9.05,,12.65,ep,21.7,ep,0.23,
+PT,Portugal,2024,69876,,5522,,4711,ep,7.9,,6.74,ep,14.64,ep,1.07,
+RO,Romania,2024,76284,,6658,,5569,p,8.73,,7.3,p,16.03,p,-2.44,
+SK,Slovakia,2024,89886,,7121,,11568,ep,7.92,,12.87,ep,20.79,ep,0.09,
+SI,Slovenia,2024,21501,,1299,,1047,p,6.04,,4.87,p,10.91,p,1.11,
+ES,Spain,2024,164278,,9372,,9722,ep,5.7,,5.92,ep,11.62,ep,-1.87,
+SE,Sweden,2024,45810,,3867,,2815,p,8.44,,6.14,p,14.59,p,1.39,
