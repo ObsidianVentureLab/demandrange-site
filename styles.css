@@ -608,7 +608,9 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .eurostat-table thead th.col-num{text-align:right}
 .eurostat-table.num-last td:last-child{text-align:right;white-space:nowrap;min-width:0}
 .eurostat-table.num-last thead th{white-space:normal;vertical-align:bottom}
-.eurostat-table.num-last tbody th[scope="row"]{min-width:0;white-space:nowrap}
+.eurostat-table.num-last tbody th[scope="row"]{min-width:0;white-space:normal}
+.eurostat-table td.col-text,.eurostat-table.num-last td.col-text:last-child{text-align:left;white-space:normal;min-width:12em}
+.table-wrap table.wrap-head thead th{white-space:normal;vertical-align:bottom}
 
 /* content byline: author and last-reviewed date (F15) */
 .content-byline{margin:14px 0 0;font-size:14px;color:var(--ink-2)}
