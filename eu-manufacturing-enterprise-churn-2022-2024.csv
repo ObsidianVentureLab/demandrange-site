@@ -2,8 +2,8 @@
 # Filters: freq=A, age=TOTAL, sizeclas=TOTAL, nace_r2=C. Geos: EU27_2020 and the 27 EU Member States.
 # Official churn is ENT_BRTHR_DTHR_PC (Business churn - birth and death rate - percentage). Do not replace it with the sum of the published rounded birth and death rates.
 # Flag codes (Eurostat OBS_FLAG): p=provisional; e=estimated; ep=estimated, provisional; b=break in time series; bp=break in time series, provisional. An empty flag means none was attached.
-# Dataset last update of data: 2026-10-23T23:00:00+0200 (23 October 2026, 23:00 CEST; 22:00 Irish time, Europe/Dublin, then UTC+1). Catalogue also records last table structure change 1 October 2026; data start 2009; data end 2024.
-# Accessed: 10 November 2026 (Europe/Dublin, UTC+0), official Eurostat dissemination API.
+# Dataset last update of data: 2026-10-23T23:00:00+0200 (23 October 2026, 23:00 CEST; 22:00 Irish time, then UTC+1). Catalogue also records last table structure change 1 October 2026; data start 2009; data end 2024.
+# Accessed: 10 November 2026 (UTC+0), official Eurostat dissemination API.
 # API: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bd_size
 # Data Browser: https://ec.europa.eu/eurostat/databrowser/view/bd_size/default/table?lang=en
 # DOI: https://doi.org/10.2908/BD_SIZE
