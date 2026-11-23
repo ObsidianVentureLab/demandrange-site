@@ -46,6 +46,7 @@ Key facts:
 - [CPV codes for pumps, valves and industrial equipment](https://demandrange.com/cpv-codes-industrial-equipment): official CPV wording for pumps, valves, instruments, water treatment and plant maintenance, with a free CSV starter list for tender alerts
 - [UK public tenders for industrial suppliers](https://demandrange.com/uk-public-tenders-industrial-suppliers): Find a Tender vs Contracts Finder under the Procurement Act 2023, and which notices matter
 - [UK water industry supplier research (AMP8)](https://demandrange.com/uk-water-industry-supplier-research): water companies, framework contractors and DPC routes in England and Wales for 2025–2030
+- [EU wastewater treatment plant research](https://demandrange.com/eu-wastewater-treatment-plant-research): How to use EEA UWWTD reported data (data call 2023, final public version, October 2025) to research urban wastewater plants by country, capacity and load
 - [NACE Rev. 2.1 codes for industrial account lists](https://demandrange.com/nace-rev-2-1-industrial-account-lists): the manufacturing (Section C) changes and how to recode an existing target list
 - [EU Industrial Emissions Portal for account research](https://demandrange.com/eu-industrial-emissions-portal-research): using the EEA's EU-wide facility data to find large industrial sites by country and activity
 - [EU ETS installations for account research](https://demandrange.com/eu-ets-installation-account-research): Use EU and UK ETS registry files to find plants with verified emissions: installation counts by country and activity, and what a listing can prove
@@ -81,6 +82,7 @@ Key facts:
 - [Irish water investment supplier research](https://demandrange.com/irish-water-investment-supplier-research): separating Irish water funding announcements from project and equipment evidence
 - [Irish eTenders for industrial suppliers](https://demandrange.com/etenders-industrial-supplier-opportunities): the €50,000 and €200,000 thresholds, CPV alerts and a method to triage each notice by scope
 - [Irish environmental register evidence](https://demandrange.com/irish-environmental-register-evidence): reading Irish EPA registers and PRTR returns: coverage, dossier records, site identity and discharge evidence
+- [Data centre construction supplier research](https://demandrange.com/data-centre-construction-supplier-research): Research Irish data-centre construction with CSO electricity figures, planning records and CRU and EirGrid connection rules. A rumour is not a project
 - [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland): finding Irish industrial distributors via the CRO, trade associations and manufacturer pages, with fictional cases
 - [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland): CSO 2024 counts for machinery and electrical makers, and how to find which build operation buys a component
 
