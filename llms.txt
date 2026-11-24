@@ -94,6 +94,11 @@ Key facts:
 - [IDA Ireland announcements as account signals](https://demandrange.com/ida-fdi-investment-account-signals): Turn official IDA Ireland investment announcements into site-level account research, using IDA's 2025 results and planning and EPA licence checks
 - [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland): finding Irish industrial distributors via the CRO, trade associations and manufacturer pages, with fictional cases
 - [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland): CSO 2024 counts for machinery and electrical makers, and how to find which build operation buys a component
+- [Electrical equipment manufacturing in Ireland](https://demandrange.com/irish-electrical-equipment-manufacturing): Eurostat turnover and Prodcom data on Irish electrical equipment, home and export, and how Ireland compared with other EU countries in 2025
+- [Who works in Irish industry: occupations data](https://demandrange.com/irish-industry-workforce-by-occupation): CSO Labour Force Survey figures for Q3 2026 on occupations in Irish industry — operatives, professionals and trades — and what they mean for sales
+- [Irish manufacturing productivity: latest data](https://demandrange.com/irish-manufacturing-productivity): CSO Q2 2026 output per hour in foreign-dominated and domestic manufacturing sectors, and why the two move in opposite directions
+- [Irish manufacturing exporters by firm size](https://demandrange.com/irish-manufacturing-exporters-by-size): Eurostat 2024 data on how many Irish manufacturers export, and how concentrated export value is by firm size, compared with Germany, France, Spain and Poland
+- [Foreign-owned industry in Ireland: data](https://demandrange.com/foreign-owned-industry-ireland): CSO counts of Irish industry enterprises, jobs and turnover by ownership, and why averages mislead for account research
 
 ## Optional
 
