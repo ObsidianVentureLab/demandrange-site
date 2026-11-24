@@ -44,6 +44,8 @@ Key facts:
 - [EU manufacturing turnover by country](https://demandrange.com/eu-manufacturing-turnover-by-country): Eurostat turnover growth by country for manufacturing, electrical equipment and machinery, home and export, to 2026
 - [Manufacturing digital intensity by EU country](https://demandrange.com/eu-manufacturing-digital-intensity-by-country): Eurostat's Digital Intensity Index by country, with Ireland's ranking, cloud take-up and what the score means
 - [Innovative manufacturers: Ireland vs the EU](https://demandrange.com/manufacturing-innovation-ireland-eu): CSO and Eurostat innovation survey data for Ireland and the EU by size and ownership, and how to use it as a fit signal
+- [ICT specialists in EU manufacturing](https://demandrange.com/eu-manufacturing-ict-specialists): Eurostat 2024 data on the share of manufacturers that employ ICT specialists, by EU country and sector, with Ireland's position
+- [Manufacturing cyber incidents by EU country](https://demandrange.com/eu-manufacturing-ict-security-incidents): Eurostat data on how many EU manufacturers had an ICT security incident in 2023, why failures outnumbered attacks, and Ireland against the EU
 - [UK industrial emissions register research](https://demandrange.com/uk-industrial-emissions-register-research): use the official UK PRTR and England's Pollution Inventory to research industrial sites the EU Industrial Emissions Portal does not cover in Great Britain
 - [COMAH and Seveso site lists for Ireland and the UK](https://demandrange.com/seveso-comah-site-research): Where to find the official COMAH and Seveso site lists for Ireland, Great Britain and Northern Ireland, what each shows, and how suppliers can use them
 - [How to build a list of UK manufacturers](https://demandrange.com/uk-manufacturing-account-research): ONS counts about 128,000 UK manufacturing businesses (March 2026); confirm each company's identity and operating site
@@ -83,6 +85,7 @@ Key facts:
 - [Medical device manufacturer research](https://demandrange.com/medical-device-manufacturer-research): How to research medical-device manufacturers in Ireland, the UK and the EU from EUDAMED, HPRA, MHRA and Eurostat NACE classes 26.60 and 32.50
 - [Pump and flow-control prospect research](https://demandrange.com/pump-flow-control-prospecting): scoping pump and flow-control account research in Ireland, the UK and the EU by country and company role
 - [Energy-audit signals for industrial suppliers](https://demandrange.com/energy-audit-industrial-supplier-signals): EED Article 11 energy audits, published action plans and SEAI's LIEN as research signals, with a fictional example
+- [CSRD and suppliers: what buyers can ask for](https://demandrange.com/csrd-supplier-data-requests): After Omnibus I, which companies still report under CSRD, and what they can ask an industrial supplier for, including the value-chain cap
 
 ## Ireland-specific research guides
 
@@ -99,6 +102,13 @@ Key facts:
 - [IDA Ireland announcements as account signals](https://demandrange.com/ida-fdi-investment-account-signals): Turn official IDA Ireland investment announcements into site-level account research, using IDA's 2025 results and planning and EPA licence checks
 - [Irish industrial distributor research](https://demandrange.com/industrial-distributor-research-ireland): finding Irish industrial distributors via the CRO, trade associations and manufacturer pages, with fictional cases
 - [Irish industrial OEM account research](https://demandrange.com/industrial-oem-account-research-ireland): CSO 2024 counts for machinery and electrical makers, and how to find which build operation buys a component
+- [Electrical equipment manufacturing in Ireland](https://demandrange.com/irish-electrical-equipment-manufacturing): Eurostat turnover and Prodcom data on Irish electrical equipment, home and export, and how Ireland compared with other EU countries in 2025
+- [Who works in Irish industry: occupations data](https://demandrange.com/irish-industry-workforce-by-occupation): CSO Labour Force Survey figures for Q3 2026 on occupations in Irish industry — operatives, professionals and trades — and what they mean for sales
+- [Irish manufacturing productivity: latest data](https://demandrange.com/irish-manufacturing-productivity): CSO Q2 2026 output per hour in foreign-dominated and domestic manufacturing sectors, and why the two move in opposite directions
+- [Irish manufacturing exporters by firm size](https://demandrange.com/irish-manufacturing-exporters-by-size): Eurostat 2024 data on how many Irish manufacturers export, and how concentrated export value is by firm size, compared with Germany, France, Spain and Poland
+- [Foreign-owned industry in Ireland: data](https://demandrange.com/foreign-owned-industry-ireland): CSO counts of Irish industry enterprises, jobs and turnover by ownership, and why averages mislead for account research
+- [Business R&D in Irish manufacturing](https://demandrange.com/irish-manufacturing-rd-spending): CSO and Eurostat business R&D data for 2021 and 2023, who spends it, and why 2024 figures don't agree yet
+- [How Irish manufacturers use their websites](https://demandrange.com/irish-manufacturer-websites-online-sales): Eurostat 2025 data on what Irish manufacturers' websites do: product information, online ordering and languages, against the EU
 
 ## Optional
 
