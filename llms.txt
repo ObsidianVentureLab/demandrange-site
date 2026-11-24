@@ -36,6 +36,7 @@ Key facts:
 - [Manufacturing enterprises in the EU by country and NACE Rev. 2 division (2024 data)](https://demandrange.com/eu-industrial-enterprises-by-country): EU manufacturing enterprises by country and NACE Rev. 2 division for 2024, from Eurostat, with a downloadable CSV and notes on what the counts can and cannot tell you
 - [Manufacturing share of GVA by EU country](https://demandrange.com/eu-manufacturing-gva-by-country): Eurostat 2025 data on manufacturing's share of gross value added in all 27 EU countries. Ireland leads at 30.84%, by our count.
 - [EU manufacturing production by product (Prodcom)](https://demandrange.com/eu-manufacturing-production-prodcom): How to use Eurostat's Prodcom database to see what each EU country's plants make by product, in value and volume, which cells are confidential, and why the UK is no longer covered
+- [Pump and valve production by EU country](https://demandrange.com/eu-pump-valve-production-by-country): Eurostat Prodcom sold production of pumps and valves by country for 2024 and 2025, why EU trade is extra-EU only, and Ireland's position
 - [EU manufacturing enterprise churn by country](https://demandrange.com/eu-manufacturing-enterprise-churn): Eurostat manufacturing birth, death and official churn rates, EU-27 and each country, 2024 (deaths provisional) and 2023, with tables and a free CSV (CC BY 4.0)
 - [EU manufacturing purchases by country 2024](https://demandrange.com/eu-manufacturing-purchases-by-country): Eurostat 2024 purchases of goods and services by EU manufacturers, by country and NACE division, with confidential cells flagged. EU-27: €7.33tn
 - [EU industrial energy use by country](https://demandrange.com/eu-industrial-energy-use-by-country): Eurostat energy balance (nrg_bal_c) figures on final energy use in industry, by subsector and EU country, 2023 and 2024, in ktoe. Physical energy use only, not energy purchases in euro or the Irish energy-audit obligation
@@ -60,6 +61,7 @@ Key facts:
 - [EU Industrial Emissions Portal for account research](https://demandrange.com/eu-industrial-emissions-portal-research): using the EEA's EU-wide facility data to find large industrial sites by country and activity
 - [EU ETS installations for account research](https://demandrange.com/eu-ets-installation-account-research): Use EU and UK ETS registry files to find plants with verified emissions: installation counts by country and activity, and what a listing can prove
 - [Germany industrial account research](https://demandrange.com/germany-industrial-account-research): Handelsregister, Unternehmensregister, WZ 2025 codes and other public sources for German manufacturers and plants
+- [Find industrial customers in Austria](https://demandrange.com/austria-industrial-account-research): How to research industrial accounts in Austria: Eurostat counts, Statistik Austria, the company register, ÖNACE codes and public tenders, step by step
 - [France industrial account research](https://demandrange.com/france-industrial-account-research): Find industrial customers in France from public data: Eurostat counts, INSEE Sirene, NAF 2025 codes, BOAMP and PLACE tenders, and ICPE site records
 - [Italy industrial account research](https://demandrange.com/italy-industrial-account-research): Research Italian manufacturers using Eurostat and ISTAT counts, the Registro Imprese, ATECO 2025 codes and ANAC public-contract open data
 - [Poland industrial account research](https://demandrange.com/poland-industrial-account-research): Find manufacturing companies in Poland from public data: Eurostat counts, GUS REGON local units, KRS and CEIDG, PKD 2025 and e-Zamówienia tenders
@@ -109,6 +111,7 @@ Key facts:
 - [Foreign-owned industry in Ireland: data](https://demandrange.com/foreign-owned-industry-ireland): CSO counts of Irish industry enterprises, jobs and turnover by ownership, and why averages mislead for account research
 - [Business R&D in Irish manufacturing](https://demandrange.com/irish-manufacturing-rd-spending): CSO and Eurostat business R&D data for 2021 and 2023, who spends it, and why 2024 figures don't agree yet
 - [How Irish manufacturers use their websites](https://demandrange.com/irish-manufacturer-websites-online-sales): Eurostat 2025 data on what Irish manufacturers' websites do: product information, online ordering and languages, against the EU
+- [Irish capital goods imports: 2026 data](https://demandrange.com/irish-capital-goods-imports): CSO monthly data on Irish imports of producer capital goods, January to September 2026, what counts, and how equipment suppliers can use it
 
 ## Optional
 
