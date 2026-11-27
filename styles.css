@@ -610,6 +610,7 @@ td:first-child{font-family:var(--f-display);font-weight:600;font-size:16px}
 .eurostat-table.num-last thead th{white-space:normal;vertical-align:bottom}
 .eurostat-table.num-last tbody th[scope="row"]{min-width:0;white-space:normal}
 .eurostat-table td.col-text,.eurostat-table.num-last td.col-text:last-child{text-align:left;white-space:normal;min-width:12em}
+#romania-divisions tbody th[scope="row"]{min-width:12em}
 .table-wrap table.wrap-head thead th{white-space:normal;vertical-align:bottom}
 
 /* content byline: author and last-reviewed date (F15) */
